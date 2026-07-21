@@ -13,31 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Rules.md",
+                "file": "09 - Hazards.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Rules"
-            },
-            "group": "d00b1f9cd92f3aef"
+              "title": "09 - Hazards"
+            }
           }
         ]
       },
       {
-        "id": "66ace0b79baf53f0",
+        "id": "17b8ba205bbc13b3",
         "type": "tabs",
         "children": [
           {
-            "id": "df196edec51a9319",
+            "id": "4e14f7c81583be69",
             "type": "leaf",
             "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Graph view"
-            },
-            "group": "d00b1f9cd92f3aef"
+            }
           }
         ]
       }
@@ -112,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "05 - Level Design.md",
+                "file": "06 - Items.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 05 - Level Design"
+              "title": "Backlinks for 06 - Items"
             }
           },
           {
@@ -131,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "05 - Level Design.md",
+                "file": "06 - Items.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 05 - Level Design"
+              "title": "Outgoing links from 06 - Items"
             }
           },
           {
@@ -174,13 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "05 - Level Design.md",
+                "file": "06 - Items.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 05 - Level Design"
+              "title": "Outline of 06 - Items"
             }
           }
         ]
@@ -203,18 +201,19 @@
   },
   "active": "4847d3a08433f4c5",
   "lastOpenFiles": [
-    "02 - Index.md",
-    "01 - Title.md",
-    "12 - Disaster Relief.md",
-    "11 - Level Codes.md",
-    "10 - Death.md",
-    "09 - Hazards.md",
     "08 - Enemies.md",
     "07 - Puzzles.md",
     "06 - Items.md",
     "05 - Level Design.md",
     "04 - Characters.md",
     "03 - Rules.md",
-    "Welcome.md"
+    "02 - Index.md",
+    "01 - Title.md",
+    "13 - Player Controls.md",
+    "Welcome.md",
+    "09 - Hazards.md",
+    "10 - Death.md",
+    "11 - Level Codes.md",
+    "12 - Disaster Relief.md"
   ]
 }
