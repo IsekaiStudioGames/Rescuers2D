@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06 - Items.md",
+                "file": "09 - Hazards.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06 - Items"
+              "title": "09 - Hazards"
             }
           }
         ]
@@ -201,16 +201,16 @@
   },
   "active": "4847d3a08433f4c5",
   "lastOpenFiles": [
-    "13 - Player Controls.md",
+    "08 - Enemies.md",
+    "07 - Puzzles.md",
+    "06 - Items.md",
     "05 - Level Design.md",
+    "04 - Characters.md",
+    "03 - Rules.md",
     "02 - Index.md",
     "01 - Title.md",
+    "13 - Player Controls.md",
     "Welcome.md",
-    "03 - Rules.md",
-    "04 - Characters.md",
-    "06 - Items.md",
-    "07 - Puzzles.md",
-    "08 - Enemies.md",
     "09 - Hazards.md",
     "10 - Death.md",
     "11 - Level Codes.md",
