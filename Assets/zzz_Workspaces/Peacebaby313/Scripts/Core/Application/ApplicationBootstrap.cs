@@ -95,10 +95,10 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         OnInitialized?.Invoke();
     }
 
-    /// <summary>
-    /// Creates a fresh save and loads the configured
-    /// first playable scene.
-    /// </summary>
+    
+    // Creates a fresh save and loads the configured
+    // first playable scene.
+    
     public bool TryStartNewGame(
         string firstSceneName)
     {

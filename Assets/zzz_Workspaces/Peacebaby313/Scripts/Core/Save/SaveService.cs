@@ -30,10 +30,10 @@ public sealed class SaveService
             saveFilePath + ".tmp";
     }
 
-    /// <summary>
-    /// Attempts to load existing data.
-    /// If no valid save exists, creates empty runtime data.
-    /// </summary>
+    
+    // Attempts to load existing data.
+    // If no valid save exists, creates empty runtime data.
+    
     public void Initialize()
     {
         if (TryLoad(out SaveData loadedData))
@@ -54,9 +54,9 @@ public sealed class SaveService
             $"Save path:\n{saveFilePath}");
     }
 
-    /// <summary>
-    /// Creates and writes a fresh New Game save.
-    /// </summary>
+    
+    // Creates and writes a fresh New Game save.
+    
     public SaveData CreateNewGame(string firstSceneName)
     {
         SaveData newData =
@@ -68,11 +68,11 @@ public sealed class SaveService
         return CurrentData;
     }
 
-    /// <summary>
-    /// Serializes the supplied SaveData to JSON.
-    /// A temporary file is written first to reduce the chance
-    /// of leaving a partially written save.
-    /// </summary>
+    
+    // Serializes the supplied SaveData to JSON.
+    // A temporary file is written first to reduce the chance
+    // of leaving a partially written save.
+    
     public bool Save(SaveData data)
     {
         if (data == null)
@@ -140,9 +140,9 @@ public sealed class SaveService
         }
     }
 
-    /// <summary>
-    /// Attempts to read and deserialize the current save file.
-    /// </summary>
+    
+    // Attempts to read and deserialize the current save file.
+    
     public bool TryLoad(out SaveData loadedData)
     {
         loadedData = null;
@@ -189,9 +189,9 @@ public sealed class SaveService
         }
     }
 
-    /// <summary>
-    /// Updates the current resumable scene and writes the save.
-    /// </summary>
+    
+    // Updates the current resumable scene and writes the save.
+    
     public bool UpdateLastScene(string sceneName)
     {
         if (CurrentData == null)
@@ -202,9 +202,9 @@ public sealed class SaveService
         return Save(CurrentData);
     }
 
-    /// <summary>
-    /// Deletes the current save file and resets runtime data.
-    /// </summary>
+    
+    // Deletes the current save file and resets runtime data.
+    
     public bool DeleteSave()
     {
         try
@@ -232,9 +232,9 @@ public sealed class SaveService
         }
     }
 
-    /// <summary>
-    /// Renames invalid save data instead of silently deleting it.
-    /// </summary>
+    
+    // Renames invalid save data instead of silently deleting it.
+    
     private void PreserveCorruptSave()
     {
         if (!File.Exists(saveFilePath))
