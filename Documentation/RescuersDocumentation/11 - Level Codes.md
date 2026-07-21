@@ -30,13 +30,13 @@ R2D-[Zone]-[MissionNumber]_[ShortName]
 
 ### Mission Numbering Template
 
-| Zone Code | Zone Name |
-|---|---|
-| UR | Urban / Collapsed Structures |
-| RD | Roads / Infrastructure |
-| FL | Flood Zones |
-| FR | Fire Zones |
-| AS | Aftershock Events |
+| Zone Code | Zone Name                    |
+| --------- | ---------------------------- |
+| UR        | Urban / Collapsed Structures |
+| RD        | Roads / Infrastructure       |
+| FL        | Flood Zones                  |
+| FR        | Fire Zones                   |
+| AS        | Aftershock Events            |
 
 > [!tip]
 > Reserve zone codes in advance even if not all zones ship in the jam build, to keep numbering stable for future expansion.

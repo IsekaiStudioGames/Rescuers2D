@@ -1,0 +1,1447 @@
+fileFormatVersion: 2
+guid: 6f7f2a0dfde65a241b95b483d6c3d587
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4887181582725120254
+    second: Dirt1(Peacebabys Copy)_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f76d07e3e3d2cb0800000000000000
+      internalID: -4887181582725120254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96db565d69cea8e4fb57034973036010
+      internalID: -1678625969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37dda852f0f9b9a449b9ea6efc27886a
+      internalID: -1394374093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecadc0e9c6812e746ad06388d5b3b45b
+      internalID: -2139967175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbf961462b2ebc48845feea624f20b7
+      internalID: 1532025200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4dd81f2549f3449932f93ff67c2531
+      internalID: -618353794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d97226567b8b4841a61c9a24fae69a8
+      internalID: 1909180812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1f1c94777ba1648885ccbaa53a2dc8
+      internalID: -1230319411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1957e3e37520874daa06d6fa7699e6d
+      internalID: 720280339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e09f66651e50c44593eabbe03c3dd1a
+      internalID: -1978470130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd847392b846ee8408c0ec32eda8c5e2
+      internalID: -831296698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 299
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5116de8ab9991a488844703b13af1f7
+      internalID: -1329137758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74a04b719119ac4d88a6661ae72d695
+      internalID: 1618892580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2bcab41cffabf94ca1cba97e814f36e
+      internalID: -511498927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66894e7258f00fe4bbf502b0272a8c61
+      internalID: 378872054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81eb2d690b7cf644a9871ba4b6181c22
+      internalID: -1142141023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75be993031a5b7d439ae02e9580d597f
+      internalID: -1689397622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9999ab04a17fc3841b5a18b8f5b39797
+      internalID: -1910513627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67d5e9228c0d13478555f57a8b7ff43
+      internalID: -990615620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced8a77ff868f3f4487362490dd19a2b
+      internalID: 154887655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78408dacf11bcd04ca642a684722c169
+      internalID: -1022083188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 267
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04711e902c847db488700c3ff7702b14
+      internalID: 1892232341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53cb94d42705c114da2283c693398457
+      internalID: -952617221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 235
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228b7ca9ffa1f3144b60392acb6c593c
+      internalID: -468280051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 331
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ab189dbbcff6c47a25a37f75019da9
+      internalID: 950926250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 235
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c84cfa288d9264f8354a1dcfa2f34f
+      internalID: -208860772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_31
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 235
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0b6f7743ecf8647a5a3bbe14062da1
+      internalID: -1878838976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 235
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6e830b22ebe874c96ae10177a22b03
+      internalID: 1009850828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_33
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 236
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12424cb47def37e438087c4ae066d34d
+      internalID: -1616497165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 235
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31880ab426d35f94e9a7a1257a934506
+      internalID: -801404700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 203
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99db2aebb5970d4b8d5b04e65fd17d5
+      internalID: 764396357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 203
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9c8ac7215d0ec4b86ea72f22e89945
+      internalID: 1212912126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29507cef14b976479ad42c860203354
+      internalID: -69190979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e656a49232279b4782bdb665825fba9
+      internalID: -461980492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f8eb879ad905c4295cd29f48350523
+      internalID: 210938701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_54
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f04d42dfa733b4b8dd8d8c4e7baf44
+      internalID: 1950934867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_55
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 171
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78b6ed039a675f4a82218ab28e0e24d
+      internalID: 2117413564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff8a13522f0aa348b1631ba0d555d3d
+      internalID: 1943529362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab23c2503b3086a459eebebb5bdff118
+      internalID: 728684877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_65
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402af46b51bf6e547921e39a60099efb
+      internalID: 19878004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e4df0dad5aa5a47955f259dc4a371b
+      internalID: -1859419216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_67
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4005f89676fe34f90318223c435a53
+      internalID: 407173084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 139
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b4bad3b93efa349996641f335305d7
+      internalID: -85914000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 107
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18677a7d632290244993d1561e9c9f8f
+      internalID: 1306493838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_89
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 75
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24dad3d589b13445bb174ca2f314983
+      internalID: -811558396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_90
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 75
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b07c5f227bec74c986d2e3a726a73d
+      internalID: 1433286426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_91
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 75
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15493e6fa731e134ab91d1fe34e96aa5
+      internalID: -1251974322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_101
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 43
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62a5fdee9af42f47b3b87baaa8b17f1
+      internalID: -436352189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_102
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 43
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7793e33cfdd9da941b5e0f2501ee66ae
+      internalID: -183346975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_103
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 43
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e44e1ce53ee2d4c94b4fe75ea0c8b6
+      internalID: -1823555261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_113
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 11
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9274302bde10843bcb13e3a3a99d74
+      internalID: -2034264158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_114
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 11
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0cd1df7ccd167746ac4a38d692bd5c9
+      internalID: 855831570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1(Peacebabys Copy)_115
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 11
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48b1383b5696594dbd477c193c57d74
+      internalID: 621572664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b1142f3e26ad9a849a09baa7081ae848
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":11.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":30.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Dirt1(Peacebabys Copy)_0: -4887181582725120254
+      Dirt1(Peacebabys Copy)_1: -1678625969
+      Dirt1(Peacebabys Copy)_10: -831296698
+      Dirt1(Peacebabys Copy)_100: -1684214217
+      Dirt1(Peacebabys Copy)_101: -436352189
+      Dirt1(Peacebabys Copy)_102: -183346975
+      Dirt1(Peacebabys Copy)_103: -1823555261
+      Dirt1(Peacebabys Copy)_104: 1440410754
+      Dirt1(Peacebabys Copy)_105: 1537818663
+      Dirt1(Peacebabys Copy)_106: 1781169113
+      Dirt1(Peacebabys Copy)_107: -511845179
+      Dirt1(Peacebabys Copy)_108: -755344331
+      Dirt1(Peacebabys Copy)_109: 1119155341
+      Dirt1(Peacebabys Copy)_11: -1329137758
+      Dirt1(Peacebabys Copy)_110: -1264370303
+      Dirt1(Peacebabys Copy)_111: 823105093
+      Dirt1(Peacebabys Copy)_112: -1705356161
+      Dirt1(Peacebabys Copy)_113: -2034264158
+      Dirt1(Peacebabys Copy)_114: 855831570
+      Dirt1(Peacebabys Copy)_115: 621572664
+      Dirt1(Peacebabys Copy)_116: -1040048163
+      Dirt1(Peacebabys Copy)_117: -605319178
+      Dirt1(Peacebabys Copy)_118: -385682210
+      Dirt1(Peacebabys Copy)_119: 251685180
+      Dirt1(Peacebabys Copy)_12: 1618892580
+      Dirt1(Peacebabys Copy)_13: -511498927
+      Dirt1(Peacebabys Copy)_14: 378872054
+      Dirt1(Peacebabys Copy)_15: 229018425
+      Dirt1(Peacebabys Copy)_16: -1142141023
+      Dirt1(Peacebabys Copy)_17: -1689397622
+      Dirt1(Peacebabys Copy)_18: -1316185335
+      Dirt1(Peacebabys Copy)_19: -1910513627
+      Dirt1(Peacebabys Copy)_2: -1394374093
+      Dirt1(Peacebabys Copy)_20: -990615620
+      Dirt1(Peacebabys Copy)_21: 154887655
+      Dirt1(Peacebabys Copy)_22: -1022083188
+      Dirt1(Peacebabys Copy)_23: 1892232341
+      Dirt1(Peacebabys Copy)_24: -952617221
+      Dirt1(Peacebabys Copy)_25: -468280051
+      Dirt1(Peacebabys Copy)_26: 950926250
+      Dirt1(Peacebabys Copy)_27: -218719343
+      Dirt1(Peacebabys Copy)_28: -208860772
+      Dirt1(Peacebabys Copy)_29: -1832263835
+      Dirt1(Peacebabys Copy)_3: -2139967175
+      Dirt1(Peacebabys Copy)_30: 1438092669
+      Dirt1(Peacebabys Copy)_31: -1878838976
+      Dirt1(Peacebabys Copy)_32: 1009850828
+      Dirt1(Peacebabys Copy)_33: -1616497165
+      Dirt1(Peacebabys Copy)_34: -801404700
+      Dirt1(Peacebabys Copy)_35: 578893373
+      Dirt1(Peacebabys Copy)_36: -536198110
+      Dirt1(Peacebabys Copy)_37: 1458691763
+      Dirt1(Peacebabys Copy)_38: 764396357
+      Dirt1(Peacebabys Copy)_39: 1212912126
+      Dirt1(Peacebabys Copy)_4: 1532025200
+      Dirt1(Peacebabys Copy)_40: -2029920498
+      Dirt1(Peacebabys Copy)_41: 1141300037
+      Dirt1(Peacebabys Copy)_42: -1857165923
+      Dirt1(Peacebabys Copy)_43: 995590715
+      Dirt1(Peacebabys Copy)_44: -1702662202
+      Dirt1(Peacebabys Copy)_45: 1022323613
+      Dirt1(Peacebabys Copy)_46: 15979207
+      Dirt1(Peacebabys Copy)_47: -857305060
+      Dirt1(Peacebabys Copy)_48: 997602929
+      Dirt1(Peacebabys Copy)_49: 1465788367
+      Dirt1(Peacebabys Copy)_5: -618353794
+      Dirt1(Peacebabys Copy)_50: -69190979
+      Dirt1(Peacebabys Copy)_51: -461980492
+      Dirt1(Peacebabys Copy)_52: -1851925918
+      Dirt1(Peacebabys Copy)_53: 210938701
+      Dirt1(Peacebabys Copy)_54: 1950934867
+      Dirt1(Peacebabys Copy)_55: 2117413564
+      Dirt1(Peacebabys Copy)_56: 786567249
+      Dirt1(Peacebabys Copy)_57: -1729048652
+      Dirt1(Peacebabys Copy)_58: -225326654
+      Dirt1(Peacebabys Copy)_59: -140201327
+      Dirt1(Peacebabys Copy)_6: 1909180812
+      Dirt1(Peacebabys Copy)_60: 1943529362
+      Dirt1(Peacebabys Copy)_61: 1118743497
+      Dirt1(Peacebabys Copy)_62: -1142867931
+      Dirt1(Peacebabys Copy)_63: 1436052402
+      Dirt1(Peacebabys Copy)_64: 728684877
+      Dirt1(Peacebabys Copy)_65: 19878004
+      Dirt1(Peacebabys Copy)_66: -1859419216
+      Dirt1(Peacebabys Copy)_67: 407173084
+      Dirt1(Peacebabys Copy)_68: -85914000
+      Dirt1(Peacebabys Copy)_69: -860945242
+      Dirt1(Peacebabys Copy)_7: -1230319411
+      Dirt1(Peacebabys Copy)_70: -1066995577
+      Dirt1(Peacebabys Copy)_71: -1332862476
+      Dirt1(Peacebabys Copy)_72: 1651358525
+      Dirt1(Peacebabys Copy)_73: -765483675
+      Dirt1(Peacebabys Copy)_74: -237833355
+      Dirt1(Peacebabys Copy)_75: -1846514093
+      Dirt1(Peacebabys Copy)_76: 1306493838
+      Dirt1(Peacebabys Copy)_77: -1902334696
+      Dirt1(Peacebabys Copy)_78: -1028897917
+      Dirt1(Peacebabys Copy)_79: 1871373865
+      Dirt1(Peacebabys Copy)_8: 720280339
+      Dirt1(Peacebabys Copy)_80: 125447965
+      Dirt1(Peacebabys Copy)_81: -693068528
+      Dirt1(Peacebabys Copy)_82: 2006770753
+      Dirt1(Peacebabys Copy)_83: -1741766908
+      Dirt1(Peacebabys Copy)_84: -1971319240
+      Dirt1(Peacebabys Copy)_85: 1567534182
+      Dirt1(Peacebabys Copy)_86: 1962960839
+      Dirt1(Peacebabys Copy)_87: -1367185914
+      Dirt1(Peacebabys Copy)_88: 1974092370
+      Dirt1(Peacebabys Copy)_89: -811558396
+      Dirt1(Peacebabys Copy)_9: -1978470130
+      Dirt1(Peacebabys Copy)_90: 1433286426
+      Dirt1(Peacebabys Copy)_91: -1251974322
+      Dirt1(Peacebabys Copy)_92: 1342267619
+      Dirt1(Peacebabys Copy)_93: -1890631305
+      Dirt1(Peacebabys Copy)_94: -917272515
+      Dirt1(Peacebabys Copy)_95: 511769388
+      Dirt1(Peacebabys Copy)_96: -287069096
+      Dirt1(Peacebabys Copy)_97: 896461181
+      Dirt1(Peacebabys Copy)_98: -1729114211
+      Dirt1(Peacebabys Copy)_99: -1776196915
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

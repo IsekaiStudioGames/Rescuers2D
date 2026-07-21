@@ -13,29 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05 - Level Design.md",
+                "file": "03 - Rules.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "05 - Level Design"
-            }
+              "title": "03 - Rules"
+            },
+            "group": "d00b1f9cd92f3aef"
           }
         ]
       },
       {
-        "id": "17b8ba205bbc13b3",
+        "id": "66ace0b79baf53f0",
         "type": "tabs",
         "children": [
           {
-            "id": "4e14f7c81583be69",
+            "id": "df196edec51a9319",
             "type": "leaf",
             "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Graph view"
-            }
+            },
+            "group": "d00b1f9cd92f3aef"
           }
         ]
       }
@@ -202,17 +204,17 @@
   "active": "4847d3a08433f4c5",
   "lastOpenFiles": [
     "02 - Index.md",
-    "05 - Level Design.md",
     "01 - Title.md",
-    "Welcome.md",
-    "03 - Rules.md",
-    "04 - Characters.md",
-    "06 - Items.md",
-    "07 - Puzzles.md",
-    "08 - Enemies.md",
-    "09 - Hazards.md",
-    "10 - Death.md",
+    "12 - Disaster Relief.md",
     "11 - Level Codes.md",
-    "12 - Disaster Relief.md"
+    "10 - Death.md",
+    "09 - Hazards.md",
+    "08 - Enemies.md",
+    "07 - Puzzles.md",
+    "06 - Items.md",
+    "05 - Level Design.md",
+    "04 - Characters.md",
+    "03 - Rules.md",
+    "Welcome.md"
   ]
 }
