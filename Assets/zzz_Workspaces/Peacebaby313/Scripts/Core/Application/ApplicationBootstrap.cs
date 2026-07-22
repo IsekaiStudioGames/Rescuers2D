@@ -133,9 +133,9 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         return true;
     }
 
-    /// <summary>
+    
     /// Loads the last resumable scene stored in save data.
-    /// </summary>
+    
     public bool TryContinueGame()
     {
         if (!CanContinue)
@@ -153,10 +153,10 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// Records a destination in save data before loading it.
-    /// This can be reused by later mission-transition systems.
-    /// </summary>
+    
+    // Records a destination in save data before loading it.
+    // This can be reused by later mission-transition systems.
+    
     public bool TryLoadAndRecordScene(
         string sceneName)
     {
@@ -174,10 +174,10 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// Deletes current save data.
-    /// A confirmation menu can call this later.
-    /// </summary>
+    
+    // Deletes current save data.
+    // A confirmation menu can call this later.
+    
     public void DeleteSaveData()
     {
         if (!IsInitialized ||
