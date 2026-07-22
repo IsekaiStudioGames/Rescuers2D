@@ -1,80 +1,83 @@
 //----- ApplicationBootstrap.cs START -----
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1000)]
 [RequireComponent(typeof(SceneLoadService))]
-public sealed class ApplicationBootstrap : MonoBehaviour
+public sealed class ApplicationBootstrap
+    : Singleton<ApplicationBootstrap>
 {
-    public static ApplicationBootstrap Instance { get; private set; }
-
     public event Action OnInitialized;
 
-    [Header("Save Configuration")]
+    [Header("Level Code Configuration")]
     [SerializeField]
-    private string saveFileName =
-        "rescuers2d_save.json";
+    private LevelCodeCatalogData levelCodeCatalog;
+
+    [SerializeField]
+    private PasswordTokenSetData passwordTokenSet;
 
     [Header("Runtime Services")]
     [SerializeField]
     private SceneLoadService sceneLoadService;
 
-    public SaveService SaveService { get; private set; }
-
     public SceneLoadService SceneLoader =>
         sceneLoadService;
 
-    public bool IsInitialized { get; private set; }
+    public LevelCodeService LevelCodes
+    {
+        get;
+        private set;
+    }
 
-    public bool CanContinue
+    public bool IsInitialized
+    {
+        get;
+        private set;
+    }
+
+    public bool CanStartNewGame
     {
         get
         {
             if (!IsInitialized ||
-                SaveService == null ||
-                SaveService.CurrentData == null)
+                LevelCodes == null ||
+                !LevelCodes.TryGetFirstLevel(
+                    out LevelCodeEntry firstLevel))
             {
                 return false;
             }
 
-            SaveData data =
-                SaveService.CurrentData;
-
-            if (!data.HasStartedGame ||
-                string.IsNullOrWhiteSpace(data.LastSceneName))
-            {
-                return false;
-            }
-
-            return Application.CanStreamedLevelBeLoaded(
-                data.LastSceneName);
+            return CanLoadScene(
+                firstLevel.SceneName);
         }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance != null &&
-            Instance != this)
-        {
-            Debug.LogWarning(
-                "[BOOTSTRAP] Duplicate ApplicationBootstrap destroyed.");
+        base.Awake();
 
-            Destroy(gameObject);
+        if (!IsSingletonInstance)
             return;
-        }
 
-        Instance = this;
+        ResolveServices();
+        InitializeServices();
+    }
 
-        DontDestroyOnLoad(gameObject);
-
+    private void ResolveServices()
+    {
         if (sceneLoadService == null)
         {
             sceneLoadService =
                 GetComponent<SceneLoadService>();
         }
 
-        InitializeServices();
+        if (sceneLoadService == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] SceneLoadService is missing.");
+        }
     }
 
     private void InitializeServices()
@@ -82,10 +85,43 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         if (IsInitialized)
             return;
 
-        SaveService =
-            new SaveService(saveFileName);
+        if (sceneLoadService == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] Cannot initialize because " +
+                "SceneLoadService is missing.");
 
-        SaveService.Initialize();
+            return;
+        }
+
+        if (levelCodeCatalog == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] LevelCodeCatalogData is missing.");
+
+            return;
+        }
+
+        if (passwordTokenSet == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] PasswordTokenSetData is missing.");
+
+            return;
+        }
+
+        LevelCodes =
+            new LevelCodeService(
+                levelCodeCatalog,
+                passwordTokenSet);
+
+        if (!LevelCodes.IsReady)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] Level-code validation failed.");
+
+            return;
+        }
 
         IsInitialized = true;
 
@@ -95,98 +131,134 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         OnInitialized?.Invoke();
     }
 
-    
-    // Creates a fresh save and loads the configured
-    // first playable scene.
-    
     public bool TryStartNewGame(
-        string firstSceneName)
+        out string feedback)
     {
-        if (!IsInitialized)
+        feedback =
+            "Unable to start a new game.";
+
+        if (!IsInitialized ||
+            LevelCodes == null)
         {
-            Debug.LogError(
-                "[BOOTSTRAP] Cannot start a new game " +
-                "before initialization.");
+            feedback =
+                "Startup services are not ready.";
 
             return false;
         }
 
-        if (!CanLoadScene(firstSceneName))
-            return false;
-
-        SaveData newData =
-            SaveService.CreateNewGame(
-                firstSceneName);
-
-        if (newData == null)
+        if (!LevelCodes.TryGetFirstLevel(
+                out LevelCodeEntry firstLevel))
         {
-            Debug.LogError(
-                "[BOOTSTRAP] New Game was cancelled " +
-                "because save creation failed.");
+            feedback =
+                "No first level is configured.";
 
             return false;
         }
+
+        if (!CanLoadScene(firstLevel.SceneName))
+        {
+            feedback =
+                $"Level '{firstLevel.DisplayName}' is unavailable.";
+
+            return false;
+        }
+
+        feedback =
+            $"Loading {firstLevel.DisplayName}...";
 
         sceneLoadService.LoadScene(
-            firstSceneName);
+            firstLevel.SceneName);
 
         return true;
     }
 
-    
-    /// Loads the last resumable scene stored in save data.
-    
-    public bool TryContinueGame()
+    public bool TryLoadLevelByPassword(
+        IReadOnlyList<string> submittedTokenIds,
+        out string feedback)
     {
-        if (!CanContinue)
+        feedback =
+            "Invalid password.";
+
+        if (!IsInitialized ||
+            LevelCodes == null)
         {
-            Debug.LogWarning(
-                "[BOOTSTRAP] Continue requested, " +
-                "but no valid resumable save exists.");
+            feedback =
+                "Startup services are not ready.";
 
             return false;
         }
 
+        if (!LevelCodes.TryResolvePassword(
+                submittedTokenIds,
+                out LevelCodeEntry matchingLevel))
+        {
+            feedback =
+                "Invalid password. Check the sequence and try again.";
+
+            return false;
+        }
+
+        if (!CanLoadScene(matchingLevel.SceneName))
+        {
+            feedback =
+                $"Password recognized, but " +
+                $"'{matchingLevel.DisplayName}' is unavailable.";
+
+            return false;
+        }
+
+        feedback =
+            $"Loading {matchingLevel.DisplayName}...";
+
         sceneLoadService.LoadScene(
-            SaveService.CurrentData.LastSceneName);
+            matchingLevel.SceneName);
 
         return true;
     }
 
-    
-    // Records a destination in save data before loading it.
-    // This can be reused by later mission-transition systems.
-    
-    public bool TryLoadAndRecordScene(
-        string sceneName)
+    public bool TryGetNextLevel(
+        string currentSceneName,
+        out LevelCodeEntry nextLevel)
     {
+        nextLevel = null;
+
+        return IsInitialized &&
+               LevelCodes != null &&
+               LevelCodes.TryGetNextLevel(
+                   currentSceneName,
+                   out nextLevel);
+    }
+
+    public bool TryLoadScene(
+        string sceneName,
+        out string feedback)
+    {
+        feedback =
+            "Unable to load scene.";
+
         if (!IsInitialized)
+        {
+            feedback =
+                "Startup services are not ready.";
+
             return false;
+        }
 
         if (!CanLoadScene(sceneName))
-            return false;
-
-        if (!SaveService.UpdateLastScene(sceneName))
-            return false;
-
-        sceneLoadService.LoadScene(sceneName);
-
-        return true;
-    }
-
-    
-    // Deletes current save data.
-    // A confirmation menu can call this later.
-    
-    public void DeleteSaveData()
-    {
-        if (!IsInitialized ||
-            SaveService == null)
         {
-            return;
+            feedback =
+                $"Scene '{sceneName}' is unavailable.";
+
+            return false;
         }
 
-        SaveService.DeleteSave();
+        feedback =
+            $"Loading {sceneName}...";
+
+        sceneLoadService.LoadScene(
+            sceneName);
+
+        return true;
     }
 
     private bool CanLoadScene(string sceneName)
@@ -202,26 +274,13 @@ public sealed class ApplicationBootstrap : MonoBehaviour
         if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
             Debug.LogError(
-                $"[BOOTSTRAP] Scene '{sceneName}' cannot be loaded. " +
-                "Confirm that it is enabled in the " +
-                "active Build Profile Scene List.");
+                $"[BOOTSTRAP] Scene '{sceneName}' is not enabled " +
+                "in the active Build Profile.");
 
             return false;
         }
 
         return true;
-    }
-
-    [ContextMenu("Debug/Delete Save Data")]
-    private void DebugDeleteSaveData()
-    {
-        DeleteSaveData();
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-            Instance = null;
     }
 }
 

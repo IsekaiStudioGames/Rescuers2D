@@ -3,6 +3,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 #if UNITY_EDITOR
@@ -11,15 +12,14 @@ using UnityEditor;
 
 public sealed class MainMenuController : MonoBehaviour
 {
-    [Header("Scene Configuration")]
-    [SerializeField]
-    private string firstLevelSceneName =
-        "03_LevelOne";
-
     [Header("Buttons")]
     [SerializeField] private Button newGameButton;
-    [SerializeField] private Button continueButton;
+    [SerializeField] private Button passwordButton;
     [SerializeField] private Button quitButton;
+
+    [Header("Password Menu")]
+    [SerializeField]
+    private PasswordMenuController passwordMenuController;
 
     [Header("Optional Feedback")]
     [SerializeField] private TMP_Text statusText;
@@ -74,45 +74,55 @@ public sealed class MainMenuController : MonoBehaviour
             ApplicationBootstrap.Instance;
     }
 
-    private void AddButtonListeners()
+ private void AddButtonListeners()
     {
-        if (newGameButton != null)
-        {
-            newGameButton.onClick.AddListener(
-                StartNewGame);
-        }
+        AddListener(
+            newGameButton,
+            StartNewGame);
 
-        if (continueButton != null)
-        {
-            continueButton.onClick.AddListener(
-                ContinueGame);
-        }
+        AddListener(
+            passwordButton,
+            OpenPasswordMenu);
 
-        if (quitButton != null)
-        {
-            quitButton.onClick.AddListener(
-                QuitGame);
-        }
+        AddListener(
+            quitButton,
+            QuitGame);
     }
 
     private void RemoveButtonListeners()
     {
-        if (newGameButton != null)
-        {
-            newGameButton.onClick.RemoveListener(
-                StartNewGame);
-        }
+        RemoveListener(
+            newGameButton,
+            StartNewGame);
 
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveListener(
-                ContinueGame);
-        }
+        RemoveListener(
+            passwordButton,
+            OpenPasswordMenu);
 
-        if (quitButton != null)
+        RemoveListener(
+            quitButton,
+            QuitGame);
+    }
+
+    private void AddListener(
+        Button button,
+        UnityAction action)
+    {
+        if (button != null)
         {
-            quitButton.onClick.RemoveListener(
-                QuitGame);
+            button.onClick.AddListener(
+                action);
+        }
+    }
+
+    private void RemoveListener(
+        Button button,
+        UnityAction action)
+    {
+        if (button != null)
+        {
+            button.onClick.RemoveListener(
+                action);
         }
     }
 
@@ -124,11 +134,13 @@ public sealed class MainMenuController : MonoBehaviour
             return;
         }
 
-        bool requestAccepted =
+        bool accepted =
             bootstrap.TryStartNewGame(
-                firstLevelSceneName);
+                out string feedback);
 
-        if (!requestAccepted)
+        SetStatus(feedback);
+
+        if (!accepted)
         {
             RefreshMenuState();
             return;
@@ -137,34 +149,17 @@ public sealed class MainMenuController : MonoBehaviour
         menuReady = false;
 
         SetButtonsInteractable(false);
-
-        SetStatus(
-            "Starting new rescue operation...");
     }
 
-    public void ContinueGame()
+    public void OpenPasswordMenu()
     {
         if (!menuReady ||
-            bootstrap == null)
+            passwordMenuController == null)
         {
             return;
         }
 
-        bool requestAccepted =
-            bootstrap.TryContinueGame();
-
-        if (!requestAccepted)
-        {
-            RefreshMenuState();
-            return;
-        }
-
-        menuReady = false;
-
-        SetButtonsInteractable(false);
-
-        SetStatus(
-            "Continuing rescue operation...");
+        passwordMenuController.OpenMenu();
     }
 
     public void QuitGame()
@@ -194,54 +189,46 @@ public sealed class MainMenuController : MonoBehaviour
             return;
         }
 
-        bool firstSceneAvailable =
-            !string.IsNullOrWhiteSpace(
-                firstLevelSceneName) &&
-            Application.CanStreamedLevelBeLoaded(
-                firstLevelSceneName);
+        bool passwordsReady =
+            bootstrap.LevelCodes != null &&
+            bootstrap.LevelCodes.IsReady;
 
         if (newGameButton != null)
         {
             newGameButton.interactable =
-                firstSceneAvailable;
+                  bootstrap.CanStartNewGame;
         }
 
-        if (continueButton != null)
+        if (passwordButton != null)
         {
-            continueButton.interactable =
-                bootstrap.CanContinue;
+            passwordButton.interactable =
+                passwordsReady;
         }
 
         if (quitButton != null)
         {
-            quitButton.interactable = true;
+            quitButton.interactable =
+                true;
         }
 
-        if (!firstSceneAvailable)
+        if (!passwordsReady)
         {
             SetStatus(
-                $"First mission '{firstLevelSceneName}' " +
-                "is not enabled in the Build Profile.");
+                "Level password data is unavailable.");
 
             return;
         }
 
-        if (bootstrap.CanContinue)
+        if (!bootstrap.CanStartNewGame)
         {
-            string lastScene =
-                bootstrap
-                    .SaveService
-                    .CurrentData
-                    .LastSceneName;
-
             SetStatus(
-                $"Continue available: {lastScene}");
+                "The first level is unavailable in this build.");
 
             return;
         }
 
         SetStatus(
-            "No previous rescue operation found.");
+            "Start a new game or enter a level password.");
     }
 
     private void SetButtonsInteractable(
@@ -253,9 +240,9 @@ public sealed class MainMenuController : MonoBehaviour
                 interactable;
         }
 
-        if (continueButton != null)
+        if (passwordButton != null)
         {
-            continueButton.interactable =
+            passwordButton.interactable =
                 interactable;
         }
 
@@ -269,7 +256,10 @@ public sealed class MainMenuController : MonoBehaviour
     private void SetStatus(string message)
     {
         if (statusText != null)
-            statusText.text = message;
+        {
+            statusText.text =
+                message;
+        }
     }
 
     private void OnDestroy()

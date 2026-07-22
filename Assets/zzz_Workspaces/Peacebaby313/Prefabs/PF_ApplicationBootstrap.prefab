@@ -57,5 +57,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2791ae2f48947f0499a056c1df1fc1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ApplicationBootstrap
-  saveFileName: rescuers2d_save.json
+  levelCodeCatalog: {fileID: 11400000, guid: 5855794f3046f5045a0af45e2593dfb2, type: 2}
+  passwordTokenSet: {fileID: 11400000, guid: f1f7703e1466f3d42b868031689ff8ab, type: 2}
   sceneLoadService: {fileID: 9077105626652497771}
