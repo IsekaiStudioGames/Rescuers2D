@@ -14,7 +14,7 @@ public sealed class MainMenuController : MonoBehaviour
     [Header("Scene Configuration")]
     [SerializeField]
     private string firstLevelSceneName =
-        "R2D-UR-01_collapsed_block";
+        "03_LevelOne";
 
     [Header("Buttons")]
     [SerializeField] private Button newGameButton;
