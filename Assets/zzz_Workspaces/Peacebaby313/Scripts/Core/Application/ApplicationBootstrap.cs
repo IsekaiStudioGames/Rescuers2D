@@ -45,6 +45,12 @@ public sealed class ApplicationBootstrap
         private set;
     }
 
+    public GraphicsSettingsService GraphicsService
+    {
+        get;
+        private set;
+    }
+
     public bool IsInitialized
     {
         get;
@@ -119,6 +125,20 @@ public sealed class ApplicationBootstrap
             new SettingsService(
                 settingsFileName,
                 settingsDefaults);
+
+        GraphicsService =
+            new GraphicsSettingsService(
+                SettingsService);
+
+        GraphicsService.Initialize();
+
+        if (!GraphicsService.IsInitialized)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] Graphics service initialization failed.");
+
+            return;
+        }
 
         SettingsService.Initialize();
 
@@ -330,6 +350,21 @@ public sealed class ApplicationBootstrap
         return true;
     }
 
+    [ContextMenu("Debug/Apply Current Graphics Settings")]
+    private void DebugApplyCurrentGraphicsSettings()
+    {
+        if (GraphicsService == null)
+        {
+            Debug.LogWarning(
+                "[BOOTSTRAP] GraphicsService is unavailable.");
+
+            return;
+        }
+
+        GraphicsService.ApplyCurrentSettings(
+            allowFullscreenTransition: true);
+    }
+
     [ContextMenu("Debug/Reset Settings To Defaults")]
     private void DebugResetSettingsToDefaults()
     {
@@ -373,6 +408,16 @@ public sealed class ApplicationBootstrap
         Debug.Log(
             $"[BOOTSTRAP] Settings file path:\n" +
             $"{SettingsService.SettingsFilePath}");
+    }
+
+    protected override void OnDestroy()
+    {
+        if (IsSingletonInstance)
+        {
+            GraphicsService?.Dispose();
+        }
+
+        base.OnDestroy();
     }
 }
 

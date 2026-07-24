@@ -7,7 +7,8 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public sealed class SettingsMenuController : MonoBehaviour
+public sealed class SettingsMenuController
+    : MonoBehaviour
 {
     private enum SettingsPanel
     {
@@ -32,6 +33,11 @@ public sealed class SettingsMenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject graphicsSettingsPanel;
+
+    [Header("Panel Controllers")]
+    [SerializeField]
+    private GraphicsSettingsController
+        graphicsSettingsController;
 
     [Header("Home Buttons")]
     [SerializeField]
@@ -146,6 +152,14 @@ public sealed class SettingsMenuController : MonoBehaviour
         if (!menuOpen)
             return;
 
+        if (activePanel ==
+            SettingsPanel.Graphics)
+        {
+            graphicsSettingsController
+                ?.RevertPendingChanges(
+                    showFeedback: false);
+        }
+
         menuOpen = false;
 
         cancelAction.Disable();
@@ -166,6 +180,14 @@ public sealed class SettingsMenuController : MonoBehaviour
 
     public void ShowHomePanel()
     {
+        if (activePanel ==
+            SettingsPanel.Graphics)
+        {
+            graphicsSettingsController
+                ?.RevertPendingChanges(
+                    showFeedback: false);
+        }
+
         activePanel =
             SettingsPanel.Home;
 
@@ -192,7 +214,7 @@ public sealed class SettingsMenuController : MonoBehaviour
             showGraphics: false);
 
         SetStatus(
-            "Audio controls arrive in Milestone 1E.");
+            "Audio controls arrive in Milestone 1F.");
 
         SelectObject(
             audioFirstSelection);
@@ -208,8 +230,8 @@ public sealed class SettingsMenuController : MonoBehaviour
             showAudio: false,
             showGraphics: true);
 
-        SetStatus(
-            "Graphics controls arrive in Milestone 1F.");
+        graphicsSettingsController
+            ?.RefreshFromCurrentSettings();
 
         SelectObject(
             graphicsFirstSelection);
@@ -231,13 +253,14 @@ public sealed class SettingsMenuController : MonoBehaviour
 
         SetStatus(
             resetSucceeded
-                ? "Settings reset to defaults."
+                ? "All settings reset to defaults."
                 : "Settings could not be reset.");
     }
 
     private void HandleBackRequest()
     {
-        if (activePanel == SettingsPanel.Home)
+        if (activePanel ==
+            SettingsPanel.Home)
         {
             CloseMenu();
             return;

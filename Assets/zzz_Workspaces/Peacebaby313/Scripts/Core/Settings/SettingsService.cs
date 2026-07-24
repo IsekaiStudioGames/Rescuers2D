@@ -216,6 +216,34 @@ public sealed class SettingsService
         return SaveCurrent();
     }
 
+    public bool ResetGraphicsToDefaults(
+        bool saveImmediately = true)
+    {
+        if (!IsInitialized ||
+            defaults == null ||
+            CurrentData == null ||
+            CurrentData.Graphics == null)
+        {
+            return false;
+        }
+
+        CurrentData
+            .Graphics
+            .ResetToDefaults(
+                defaults);
+
+        CurrentData.Sanitize(
+            defaults);
+
+        OnSettingsChanged?.Invoke(
+            CurrentData);
+
+        if (!saveImmediately)
+            return true;
+
+        return SaveCurrent();
+    }
+
     public bool DeleteSettingsFileAndReset()
     {
         try
