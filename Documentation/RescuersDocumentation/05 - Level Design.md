@@ -112,7 +112,7 @@ See [[07 - Puzzles]] for puzzle archetypes.
 ### TODO
 
 - [ ] Define exact checkpoint save data schema.
-- [ ] Build a reference mission map/flowchart template.
+- [x] Build a reference mission map/flowchart template.
 - [ ] Determine total mission count for jam scope.
 - [ ] Define Unity Sorting Layer names/order matching Parallax Background, Backdrop, Barrier, and Foreground.
 - [ ] Define parallax scroll multipliers per layer.
