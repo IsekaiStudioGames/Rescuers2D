@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98445dace9fb8428aab0698aba57fd, type: 3}
+  m_Name: SplashSequence_StartUp
+  m_EditorClassIdentifier: Assembly-CSharp::SplashSequenceData
+  entries:
+  - splashId: IsekaiStudios
+    splashSprite: {fileID: 1483186908192768041, guid: 0a3de380f267bac478448c39e639005b, type: 3}
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    sound: {fileID: 0}
+    soundVolume: 1
+    fadeInDuration: 0.4
+    holdDuration: 1.25
+    fadeOutDuration: 0.4
+    useGlowPulse: 1
+    glowPulseSpeed: 1.25
+    glowMaximumScale: 1.25
+    glowMaximumAlpha: 0.25
+  - splashId: JuntosVenezuela
+    splashSprite: {fileID: -2335708480867932203, guid: 48beba987731d4142bcf413acc8ef166, type: 3}
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    sound: {fileID: 0}
+    soundVolume: 1
+    fadeInDuration: 0.4
+    holdDuration: 1.5
+    fadeOutDuration: 0.4
+    useGlowPulse: 1
+    glowPulseSpeed: 1
+    glowMaximumScale: 1.035
+    glowMaximumAlpha: 0.2
+  - splashId: Rescuers2D
+    splashSprite: {fileID: 1483186908192768041, guid: 0a3de380f267bac478448c39e639005b, type: 3}
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    sound: {fileID: 0}
+    soundVolume: 1
+    fadeInDuration: 0.5
+    holdDuration: 1.75
+    fadeOutDuration: 0.5
+    useGlowPulse: 1
+    glowPulseSpeed: 1.5
+    glowMaximumScale: 1.05
+    glowMaximumAlpha: 0.3
