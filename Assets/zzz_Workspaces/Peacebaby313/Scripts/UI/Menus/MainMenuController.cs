@@ -15,14 +15,21 @@ public sealed class MainMenuController : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button passwordButton;
+    [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
 
-    [Header("Password Menu")]
+
+
+    [Header("Submenus")]
     [SerializeField]
     private PasswordMenuController passwordMenuController;
+    
+    [SerializeField] 
+    private SettingsMenuController settingsMenuController;
 
     [Header("Optional Feedback")]
-    [SerializeField] private TMP_Text statusText;
+    [SerializeField] 
+    private TMP_Text statusText;
 
     [Header("Initialization")]
     [SerializeField, Min(0.1f)]
@@ -85,6 +92,10 @@ public sealed class MainMenuController : MonoBehaviour
             OpenPasswordMenu);
 
         AddListener(
+            settingsButton,
+            OpenSettingsMenu);
+
+        AddListener(
             quitButton,
             QuitGame);
     }
@@ -98,6 +109,10 @@ public sealed class MainMenuController : MonoBehaviour
         RemoveListener(
             passwordButton,
             OpenPasswordMenu);
+
+        RemoveListener(
+            settingsButton,
+            OpenSettingsMenu);
 
         RemoveListener(
             quitButton,
@@ -162,6 +177,16 @@ public sealed class MainMenuController : MonoBehaviour
         passwordMenuController.OpenMenu();
     }
 
+    public void OpenSettingsMenu()
+    {
+        if (!menuReady ||
+            settingsMenuController == null)
+        {
+            return;
+        }
+        settingsMenuController.OpenMenu();
+    }
+
     public void QuitGame()
     {
         SetButtonsInteractable(false);
@@ -193,6 +218,10 @@ public sealed class MainMenuController : MonoBehaviour
             bootstrap.LevelCodes != null &&
             bootstrap.LevelCodes.IsReady;
 
+        bool settingsReady =
+            bootstrap.SettingsService != null &&
+            bootstrap.SettingsService.IsInitialized;
+
         if (newGameButton != null)
         {
             newGameButton.interactable =
@@ -205,6 +234,13 @@ public sealed class MainMenuController : MonoBehaviour
                 passwordsReady;
         }
 
+
+        if (settingsButton != null)
+        {
+            settingsButton.interactable =
+                settingsReady;
+        }
+
         if (quitButton != null)
         {
             quitButton.interactable =
@@ -215,6 +251,14 @@ public sealed class MainMenuController : MonoBehaviour
         {
             SetStatus(
                 "Level password data is unavailable.");
+
+            return;
+        }
+
+        if (!settingsReady)
+        {
+            SetStatus(
+                "Settings services are unavailable.");
 
             return;
         }
@@ -243,6 +287,12 @@ public sealed class MainMenuController : MonoBehaviour
         if (passwordButton != null)
         {
             passwordButton.interactable =
+                interactable;
+        }
+
+        if (settingsButton != null)
+        {
+            settingsButton.interactable =
                 interactable;
         }
 

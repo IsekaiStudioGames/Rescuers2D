@@ -18,6 +18,14 @@ public sealed class ApplicationBootstrap
     [SerializeField]
     private PasswordTokenSetData passwordTokenSet;
 
+    [Header("Settings Configuration")]
+    [SerializeField]
+    private SettingsDefaultsData settingsDefaults;
+
+    [SerializeField]
+    private string settingsFileName =
+        "rescuers2d_settings.json";
+
     [Header("Runtime Services")]
     [SerializeField]
     private SceneLoadService sceneLoadService;
@@ -26,6 +34,12 @@ public sealed class ApplicationBootstrap
         sceneLoadService;
 
     public LevelCodeService LevelCodes
+    {
+        get;
+        private set;
+    }
+
+    public SettingsService SettingsService
     {
         get;
         private set;
@@ -85,30 +99,8 @@ public sealed class ApplicationBootstrap
         if (IsInitialized)
             return;
 
-        if (sceneLoadService == null)
-        {
-            Debug.LogError(
-                "[BOOTSTRAP] Cannot initialize because " +
-                "SceneLoadService is missing.");
-
+        if (!ValidateConfiguration())
             return;
-        }
-
-        if (levelCodeCatalog == null)
-        {
-            Debug.LogError(
-                "[BOOTSTRAP] LevelCodeCatalogData is missing.");
-
-            return;
-        }
-
-        if (passwordTokenSet == null)
-        {
-            Debug.LogError(
-                "[BOOTSTRAP] PasswordTokenSetData is missing.");
-
-            return;
-        }
 
         LevelCodes =
             new LevelCodeService(
@@ -123,12 +115,66 @@ public sealed class ApplicationBootstrap
             return;
         }
 
+        SettingsService =
+            new SettingsService(
+                settingsFileName,
+                settingsDefaults);
+
+        SettingsService.Initialize();
+
+        if (!SettingsService.IsInitialized)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] Settings initialization failed.");
+
+            return;
+        }
+
         IsInitialized = true;
 
         Debug.Log(
             "[BOOTSTRAP] Application services initialized.");
 
         OnInitialized?.Invoke();
+    }
+
+    private bool ValidateConfiguration()
+    {
+        bool valid = true;
+
+        if (sceneLoadService == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] SceneLoadService is missing.");
+
+            valid = false;
+        }
+
+        if (levelCodeCatalog == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] LevelCodeCatalogData is missing.");
+
+            valid = false;
+        }
+
+        if (passwordTokenSet == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] PasswordTokenSetData is missing.");
+
+            valid = false;
+        }
+
+        if (settingsDefaults == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] SettingsDefaultsData is missing.");
+
+            valid = false;
+        }
+
+        return valid;
     }
 
     public bool TryStartNewGame(
@@ -158,7 +204,8 @@ public sealed class ApplicationBootstrap
         if (!CanLoadScene(firstLevel.SceneName))
         {
             feedback =
-                $"Level '{firstLevel.DisplayName}' is unavailable.";
+                $"Level '{firstLevel.DisplayName}' " +
+                "is unavailable.";
 
             return false;
         }
@@ -281,6 +328,51 @@ public sealed class ApplicationBootstrap
         }
 
         return true;
+    }
+
+    [ContextMenu("Debug/Reset Settings To Defaults")]
+    private void DebugResetSettingsToDefaults()
+    {
+        if (SettingsService == null)
+        {
+            Debug.LogWarning(
+                "[BOOTSTRAP] SettingsService is unavailable.");
+
+            return;
+        }
+
+        SettingsService.ResetToDefaults(
+            saveImmediately: true);
+    }
+
+    [ContextMenu("Debug/Delete Settings File")]
+    private void DebugDeleteSettingsFile()
+    {
+        if (SettingsService == null)
+        {
+            Debug.LogWarning(
+                "[BOOTSTRAP] SettingsService is unavailable.");
+
+            return;
+        }
+
+        SettingsService.DeleteSettingsFileAndReset();
+    }
+
+    [ContextMenu("Debug/Log Settings File Path")]
+    private void DebugLogSettingsFilePath()
+    {
+        if (SettingsService == null)
+        {
+            Debug.LogWarning(
+                "[BOOTSTRAP] SettingsService is unavailable.");
+
+            return;
+        }
+
+        Debug.Log(
+            $"[BOOTSTRAP] Settings file path:\n" +
+            $"{SettingsService.SettingsFilePath}");
     }
 }
 
