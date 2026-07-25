@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 1523083282409549847}
   - component: {fileID: 8332965362064912739}
   - component: {fileID: 5047583331210204501}
+  - component: {fileID: 620750780823642666}
   m_Layer: 8
   m_Name: RescueSpecialist
   m_TagString: Untagged
@@ -173,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 4736453640256010182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.15, y: 2.27407, z: 0}
+  m_LocalPosition: {x: -5, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -227,9 +228,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 234189154208601328, guid: 7bf3ac561ee1ce540b0e0bea6526ed24, type: 3}
   m_Color: {r: 0.11211815, g: 0.6830188, b: 0.19132726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -335,6 +336,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RescueSpecialistController
   rb: {fileID: 0}
   moveSpeed: 5
+--- !u!95 &620750780823642666
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736453640256010182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d096a06bef6dd340a3a5caeca8421e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6568881206809016716
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +372,7 @@ GameObject:
   - component: {fileID: 917662972795937486}
   - component: {fileID: 762705952635936528}
   - component: {fileID: 3687644916900339898}
+  - component: {fileID: 476466084163077866}
   m_Layer: 8
   m_Name: Firefighter
   m_TagString: Untagged
@@ -365,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 6568881206809016716}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.69914, y: 2.27407, z: 0}
+  m_LocalPosition: {x: 5, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -419,9 +443,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 234189154208601328, guid: 7bf3ac561ee1ce540b0e0bea6526ed24, type: 3}
   m_Color: {r: 0.8037735, g: 0.13194014, b: 0.13194014, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -526,11 +550,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirefighterController
   rb: {fileID: 0}
-  ground: {fileID: 0}
+  groundCheck: {fileID: 0}
   walkSpeed: 5
   climbSpeed: 3
   ladderPrefab: {fileID: 0}
   placementDistance: 1.5
+--- !u!95 &476466084163077866
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568881206809016716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d096a06bef6dd340a3a5caeca8421e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8280064057687091567
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +591,7 @@ GameObject:
   - component: {fileID: 8140695733522535912}
   - component: {fileID: 5376734143177448053}
   - component: {fileID: 8355937320572191355}
+  - component: {fileID: 2287477893945615214}
   m_Layer: 8
   m_Name: RiotOfficer
   m_TagString: Untagged
@@ -561,7 +608,7 @@ Transform:
   m_GameObject: {fileID: 8280064057687091567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.05, y: 2.27407, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -615,9 +662,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 234189154208601328, guid: 7bf3ac561ee1ce540b0e0bea6526ed24, type: 3}
   m_Color: {r: 0.061908115, g: 0.21655087, b: 0.6981132, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -723,3 +770,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RiotOfficerController
   rb: {fileID: 0}
   moveSpeed: 5
+--- !u!95 &2287477893945615214
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280064057687091567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d096a06bef6dd340a3a5caeca8421e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

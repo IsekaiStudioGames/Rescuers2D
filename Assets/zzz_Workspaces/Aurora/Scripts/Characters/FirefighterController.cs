@@ -19,6 +19,8 @@ public class FirefighterController : MonoBehaviour {
     private GameObject ladder;
     private Vector2 currentMoveInput;
 
+    private Animator animator;
+
     private float gravityScale = 3f;
 
     public float SlopeAngle => groundCheck != null ? groundCheck.SlopeAngle : 0f;
@@ -30,26 +32,52 @@ public class FirefighterController : MonoBehaviour {
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         groundCheck = GetComponent<GroundCheck>();
     }
     private void FixedUpdate() {
         ApplyGravity();
     }
-    public void Move(Vector2 moveDirection) {
+    public void Move(Vector2 moveDirection)
+    {
 
         currentMoveInput = moveDirection;
 
-        if (currentState == FirefighterState.Attacking || currentState == FirefighterState.Stunned) {
+        if (currentState == FirefighterState.Attacking || currentState == FirefighterState.Stunned)
+        {
             rb.linearVelocity = Vector2.zero;
             return;
         }
-        if (currentState == FirefighterState.Climbing) {
+        if (currentState == FirefighterState.Climbing)
+        {
             HandleClimbing();
-        } else {
+        }
+        else
+        {
             HandleGroundMovement();
         }
 
         rb.MovePosition(rb.position + (currentMoveInput * walkSpeed) * Time.fixedDeltaTime);
+        // Face left/right
+        if (moveDirection.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveDirection.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        //walk anim
+        if (moveDirection != Vector2.zero)
+        {
+            animator.SetBool("IsMoving", true);
+
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
     }
 
     private void HandleGroundMovement() {
