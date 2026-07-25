@@ -77,9 +77,10 @@ public class Electricity2D : MonoBehaviour {
 
         if (!isPowered) return;
 
-        if (other.CompareTag("Player")) {
+        if (other.TryGetComponent<Knockback>(out var character)) {
 
-            Debug.Log("DAMAGE THE PLAYER, HAHAHAA!!!!");
+            character.GetKnockedBack(other.gameObject.transform, .15f);
+
         }
     }
 }
