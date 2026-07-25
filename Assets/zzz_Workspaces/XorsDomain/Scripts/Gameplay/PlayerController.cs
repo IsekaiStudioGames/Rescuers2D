@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum CharacterType
 {
@@ -45,25 +46,25 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Keyboard.current.fKey.isPressed)
             UseSelectedItem();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
             Activate();
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Keyboard.current.jKey.isPressed)
             Ability1();
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Keyboard.current.kKey.isPressed)
             Ability2();
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Keyboard.current.qKey.isPressed)
             PreviousCharacter();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Keyboard.current.eKey.isPressed)
             NextCharacter();
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
             PauseGame();
     }
 
@@ -72,22 +73,22 @@ public class PlayerController : MonoBehaviour
         // Horizontal movement
         float horizontal = 0;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Keyboard.current.aKey.isPressed)
             horizontal = -1;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Keyboard.current.dKey.isPressed)
             horizontal = 1;
 
         transform.Translate(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
 
         // W only climbs
-        if (Input.GetKey(KeyCode.W) && onLadder)
+        if (Keyboard.current.wKey.isPressed && onLadder)
         {
             transform.Translate(Vector3.up * climbSpeed * Time.deltaTime);
         }
 
         // S climbs down or crawls
-        if (Input.GetKey(KeyCode.S))
+        if (Keyboard.current.sKey.isPressed)
         {
             if (onLadder)
             {
@@ -139,10 +140,10 @@ public class PlayerController : MonoBehaviour
 
     private void PauseControls()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
             ResumeGame();
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
             OpenQuitConfirmation();
     }
 
