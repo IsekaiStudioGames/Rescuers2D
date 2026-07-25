@@ -36,6 +36,10 @@ public sealed class SettingsMenuController
 
     [Header("Panel Controllers")]
     [SerializeField]
+    private AudioSettingsController
+        audioSettingsController;
+
+    [SerializeField]
     private GraphicsSettingsController
         graphicsSettingsController;
 
@@ -96,7 +100,8 @@ public sealed class SettingsMenuController
 
         if (settingsPanelRoot != null)
         {
-            settingsPanelRoot.SetActive(false);
+            settingsPanelRoot.SetActive(
+                false);
         }
     }
 
@@ -107,6 +112,10 @@ public sealed class SettingsMenuController
 
         if (cancelAction.WasPressedThisFrame())
         {
+            bootstrap
+                ?.UIAudio
+                ?.PlayCancel();
+
             HandleBackRequest();
         }
     }
@@ -130,16 +139,19 @@ public sealed class SettingsMenuController
         settingsService =
             bootstrap.SettingsService;
 
-        menuOpen = true;
+        menuOpen =
+            true;
 
         if (hostMenuRoot != null)
         {
-            hostMenuRoot.SetActive(false);
+            hostMenuRoot.SetActive(
+                false);
         }
 
         if (settingsPanelRoot != null)
         {
-            settingsPanelRoot.SetActive(true);
+            settingsPanelRoot.SetActive(
+                true);
         }
 
         cancelAction.Enable();
@@ -152,26 +164,23 @@ public sealed class SettingsMenuController
         if (!menuOpen)
             return;
 
-        if (activePanel ==
-            SettingsPanel.Graphics)
-        {
-            graphicsSettingsController
-                ?.RevertPendingChanges(
-                    showFeedback: false);
-        }
+        CommitActivePanel();
 
-        menuOpen = false;
+        menuOpen =
+            false;
 
         cancelAction.Disable();
 
         if (settingsPanelRoot != null)
         {
-            settingsPanelRoot.SetActive(false);
+            settingsPanelRoot.SetActive(
+                false);
         }
 
         if (hostMenuRoot != null)
         {
-            hostMenuRoot.SetActive(true);
+            hostMenuRoot.SetActive(
+                true);
         }
 
         SelectObject(
@@ -180,13 +189,7 @@ public sealed class SettingsMenuController
 
     public void ShowHomePanel()
     {
-        if (activePanel ==
-            SettingsPanel.Graphics)
-        {
-            graphicsSettingsController
-                ?.RevertPendingChanges(
-                    showFeedback: false);
-        }
+        CommitActivePanel();
 
         activePanel =
             SettingsPanel.Home;
@@ -205,6 +208,8 @@ public sealed class SettingsMenuController
 
     public void ShowAudioPanel()
     {
+        CommitActivePanel();
+
         activePanel =
             SettingsPanel.Audio;
 
@@ -213,8 +218,8 @@ public sealed class SettingsMenuController
             showAudio: true,
             showGraphics: false);
 
-        SetStatus(
-            "Audio controls arrive in Milestone 1F.");
+        audioSettingsController
+            ?.RefreshFromCurrentSettings();
 
         SelectObject(
             audioFirstSelection);
@@ -222,6 +227,8 @@ public sealed class SettingsMenuController
 
     public void ShowGraphicsPanel()
     {
+        CommitActivePanel();
+
         activePanel =
             SettingsPanel.Graphics;
 
@@ -255,6 +262,23 @@ public sealed class SettingsMenuController
             resetSucceeded
                 ? "All settings reset to defaults."
                 : "Settings could not be reset.");
+    }
+
+    private void CommitActivePanel()
+    {
+        switch (activePanel)
+        {
+            case SettingsPanel.Audio:
+                audioSettingsController
+                    ?.CommitPendingChanges();
+                break;
+
+            case SettingsPanel.Graphics:
+                graphicsSettingsController
+                    ?.RevertPendingChanges(
+                        showFeedback: false);
+                break;
+        }
     }
 
     private void HandleBackRequest()
@@ -400,7 +424,8 @@ public sealed class SettingsMenuController
         }
     }
 
-    private void SetStatus(string message)
+    private void SetStatus(
+        string message)
     {
         if (statusText != null)
         {

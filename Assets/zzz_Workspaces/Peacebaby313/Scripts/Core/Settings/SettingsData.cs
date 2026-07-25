@@ -42,49 +42,65 @@ public sealed class SettingsData
         SettingsDefaultsData defaults)
     {
         if (defaults == null)
-        {
-            Debug.LogError(
-                "[SETTINGS DATA] Cannot reset without defaults.");
-
             return;
-        }
 
-        EnsureNestedData();
+        EnsureCategoriesExist();
 
-        settingsVersion = 1;
+        audio.ResetToDefaults(
+            defaults);
 
-        audio.ResetToDefaults(defaults);
-        graphics.ResetToDefaults(defaults);
-
-        UpdateTimestamp();
+        graphics.ResetToDefaults(
+            defaults);
     }
 
     public void Sanitize(
         SettingsDefaultsData defaults)
     {
         if (defaults == null)
-        {
-            Debug.LogError(
-                "[SETTINGS DATA] Cannot sanitize without defaults.");
-
             return;
+
+        if (audio == null)
+        {
+            audio =
+                new AudioSettingsData();
+
+            audio.ResetToDefaults(
+                defaults);
+        }
+        else
+        {
+            audio.Sanitize(
+                defaults);
         }
 
-        EnsureNestedData();
+        if (graphics == null)
+        {
+            graphics =
+                new GraphicsSettingsData();
+
+            graphics.ResetToDefaults(
+                defaults);
+        }
+        else
+        {
+            graphics.Sanitize(
+                defaults);
+        }
 
         settingsVersion =
-            Mathf.Max(1, settingsVersion);
-
-        audio.Sanitize(defaults);
-        graphics.Sanitize(defaults);
+            Mathf.Max(
+                1,
+                settingsVersion);
     }
 
     public void MarkSaved()
     {
-        UpdateTimestamp();
+        lastSavedUtc =
+            DateTime.UtcNow.ToString(
+                "O");
     }
 
-    private void EnsureNestedData()
+    private void EnsureCategoriesExist()
     {
         if (audio == null)
         {
@@ -97,12 +113,6 @@ public sealed class SettingsData
             graphics =
                 new GraphicsSettingsData();
         }
-    }
-
-    private void UpdateTimestamp()
-    {
-        lastSavedUtc =
-            DateTime.UtcNow.ToString("O");
     }
 }
 
@@ -133,33 +143,44 @@ public sealed class AudioSettingsData
     public float AmbienceVolume =>
         ambienceVolume;
 
-    public void SetMasterVolume(float value)
+    public void SetMasterVolume(
+        float value)
     {
         masterVolume =
-            Mathf.Clamp01(value);
+            Mathf.Clamp01(
+                value);
     }
 
-    public void SetMusicVolume(float value)
+    public void SetMusicVolume(
+        float value)
     {
         musicVolume =
-            Mathf.Clamp01(value);
+            Mathf.Clamp01(
+                value);
     }
 
-    public void SetSfxVolume(float value)
+    public void SetSfxVolume(
+        float value)
     {
         sfxVolume =
-            Mathf.Clamp01(value);
+            Mathf.Clamp01(
+                value);
     }
 
-    public void SetAmbienceVolume(float value)
+    public void SetAmbienceVolume(
+        float value)
     {
         ambienceVolume =
-            Mathf.Clamp01(value);
+            Mathf.Clamp01(
+                value);
     }
 
     public void ResetToDefaults(
         SettingsDefaultsData defaults)
     {
+        if (defaults == null)
+            return;
+
         masterVolume =
             defaults.MasterVolume;
 
@@ -176,68 +197,44 @@ public sealed class AudioSettingsData
     public void Sanitize(
         SettingsDefaultsData defaults)
     {
-        if (float.IsNaN(masterVolume) ||
-            float.IsInfinity(masterVolume))
-        {
-            masterVolume =
-                defaults.MasterVolume;
-        }
-
-        if (float.IsNaN(musicVolume) ||
-            float.IsInfinity(musicVolume))
-        {
-            musicVolume =
-                defaults.MusicVolume;
-        }
-
-        if (float.IsNaN(sfxVolume) ||
-            float.IsInfinity(sfxVolume))
-        {
-            sfxVolume =
-                defaults.SfxVolume;
-        }
-
-        if (float.IsNaN(ambienceVolume) ||
-            float.IsInfinity(ambienceVolume))
-        {
-            ambienceVolume =
-                defaults.AmbienceVolume;
-        }
-
         masterVolume =
-            Mathf.Clamp01(masterVolume);
+            Mathf.Clamp01(
+                masterVolume);
 
         musicVolume =
-            Mathf.Clamp01(musicVolume);
+            Mathf.Clamp01(
+                musicVolume);
 
         sfxVolume =
-            Mathf.Clamp01(sfxVolume);
+            Mathf.Clamp01(
+                sfxVolume);
 
         ambienceVolume =
-            Mathf.Clamp01(ambienceVolume);
+            Mathf.Clamp01(
+                ambienceVolume);
     }
 }
 
 [Serializable]
 public sealed class GraphicsSettingsData
 {
-    [SerializeField]
+    [SerializeField, Min(640)]
     private int resolutionWidth = 1920;
 
-    [SerializeField]
+    [SerializeField, Min(360)]
     private int resolutionHeight = 1080;
 
     [SerializeField]
     private FullScreenMode fullscreenMode =
         FullScreenMode.FullScreenWindow;
 
-    [SerializeField]
+    [SerializeField, Range(0, 4)]
     private int vSyncCount = 1;
 
-    [SerializeField]
-    private int qualityLevel = 2;
+    [SerializeField, Min(0)]
+    private int qualityLevel;
 
-    [SerializeField]
+    [SerializeField, Min(-1)]
     private int targetFrameRate = 60;
 
     public int ResolutionWidth =>
@@ -263,40 +260,57 @@ public sealed class GraphicsSettingsData
         int height)
     {
         resolutionWidth =
-            Mathf.Max(320, width);
+            Mathf.Max(
+                640,
+                width);
 
         resolutionHeight =
-            Mathf.Max(180, height);
+            Mathf.Max(
+                360,
+                height);
     }
 
     public void SetFullscreenMode(
-        FullScreenMode mode)
+        FullScreenMode value)
     {
         fullscreenMode =
-            mode;
+            value;
     }
 
-    public void SetVSyncCount(int value)
+    public void SetVSyncCount(
+        int value)
     {
         vSyncCount =
-            Mathf.Clamp(value, 0, 4);
+            Mathf.Clamp(
+                value,
+                0,
+                4);
     }
 
-    public void SetQualityLevel(int value)
+    public void SetQualityLevel(
+        int value)
     {
         qualityLevel =
-            Mathf.Max(0, value);
+            Mathf.Max(
+                0,
+                value);
     }
 
-    public void SetTargetFrameRate(int value)
+    public void SetTargetFrameRate(
+        int value)
     {
         targetFrameRate =
-            Mathf.Max(-1, value);
+            Mathf.Max(
+                -1,
+                value);
     }
 
     public void ResetToDefaults(
         SettingsDefaultsData defaults)
     {
+        if (defaults == null)
+            return;
+
         resolutionWidth =
             defaults.ResolutionWidth;
 
@@ -319,34 +333,31 @@ public sealed class GraphicsSettingsData
     public void Sanitize(
         SettingsDefaultsData defaults)
     {
-        if (resolutionWidth < 320)
-        {
-            resolutionWidth =
-                defaults.ResolutionWidth;
-        }
+        resolutionWidth =
+            Mathf.Max(
+                640,
+                resolutionWidth);
 
-        if (resolutionHeight < 180)
-        {
-            resolutionHeight =
-                defaults.ResolutionHeight;
-        }
-
-        if (!Enum.IsDefined(
-                typeof(FullScreenMode),
-                fullscreenMode))
-        {
-            fullscreenMode =
-                defaults.FullscreenMode;
-        }
+        resolutionHeight =
+            Mathf.Max(
+                360,
+                resolutionHeight);
 
         vSyncCount =
-            Mathf.Clamp(vSyncCount, 0, 4);
+            Mathf.Clamp(
+                vSyncCount,
+                0,
+                4);
 
         qualityLevel =
-            Mathf.Max(0, qualityLevel);
+            Mathf.Max(
+                0,
+                qualityLevel);
 
         targetFrameRate =
-            Mathf.Max(-1, targetFrameRate);
+            Mathf.Max(
+                -1,
+                targetFrameRate);
     }
 }
 

@@ -6,10 +6,23 @@ using UnityEngine;
 
 public sealed class SettingsService
 {
-    public event Action<SettingsData> OnSettingsLoaded;
-    public event Action<SettingsData> OnSettingsChanged;
-    public event Action<SettingsData> OnSettingsSaved;
-    public event Action<SettingsData> OnSettingsReset;
+    public event Action<SettingsData>
+        OnSettingsLoaded;
+
+    public event Action<SettingsData>
+        OnSettingsChanged;
+
+    public event Action<SettingsData>
+        OnSettingsSaved;
+
+    public event Action<SettingsData>
+        OnSettingsReset;
+
+    public event Action<AudioSettingsData>
+        OnAudioSettingsChanged;
+
+    public event Action<GraphicsSettingsData>
+        OnGraphicsSettingsChanged;
 
     private readonly string settingsFilePath;
     private readonly string temporaryFilePath;
@@ -25,7 +38,8 @@ public sealed class SettingsService
         settingsFilePath;
 
     public bool HasSettingsFile =>
-        File.Exists(settingsFilePath);
+        File.Exists(
+            settingsFilePath);
 
     public bool IsInitialized
     {
@@ -53,7 +67,8 @@ public sealed class SettingsService
                 settingsFileName.Trim());
 
         temporaryFilePath =
-            settingsFilePath + ".tmp";
+            settingsFilePath +
+            ".tmp";
     }
 
     public void Initialize()
@@ -69,14 +84,17 @@ public sealed class SettingsService
             return;
         }
 
-        if (TryLoad(out SettingsData loadedData))
+        if (TryLoad(
+                out SettingsData loadedData))
         {
-            loadedData.Sanitize(defaults);
+            loadedData.Sanitize(
+                defaults);
 
             CurrentData =
                 loadedData;
 
-            IsInitialized = true;
+            IsInitialized =
+                true;
 
             Debug.Log(
                 $"[SETTINGS] Loaded settings from:\n" +
@@ -91,7 +109,8 @@ public sealed class SettingsService
         CurrentData =
             defaults.CreateRuntimeData();
 
-        IsInitialized = true;
+        IsInitialized =
+            true;
 
         if (!SaveCurrent())
         {
@@ -107,16 +126,53 @@ public sealed class SettingsService
     public void NotifySettingsChanged(
         bool saveImmediately = false)
     {
-        if (!IsInitialized ||
-            CurrentData == null)
-        {
+        if (!PrepareCurrentData())
             return;
-        }
-
-        CurrentData.Sanitize(defaults);
 
         OnSettingsChanged?.Invoke(
             CurrentData);
+
+        OnAudioSettingsChanged?.Invoke(
+            CurrentData.Audio);
+
+        OnGraphicsSettingsChanged?.Invoke(
+            CurrentData.Graphics);
+
+        if (saveImmediately)
+        {
+            SaveCurrent();
+        }
+    }
+
+    public void NotifyAudioSettingsChanged(
+        bool saveImmediately = false)
+    {
+        if (!PrepareCurrentData())
+            return;
+
+        OnSettingsChanged?.Invoke(
+            CurrentData);
+
+        OnAudioSettingsChanged?.Invoke(
+            CurrentData.Audio);
+
+        if (saveImmediately)
+        {
+            SaveCurrent();
+        }
+    }
+
+    public void NotifyGraphicsSettingsChanged(
+        bool saveImmediately = false)
+    {
+        if (!PrepareCurrentData())
+            return;
+
+        OnSettingsChanged?.Invoke(
+            CurrentData);
+
+        OnGraphicsSettingsChanged?.Invoke(
+            CurrentData.Graphics);
 
         if (saveImmediately)
         {
@@ -135,7 +191,9 @@ public sealed class SettingsService
             return false;
         }
 
-        CurrentData.Sanitize(defaults);
+        CurrentData.Sanitize(
+            defaults);
+
         CurrentData.MarkSaved();
 
         try
@@ -160,9 +218,11 @@ public sealed class SettingsService
                 temporaryFilePath,
                 json);
 
-            if (File.Exists(settingsFilePath))
+            if (File.Exists(
+                    settingsFilePath))
             {
-                File.Delete(settingsFilePath);
+                File.Delete(
+                    settingsFilePath);
             }
 
             File.Move(
@@ -207,8 +267,40 @@ public sealed class SettingsService
         OnSettingsChanged?.Invoke(
             CurrentData);
 
+        OnAudioSettingsChanged?.Invoke(
+            CurrentData.Audio);
+
+        OnGraphicsSettingsChanged?.Invoke(
+            CurrentData.Graphics);
+
         OnSettingsReset?.Invoke(
             CurrentData);
+
+        if (!saveImmediately)
+            return true;
+
+        return SaveCurrent();
+    }
+
+    public bool ResetAudioToDefaults(
+        bool saveImmediately = true)
+    {
+        if (!PrepareCurrentData())
+            return false;
+
+        CurrentData
+            .Audio
+            .ResetToDefaults(
+                defaults);
+
+        CurrentData.Sanitize(
+            defaults);
+
+        OnSettingsChanged?.Invoke(
+            CurrentData);
+
+        OnAudioSettingsChanged?.Invoke(
+            CurrentData.Audio);
 
         if (!saveImmediately)
             return true;
@@ -219,13 +311,8 @@ public sealed class SettingsService
     public bool ResetGraphicsToDefaults(
         bool saveImmediately = true)
     {
-        if (!IsInitialized ||
-            defaults == null ||
-            CurrentData == null ||
-            CurrentData.Graphics == null)
-        {
+        if (!PrepareCurrentData())
             return false;
-        }
 
         CurrentData
             .Graphics
@@ -238,6 +325,9 @@ public sealed class SettingsService
         OnSettingsChanged?.Invoke(
             CurrentData);
 
+        OnGraphicsSettingsChanged?.Invoke(
+            CurrentData.Graphics);
+
         if (!saveImmediately)
             return true;
 
@@ -248,9 +338,11 @@ public sealed class SettingsService
     {
         try
         {
-            if (File.Exists(settingsFilePath))
+            if (File.Exists(
+                    settingsFilePath))
             {
-                File.Delete(settingsFilePath);
+                File.Delete(
+                    settingsFilePath);
             }
 
             DeleteTemporaryFile();
@@ -258,10 +350,17 @@ public sealed class SettingsService
             CurrentData =
                 defaults.CreateRuntimeData();
 
-            IsInitialized = true;
+            IsInitialized =
+                true;
 
             OnSettingsChanged?.Invoke(
                 CurrentData);
+
+            OnAudioSettingsChanged?.Invoke(
+                CurrentData.Audio);
+
+            OnGraphicsSettingsChanged?.Invoke(
+                CurrentData.Graphics);
 
             OnSettingsReset?.Invoke(
                 CurrentData);
@@ -282,13 +381,32 @@ public sealed class SettingsService
         }
     }
 
+    private bool PrepareCurrentData()
+    {
+        if (!IsInitialized ||
+            defaults == null ||
+            CurrentData == null)
+        {
+            return false;
+        }
+
+        CurrentData.Sanitize(
+            defaults);
+
+        return true;
+    }
+
     private bool TryLoad(
         out SettingsData loadedData)
     {
-        loadedData = null;
+        loadedData =
+            null;
 
-        if (!File.Exists(settingsFilePath))
+        if (!File.Exists(
+                settingsFilePath))
+        {
             return false;
+        }
 
         try
         {
@@ -296,7 +414,8 @@ public sealed class SettingsService
                 File.ReadAllText(
                     settingsFilePath);
 
-            if (string.IsNullOrWhiteSpace(json))
+            if (string.IsNullOrWhiteSpace(
+                    json))
             {
                 Debug.LogWarning(
                     "[SETTINGS] Settings file was empty.");
@@ -337,8 +456,11 @@ public sealed class SettingsService
 
     private void PreserveCorruptFile()
     {
-        if (!File.Exists(settingsFilePath))
+        if (!File.Exists(
+                settingsFilePath))
+        {
             return;
+        }
 
         try
         {
@@ -368,8 +490,11 @@ public sealed class SettingsService
 
     private void DeleteTemporaryFile()
     {
-        if (!File.Exists(temporaryFilePath))
+        if (!File.Exists(
+                temporaryFilePath))
+        {
             return;
+        }
 
         try
         {
@@ -378,7 +503,7 @@ public sealed class SettingsService
         }
         catch
         {
-            // Temporary-file cleanup failure is non-fatal.
+            // Cleanup failure is non-fatal.
         }
     }
 }

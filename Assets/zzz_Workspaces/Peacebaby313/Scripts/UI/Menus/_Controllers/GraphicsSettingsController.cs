@@ -187,7 +187,7 @@ public sealed class GraphicsSettingsController
 
         // GraphicsSettingsService listens to this event
         // and applies the data immediately.
-        settingsService.NotifySettingsChanged(
+        settingsService.NotifyGraphicsSettingsChanged(
             saveImmediately: false);
 
         bool saveSucceeded =

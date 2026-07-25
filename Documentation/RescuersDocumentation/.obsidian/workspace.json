@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Rules.md",
+                "file": "04 - Characters.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Rules"
+              "title": "04 - Characters"
             }
           }
         ]
@@ -201,6 +201,7 @@
   },
   "active": "4847d3a08433f4c5",
   "lastOpenFiles": [
+    "03 - Rules.md",
     "02 - Index.md",
     "01 - Title.md",
     "11 - Level Codes.md",
@@ -210,7 +211,6 @@
     "06 - Items.md",
     "05 - Level Design.md",
     "04 - Characters.md",
-    "03 - Rules.md",
     "13 - Player Controls.md",
     "Welcome.md",
     "10 - Death.md",
