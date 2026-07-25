@@ -42,7 +42,7 @@ MonoBehaviour:
     - V
     - E
     - L
-  - missionId: R2D-TEMP_04_TestLevel4
+  - missionId: R2D-TEMP_04_TestLevel3
     sceneName: 04_TestLevel3
     displayName: Level Three
     levelOrder: 2
@@ -53,20 +53,6 @@ MonoBehaviour:
     - I
     - R
     - D
-    - L
-    - V
-    - L
-  - missionId: R2D-TEMP_03_TestLevel2
-    sceneName: 03_TestLevel2
-    displayName: Level One
-    levelOrder: 0
-    temporaryLetterCode: FIRSTLVL
-    passwordTokenIds:
-    - F
-    - I
-    - R
-    - S
-    - T
     - L
     - V
     - L
