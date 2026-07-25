@@ -10,21 +10,21 @@ public class GroundCheck : MonoBehaviour {
 
     public float SlopeAngle { get; private set; }
     public Vector2 GroundNormal { get; private set; }
-    public bool IsGround { get; private set; }
+    public bool IsGrounded { get; private set; }
 
     private void FixedUpdate() => CheckForGround();
 
     private void CheckForGround() {
         
         var origin = transform.position + Vector3.down * skinWidth;
-        IsGround = Physics2D.OverlapCircle(origin, sphereRadius, groundLayer);
+        IsGrounded = Physics2D.OverlapCircle(origin, sphereRadius, groundLayer);
 
-        if (IsGround ) {
+        if (IsGrounded ) {
 
             var hit = Physics2D.Raycast(origin, Vector2.down, 0.3f, groundLayer);
             GroundNormal = hit ? hit.normal : Vector2.up;
             SlopeAngle = Vector2.Angle(GroundNormal, Vector2.up);
-            if (SlopeAngle > maxSlopeAngle) IsGround = false;
+            if (SlopeAngle > maxSlopeAngle) IsGrounded = false;
 
         } else {
             GroundNormal = Vector2.up;
