@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMaterial
+  m_Name: WaterMaterial_waterfall
   m_Shader: {fileID: -6465566751694194690, guid: 460fd25ebb00aba4e89b6af299850d57, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -62,10 +62,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _BodyTransparency: 1
-    - _CausticOffsetSpeed: 0.0001
-    - _CausticPower: 5
-    - _CausticScale: 6.5
-    - _CausticStrength: 1.1
+    - _CausticOffsetSpeed: 1.34
+    - _CausticPower: 8.37
+    - _CausticScale: 8.97
+    - _CausticStrength: 3
     - _DistortionOffsetSped: 1
     - _DistortionScale: 30
     - _DistortionStrength: 0.0025
@@ -79,12 +79,12 @@ Material:
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _BodyColor: {r: 0.086115964, g: 0.19569707, b: 0.7735849, a: 1}
-    - _CausticColor: {r: 0.2205054, g: 0.7283748, b: 1.230189, a: 1}
-    - _CausticScrollDir: {r: 0.045, g: 0, b: 0, a: 0}
-    - _CausticTiling: {r: 2, g: 3, b: 0, a: 0}
+    - _CausticColor: {r: 0.4410108, g: 1.4567496, b: 2.460378, a: 1}
+    - _CausticScrollDir: {r: 0.41, g: 0, b: 0, a: 0}
+    - _CausticTiling: {r: 2, g: 8, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionDir: {r: 0.05, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 0.08627453, g: 0.67380726, b: 0.77254903, a: 1}
+    - _LineColor: {r: 0.08627451, g: 0.19607845, b: 0.7725491, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
