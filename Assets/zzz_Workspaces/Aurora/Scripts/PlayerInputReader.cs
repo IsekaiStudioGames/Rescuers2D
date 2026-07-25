@@ -28,7 +28,20 @@ public class PlayerInputReader : MonoBehaviour {
 
         inputActions.Controls.SwitchCharacters.performed += SwitchCharacters();
         inputActions.Controls.firefighter_ladder.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseLadder();
+            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.DeployLadder();
+        };
+        inputActions.Controls.firefighter_ladder.canceled += ctx => {
+            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
+        };
+        inputActions.Controls.Interact.performed += ctx => {
+            if (currentCharacter == ActiveCharacter.Firefighter) {
+
+                if (firefighter.IsLadderNearbyToRetrieve()) firefighter.TryInteractLadder();
+                else firefighter.DeployLadder();
+            }
+        };
+        inputActions.Controls.Interact.canceled += ctx => {
+            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
         };
         inputActions.Controls.firefighter_axe.performed += ctx => {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseAxe();

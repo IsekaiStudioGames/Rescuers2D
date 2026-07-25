@@ -347,8 +347,8 @@ GameObject:
   - component: {fileID: 521874465838796861}
   - component: {fileID: 8164121445327563397}
   - component: {fileID: 917662972795937486}
-  - component: {fileID: 762705952635936528}
   - component: {fileID: 3687644916900339898}
+  - component: {fileID: 762705952635936528}
   m_Layer: 8
   m_Name: Firefighter
   m_TagString: Untagged
@@ -495,6 +495,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3687644916900339898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568881206809016716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87524b0123511e4baea7dcf79512770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirefighterController
+  rb: {fileID: 0}
+  groundCheck: {fileID: 0}
+  walkSpeed: 5
+  climbSpeed: 3
+  ladderPrefab: {fileID: 0}
+  placementDistance: 1.5
+  pickupDistance: 2
+  ladderLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  currentState: 0
 --- !u!114 &762705952635936528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,24 +536,6 @@ MonoBehaviour:
   skinWidth: 0.05
   sphereRadius: 0.22
   maxSlopeAngle: 45
---- !u!114 &3687644916900339898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6568881206809016716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87524b0123511e4baea7dcf79512770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirefighterController
-  rb: {fileID: 0}
-  ground: {fileID: 0}
-  walkSpeed: 5
-  climbSpeed: 3
-  ladderPrefab: {fileID: 0}
-  placementDistance: 1.5
 --- !u!1 &8280064057687091567
 GameObject:
   m_ObjectHideFlags: 0
