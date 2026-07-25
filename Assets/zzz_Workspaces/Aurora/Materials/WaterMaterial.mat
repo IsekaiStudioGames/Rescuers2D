@@ -84,7 +84,7 @@ Material:
     - _CausticTiling: {r: 2, g: 3, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionDir: {r: 0.05, g: 0, b: 0, a: 0}
-    - _LineColor: {r: 0.08627453, g: 0.67380726, b: 0.77254903, a: 1}
+    - _LineColor: {r: 0.08627451, g: 0.19607845, b: 0.7725491, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
