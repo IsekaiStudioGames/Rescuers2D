@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputReader : MonoBehaviour, CharacterActions.IUIActions {
+public class PlayerInputReader : MonoBehaviour {
 
     private CharacterActions inputActions;
 
@@ -16,12 +16,9 @@ public class PlayerInputReader : MonoBehaviour, CharacterActions.IUIActions {
     private Vector2 moveDirection;
 
     private void OnEnable() {
-
-        inputActions.UI.PauseMenu.performed += OnPauseMenu;
         inputActions.Controls.Enable(); 
     }
     private void OnDisable() {
-        inputActions.UI.PauseMenu.performed -= OnPauseMenu;
         inputActions.Controls.Disable();
     }
 
@@ -100,9 +97,5 @@ public class PlayerInputReader : MonoBehaviour, CharacterActions.IUIActions {
             case ActiveCharacter.RiotOfficer: riotOfficer.Move(Vector2.zero); break;
             case ActiveCharacter.Specialist: rescueSpecialist.Move(Vector2.zero); break;
         }
-    }
-
-    public void OnPauseMenu(InputAction.CallbackContext context) {
-        UIController.Instance.SetPaused(true);
     }
 }
