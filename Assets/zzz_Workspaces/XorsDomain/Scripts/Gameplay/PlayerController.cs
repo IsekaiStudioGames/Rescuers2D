@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Horizontal movement
         float horizontal = 0;
 
         if (Keyboard.current.aKey.isPressed)
@@ -81,13 +80,11 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
 
-        // W only climbs
         if (Keyboard.current.wKey.isPressed && onLadder)
         {
             transform.Translate(Vector3.up * climbSpeed * Time.deltaTime);
         }
 
-        // S climbs down or crawls
         if (Keyboard.current.sKey.isPressed)
         {
             if (onLadder)
