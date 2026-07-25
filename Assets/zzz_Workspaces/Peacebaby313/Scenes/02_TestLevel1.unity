@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: menuSystemPresenter
       value: 
       objectReference: {fileID: 311264101}
+    - target: {fileID: 7847899724538380865, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      propertyPath: m_text
+      value: PAUSED
+      objectReference: {fileID: 0}
     - target: {fileID: 8708540101847167940, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
       propertyPath: menuContext
       value: 1
@@ -1539,7 +1543,7 @@ Animator:
   m_GameObject: {fileID: 728521608}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d096a06bef6dd340a3a5caeca8421e7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
