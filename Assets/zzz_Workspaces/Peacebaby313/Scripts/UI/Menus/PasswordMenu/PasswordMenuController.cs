@@ -8,27 +8,40 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public sealed class PasswordMenuController : MonoBehaviour
+public sealed class PasswordMenuController
+    : MonoBehaviour
 {
     [Header("Menu Roots")]
-    [SerializeField] private GameObject mainMenuRoot;
-    [SerializeField] private GameObject passwordPanelRoot;
+    [SerializeField]
+    private GameObject mainMenuRoot;
+
+    [SerializeField]
+    private GameObject passwordPanelRoot;
 
     [Header("Selection Restoration")]
     [SerializeField]
     private GameObject mainMenuReturnSelection;
 
     [Header("Slots")]
-    [SerializeField] private Transform slotParent;
-    [SerializeField] private PasswordSlotUI slotPrefab;
+    [SerializeField]
+    private Transform slotParent;
+
+    [SerializeField]
+    private PasswordSlotUI slotPrefab;
 
     [Header("Buttons")]
-    [SerializeField] private Button submitButton;
-    [SerializeField] private Button clearButton;
-    [SerializeField] private Button backButton;
+    [SerializeField]
+    private Button submitButton;
+
+    [SerializeField]
+    private Button clearButton;
+
+    [SerializeField]
+    private Button backButton;
 
     [Header("Feedback")]
-    [SerializeField] private TMP_Text statusText;
+    [SerializeField]
+    private TMP_Text statusText;
 
     [Header("Navigation Repeat")]
     [SerializeField, Min(0.05f)]
@@ -53,7 +66,9 @@ public sealed class PasswordMenuController : MonoBehaviour
     private Keyboard subscribedKeyboard;
 
     private int selectedSlotIndex;
+
     private Vector2Int lastNavigationDirection;
+
     private float nextNavigationRepeatTime;
 
     private bool menuOpen;
@@ -63,6 +78,11 @@ public sealed class PasswordMenuController : MonoBehaviour
     public bool IsOpen =>
         menuOpen;
 
+    private UIAudioService UIAudio =>
+        bootstrap != null
+            ? bootstrap.UIAudio
+            : null;
+
     private void Awake()
     {
         BuildInputActions();
@@ -70,7 +90,8 @@ public sealed class PasswordMenuController : MonoBehaviour
 
         if (passwordPanelRoot != null)
         {
-            passwordPanelRoot.SetActive(false);
+            passwordPanelRoot.SetActive(
+                false);
         }
     }
 
@@ -86,16 +107,22 @@ public sealed class PasswordMenuController : MonoBehaviour
 
         if (submitAction.WasPressedThisFrame())
         {
+            UIAudio?.PlaySubmit();
+
             SubmitPassword();
         }
 
         if (cancelAction.WasPressedThisFrame())
         {
+            UIAudio?.PlayCancel();
+
             CloseMenu();
         }
 
         if (clearAction.WasPressedThisFrame())
         {
+            UIAudio?.PlayCancel();
+
             ClearCode();
         }
     }
@@ -126,17 +153,20 @@ public sealed class PasswordMenuController : MonoBehaviour
 
         if (mainMenuRoot != null)
         {
-            mainMenuRoot.SetActive(false);
+            mainMenuRoot.SetActive(
+                false);
         }
 
         if (passwordPanelRoot != null)
         {
-            passwordPanelRoot.SetActive(true);
+            passwordPanelRoot.SetActive(
+                true);
         }
 
         if (EventSystem.current != null)
         {
-            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(
+                null);
         }
 
         EnableMenuInput();
@@ -160,12 +190,14 @@ public sealed class PasswordMenuController : MonoBehaviour
 
         if (passwordPanelRoot != null)
         {
-            passwordPanelRoot.SetActive(false);
+            passwordPanelRoot.SetActive(
+                false);
         }
 
         if (mainMenuRoot != null)
         {
-            mainMenuRoot.SetActive(true);
+            mainMenuRoot.SetActive(
+                true);
         }
 
         if (EventSystem.current != null &&
@@ -202,8 +234,9 @@ public sealed class PasswordMenuController : MonoBehaviour
              index++)
         {
             PasswordTokenDefinition token =
-                bootstrap.LevelCodes.GetTokenAtWrappedIndex(
-                    selectedTokenIndices[index]);
+                bootstrap.LevelCodes
+                    .GetTokenAtWrappedIndex(
+                        selectedTokenIndices[index]);
 
             submittedTokenIds[index] =
                 token?.TokenId ??
@@ -215,14 +248,17 @@ public sealed class PasswordMenuController : MonoBehaviour
                 submittedTokenIds,
                 out string feedback);
 
-        SetStatus(feedback);
+        SetStatus(
+            feedback);
 
         if (!accepted)
             return;
 
         requestInProgress = true;
 
-        SetButtonsInteractable(false);
+        SetButtonsInteractable(
+            false);
+
         DisableMenuInput();
     }
 
@@ -276,14 +312,19 @@ public sealed class PasswordMenuController : MonoBehaviour
             return false;
         }
 
-        if (slots.Count == requiredSlotCount)
+        if (slots.Count ==
+            requiredSlotCount)
+        {
             return true;
+        }
 
-        foreach (PasswordSlotUI existingSlot in slots)
+        foreach (PasswordSlotUI existingSlot
+                 in slots)
         {
             if (existingSlot != null)
             {
-                Destroy(existingSlot.gameObject);
+                Destroy(
+                    existingSlot.gameObject);
             }
         }
 
@@ -304,7 +345,8 @@ public sealed class PasswordMenuController : MonoBehaviour
             newSlot.name =
                 $"PasswordSlot_{index + 1:00}";
 
-            slots.Add(newSlot);
+            slots.Add(
+                newSlot);
         }
 
         return true;
@@ -315,7 +357,8 @@ public sealed class PasswordMenuController : MonoBehaviour
         int requiredCount =
             bootstrap.LevelCodes.PasswordLength;
 
-        if (selectedTokenIndices.Length != requiredCount)
+        if (selectedTokenIndices.Length !=
+            requiredCount)
         {
             selectedTokenIndices =
                 new int[requiredCount];
@@ -325,16 +368,20 @@ public sealed class PasswordMenuController : MonoBehaviour
              index < selectedTokenIndices.Length;
              index++)
         {
-            selectedTokenIndices[index] = -1;
+            selectedTokenIndices[index] =
+                -1;
         }
 
         selectedSlotIndex = 0;
-        lastNavigationDirection = Vector2Int.zero;
+
+        lastNavigationDirection =
+            Vector2Int.zero;
     }
 
     private bool IsCodeComplete()
     {
-        foreach (int tokenIndex in selectedTokenIndices)
+        foreach (int tokenIndex
+                 in selectedTokenIndices)
         {
             if (tokenIndex < 0)
                 return false;
@@ -349,11 +396,13 @@ public sealed class PasswordMenuController : MonoBehaviour
              index < slots.Count;
              index++)
         {
-            RefreshSlot(index);
+            RefreshSlot(
+                index);
         }
     }
 
-    private void RefreshSlot(int slotIndex)
+    private void RefreshSlot(
+        int slotIndex)
     {
         if (slotIndex < 0 ||
             slotIndex >= slots.Count)
@@ -361,25 +410,36 @@ public sealed class PasswordMenuController : MonoBehaviour
             return;
         }
 
-        PasswordTokenDefinition token = null;
+        PasswordTokenDefinition token =
+            null;
 
-        if (selectedTokenIndices[slotIndex] >= 0)
+        if (selectedTokenIndices[slotIndex] >=
+            0)
         {
             token =
-                bootstrap.LevelCodes.GetTokenAtWrappedIndex(
-                    selectedTokenIndices[slotIndex]);
+                bootstrap
+                    .LevelCodes
+                    .GetTokenAtWrappedIndex(
+                        selectedTokenIndices[slotIndex]);
         }
 
-        slots[slotIndex].SetToken(token);
+        slots[slotIndex].SetToken(
+            token);
 
         slots[slotIndex].SetSelected(
-            slotIndex == selectedSlotIndex);
+            slotIndex ==
+            selectedSlotIndex);
     }
 
-    private void MoveSelection(int direction)
+    private void MoveSelection(
+        int direction,
+        bool playAudio = true)
     {
-        if (slots.Count == 0)
+        if (slots.Count == 0 ||
+            direction == 0)
+        {
             return;
+        }
 
         int previousIndex =
             selectedSlotIndex;
@@ -390,46 +450,67 @@ public sealed class PasswordMenuController : MonoBehaviour
              slots.Count) %
             slots.Count;
 
-        RefreshSlot(previousIndex);
-        RefreshSlot(selectedSlotIndex);
+        RefreshSlot(
+            previousIndex);
+
+        RefreshSlot(
+            selectedSlotIndex);
+
+        if (playAudio &&
+            previousIndex != selectedSlotIndex)
+        {
+            UIAudio?.PlayNavigate();
+        }
     }
 
-    private void CycleSelectedToken(int direction)
+    private void CycleSelectedToken(
+        int direction)
     {
         if (slots.Count == 0 ||
             bootstrap == null ||
-            bootstrap.LevelCodes == null)
+            bootstrap.LevelCodes == null ||
+            direction == 0)
         {
             return;
         }
 
         int tokenCount =
-            bootstrap.LevelCodes.TokenSet.Count;
+            bootstrap
+                .LevelCodes
+                .TokenSet
+                .Count;
 
         if (tokenCount == 0)
             return;
 
         int currentIndex =
-            selectedTokenIndices[selectedSlotIndex];
+            selectedTokenIndices[
+                selectedSlotIndex];
 
         if (currentIndex < 0)
         {
-            selectedTokenIndices[selectedSlotIndex] =
-                direction >= 0
-                    ? 0
-                    : tokenCount - 1;
+            selectedTokenIndices[
+                selectedSlotIndex] =
+                    direction >= 0
+                        ? 0
+                        : tokenCount - 1;
         }
         else
         {
-            currentIndex += direction;
+            currentIndex +=
+                direction;
 
-            selectedTokenIndices[selectedSlotIndex] =
-                ((currentIndex % tokenCount) +
-                 tokenCount) %
-                tokenCount;
+            selectedTokenIndices[
+                selectedSlotIndex] =
+                    ((currentIndex % tokenCount) +
+                     tokenCount) %
+                    tokenCount;
         }
 
-        RefreshSlot(selectedSlotIndex);
+        RefreshSlot(
+            selectedSlotIndex);
+
+        UIAudio?.PlayValueChanged();
     }
 
     private void HandleNavigationInput()
@@ -438,9 +519,11 @@ public sealed class PasswordMenuController : MonoBehaviour
             navigateAction.ReadValue<Vector2>();
 
         Vector2Int direction =
-            ToCardinalDirection(navigation);
+            ToCardinalDirection(
+                navigation);
 
-        if (direction == Vector2Int.zero)
+        if (direction ==
+            Vector2Int.zero)
         {
             lastNavigationDirection =
                 Vector2Int.zero;
@@ -449,7 +532,8 @@ public sealed class PasswordMenuController : MonoBehaviour
         }
 
         bool directionChanged =
-            direction != lastNavigationDirection;
+            direction !=
+            lastNavigationDirection;
 
         bool repeatReady =
             Time.unscaledTime >=
@@ -482,10 +566,12 @@ public sealed class PasswordMenuController : MonoBehaviour
                 : repeatRate);
     }
 
-    private static Vector2Int ToCardinalDirection(
-        Vector2 navigation)
+    private static Vector2Int
+        ToCardinalDirection(
+            Vector2 navigation)
     {
-        const float threshold = 0.5f;
+        const float threshold =
+            0.5f;
 
         if (navigation.sqrMagnitude <
             threshold * threshold)
@@ -497,16 +583,21 @@ public sealed class PasswordMenuController : MonoBehaviour
             Mathf.Abs(navigation.y))
         {
             return new Vector2Int(
-                navigation.x > 0f ? 1 : -1,
+                navigation.x > 0f
+                    ? 1
+                    : -1,
                 0);
         }
 
         return new Vector2Int(
             0,
-            navigation.y > 0f ? 1 : -1);
+            navigation.y > 0f
+                ? 1
+                : -1);
     }
 
-    private void HandleTextInput(char character)
+    private void HandleTextInput(
+        char character)
     {
         if (!menuOpen ||
             requestInProgress ||
@@ -517,7 +608,8 @@ public sealed class PasswordMenuController : MonoBehaviour
         }
 
         char normalizedCharacter =
-            char.ToUpperInvariant(character);
+            char.ToUpperInvariant(
+                character);
 
         if (normalizedCharacter < 'A' ||
             normalizedCharacter > 'Z')
@@ -529,17 +621,28 @@ public sealed class PasswordMenuController : MonoBehaviour
             normalizedCharacter.ToString();
 
         int tokenIndex =
-            bootstrap.LevelCodes.GetTokenIndex(
-                tokenId);
+            bootstrap
+                .LevelCodes
+                .GetTokenIndex(
+                    tokenId);
 
         if (tokenIndex < 0)
             return;
 
-        selectedTokenIndices[selectedSlotIndex] =
-            tokenIndex;
+        selectedTokenIndices[
+            selectedSlotIndex] =
+                tokenIndex;
 
-        RefreshSlot(selectedSlotIndex);
-        MoveSelection(1);
+        RefreshSlot(
+            selectedSlotIndex);
+
+        UIAudio?.PlayValueChanged();
+
+        // Typing already played one cue, so advance
+        // without adding a second navigation cue.
+        MoveSelection(
+            1,
+            playAudio: false);
     }
 
     private void BuildInputActions()
@@ -550,11 +653,20 @@ public sealed class PasswordMenuController : MonoBehaviour
                 InputActionType.Value);
 
         navigateAction
-            .AddCompositeBinding("2DVector")
-            .With("Up", "<Keyboard>/upArrow")
-            .With("Down", "<Keyboard>/downArrow")
-            .With("Left", "<Keyboard>/leftArrow")
-            .With("Right", "<Keyboard>/rightArrow");
+            .AddCompositeBinding(
+                "2DVector")
+            .With(
+                "Up",
+                "<Keyboard>/upArrow")
+            .With(
+                "Down",
+                "<Keyboard>/downArrow")
+            .With(
+                "Left",
+                "<Keyboard>/leftArrow")
+            .With(
+                "Right",
+                "<Keyboard>/rightArrow");
 
         navigateAction.AddBinding(
             "<Gamepad>/dpad");
@@ -636,7 +748,8 @@ public sealed class PasswordMenuController : MonoBehaviour
             subscribedKeyboard.onTextInput -=
                 HandleTextInput;
 
-            subscribedKeyboard = null;
+            subscribedKeyboard =
+                null;
         }
 
         inputEnabled = false;
@@ -684,7 +797,8 @@ public sealed class PasswordMenuController : MonoBehaviour
         }
     }
 
-    private void SetButtonsInteractable(bool interactable)
+    private void SetButtonsInteractable(
+        bool interactable)
     {
         if (submitButton != null)
         {
@@ -705,7 +819,8 @@ public sealed class PasswordMenuController : MonoBehaviour
         }
     }
 
-    private void SetStatus(string message)
+    private void SetStatus(
+        string message)
     {
         if (statusText != null)
         {

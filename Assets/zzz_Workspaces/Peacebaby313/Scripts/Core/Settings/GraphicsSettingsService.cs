@@ -57,8 +57,8 @@ public sealed class GraphicsSettingsService
         settingsService.OnSettingsLoaded +=
             HandleSettingsLoaded;
 
-        settingsService.OnSettingsChanged +=
-            HandleSettingsChanged;
+        settingsService.OnGraphicsSettingsChanged +=
+            HandleGraphicsSettingsChanged;
 
         IsInitialized = true;
 
@@ -308,6 +308,16 @@ public sealed class GraphicsSettingsService
 
         Apply(
             settingsData.Graphics,
+            allowFullscreenTransition: true);
+    }
+    private void HandleGraphicsSettingsChanged(
+    GraphicsSettingsData graphicsData)
+    {
+        if (graphicsData == null)
+            return;
+
+        Apply(
+            graphicsData,
             allowFullscreenTransition: true);
     }
 

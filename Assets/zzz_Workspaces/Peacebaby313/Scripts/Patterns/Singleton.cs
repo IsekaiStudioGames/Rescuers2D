@@ -24,7 +24,8 @@ public abstract class Singleton<T> : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
+        Instance = currentInstance;
         if (transform.parent != null)
         {
             Debug.LogWarning(
@@ -33,7 +34,6 @@ public abstract class Singleton<T> : MonoBehaviour
 
 
         }
-        Instance = currentInstance;
         DontDestroyOnLoad(gameObject);
     }
 

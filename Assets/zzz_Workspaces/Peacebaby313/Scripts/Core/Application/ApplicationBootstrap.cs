@@ -6,6 +6,7 @@ using UnityEngine;
 
 [DefaultExecutionOrder(-1000)]
 [RequireComponent(typeof(SceneLoadService))]
+[RequireComponent(typeof(AudioSource))]
 public sealed class ApplicationBootstrap
     : Singleton<ApplicationBootstrap>
 {
@@ -26,7 +27,20 @@ public sealed class ApplicationBootstrap
     private string settingsFileName =
         "rescuers2d_settings.json";
 
-    [Header("Runtime Services")]
+    [Header("Audio Configuration")]
+    [SerializeField]
+    private AudioMixerConfigurationData
+        audioMixerConfiguration;
+
+    [SerializeField]
+    private UIAudioProfileData
+        uiAudioProfile;
+
+    [SerializeField]
+    private AudioSource
+        uiAudioSource;
+
+    [Header("Runtime Components")]
     [SerializeField]
     private SceneLoadService sceneLoadService;
 
@@ -50,6 +64,22 @@ public sealed class ApplicationBootstrap
         get;
         private set;
     }
+
+    public AudioSettingsService AudioService
+    {
+        get;
+        private set;
+    }
+
+    public UIAudioService UIAudio
+    {
+        get;
+        private set;
+    }
+
+    public AudioMixerConfigurationData
+        AudioMixerConfiguration =>
+            audioMixerConfiguration;
 
     public bool IsInitialized
     {
@@ -81,11 +111,22 @@ public sealed class ApplicationBootstrap
         if (!IsSingletonInstance)
             return;
 
-        ResolveServices();
+        ResolveComponents();
         InitializeServices();
     }
 
-    private void ResolveServices()
+    private void Start()
+    {
+        if (!IsSingletonInstance ||
+            !IsInitialized)
+        {
+            return;
+        }
+
+        AudioService?.ApplyCurrentSettings();
+    }
+
+    private void ResolveComponents()
     {
         if (sceneLoadService == null)
         {
@@ -93,10 +134,22 @@ public sealed class ApplicationBootstrap
                 GetComponent<SceneLoadService>();
         }
 
+        if (uiAudioSource == null)
+        {
+            uiAudioSource =
+                GetComponent<AudioSource>();
+        }
+
         if (sceneLoadService == null)
         {
             Debug.LogError(
                 "[BOOTSTRAP] SceneLoadService is missing.");
+        }
+
+        if (uiAudioSource == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] UI AudioSource is missing.");
         }
     }
 
@@ -132,10 +185,40 @@ public sealed class ApplicationBootstrap
 
         GraphicsService.Initialize();
 
+        AudioService =
+            new AudioSettingsService(
+                SettingsService,
+                audioMixerConfiguration);
+
+        AudioService.Initialize();
+
+        UIAudio =
+            new UIAudioService(
+                uiAudioSource,
+                uiAudioProfile);
+
+        UIAudio.Initialize();
+
         if (!GraphicsService.IsInitialized)
         {
             Debug.LogError(
                 "[BOOTSTRAP] Graphics service initialization failed.");
+
+            return;
+        }
+
+        if (!AudioService.IsInitialized)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] Audio service initialization failed.");
+
+            return;
+        }
+
+        if (!UIAudio.IsInitialized)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] UI Audio service initialization failed.");
 
             return;
         }
@@ -150,7 +233,8 @@ public sealed class ApplicationBootstrap
             return;
         }
 
-        IsInitialized = true;
+        IsInitialized =
+            true;
 
         Debug.Log(
             "[BOOTSTRAP] Application services initialized.");
@@ -160,14 +244,16 @@ public sealed class ApplicationBootstrap
 
     private bool ValidateConfiguration()
     {
-        bool valid = true;
+        bool valid =
+            true;
 
         if (sceneLoadService == null)
         {
             Debug.LogError(
                 "[BOOTSTRAP] SceneLoadService is missing.");
 
-            valid = false;
+            valid =
+                false;
         }
 
         if (levelCodeCatalog == null)
@@ -175,7 +261,8 @@ public sealed class ApplicationBootstrap
             Debug.LogError(
                 "[BOOTSTRAP] LevelCodeCatalogData is missing.");
 
-            valid = false;
+            valid =
+                false;
         }
 
         if (passwordTokenSet == null)
@@ -183,7 +270,8 @@ public sealed class ApplicationBootstrap
             Debug.LogError(
                 "[BOOTSTRAP] PasswordTokenSetData is missing.");
 
-            valid = false;
+            valid =
+                false;
         }
 
         if (settingsDefaults == null)
@@ -191,7 +279,37 @@ public sealed class ApplicationBootstrap
             Debug.LogError(
                 "[BOOTSTRAP] SettingsDefaultsData is missing.");
 
-            valid = false;
+            valid =
+                false;
+        }
+
+        if (audioMixerConfiguration == null ||
+            !audioMixerConfiguration.IsConfigured)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] AudioMixerConfigurationData " +
+                "is missing or invalid.");
+
+            valid =
+                false;
+        }
+
+        if (uiAudioProfile == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] UIAudioProfileData is missing.");
+
+            valid =
+                false;
+        }
+
+        if (uiAudioSource == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] UI AudioSource is missing.");
+
+            valid =
+                false;
         }
 
         return valid;
@@ -221,7 +339,8 @@ public sealed class ApplicationBootstrap
             return false;
         }
 
-        if (!CanLoadScene(firstLevel.SceneName))
+        if (!CanLoadScene(
+                firstLevel.SceneName))
         {
             feedback =
                 $"Level '{firstLevel.DisplayName}' " +
@@ -265,7 +384,8 @@ public sealed class ApplicationBootstrap
             return false;
         }
 
-        if (!CanLoadScene(matchingLevel.SceneName))
+        if (!CanLoadScene(
+                matchingLevel.SceneName))
         {
             feedback =
                 $"Password recognized, but " +
@@ -287,7 +407,8 @@ public sealed class ApplicationBootstrap
         string currentSceneName,
         out LevelCodeEntry nextLevel)
     {
-        nextLevel = null;
+        nextLevel =
+            null;
 
         return IsInitialized &&
                LevelCodes != null &&
@@ -311,7 +432,8 @@ public sealed class ApplicationBootstrap
             return false;
         }
 
-        if (!CanLoadScene(sceneName))
+        if (!CanLoadScene(
+                sceneName))
         {
             feedback =
                 $"Scene '{sceneName}' is unavailable.";
@@ -328,9 +450,11 @@ public sealed class ApplicationBootstrap
         return true;
     }
 
-    private bool CanLoadScene(string sceneName)
+    private bool CanLoadScene(
+        string sceneName)
     {
-        if (string.IsNullOrWhiteSpace(sceneName))
+        if (string.IsNullOrWhiteSpace(
+                sceneName))
         {
             Debug.LogError(
                 "[BOOTSTRAP] Requested scene name is empty.");
@@ -338,7 +462,8 @@ public sealed class ApplicationBootstrap
             return false;
         }
 
-        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        if (!Application.CanStreamedLevelBeLoaded(
+                sceneName))
         {
             Debug.LogError(
                 $"[BOOTSTRAP] Scene '{sceneName}' is not enabled " +
@@ -350,60 +475,37 @@ public sealed class ApplicationBootstrap
         return true;
     }
 
+    [ContextMenu("Debug/Apply Current Audio Settings")]
+    private void DebugApplyCurrentAudioSettings()
+    {
+        AudioService?.ApplyCurrentSettings();
+    }
+
     [ContextMenu("Debug/Apply Current Graphics Settings")]
     private void DebugApplyCurrentGraphicsSettings()
     {
-        if (GraphicsService == null)
-        {
-            Debug.LogWarning(
-                "[BOOTSTRAP] GraphicsService is unavailable.");
-
-            return;
-        }
-
-        GraphicsService.ApplyCurrentSettings(
+        GraphicsService?.ApplyCurrentSettings(
             allowFullscreenTransition: true);
     }
 
     [ContextMenu("Debug/Reset Settings To Defaults")]
     private void DebugResetSettingsToDefaults()
     {
-        if (SettingsService == null)
-        {
-            Debug.LogWarning(
-                "[BOOTSTRAP] SettingsService is unavailable.");
-
-            return;
-        }
-
-        SettingsService.ResetToDefaults(
+        SettingsService?.ResetToDefaults(
             saveImmediately: true);
     }
 
     [ContextMenu("Debug/Delete Settings File")]
     private void DebugDeleteSettingsFile()
     {
-        if (SettingsService == null)
-        {
-            Debug.LogWarning(
-                "[BOOTSTRAP] SettingsService is unavailable.");
-
-            return;
-        }
-
-        SettingsService.DeleteSettingsFileAndReset();
+        SettingsService?.DeleteSettingsFileAndReset();
     }
 
     [ContextMenu("Debug/Log Settings File Path")]
     private void DebugLogSettingsFilePath()
     {
         if (SettingsService == null)
-        {
-            Debug.LogWarning(
-                "[BOOTSTRAP] SettingsService is unavailable.");
-
             return;
-        }
 
         Debug.Log(
             $"[BOOTSTRAP] Settings file path:\n" +
@@ -415,6 +517,7 @@ public sealed class ApplicationBootstrap
         if (IsSingletonInstance)
         {
             GraphicsService?.Dispose();
+            AudioService?.Dispose();
         }
 
         base.OnDestroy();

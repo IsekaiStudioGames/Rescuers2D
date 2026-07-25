@@ -15,7 +15,7 @@ MonoBehaviour:
   passwordLength: 8
   levels:
   - missionId: R2D-TEMP-01_level_one
-    sceneName: 03_LevelOne
+    sceneName: 02_TestLevel1
     displayName: Level One
     levelOrder: 0
     temporaryLetterCode: FIRSTLVL
