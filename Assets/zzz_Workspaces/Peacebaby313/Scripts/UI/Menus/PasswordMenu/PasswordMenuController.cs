@@ -11,6 +11,11 @@ using UnityEngine.UI;
 public sealed class PasswordMenuController
     : MonoBehaviour
 {
+    [Header("Menu System")]
+    [SerializeField]
+    private MenuSystemPresenter
+        menuSystemPresenter;
+
     [Header("Menu Roots")]
     [SerializeField]
     private GameObject mainMenuRoot;
@@ -148,8 +153,11 @@ public sealed class PasswordMenuController
 
         ResetTokenSelections();
 
-        requestInProgress = false;
-        menuOpen = true;
+        requestInProgress =
+            false;
+
+        menuOpen =
+            true;
 
         if (mainMenuRoot != null)
         {
@@ -170,7 +178,9 @@ public sealed class PasswordMenuController
         }
 
         EnableMenuInput();
-        SetButtonsInteractable(true);
+
+        SetButtonsInteractable(
+            true);
 
         SetStatus(
             "Enter the eight-token level password.");
@@ -183,8 +193,11 @@ public sealed class PasswordMenuController
         if (!menuOpen)
             return;
 
-        menuOpen = false;
-        requestInProgress = false;
+        menuOpen =
+            false;
+
+        requestInProgress =
+            false;
 
         DisableMenuInput();
 
@@ -227,7 +240,8 @@ public sealed class PasswordMenuController
         }
 
         string[] submittedTokenIds =
-            new string[selectedTokenIndices.Length];
+            new string[
+                selectedTokenIndices.Length];
 
         for (int index = 0;
              index < selectedTokenIndices.Length;
@@ -254,12 +268,16 @@ public sealed class PasswordMenuController
         if (!accepted)
             return;
 
-        requestInProgress = true;
+        requestInProgress =
+            true;
 
         SetButtonsInteractable(
             false);
 
         DisableMenuInput();
+
+        menuSystemPresenter
+            ?.PrepareForSceneTransition();
     }
 
     public void ClearCode()
@@ -331,7 +349,8 @@ public sealed class PasswordMenuController
         slots.Clear();
 
         selectedTokenIndices =
-            new int[requiredSlotCount];
+            new int[
+                requiredSlotCount];
 
         for (int index = 0;
              index < requiredSlotCount;
@@ -361,7 +380,8 @@ public sealed class PasswordMenuController
             requiredCount)
         {
             selectedTokenIndices =
-                new int[requiredCount];
+                new int[
+                    requiredCount];
         }
 
         for (int index = 0;
@@ -372,7 +392,8 @@ public sealed class PasswordMenuController
                 -1;
         }
 
-        selectedSlotIndex = 0;
+        selectedSlotIndex =
+            0;
 
         lastNavigationDirection =
             Vector2Int.zero;
@@ -417,10 +438,10 @@ public sealed class PasswordMenuController
             0)
         {
             token =
-                bootstrap
-                    .LevelCodes
+                bootstrap.LevelCodes
                     .GetTokenAtWrappedIndex(
-                        selectedTokenIndices[slotIndex]);
+                        selectedTokenIndices[
+                            slotIndex]);
         }
 
         slots[slotIndex].SetToken(
@@ -475,8 +496,7 @@ public sealed class PasswordMenuController
         }
 
         int tokenCount =
-            bootstrap
-                .LevelCodes
+            bootstrap.LevelCodes
                 .TokenSet
                 .Count;
 
@@ -621,8 +641,7 @@ public sealed class PasswordMenuController
             normalizedCharacter.ToString();
 
         int tokenIndex =
-            bootstrap
-                .LevelCodes
+            bootstrap.LevelCodes
                 .GetTokenIndex(
                     tokenId);
 
@@ -638,8 +657,6 @@ public sealed class PasswordMenuController
 
         UIAudio?.PlayValueChanged();
 
-        // Typing already played one cue, so advance
-        // without adding a second navigation cue.
         MoveSelection(
             1,
             playAudio: false);
@@ -730,7 +747,8 @@ public sealed class PasswordMenuController
                 HandleTextInput;
         }
 
-        inputEnabled = true;
+        inputEnabled =
+            true;
     }
 
     private void DisableMenuInput()
@@ -752,7 +770,8 @@ public sealed class PasswordMenuController
                 null;
         }
 
-        inputEnabled = false;
+        inputEnabled =
+            false;
     }
 
     private void AddButtonListeners()

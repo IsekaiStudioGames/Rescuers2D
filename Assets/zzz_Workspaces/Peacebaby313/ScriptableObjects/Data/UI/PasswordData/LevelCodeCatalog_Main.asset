@@ -14,8 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelCodeCatalogData
   passwordLength: 8
   levels:
-  - missionId: R2D-TEMP-01_level_one
+  - missionId: R2D-TEMP-02_TestLevel1
     sceneName: 02_TestLevel1
+    displayName: Level One
+    levelOrder: 0
+    temporaryLetterCode: FIRSTLVL
+    passwordTokenIds:
+    - F
+    - I
+    - R
+    - S
+    - T
+    - L
+    - V
+    - L
+  - missionId: R2D-TEMP-03_TestLevel2
+    sceneName: 03_TestLevel2
+    displayName: SNDLEVEL
+    levelOrder: 1
+    temporaryLetterCode: SNDLEVEL
+    passwordTokenIds:
+    - S
+    - N
+    - D
+    - L
+    - E
+    - V
+    - E
+    - L
+  - missionId: R2D-TEMP_04_TestLevel4
+    sceneName: 04_TestLevel3
+    displayName: Level Three
+    levelOrder: 2
+    temporaryLetterCode: THIRDLVL
+    passwordTokenIds:
+    - T
+    - H
+    - I
+    - R
+    - D
+    - L
+    - V
+    - L
+  - missionId: R2D-TEMP_03_TestLevel2
+    sceneName: 03_TestLevel2
     displayName: Level One
     levelOrder: 0
     temporaryLetterCode: FIRSTLVL

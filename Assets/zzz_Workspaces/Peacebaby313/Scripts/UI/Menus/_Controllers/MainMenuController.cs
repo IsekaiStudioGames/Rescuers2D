@@ -10,25 +10,38 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-public sealed class MainMenuController : MonoBehaviour
+public sealed class MainMenuController
+    : MonoBehaviour
 {
+    [Header("Menu System")]
+    [SerializeField]
+    private MenuSystemPresenter
+        menuSystemPresenter;
+
     [Header("Buttons")]
-    [SerializeField] private Button newGameButton;
-    [SerializeField] private Button passwordButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button quitButton;
+    [SerializeField]
+    private Button newGameButton;
 
+    [SerializeField]
+    private Button passwordButton;
 
+    [SerializeField]
+    private Button settingsButton;
+
+    [SerializeField]
+    private Button quitButton;
 
     [Header("Submenus")]
     [SerializeField]
-    private PasswordMenuController passwordMenuController;
-    
-    [SerializeField] 
-    private SettingsMenuController settingsMenuController;
+    private PasswordMenuController
+        passwordMenuController;
+
+    [SerializeField]
+    private SettingsMenuController
+        settingsMenuController;
 
     [Header("Optional Feedback")]
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text statusText;
 
     [Header("Initialization")]
@@ -36,17 +49,21 @@ public sealed class MainMenuController : MonoBehaviour
     private float bootstrapWaitTimeout = 5f;
 
     private ApplicationBootstrap bootstrap;
+
     private bool menuReady;
+    private bool transitionInProgress;
 
     private void Awake()
     {
         AddButtonListeners();
-        SetButtonsInteractable(false);
+        SetButtonsInteractable(
+            false);
     }
 
     private IEnumerator Start()
     {
-        yield return WaitForBootstrap();
+        yield return
+            WaitForBootstrap();
 
         if (bootstrap == null)
         {
@@ -59,14 +76,19 @@ public sealed class MainMenuController : MonoBehaviour
             yield break;
         }
 
-        menuReady = true;
+        menuReady =
+            true;
+
+        transitionInProgress =
+            false;
 
         RefreshMenuState();
     }
 
     private IEnumerator WaitForBootstrap()
     {
-        float elapsedTime = 0f;
+        float elapsedTime =
+            0f;
 
         while (ApplicationBootstrap.Instance == null &&
                elapsedTime < bootstrapWaitTimeout)
@@ -81,7 +103,173 @@ public sealed class MainMenuController : MonoBehaviour
             ApplicationBootstrap.Instance;
     }
 
- private void AddButtonListeners()
+    public void StartNewGame()
+    {
+        if (!CanAcceptRequest())
+            return;
+
+        bool accepted =
+            bootstrap.TryStartNewGame(
+                out string feedback);
+
+        SetStatus(
+            feedback);
+
+        if (!accepted)
+        {
+            RefreshMenuState();
+            return;
+        }
+
+        BeginSceneTransition();
+    }
+
+    public void OpenPasswordMenu()
+    {
+        if (!CanAcceptRequest())
+            return;
+
+        if (passwordMenuController == null)
+        {
+            SetStatus(
+                "Password menu is unavailable.");
+
+            return;
+        }
+
+        passwordMenuController.OpenMenu();
+    }
+
+    public void OpenSettingsMenu()
+    {
+        if (!CanAcceptRequest())
+            return;
+
+        if (settingsMenuController == null)
+        {
+            SetStatus(
+                "Settings menu is unavailable.");
+
+            return;
+        }
+
+        settingsMenuController.OpenMenu();
+    }
+
+    public void QuitGame()
+    {
+        if (transitionInProgress)
+            return;
+
+        transitionInProgress =
+            true;
+
+        SetButtonsInteractable(
+            false);
+
+        SetStatus(
+            "Exiting Rescuers2D...");
+
+        menuSystemPresenter
+            ?.PrepareForSceneTransition();
+
+#if UNITY_EDITOR
+        EditorApplication.isPlaying =
+            false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    public void RefreshMenuState()
+    {
+        if (bootstrap == null ||
+            !bootstrap.IsInitialized)
+        {
+            SetButtonsInteractable(
+                false);
+
+            SetStatus(
+                "Initializing...");
+
+            return;
+        }
+
+        bool passwordsReady =
+            bootstrap.LevelCodes != null &&
+            bootstrap.LevelCodes.IsReady;
+
+        if (newGameButton != null)
+        {
+            newGameButton.interactable =
+                bootstrap.CanStartNewGame;
+        }
+
+        if (passwordButton != null)
+        {
+            passwordButton.interactable =
+                passwordsReady;
+        }
+
+        if (settingsButton != null)
+        {
+            settingsButton.interactable =
+                bootstrap.SettingsService != null &&
+                bootstrap.SettingsService.IsInitialized;
+        }
+
+        if (quitButton != null)
+        {
+            quitButton.interactable =
+                true;
+        }
+
+        if (!passwordsReady)
+        {
+            SetStatus(
+                "Level password data is unavailable.");
+
+            return;
+        }
+
+        if (!bootstrap.CanStartNewGame)
+        {
+            SetStatus(
+                "The first level is unavailable in this build.");
+
+            return;
+        }
+
+        SetStatus(
+            "Start a new game, enter a password, " +
+            "or adjust settings.");
+    }
+
+    private bool CanAcceptRequest()
+    {
+        return
+            menuReady &&
+            !transitionInProgress &&
+            bootstrap != null &&
+            bootstrap.IsInitialized;
+    }
+
+    private void BeginSceneTransition()
+    {
+        transitionInProgress =
+            true;
+
+        menuReady =
+            false;
+
+        SetButtonsInteractable(
+            false);
+
+        menuSystemPresenter
+            ?.PrepareForSceneTransition();
+    }
+
+    private void AddButtonListeners()
     {
         AddListener(
             newGameButton,
@@ -119,7 +307,7 @@ public sealed class MainMenuController : MonoBehaviour
             QuitGame);
     }
 
-    private void AddListener(
+    private static void AddListener(
         Button button,
         UnityAction action)
     {
@@ -130,7 +318,7 @@ public sealed class MainMenuController : MonoBehaviour
         }
     }
 
-    private void RemoveListener(
+    private static void RemoveListener(
         Button button,
         UnityAction action)
     {
@@ -139,140 +327,6 @@ public sealed class MainMenuController : MonoBehaviour
             button.onClick.RemoveListener(
                 action);
         }
-    }
-
-    public void StartNewGame()
-    {
-        if (!menuReady ||
-            bootstrap == null)
-        {
-            return;
-        }
-
-        bool accepted =
-            bootstrap.TryStartNewGame(
-                out string feedback);
-
-        SetStatus(feedback);
-
-        if (!accepted)
-        {
-            RefreshMenuState();
-            return;
-        }
-
-        menuReady = false;
-
-        SetButtonsInteractable(false);
-    }
-
-    public void OpenPasswordMenu()
-    {
-        if (!menuReady ||
-            passwordMenuController == null)
-        {
-            return;
-        }
-
-        passwordMenuController.OpenMenu();
-    }
-
-    public void OpenSettingsMenu()
-    {
-        if (!menuReady ||
-            settingsMenuController == null)
-        {
-            return;
-        }
-        settingsMenuController.OpenMenu();
-    }
-
-    public void QuitGame()
-    {
-        SetButtonsInteractable(false);
-
-        SetStatus(
-            "Exiting Rescuers2D...");
-
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
-    public void RefreshMenuState()
-    {
-        if (bootstrap == null ||
-            !bootstrap.IsInitialized)
-        {
-            SetButtonsInteractable(false);
-
-            SetStatus(
-                "Initializing...");
-
-            return;
-        }
-
-        bool passwordsReady =
-            bootstrap.LevelCodes != null &&
-            bootstrap.LevelCodes.IsReady;
-
-        bool settingsReady =
-            bootstrap.SettingsService != null &&
-            bootstrap.SettingsService.IsInitialized;
-
-        if (newGameButton != null)
-        {
-            newGameButton.interactable =
-                  bootstrap.CanStartNewGame;
-        }
-
-        if (passwordButton != null)
-        {
-            passwordButton.interactable =
-                passwordsReady;
-        }
-
-
-        if (settingsButton != null)
-        {
-            settingsButton.interactable =
-                settingsReady;
-        }
-
-        if (quitButton != null)
-        {
-            quitButton.interactable =
-                true;
-        }
-
-        if (!passwordsReady)
-        {
-            SetStatus(
-                "Level password data is unavailable.");
-
-            return;
-        }
-
-        if (!settingsReady)
-        {
-            SetStatus(
-                "Settings services are unavailable.");
-
-            return;
-        }
-
-        if (!bootstrap.CanStartNewGame)
-        {
-            SetStatus(
-                "The first level is unavailable in this build.");
-
-            return;
-        }
-
-        SetStatus(
-            "Start a new game or enter a level password.");
     }
 
     private void SetButtonsInteractable(
@@ -303,7 +357,8 @@ public sealed class MainMenuController : MonoBehaviour
         }
     }
 
-    private void SetStatus(string message)
+    private void SetStatus(
+        string message)
     {
         if (statusText != null)
         {
