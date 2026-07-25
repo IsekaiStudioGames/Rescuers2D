@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.eKey.isPressed)
             NextCharacter();
 
-        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        if (Keyboard.current.pKey.wasPressedThisFrame)
             PauseGame();
     }
 

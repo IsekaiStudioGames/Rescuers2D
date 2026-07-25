@@ -5,17 +5,18 @@ using UnityEngine;
 public abstract class Singleton<T> : MonoBehaviour
     where T : Singleton<T>
 {
-    public static T Instance { get; private set; }
+    private static T instance;
+    public static T Instance { get { return instance; } }
 
     protected bool IsSingletonInstance =>
-        Instance == this;
+        instance == this;
 
     protected virtual void Awake()
     {
         T currentInstance = (T)this;
 
-        if (Instance != null &&
-            Instance != currentInstance)
+        if (instance != null &&
+            instance != currentInstance)
         {
             Debug.LogWarning(
                 $"[SINGLETON] Duplicate {typeof(T).Name} found on '{gameObject.name}'. " +
@@ -25,7 +26,7 @@ public abstract class Singleton<T> : MonoBehaviour
             return;
         }
 
-        Instance = currentInstance;
+        instance = currentInstance;
         if (transform.parent != null)
         {
             Debug.LogWarning(
@@ -39,9 +40,9 @@ public abstract class Singleton<T> : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (Instance == this)
+        if (instance == this)
         {
-            Instance = null;
+            instance = null;
         }
     }
 }
