@@ -132,8 +132,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -8.210413, y: 5.3763976}
-  - {x: 8.210413, y: 5.3763976}
+  - {x: -8.1, y: 2.286313}
+  - {x: 8.1, y: 2.286313}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -166,18 +166,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28496a592ac138e44babf94aeb9bc762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableWater
-  sprteConstant: 1.4
+  sprteConstant: 12.17
   damping: 1.1
-  spread: 0.1
-  speedMultiplier: 5.5
+  spread: 0.09190615
+  speedMultiplier: 5.785558
   wavePropogationIterations: 5
-  ForceMultiplier: 0.2
+  ForceMultiplier: 3.91
   MaxForce: 5
-  playerCollisionRadiusMiltiplier: 4.15
-  width: 16.420826
-  height: 10.752795
+  playerCollisionRadiusMiltiplier: 4.491504
+  width: 16.2
+  height: 4.572626
   waterMat: {fileID: 2100000, guid: 9d23236d73f3eaf4db5ab556ab2abe5b, type: 2}
-  numOfVertices: 70
+  numOfVertices: 31
   GizmoColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!50 &426609006311846483
 Rigidbody2D:
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8162687655405857908}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -214,8 +214,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8162687655405857908}
   m_Enabled: 1
-  m_SortingLayerID: -1703060743
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -50
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0

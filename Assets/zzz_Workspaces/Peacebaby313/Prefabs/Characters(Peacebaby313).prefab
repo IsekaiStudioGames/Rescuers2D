@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1589062686803427611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.8, y: -2.4, z: 0}
+  m_LocalPosition: {x: 77, y: 17.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -310,7 +310,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4372570011972258709}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -337,7 +337,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.091026425, y: 0.66346735}
+  m_Offset: {x: 0.091026425, y: 0.51900864}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -347,7 +347,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.81231, y: 1.5629195}
+  m_Size: {x: 2.81231, y: 2.317833}
   m_EdgeRadius: 0
 --- !u!114 &4130081315430497047
 MonoBehaviour:
@@ -364,9 +364,12 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  destructionDamageType: 0
+  destructionDamage: 1
+  tileHitInset: 0.02
   destroyDebris: 1
   debrisTag: Debris
-  damageCollider: {fileID: 0}
+  damageCollider: {fileID: 7739711123868678617}
 --- !u!1 &4909513489351993462
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +548,7 @@ MonoBehaviour:
   firefighter: {fileID: 7783580327334670301}
   rescueSpecialist: {fileID: 2987534032725723478}
   riotOfficer: {fileID: 8732704911431082241}
+  characterCamera: {fileID: 0}
 --- !u!1 &6681697613466695405
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 7359121479601376465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalPosition: {x: 60, y: 30.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -904,7 +908,7 @@ Transform:
   m_GameObject: {fileID: 8502482356764007042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -2.5, z: 0}
+  m_LocalPosition: {x: 33.53, y: 34.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

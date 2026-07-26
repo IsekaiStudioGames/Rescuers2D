@@ -74,7 +74,7 @@ MonoBehaviour:
   blockingCollider: {fileID: 4250980141608573482}
   requiredItemId: key_01
   requiredQuantity: 1
-  keyOwner: 2
+  keyOwner: 0
   consumeKeyWhenOpened: 1
   feedbackPresenter: {fileID: 0}
   currentState: 0
@@ -167,8 +167,9 @@ GameObject:
   - component: {fileID: 1167274911957289290}
   - component: {fileID: 3768495889396361012}
   - component: {fileID: 1133359288351613472}
+  - component: {fileID: 1187400028316478788}
   m_Layer: 0
-  m_Name: LockedDoor
+  m_Name: LockedDoor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +237,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 289144848352645085, guid: 04f071b7dde12aa46a96910f85001a49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -270,6 +271,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1187400028316478788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658822505568982825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86d3effce6fa6b4f92a8aff98cc967a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LockedDoorAnimationRelay2D
+  lockedDoor: {fileID: 0}
 --- !u!1 &8769651969911512917
 GameObject:
   m_ObjectHideFlags: 0

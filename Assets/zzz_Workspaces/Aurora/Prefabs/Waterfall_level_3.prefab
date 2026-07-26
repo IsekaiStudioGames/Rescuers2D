@@ -31,10 +31,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6884572554672339780}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7050192, w: 0.70918834}
+  m_LocalRotation: {x: 0, y: 0, z: 0.70501804, w: 0.70918936}
   m_LocalPosition: {x: 51.9996, y: 2.1135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.662}
@@ -132,8 +132,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.576541, y: 2.4684465}
-  - {x: 6.576541, y: 2.4684465}
+  - {x: -7.8918495, y: 2.9621358}
+  - {x: 7.8918495, y: 2.9621358}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -174,8 +174,8 @@ MonoBehaviour:
   ForceMultiplier: 0
   MaxForce: 1
   playerCollisionRadiusMiltiplier: 1
-  width: 13.153082
-  height: 4.936893
+  width: 15.783699
+  height: 5.9242716
   waterMat: {fileID: 2100000, guid: 22e939a88f1322048ae71c7838d3d6e8, type: 2}
   numOfVertices: 70
   GizmoColor: {r: 1, g: 1, b: 1, a: 1}
