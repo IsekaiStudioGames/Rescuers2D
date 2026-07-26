@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901031787992614683}
   - component: {fileID: 4495684242599322196}
+  - component: {fileID: 1885823157654059209}
   m_Layer: 0
   m_Name: InventoryGridRoot
   m_TagString: Untagged
@@ -146,6 +147,20 @@ MonoBehaviour:
   inventoryElementPrefab: {fileID: 5632185057337645539, guid: ddbf76ab0c85bbf43b969b4d94f59bd7, type: 3}
   rescuerCount: 3
   slotsPerRescuer: 4
+--- !u!114 &1885823157654059209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245657403867368133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acef09094b142c54ab20bc39fc305094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryHUDController
+  teamInventory: {fileID: 0}
+  inventoryGridController: {fileID: 4495684242599322196}
 --- !u!1 &4413388283333345596
 GameObject:
   m_ObjectHideFlags: 0

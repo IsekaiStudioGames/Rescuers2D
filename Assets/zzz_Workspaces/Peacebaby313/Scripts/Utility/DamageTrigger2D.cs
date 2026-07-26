@@ -4,7 +4,7 @@ using UnityEngine;
 public class DamageTrigger2D : MonoBehaviour
 {
     [Header("Damage")]
-    [SerializeField] private int damage = 1;
+    //[SerializeField] private int damage = 1;
     [SerializeField] private LayerMask targetLayers = ~0;
 
     [Header("Temporary Debris Support")]
