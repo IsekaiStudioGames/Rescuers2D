@@ -270,6 +270,90 @@ public sealed class TeamInventory : MonoBehaviour
             InitializeSlots();
         }
     }
+
+    public bool ContainsItem(
+    string itemId,
+    int quantity,
+    RescuerInventoryOwner owner)
+    {
+        if (string.IsNullOrWhiteSpace(itemId) ||
+            quantity <= 0)
+        {
+            return false;
+        }
+
+        EnsureInitialized();
+
+        if (!TryGetOwnerRange(
+                owner,
+                out int startIndex,
+                out int endIndex))
+        {
+            return false;
+        }
+
+        int foundQuantity = 0;
+
+        for (int index = startIndex;
+             index < endIndex;
+             index++)
+        {
+            InventorySlot slot = slots[index];
+
+            if (slot.IsEmpty ||
+                slot.Item.ItemId != itemId)
+            {
+                continue;
+            }
+
+            foundQuantity += slot.Quantity;
+
+            if (foundQuantity >= quantity)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool TryConsumeItem(
+        string itemId,
+        int quantity,
+        RescuerInventoryOwner owner)
+    {
+        if (!ContainsItem(itemId, quantity, owner))
+        {
+            return false;
+        }
+
+        TryGetOwnerRange(
+            owner,
+            out int startIndex,
+            out int endIndex);
+
+        int remainingQuantity = quantity;
+
+        for (int index = startIndex;
+             index < endIndex &&
+             remainingQuantity > 0;
+             index++)
+        {
+            InventorySlot slot = slots[index];
+
+            if (slot.IsEmpty ||
+                slot.Item.ItemId != itemId)
+            {
+                continue;
+            }
+
+            remainingQuantity -=
+                slot.Remove(remainingQuantity);
+        }
+
+        OnInventoryChanged?.Invoke();
+        return remainingQuantity == 0;
+    }
 }
 
 //----- TeamInventory.cs END -----

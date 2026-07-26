@@ -199,6 +199,15 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""firefighter_extend"",
+                    ""type"": ""Button"",
+                    ""id"": ""deea104b-cae3-416a-ba32-8fe3c77e7eb7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -894,6 +903,17 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""action"": ""riot_brace"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e724b0b5-2886-455c-9b6e-69ff4e6519d5"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""firefighter_extend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -953,6 +973,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         m_Controls_riot_brace = m_Controls.FindAction("riot_brace", throwIfNotFound: true);
         m_Controls_firefighter_axe = m_Controls.FindAction("firefighter_axe", throwIfNotFound: true);
         m_Controls_firefighter_ladder = m_Controls.FindAction("firefighter_ladder", throwIfNotFound: true);
+        m_Controls_firefighter_extend = m_Controls.FindAction("firefighter_extend", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -1049,6 +1070,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_riot_brace;
     private readonly InputAction m_Controls_firefighter_axe;
     private readonly InputAction m_Controls_firefighter_ladder;
+    private readonly InputAction m_Controls_firefighter_extend;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controls".
     /// </summary>
@@ -1108,6 +1130,10 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controls/firefighter_ladder".
         /// </summary>
         public InputAction @firefighter_ladder => m_Wrapper.m_Controls_firefighter_ladder;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/firefighter_extend".
+        /// </summary>
+        public InputAction @firefighter_extend => m_Wrapper.m_Controls_firefighter_extend;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1170,6 +1196,9 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_ladder.started += instance.OnFirefighter_ladder;
             @firefighter_ladder.performed += instance.OnFirefighter_ladder;
             @firefighter_ladder.canceled += instance.OnFirefighter_ladder;
+            @firefighter_extend.started += instance.OnFirefighter_extend;
+            @firefighter_extend.performed += instance.OnFirefighter_extend;
+            @firefighter_extend.canceled += instance.OnFirefighter_extend;
         }
 
         /// <summary>
@@ -1217,6 +1246,9 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_ladder.started -= instance.OnFirefighter_ladder;
             @firefighter_ladder.performed -= instance.OnFirefighter_ladder;
             @firefighter_ladder.canceled -= instance.OnFirefighter_ladder;
+            @firefighter_extend.started -= instance.OnFirefighter_extend;
+            @firefighter_extend.performed -= instance.OnFirefighter_extend;
+            @firefighter_extend.canceled -= instance.OnFirefighter_extend;
         }
 
         /// <summary>
@@ -1437,6 +1469,13 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFirefighter_ladder(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "firefighter_extend" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFirefighter_extend(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

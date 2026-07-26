@@ -26,7 +26,10 @@ public class FirefighterController : MonoBehaviour
 
     private float normalGravityScale;
     private bool isFacingRight = true;
-    private bool isInsideClimbingZone;
+    private int climbingZoneContactCount;
+    private LockedDoor2D nearbyLockedDoor;
+
+    private bool IsInsideClimbingZone => climbingZoneContactCount >0;
 
     private static readonly int IsMovingHash =
         Animator.StringToHash("IsMoving");
@@ -189,7 +192,7 @@ public class FirefighterController : MonoBehaviour
             return;
         }
 
-        if (!isInsideClimbingZone ||
+        if (!IsInsideClimbingZone ||
             climbingLadder == null ||
             !climbingLadder.CanBeClimbed)
         {
@@ -231,7 +234,28 @@ public class FirefighterController : MonoBehaviour
             PickUpLadder(nearbyLadder);
         }
     }
+    public void UseLadderExtension()
+    {
+        if (IsHoldingLadder ||
+            IsClimbing ||
+            currentState == FirefighterState.SwingingAxe)
+        {
+            return;
+        }
 
+        CarryableLadder ladderToExtend =
+            nearbyLadder != null
+                ? nearbyLadder
+                : climbingLadder;
+
+        if (ladderToExtend == null ||
+            !ladderToExtend.CanChangeExtension)
+        {
+            return;
+        }
+
+        ladderToExtend.ToggleExtension();
+    }
     private void PickUpLadder(CarryableLadder ladderToPickUp)
     {
         if (ladderToPickUp == null ||
@@ -248,7 +272,7 @@ public class FirefighterController : MonoBehaviour
 
         carriedLadder = ladderToPickUp;
         climbingLadder = null;
-        isInsideClimbingZone = false;
+        climbingZoneContactCount = 0;
 
         carriedLadder.AttachTo(ladderHoldPoint);
 
@@ -303,9 +327,12 @@ public class FirefighterController : MonoBehaviour
         {
             return;
         }
-
-        climbingLadder = ladderToRegister;
-        isInsideClimbingZone = true;
+        if(climbingLadder != ladderToRegister)
+        {
+            climbingLadder = ladderToRegister;
+            climbingZoneContactCount = 0;
+        }
+        climbingZoneContactCount++;
     }
 
     public void ExitLadderClimbingZone(
@@ -316,7 +343,13 @@ public class FirefighterController : MonoBehaviour
             return;
         }
 
-        isInsideClimbingZone = false;
+        climbingZoneContactCount = Mathf.Max(0, climbingZoneContactCount - 1);
+
+        if (climbingZoneContactCount > 0)
+        {
+            return;
+        }
+
         climbingLadder = null;
 
         if (IsClimbing)
@@ -329,7 +362,7 @@ public class FirefighterController : MonoBehaviour
     {
         if (carriedLadder != null ||
             climbingLadder == null ||
-            !isInsideClimbingZone ||
+            !IsInsideClimbingZone ||
             !climbingLadder.CanBeClimbed ||
             currentState == FirefighterState.SwingingAxe)
         {
@@ -499,7 +532,43 @@ public class FirefighterController : MonoBehaviour
             rb.linearVelocity.y
         );
     }
+    public void EnterLockedDoorZone(
+    LockedDoor2D doorToRegister)
+    {
+        if (doorToRegister == null)
+        {
+            return;
+        }
 
+        nearbyLockedDoor = doorToRegister;
+    }
+
+    public void ExitLockedDoorZone(
+        LockedDoor2D doorToUnregister)
+    {
+        if (nearbyLockedDoor != doorToUnregister)
+        {
+            return;
+        }
+
+        nearbyLockedDoor = null;
+    }
+
+    public void Interact()
+    {
+        if (IsHoldingLadder ||
+            IsClimbing ||
+            currentState == FirefighterState.SwingingAxe)
+        {
+            return;
+        }
+
+        if (nearbyLockedDoor != null &&
+            nearbyLockedDoor.CanInteract)
+        {
+            nearbyLockedDoor.TryOpen();
+        }
+    }
     private void OnDisable()
     {
         currentMoveInput = Vector2.zero;

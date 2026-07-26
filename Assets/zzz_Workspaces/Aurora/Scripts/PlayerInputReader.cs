@@ -10,6 +10,8 @@ public class PlayerInputReader : MonoBehaviour
     [SerializeField] private FirefighterController firefighter;
     [SerializeField] private RescueSpecialistController rescueSpecialist;
     [SerializeField] private RiotOfficerController riotOfficer;
+    [SerializeField]
+    private CharacterCameraFollow2D characterCamera;
 
     private bool wasPressingUp;
 
@@ -26,7 +28,10 @@ public class PlayerInputReader : MonoBehaviour
     {
         inputActions.Controls.Disable();
     }
-
+    private void Start()
+    {
+        UpdateCameraTarget();
+    }
     private void Awake()
     {
 
@@ -58,7 +63,20 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseAxe();
         };
-
+        inputActions.Controls.firefighter_extend.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.Firefighter)
+            {
+                firefighter.UseLadderExtension();
+            }
+        };
+        inputActions.Controls.Interact.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.Firefighter)
+            {
+                firefighter.Interact();
+            }
+        };
 
 
         //riot moves
@@ -119,6 +137,13 @@ public class PlayerInputReader : MonoBehaviour
             }
         };
 
+
+
+        if (characterCamera == null)
+        {
+            characterCamera =
+                FindFirstObjectByType<CharacterCameraFollow2D>();
+        }
     }
     private void Update()
     {
@@ -172,6 +197,7 @@ public class PlayerInputReader : MonoBehaviour
                 currentIndex = (currentIndex - 1 + totalCharacters) % totalCharacters;
             }
             currentCharacter = (ActiveCharacter)currentIndex;
+            UpdateCameraTarget();
         };
     }
     private void StopCurrentCharacterMovement()
@@ -193,6 +219,48 @@ public class PlayerInputReader : MonoBehaviour
                 break;
         }
     }
+    private void UpdateCameraTarget()
+    {
+        if (characterCamera == null)
+        {
+            characterCamera =
+                FindFirstObjectByType<CharacterCameraFollow2D>();
+        }
 
+        if (characterCamera == null)
+        {
+            Debug.LogWarning(
+                $"{nameof(PlayerInputReader)} could not find a " +
+                $"{nameof(CharacterCameraFollow2D)}.",
+                this);
+
+            return;
+        }
+
+        Transform target = currentCharacter switch
+        {
+            ActiveCharacter.Firefighter =>
+                firefighter != null
+                    ? firefighter.transform
+                    : null,
+
+            ActiveCharacter.RiotOfficer =>
+                riotOfficer != null
+                    ? riotOfficer.transform
+                    : null,
+
+            ActiveCharacter.Specialist =>
+                rescueSpecialist != null
+                    ? rescueSpecialist.transform
+                    : null,
+
+            _ => null
+        };
+
+        if (target != null)
+        {
+            characterCamera.SetTarget(target);
+        }
+    }
 
 }

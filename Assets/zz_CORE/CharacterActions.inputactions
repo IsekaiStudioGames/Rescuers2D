@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "firefighter_extend",
+                    "type": "Button",
+                    "id": "deea104b-cae3-416a-ba32-8fe3c77e7eb7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -806,6 +815,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "riot_brace",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e724b0b5-2886-455c-9b6e-69ff4e6519d5",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "firefighter_extend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
