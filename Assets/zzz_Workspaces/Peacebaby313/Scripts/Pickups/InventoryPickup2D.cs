@@ -109,7 +109,7 @@ public sealed class InventoryPickup2D : MonoBehaviour
                 quantity,
                 resolvedOwner))
         {
-            ShowInventoryFullMessage();
+            ShowInventoryFullMessage(resolvedOwner);
             return;
         }
 
@@ -181,12 +181,13 @@ public sealed class InventoryPickup2D : MonoBehaviour
         }
     }
 
-    private void ShowInventoryFullMessage()
+    private void ShowInventoryFullMessage(
+        RescuerInventoryOwner owner)
     {
         if (feedbackPresenter != null)
         {
             feedbackPresenter.ShowWarning(
-                $"{GetOwnerDisplayName(inventoryOwner)} has no room.");
+                $"{GetOwnerDisplayName(owner)} has no room.");
         }
     }
 
