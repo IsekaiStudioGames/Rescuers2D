@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputReader : MonoBehaviour
 {
 
+
     private CharacterActions inputActions;
 
     [SerializeField] private FirefighterController firefighter;
@@ -15,10 +16,40 @@ public class PlayerInputReader : MonoBehaviour
 
     private bool wasPressingUp;
 
-    private enum ActiveCharacter { Firefighter, RiotOfficer, Specialist }
+    public enum ActiveCharacter { Firefighter, RiotOfficer, Specialist }
     private ActiveCharacter currentCharacter = ActiveCharacter.Firefighter;
 
     private Vector2 moveDirection;
+
+
+    public ActiveCharacter CurrentCharacter =>
+    currentCharacter;
+
+    public Transform ActiveCharacterTransform
+    {
+        get
+        {
+            return currentCharacter switch
+            {
+                ActiveCharacter.Firefighter =>
+                    firefighter != null
+                        ? firefighter.transform
+                        : null,
+
+                ActiveCharacter.RiotOfficer =>
+                    riotOfficer != null
+                        ? riotOfficer.transform
+                        : null,
+
+                ActiveCharacter.Specialist =>
+                    rescueSpecialist != null
+                        ? rescueSpecialist.transform
+                        : null,
+
+                _ => null
+            };
+        }
+    }
 
     private void OnEnable()
     {
@@ -40,14 +71,6 @@ public class PlayerInputReader : MonoBehaviour
 
         //universal moves
         inputActions.Controls.SwitchCharacters.performed += SwitchCharacters();
-
-
-
-
-
-
-
-
 
 
 
@@ -174,6 +197,8 @@ public class PlayerInputReader : MonoBehaviour
         moveDirection =
             inputActions.Controls.Move.ReadValue<Vector2>();
 
+
+
     }
     private Action<InputAction.CallbackContext> SwitchCharacters()
     {
@@ -200,6 +225,7 @@ public class PlayerInputReader : MonoBehaviour
             UpdateCameraTarget();
         };
     }
+
     private void StopCurrentCharacterMovement()
     {
         switch (currentCharacter)
@@ -219,6 +245,7 @@ public class PlayerInputReader : MonoBehaviour
                 break;
         }
     }
+
     private void UpdateCameraTarget()
     {
         if (characterCamera == null)
@@ -237,25 +264,10 @@ public class PlayerInputReader : MonoBehaviour
             return;
         }
 
-        Transform target = currentCharacter switch
-        {
-            ActiveCharacter.Firefighter =>
-                firefighter != null
-                    ? firefighter.transform
-                    : null,
 
-            ActiveCharacter.RiotOfficer =>
-                riotOfficer != null
-                    ? riotOfficer.transform
-                    : null,
 
-            ActiveCharacter.Specialist =>
-                rescueSpecialist != null
-                    ? rescueSpecialist.transform
-                    : null,
-
-            _ => null
-        };
+        Transform target = ActiveCharacterTransform;
+        
 
         if (target != null)
         {
@@ -263,4 +275,45 @@ public class PlayerInputReader : MonoBehaviour
         }
     }
 
+    public bool IsAnyCharacterWithinDistance(
+    Vector2 position,
+    float distance)
+    {
+        float squaredDistance = distance * distance;
+
+        return IsWithinDistance(
+                   firefighter != null
+                       ? firefighter.transform
+                       : null,
+                   position,
+                   squaredDistance) ||
+               IsWithinDistance(
+                   riotOfficer != null
+                       ? riotOfficer.transform
+                       : null,
+                   position,
+                   squaredDistance) ||
+               IsWithinDistance(
+                   rescueSpecialist != null
+                       ? rescueSpecialist.transform
+                       : null,
+                   position,
+                   squaredDistance);
+    }
+
+    private bool IsWithinDistance(
+        Transform character,
+        Vector2 position,
+        float squaredDistance)
+    {
+        if (character == null)
+        {
+            return false;
+        }
+
+        Vector2 difference =
+            (Vector2)character.position - position;
+
+        return difference.sqrMagnitude <= squaredDistance;
+    }
 }
