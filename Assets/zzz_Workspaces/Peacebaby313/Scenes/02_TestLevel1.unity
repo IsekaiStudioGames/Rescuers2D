@@ -1687,6 +1687,30 @@ PrefabInstance:
       propertyPath: crawlingColliderSize.y
       value: 0.45
       objectReference: {fileID: 0}
+    - target: {fileID: 6701546033957193218, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7096444804375828842, guid: ea3f41a12a240e940b29ca2540cfd800, type: 3}
+    - target: {fileID: 6701546033957193218, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701546033957193218, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701546033957193218, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355937320572191355, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 2082300315}
+    - target: {fileID: 8355937320572191355, guid: c36309a6bfca51945835779f7769b138, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2082300313}
     - target: {fileID: 8488211724394399855, guid: c36309a6bfca51945835779f7769b138, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4328,6 +4352,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118140d759d02224d9d8f81d4183737a, type: 3}
+--- !u!95 &2082300313 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2287477893945615214, guid: c36309a6bfca51945835779f7769b138, type: 3}
+  m_PrefabInstance: {fileID: 728521607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2082300315 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8140695733522535912, guid: c36309a6bfca51945835779f7769b138, type: 3}
+  m_PrefabInstance: {fileID: 728521607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

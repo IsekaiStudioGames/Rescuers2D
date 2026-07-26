@@ -26,42 +26,95 @@ public class PlayerInputReader : MonoBehaviour {
 
         inputActions = new();
 
+
+        //universal moves
         inputActions.Controls.SwitchCharacters.performed += SwitchCharacters();
+
+        inputActions.Controls.Interact.performed += ctx => {
+            if (currentCharacter == ActiveCharacter.Firefighter)
+            {
+
+                if (firefighter.IsLadderNearbyToRetrieve()) firefighter.TryInteractLadder();
+                else firefighter.DeployLadder();
+            }
+        };
+
+
+        //firefighter moves
         inputActions.Controls.firefighter_ladder.performed += ctx => {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.DeployLadder();
         };
         inputActions.Controls.firefighter_ladder.canceled += ctx => {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
         };
-        inputActions.Controls.Interact.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter) {
 
-                if (firefighter.IsLadderNearbyToRetrieve()) firefighter.TryInteractLadder();
-                else firefighter.DeployLadder();
-            }
-        };
         inputActions.Controls.Interact.canceled += ctx => {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
         };
         inputActions.Controls.firefighter_axe.performed += ctx => {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseAxe();
         };
-        inputActions.Controls.riot_shield.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.RiotOfficer) riotOfficer.ToggleShield();
+
+
+
+        //riot moves
+        inputActions.Controls.riot_shield.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.SetShield(true);
+            }
         };
-        inputActions.Controls.riot_shield.canceled += ctx => {
-            if (currentCharacter == ActiveCharacter.RiotOfficer) riotOfficer.ToggleShield();
+
+        inputActions.Controls.riot_shield.canceled += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.SetShield(false);
+            }
         };
+
+        inputActions.Controls.riot_bash.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.Bash();
+            }
+        };
+
+        inputActions.Controls.riot_brace.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.SetBrace(true);
+            }
+        };
+
+        inputActions.Controls.riot_brace.canceled += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.SetBrace(false);
+            }
+        };
+
+
+        //specialist moves
         inputActions.Controls.specialist_crawl.performed += ctx =>
         {
-            if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Crawl();
+            if (currentCharacter == ActiveCharacter.Specialist)
+            {
+                rescueSpecialist.Crawl();
+            }
         };
-        inputActions.Controls.specialist_jump.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Jump();
+        inputActions.Controls.specialist_jump.performed += ctx => 
+        {
+            if (currentCharacter == ActiveCharacter.Specialist)
+            {
+                rescueSpecialist.Jump();
+            }
         };
-        //inputActions.Controls.specialist_jump.performed += ctx => {
-           // if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Swim();
-        //};
+
     }
     private void Update() {
         HandleMoveInput();
@@ -104,12 +157,23 @@ public class PlayerInputReader : MonoBehaviour {
             currentCharacter = (ActiveCharacter)currentIndex;
         };
     }
-    private void StopCurrentCharacterMovement() {
-        // Important: Prevents a character from sliding forever if you swap mid-run
-        switch (currentCharacter) {
-            case ActiveCharacter.Firefighter: firefighter.Move(Vector2.zero); break;
-            case ActiveCharacter.RiotOfficer: riotOfficer.Move(Vector2.zero); break;
-            case ActiveCharacter.Specialist: rescueSpecialist.Move(Vector2.zero); break;
+    private void StopCurrentCharacterMovement()
+    {
+        switch (currentCharacter)
+        {
+            case ActiveCharacter.Firefighter:
+                firefighter.Move(Vector2.zero);
+                break;
+
+            case ActiveCharacter.RiotOfficer:
+                riotOfficer.Move(Vector2.zero);
+                riotOfficer.SetShield(false);
+                riotOfficer.SetBrace(false);
+                break;
+
+            case ActiveCharacter.Specialist:
+                rescueSpecialist.Move(Vector2.zero);
+                break;
         }
     }
 }
