@@ -6,6 +6,7 @@
       {
         "id": "66dc58adb016c8d3",
         "type": "tabs",
+        "dimension": 70.58823529411765,
         "children": [
           {
             "id": "4847d3a08433f4c5",
@@ -26,6 +27,7 @@
       {
         "id": "17b8ba205bbc13b3",
         "type": "tabs",
+        "dimension": 29.411764705882355,
         "children": [
           {
             "id": "4e14f7c81583be69",
@@ -201,6 +203,8 @@
   },
   "active": "4847d3a08433f4c5",
   "lastOpenFiles": [
+    "06 - Items.md",
+    "04 - Characters.md",
     "03 - Rules.md",
     "02 - Index.md",
     "01 - Title.md",
@@ -208,9 +212,7 @@
     "09 - Hazards.md",
     "08 - Enemies.md",
     "07 - Puzzles.md",
-    "06 - Items.md",
     "05 - Level Design.md",
-    "04 - Characters.md",
     "13 - Player Controls.md",
     "Welcome.md",
     "10 - Death.md",
