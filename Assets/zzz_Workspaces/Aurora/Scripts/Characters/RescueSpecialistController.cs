@@ -1,8 +1,7 @@
+//-----RescueSpecialist.cs START-----
+
 using System;
-using System.ComponentModel.Design;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class RescueSpecialistController : MonoBehaviour
 {
@@ -352,3 +351,5 @@ public class RescueSpecialistController : MonoBehaviour
 
 
 }
+
+//-----RescueSpecialistController.cs END-----

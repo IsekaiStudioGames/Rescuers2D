@@ -12,16 +12,16 @@ Each rescuer has 4 inventory slots. Items are shared freely across the team rega
 
 ### Item Catalog
 
-| Item | Category | Slot Cost | Usage |
-|---|---|---|---|
-| Bandage | Consumable | 1 | Restores 1 Heart on use. |
-| Medkit | Consumable | 1 | Auto-activates at 0 HP threshold; fully restores and consumes rescuer's health, then consumes itself. |
-| Key | Mission Item | 1 | Unlocks a specific door, gate, or container. |
-| C4 | Consumable | 1 | Destroys reinforced obstacles beyond the Firefighter's axe capability. |
-| Battery | Mission Item | 1 | Powers electrical devices or switches. |
-| Fuel | Mission Item | 1 | Powers vehicles or generators required for progression. |
-| Mission Item | Mission Item | 1 | Generic placeholder for narrative/objective-specific items. |
-| Supplies | Mission Item | 1 | Represents aid materials delivered to civilians or camp. |
+| Item         | Category     | Slot Cost | Usage                                                                                                 |
+| ------------ | ------------ | --------- | ----------------------------------------------------------------------------------------------------- |
+| Bandage      | Consumable   | 1         | Restores 1 Heart on use.                                                                              |
+| Medkit       | Consumable   | 1         | Auto-activates at 0 HP threshold; fully restores and consumes rescuer's health, then consumes itself. |
+| Key          | Mission Item | 1         | Unlocks a specific door, gate, or container.                                                          |
+| C4           | Consumable   | 1         | Destroys reinforced obstacles beyond the Firefighter's axe capability.                                |
+| Battery      | Mission Item | 1         | Powers electrical devices or switches.                                                                |
+| Fuel         | Mission Item | 1         | Powers vehicles or generators required for progression.                                               |
+| Mission Item | Mission Item | 1         | Generic placeholder for narrative/objective-specific items.                                           |
+| Supplies     | Mission Item | 1         | Represents aid materials delivered to civilians or camp.                                              |
 
 ### Stack Limits
 

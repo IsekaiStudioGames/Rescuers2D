@@ -17,7 +17,7 @@ MonoBehaviour:
   - missionId: R2D-TEMP-02_TestLevel1
     sceneName: 02_TestLevel1
     displayName: Level One
-    levelOrder: 0
+    levelOrder: 2
     temporaryLetterCode: FIRSTLVL
     passwordTokenIds:
     - F
@@ -31,7 +31,7 @@ MonoBehaviour:
   - missionId: R2D-TEMP-03_TestLevel2
     sceneName: 03_TestLevel2
     displayName: SNDLEVEL
-    levelOrder: 1
+    levelOrder: 3
     temporaryLetterCode: SNDLEVEL
     passwordTokenIds:
     - S
@@ -45,7 +45,7 @@ MonoBehaviour:
   - missionId: R2D-TEMP_04_TestLevel3
     sceneName: 04_TestLevel3
     displayName: Level Three
-    levelOrder: 2
+    levelOrder: 4
     temporaryLetterCode: THIRDLVL
     passwordTokenIds:
     - T
@@ -56,3 +56,17 @@ MonoBehaviour:
     - L
     - V
     - L
+  - missionId: R2D-TEMP_05_MainLevel1
+    sceneName: 05_MainLevel1
+    displayName: Main Level
+    levelOrder: 5
+    temporaryLetterCode: MAINMAIN
+    passwordTokenIds:
+    - M
+    - A
+    - I
+    - N
+    - M
+    - A
+    - I
+    - N
