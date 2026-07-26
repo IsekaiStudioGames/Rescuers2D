@@ -121,7 +121,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -135,7 +135,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -159,7 +159,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -226,12 +226,12 @@ TextureImporter:
       name: rescuespecialist2_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 287
-        width: 37
-        height: 46
+        x: 0
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -248,12 +248,12 @@ TextureImporter:
       name: rescuespecialist2_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 287
-        width: 37
-        height: 46
+        x: 48
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: rescuespecialist2_2
       rect:
         serializedVersion: 2
-        x: 101
-        y: 287
-        width: 37
-        height: 44
+        x: 96
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -292,12 +292,12 @@ TextureImporter:
       name: rescuespecialist2_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 197
-        width: 42
-        height: 43
+        x: 0
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -314,12 +314,12 @@ TextureImporter:
       name: rescuespecialist2_4
       rect:
         serializedVersion: 2
-        x: 5
-        y: 239
-        width: 37
-        height: 45
+        x: 48
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: rescuespecialist2_5
       rect:
         serializedVersion: 2
-        x: 53
-        y: 239
-        width: 35
-        height: 47
+        x: 96
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -358,12 +358,12 @@ TextureImporter:
       name: rescuespecialist2_6
       rect:
         serializedVersion: 2
-        x: 103
-        y: 239
-        width: 35
-        height: 45
+        x: 144
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -380,12 +380,12 @@ TextureImporter:
       name: rescuespecialist2_7
       rect:
         serializedVersion: 2
-        x: 151
-        y: 239
-        width: 34
-        height: 45
+        x: 0
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: rescuespecialist2_8
       rect:
         serializedVersion: 2
-        x: 51
-        y: 198
-        width: 42
-        height: 40
+        x: 48
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,12 +424,12 @@ TextureImporter:
       name: rescuespecialist2_9
       rect:
         serializedVersion: 2
-        x: 4
-        y: 143
-        width: 40
-        height: 41
+        x: 0
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -446,12 +446,12 @@ TextureImporter:
       name: rescuespecialist2_10
       rect:
         serializedVersion: 2
-        x: 53
+        x: 48
         y: 144
-        width: 36
-        height: 47
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -468,12 +468,12 @@ TextureImporter:
       name: rescuespecialist2_11
       rect:
         serializedVersion: 2
-        x: 102
-        y: 146
-        width: 35
-        height: 42
+        x: 96
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -490,12 +490,12 @@ TextureImporter:
       name: rescuespecialist2_12
       rect:
         serializedVersion: 2
-        x: 149
-        y: 143
-        width: 37
-        height: 44
+        x: 144
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -512,12 +512,12 @@ TextureImporter:
       name: rescuespecialist2_13
       rect:
         serializedVersion: 2
-        x: 4
-        y: 95
-        width: 35
-        height: 46
+        x: 0
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -534,12 +534,12 @@ TextureImporter:
       name: rescuespecialist2_14
       rect:
         serializedVersion: 2
-        x: 51
-        y: 95
-        width: 35
-        height: 46
+        x: 48
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -556,20 +556,20 @@ TextureImporter:
       name: rescuespecialist2_15
       rect:
         serializedVersion: 2
-        x: 3
-        y: 47
-        width: 41
-        height: 33
+        x: 0
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2a7e75321b6d340f0800000000000000
-      internalID: -1133826624876714078
+      spriteID: ad50f387407726b478f1401df251f368
+      internalID: -60909718
       vertices: []
       indices: 
       edges: []
@@ -578,20 +578,20 @@ TextureImporter:
       name: rescuespecialist2_16
       rect:
         serializedVersion: 2
-        x: 52
-        y: 47
-        width: 42
-        height: 24
+        x: 48
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6eb609ae431e5bf70800000000000000
-      internalID: 9202509030991358950
+      spriteID: 68b7c7c2d31cfde4b8e6b36dce017065
+      internalID: -1826844864
       vertices: []
       indices: 
       edges: []
@@ -601,19 +601,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 68
-        width: 12
-        height: 11
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 18ffdfaeaa47f8c00800000000000000
-      internalID: 905070327560535937
+      spriteID: 6ff85088a9e1df542b905396b6ac59de
+      internalID: 1744394885
       vertices: []
       indices: 
       edges: []
@@ -622,20 +622,20 @@ TextureImporter:
       name: rescuespecialist2_18
       rect:
         serializedVersion: 2
-        x: 109
-        y: 57
-        width: 22
-        height: 31
+        x: 144
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2db08b369459aa250800000000000000
-      internalID: 5956737599589059538
+      spriteID: a63a54c0eb684d848a56ef68fc64b7fc
+      internalID: 1088785787
       vertices: []
       indices: 
       edges: []
@@ -644,20 +644,20 @@ TextureImporter:
       name: rescuespecialist2_19
       rect:
         serializedVersion: 2
-        x: 133
-        y: 68
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.95}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: df930b7bdfb94e400800000000000000
-      internalID: 352578184852552189
+      spriteID: 70db49902cbc95b47aeba01707474ca1
+      internalID: 221369226
       vertices: []
       indices: 
       edges: []
@@ -666,20 +666,20 @@ TextureImporter:
       name: rescuespecialist2_20
       rect:
         serializedVersion: 2
-        x: 157
-        y: 61
-        width: 22
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.95}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2d4b303c481f7ddc0800000000000000
-      internalID: -3614154623431756590
+      spriteID: d5a2c81875b7b834b937c89b0aa36d70
+      internalID: 499149449
       vertices: []
       indices: 
       edges: []
@@ -688,20 +688,20 @@ TextureImporter:
       name: rescuespecialist2_21
       rect:
         serializedVersion: 2
-        x: 148
-        y: 53
-        width: 12
-        height: 11
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bb956f8863cf47ff0800000000000000
-      internalID: -39129185583212101
+      spriteID: 10a68663e3e30de4c989f6a035073e2f
+      internalID: -1703501988
       vertices: []
       indices: 
       edges: []
@@ -710,152 +710,20 @@ TextureImporter:
       name: rescuespecialist2_22
       rect:
         serializedVersion: 2
-        x: 176
-        y: 53
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e3c03ae0ce18879c0800000000000000
-      internalID: -3929247824022926274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_23
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 11
-        width: 48
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72a37b55044f89070800000000000000
-      internalID: 8113503285861104167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_24
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 12
-        width: 48
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 997c2e473e77fca50800000000000000
-      internalID: 6543580602394920857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_25
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 16
-        width: 39
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0faf201dcf0166af0800000000000000
-      internalID: -403616438578644240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_26
-      rect:
-        serializedVersion: 2
         x: 144
-        y: 23
-        width: 12
-        height: 11
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b8e19a7f111974af0800000000000000
-      internalID: -412201334525583733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_27
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 13
-        width: 22
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75e9e05cd3260dfe0800000000000000
-      internalID: -1166324286050361769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rescuespecialist2_28
-      rect:
-        serializedVersion: 2
-        x: 181
-        y: 23
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3f654cac36a4cb0d0800000000000000
-      internalID: -3405765425734854925
+      spriteID: 9d989ede56c238a47b610aff5fb7cb3b
+      internalID: 1651097758
       vertices: []
       indices: 
       edges: []
@@ -864,7 +732,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c7bd0c0f78c7892479ef069bd153daf8
     internalID: 0
     vertices: []
     indices: 
@@ -872,7 +740,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       rescuespecialist2_0: -4846870227359926449
       rescuespecialist2_1: 8242453574670630450
@@ -881,21 +751,15 @@ TextureImporter:
       rescuespecialist2_12: 3501986962881708630
       rescuespecialist2_13: -2881844822602816261
       rescuespecialist2_14: 380480804947067697
-      rescuespecialist2_15: -1133826624876714078
-      rescuespecialist2_16: 9202509030991358950
-      rescuespecialist2_17: 905070327560535937
-      rescuespecialist2_18: 5956737599589059538
-      rescuespecialist2_19: 352578184852552189
+      rescuespecialist2_15: -60909718
+      rescuespecialist2_16: -1826844864
+      rescuespecialist2_17: 1744394885
+      rescuespecialist2_18: 1088785787
+      rescuespecialist2_19: 221369226
       rescuespecialist2_2: 4952348103754494505
-      rescuespecialist2_20: -3614154623431756590
-      rescuespecialist2_21: -39129185583212101
-      rescuespecialist2_22: -3929247824022926274
-      rescuespecialist2_23: 8113503285861104167
-      rescuespecialist2_24: 6543580602394920857
-      rescuespecialist2_25: -403616438578644240
-      rescuespecialist2_26: -412201334525583733
-      rescuespecialist2_27: -1166324286050361769
-      rescuespecialist2_28: -3405765425734854925
+      rescuespecialist2_20: 499149449
+      rescuespecialist2_21: -1703501988
+      rescuespecialist2_22: 1651097758
       rescuespecialist2_3: 5786605934824468697
       rescuespecialist2_4: 5555628480296535954
       rescuespecialist2_5: -107648109697961951

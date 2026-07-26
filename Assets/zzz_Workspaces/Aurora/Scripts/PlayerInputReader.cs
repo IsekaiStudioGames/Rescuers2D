@@ -52,15 +52,16 @@ public class PlayerInputReader : MonoBehaviour {
         inputActions.Controls.riot_shield.canceled += ctx => {
             if (currentCharacter == ActiveCharacter.RiotOfficer) riotOfficer.ToggleShield();
         };
-        inputActions.Controls.specialist_jump.performed += ctx => {
+        inputActions.Controls.specialist_crawl.performed += ctx =>
+        {
             if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Crawl();
         };
         inputActions.Controls.specialist_jump.performed += ctx => {
             if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Jump();
         };
-        inputActions.Controls.specialist_jump.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Swim();
-        };
+        //inputActions.Controls.specialist_jump.performed += ctx => {
+           // if (currentCharacter == ActiveCharacter.Specialist) rescueSpecialist.Swim();
+        //};
     }
     private void Update() {
         HandleMoveInput();
