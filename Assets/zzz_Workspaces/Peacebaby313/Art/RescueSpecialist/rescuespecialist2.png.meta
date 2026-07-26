@@ -1,94 +1,94 @@
 fileFormatVersion: 2
-guid: 7e8a62d1740d05e4d9664bdc181e3223
+guid: 75acfc626275182498794877c6fb7b3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5755546180611968356
-    second: RescSpec_0
+      213: -4846870227359926449
+    second: rescuespecialist2_0
   - first:
-      213: 1036210898270830086
-    second: RescSpec_1
+      213: 8242453574670630450
+    second: rescuespecialist2_1
   - first:
-      213: -6451311448524071486
-    second: RescSpec_2
+      213: 4952348103754494505
+    second: rescuespecialist2_2
   - first:
-      213: -2203981736617073120
-    second: RescSpec_3
+      213: 5786605934824468697
+    second: rescuespecialist2_3
   - first:
-      213: 1748703361890976554
-    second: RescSpec_4
+      213: 5555628480296535954
+    second: rescuespecialist2_4
   - first:
-      213: -6725033854266079104
-    second: RescSpec_5
+      213: -107648109697961951
+    second: rescuespecialist2_5
   - first:
-      213: -1666092642818021166
-    second: RescSpec_6
+      213: 5086563662589885899
+    second: rescuespecialist2_6
   - first:
-      213: -1179724649809500202
-    second: RescSpec_7
+      213: -4819476713162569316
+    second: rescuespecialist2_7
   - first:
-      213: -8121431697166187775
-    second: RescSpec_8
+      213: -1769356547911927532
+    second: rescuespecialist2_8
   - first:
-      213: 9143531170966515288
-    second: RescSpec_9
+      213: -7893371074373296556
+    second: rescuespecialist2_9
   - first:
-      213: 523612620988072433
-    second: RescSpec_10
+      213: 1690874886676701170
+    second: rescuespecialist2_10
   - first:
-      213: -6629838317776176899
-    second: RescSpec_11
+      213: -8295040564974200907
+    second: rescuespecialist2_11
   - first:
-      213: -8252992319437970326
-    second: RescSpec_12
+      213: 3501986962881708630
+    second: rescuespecialist2_12
   - first:
-      213: 125766473032399380
-    second: RescSpec_13
+      213: -2881844822602816261
+    second: rescuespecialist2_13
   - first:
-      213: -5878876061774394864
-    second: RescSpec_14
+      213: 380480804947067697
+    second: rescuespecialist2_14
   - first:
-      213: 1851413548835134935
-    second: RescSpec_15
+      213: -1133826624876714078
+    second: rescuespecialist2_15
   - first:
-      213: -7323293043662500355
-    second: RescSpec_16
+      213: 9202509030991358950
+    second: rescuespecialist2_16
   - first:
-      213: 3530280637045808480
-    second: RescSpec_17
+      213: 905070327560535937
+    second: rescuespecialist2_17
   - first:
-      213: -3185769080206828119
-    second: RescSpec_18
+      213: 5956737599589059538
+    second: rescuespecialist2_18
   - first:
-      213: 3875095572371590557
-    second: RescSpec_19
+      213: 352578184852552189
+    second: rescuespecialist2_19
   - first:
-      213: 963776644016532008
-    second: RescSpec_20
+      213: -3614154623431756590
+    second: rescuespecialist2_20
   - first:
-      213: 7322366178806496539
-    second: RescSpec_21
+      213: -39129185583212101
+    second: rescuespecialist2_21
   - first:
-      213: 2292808973228786945
-    second: RescSpec_22
+      213: -3929247824022926274
+    second: rescuespecialist2_22
   - first:
-      213: 1694013323056060809
-    second: RescSpec_23
+      213: 8113503285861104167
+    second: rescuespecialist2_23
   - first:
-      213: 4876286054247854263
-    second: RescSpec_24
+      213: 6543580602394920857
+    second: rescuespecialist2_24
   - first:
-      213: 5725900947317202831
-    second: RescSpec_25
+      213: -403616438578644240
+    second: rescuespecialist2_25
   - first:
-      213: -4163971978889343571
-    second: RescSpec_26
+      213: -412201334525583733
+    second: rescuespecialist2_26
   - first:
-      213: 4173257655451753000
-    second: RescSpec_27
+      213: -1166324286050361769
+    second: rescuespecialist2_27
   - first:
-      213: -1924378331156603952
-    second: RescSpec_28
+      213: -3405765425734854925
+    second: rescuespecialist2_28
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -223,7 +223,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RescSpec_0
+      name: rescuespecialist2_0
       rect:
         serializedVersion: 2
         x: 5
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9274403e313020b0800000000000000
-      internalID: -5755546180611968356
+      spriteID: f477bc145357cbcb0800000000000000
+      internalID: -4846870227359926449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_1
+      name: rescuespecialist2_1
       rect:
         serializedVersion: 2
         x: 53
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60e32d7625c516e00800000000000000
-      internalID: 1036210898270830086
+      spriteID: 23e34e31bd3136270800000000000000
+      internalID: 8242453574670630450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_2
+      name: rescuespecialist2_2
       rect:
         serializedVersion: 2
         x: 101
@@ -282,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2cddf470b665876a0800000000000000
-      internalID: -6451311448524071486
+      spriteID: 922bd589c564ab440800000000000000
+      internalID: 4952348103754494505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_3
+      name: rescuespecialist2_3
       rect:
         serializedVersion: 2
         x: 3
@@ -304,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 026ad79a942e961e0800000000000000
-      internalID: -2203981736617073120
+      spriteID: 9d0316060772e4050800000000000000
+      internalID: 5786605934824468697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_4
+      name: rescuespecialist2_4
       rect:
         serializedVersion: 2
         x: 5
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a230b0f4174a44810800000000000000
-      internalID: 1748703361890976554
+      spriteID: 2974e18faae891d40800000000000000
+      internalID: 5555628480296535954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_5
+      name: rescuespecialist2_5
       rect:
         serializedVersion: 2
         x: 53
@@ -348,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0888efd1751eba2a0800000000000000
-      internalID: -6725033854266079104
+      spriteID: 120f5b45d9e818ef0800000000000000
+      internalID: -107648109697961951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_6
+      name: rescuespecialist2_6
       rect:
         serializedVersion: 2
         x: 103
@@ -370,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d8a0f59199d0e8e0800000000000000
-      internalID: -1666092642818021166
+      spriteID: bcd741c83ba179640800000000000000
+      internalID: 5086563662589885899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_7
+      name: rescuespecialist2_7
       rect:
         serializedVersion: 2
         x: 151
@@ -392,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d725537ea6c0afe0800000000000000
-      internalID: -1179724649809500202
+      spriteID: c998dacc677cd1db0800000000000000
+      internalID: -4819476713162569316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_8
+      name: rescuespecialist2_8
       rect:
         serializedVersion: 2
         x: 51
@@ -414,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 103cfce86e0ea4f80800000000000000
-      internalID: -8121431697166187775
+      spriteID: 419b2b8189bf177e0800000000000000
+      internalID: -1769356547911927532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_9
+      name: rescuespecialist2_9
       rect:
         serializedVersion: 2
         x: 4
@@ -436,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85eab2ec72954ee70800000000000000
-      internalID: 9143531170966515288
+      spriteID: 45ed2a724dc157290800000000000000
+      internalID: -7893371074373296556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_10
+      name: rescuespecialist2_10
       rect:
         serializedVersion: 2
         x: 53
@@ -458,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f1c7e197ee344700800000000000000
-      internalID: 523612620988072433
+      spriteID: 2ff5ef330c1377710800000000000000
+      internalID: 1690874886676701170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_11
+      name: rescuespecialist2_11
       rect:
         serializedVersion: 2
         x: 102
@@ -480,14 +480,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df87da62d251ef3a0800000000000000
-      internalID: -6629838317776176899
+      spriteID: 5b7d14f1e8812ec80800000000000000
+      internalID: -8295040564974200907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_12
+      name: rescuespecialist2_12
       rect:
         serializedVersion: 2
         x: 149
@@ -502,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a646fd1363b777d80800000000000000
-      internalID: -8252992319437970326
+      spriteID: 6520d92a69e899030800000000000000
+      internalID: 3501986962881708630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_13
+      name: rescuespecialist2_13
       rect:
         serializedVersion: 2
         x: 4
@@ -524,14 +524,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41affbdd0ffceb100800000000000000
-      internalID: 125766473032399380
+      spriteID: bf4e5fa0761a108d0800000000000000
+      internalID: -2881844822602816261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_14
+      name: rescuespecialist2_14
       rect:
         serializedVersion: 2
         x: 51
@@ -546,14 +546,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01ac3639e590a6ea0800000000000000
-      internalID: -5878876061774394864
+      spriteID: 13389b6b64db74500800000000000000
+      internalID: 380480804947067697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_15
+      name: rescuespecialist2_15
       rect:
         serializedVersion: 2
         x: 3
@@ -568,14 +568,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ddd9ae30da81b910800000000000000
-      internalID: 1851413548835134935
+      spriteID: 2a7e75321b6d340f0800000000000000
+      internalID: -1133826624876714078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_16
+      name: rescuespecialist2_16
       rect:
         serializedVersion: 2
         x: 52
@@ -590,18 +590,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfd486af6cf6e5a90800000000000000
-      internalID: -7323293043662500355
+      spriteID: 6eb609ae431e5bf70800000000000000
+      internalID: 9202509030991358950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_17
+      name: rescuespecialist2_17
       rect:
         serializedVersion: 2
         x: 96
-        y: 56
+        y: 68
         width: 12
         height: 11
       alignment: 0
@@ -612,14 +612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06d1e8009831ef030800000000000000
-      internalID: 3530280637045808480
+      spriteID: 18ffdfaeaa47f8c00800000000000000
+      internalID: 905070327560535937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_18
+      name: rescuespecialist2_18
       rect:
         serializedVersion: 2
         x: 109
@@ -634,18 +634,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ad59d586efd9c3d0800000000000000
-      internalID: -3185769080206828119
+      spriteID: 2db08b369459aa250800000000000000
+      internalID: 5956737599589059538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_19
+      name: rescuespecialist2_19
       rect:
         serializedVersion: 2
         x: 133
-        y: 56
+        y: 68
         width: 11
         height: 11
       alignment: 0
@@ -656,36 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9dc5e554ea17c530800000000000000
-      internalID: 3875095572371590557
+      spriteID: df930b7bdfb94e400800000000000000
+      internalID: 352578184852552189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_20
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 53
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82a6c6d50c5006d00800000000000000
-      internalID: 963776644016532008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RescSpec_21
+      name: rescuespecialist2_20
       rect:
         serializedVersion: 2
         x: 157
@@ -700,14 +678,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1d781b7e354e9560800000000000000
-      internalID: 7322366178806496539
+      spriteID: 2d4b303c481f7ddc0800000000000000
+      internalID: -3614154623431756590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_22
+      name: rescuespecialist2_21
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 53
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb956f8863cf47ff0800000000000000
+      internalID: -39129185583212101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rescuespecialist2_22
       rect:
         serializedVersion: 2
         x: 176
@@ -722,20 +722,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10541230d91b1df10800000000000000
-      internalID: 2292808973228786945
+      spriteID: e3c03ae0ce18879c0800000000000000
+      internalID: -3929247824022926274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_23
+      name: rescuespecialist2_23
       rect:
         serializedVersion: 2
         x: 0
         y: 11
         width: 48
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -744,19 +744,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 989198d5428528710800000000000000
-      internalID: 1694013323056060809
+      spriteID: 72a37b55044f89070800000000000000
+      internalID: 8113503285861104167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_24
+      name: rescuespecialist2_24
       rect:
         serializedVersion: 2
-        x: 47
-        y: 11
-        width: 49
+        x: 48
+        y: 12
+        width: 48
         height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -766,14 +766,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b072a6a45c0ca340800000000000000
-      internalID: 4876286054247854263
+      spriteID: 997c2e473e77fca50800000000000000
+      internalID: 6543580602394920857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_25
+      name: rescuespecialist2_25
       rect:
         serializedVersion: 2
         x: 100
@@ -788,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f8f1aef039c767f40800000000000000
-      internalID: 5725900947317202831
+      spriteID: 0faf201dcf0166af0800000000000000
+      internalID: -403616438578644240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_26
+      name: rescuespecialist2_26
       rect:
         serializedVersion: 2
         x: 144
@@ -810,14 +810,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dadce9ffb899636c0800000000000000
-      internalID: -4163971978889343571
+      spriteID: b8e19a7f111974af0800000000000000
+      internalID: -412201334525583733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_27
+      name: rescuespecialist2_27
       rect:
         serializedVersion: 2
         x: 157
@@ -832,14 +832,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82a916d0ab36ae930800000000000000
-      internalID: 4173257655451753000
+      spriteID: 75e9e05cd3260dfe0800000000000000
+      internalID: -1166324286050361769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RescSpec_28
+      name: rescuespecialist2_28
       rect:
         serializedVersion: 2
         x: 181
@@ -854,8 +854,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0db93f58a1c3b45e0800000000000000
-      internalID: -1924378331156603952
+      spriteID: 3f654cac36a4cb0d0800000000000000
+      internalID: -3405765425734854925
       vertices: []
       indices: 
       edges: []
@@ -874,35 +874,35 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RescSpec_0: -5755546180611968356
-      RescSpec_1: 1036210898270830086
-      RescSpec_10: 523612620988072433
-      RescSpec_11: -6629838317776176899
-      RescSpec_12: -8252992319437970326
-      RescSpec_13: 125766473032399380
-      RescSpec_14: -5878876061774394864
-      RescSpec_15: 1851413548835134935
-      RescSpec_16: -7323293043662500355
-      RescSpec_17: 3530280637045808480
-      RescSpec_18: -3185769080206828119
-      RescSpec_19: 3875095572371590557
-      RescSpec_2: -6451311448524071486
-      RescSpec_20: 963776644016532008
-      RescSpec_21: 7322366178806496539
-      RescSpec_22: 2292808973228786945
-      RescSpec_23: 1694013323056060809
-      RescSpec_24: 4876286054247854263
-      RescSpec_25: 5725900947317202831
-      RescSpec_26: -4163971978889343571
-      RescSpec_27: 4173257655451753000
-      RescSpec_28: -1924378331156603952
-      RescSpec_3: -2203981736617073120
-      RescSpec_4: 1748703361890976554
-      RescSpec_5: -6725033854266079104
-      RescSpec_6: -1666092642818021166
-      RescSpec_7: -1179724649809500202
-      RescSpec_8: -8121431697166187775
-      RescSpec_9: 9143531170966515288
+      rescuespecialist2_0: -4846870227359926449
+      rescuespecialist2_1: 8242453574670630450
+      rescuespecialist2_10: 1690874886676701170
+      rescuespecialist2_11: -8295040564974200907
+      rescuespecialist2_12: 3501986962881708630
+      rescuespecialist2_13: -2881844822602816261
+      rescuespecialist2_14: 380480804947067697
+      rescuespecialist2_15: -1133826624876714078
+      rescuespecialist2_16: 9202509030991358950
+      rescuespecialist2_17: 905070327560535937
+      rescuespecialist2_18: 5956737599589059538
+      rescuespecialist2_19: 352578184852552189
+      rescuespecialist2_2: 4952348103754494505
+      rescuespecialist2_20: -3614154623431756590
+      rescuespecialist2_21: -39129185583212101
+      rescuespecialist2_22: -3929247824022926274
+      rescuespecialist2_23: 8113503285861104167
+      rescuespecialist2_24: 6543580602394920857
+      rescuespecialist2_25: -403616438578644240
+      rescuespecialist2_26: -412201334525583733
+      rescuespecialist2_27: -1166324286050361769
+      rescuespecialist2_28: -3405765425734854925
+      rescuespecialist2_3: 5786605934824468697
+      rescuespecialist2_4: 5555628480296535954
+      rescuespecialist2_5: -107648109697961951
+      rescuespecialist2_6: 5086563662589885899
+      rescuespecialist2_7: -4819476713162569316
+      rescuespecialist2_8: -1769356547911927532
+      rescuespecialist2_9: -7893371074373296556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
