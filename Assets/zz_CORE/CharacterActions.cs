@@ -147,15 +147,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""riot_shield"",
-                    ""type"": ""Button"",
-                    ""id"": ""88f25595-d266-44d5-a92b-1ef7a239e465"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""specialist_jump"",
                     ""type"": ""Button"",
                     ""id"": ""c51833fc-61d8-47c1-a85d-ffc270e146cd"",
@@ -181,6 +172,33 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""riot_shield"",
+                    ""type"": ""Button"",
+                    ""id"": ""88f25595-d266-44d5-a92b-1ef7a239e465"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""riot_bash"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6100257-2d8e-4c1d-9b81-425caa4a6a2f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""riot_brace"",
+                    ""type"": ""Button"",
+                    ""id"": ""627bede7-81e0-414d-a664-27e9f728e632"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -188,6 +206,28 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""f5dcdff1-a6ee-4e8b-954b-7fadc42e0c58"",
                     ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a823d8a-13e3-49bb-93c2-d58126e7496e"",
+                    ""path"": ""<Mouse>/backButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4607dcc3-4092-4909-b2c2-3e2969978c07"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -317,6 +357,61 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e800a45d-cfb9-4d21-8c78-e703a1dd8f60"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1cebe42f-e8e7-4b38-829e-79666149e6e0"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8586a203-360f-494f-954b-16e4074274b2"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""84666f53-cab9-4829-b2f0-5bbc6e379c07"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7325e894-f77d-4b26-9b42-de33263ecd8d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""1D Axis"",
                     ""id"": ""bd88488e-5775-43c4-a59e-49601a6cfa0c"",
                     ""path"": ""1DAxis"",
@@ -342,6 +437,72 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""14a7d625-d3c6-4a9b-b5a4-1b3d6b712d7e"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""18b98183-9c47-473a-b8df-83f4471edd16"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5b4fa7cb-e4f2-466b-82b7-ebb8792684c8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e52cd467-b8a6-46c5-a14b-74dfb1ff5660"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""e2b5f208-8064-4a11-8a5b-34f18e6818de"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""da5cdc49-d3ae-40fe-a6fe-953af96009a5"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchCharacters"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b74a0e51-dd81-4048-90b7-1da55318062d"",
+                    ""path"": ""<Mouse>/scroll/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -384,8 +545,30 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""38dda85d-5334-45e7-85d3-959d386e69c2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80ec9191-272a-4458-a941-6679a5633d78"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c84246ea-c9df-4e66-93c2-48a97d007bdd"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Joystick>/stick/up"",
                     ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
@@ -417,8 +600,41 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0af55d6b-e901-4ba1-9ee4-258d3c628f63"",
+                    ""path"": ""<Joystick>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""specialist_jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b385c65f-f635-4d82-9991-eeacdd84296c"",
                     ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""specialist_crawl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8b32e71-6419-4416-a3f8-5379dd4220a4"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""specialist_crawl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6964ce1c-3009-460a-9170-f31a4683c89a"",
+                    ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -546,6 +762,94 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""action"": ""specialist_swim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f37383d-0fcd-4c9f-94e4-5f1992695e58"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_bash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27133ae5-6e55-4a8d-95fe-ca9f97074898"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_bash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c176793f-46bf-412e-8e06-4b7ab1580add"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_bash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e9dd880-d73d-4a66-bd08-38750936b594"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a1c89c4-a837-4a0b-990e-bdb5a18cad91"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8376587c-a43e-4087-b3f6-68547c470fe1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6689512-005a-4d16-aa52-465261015203"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48eebd53-c356-4eb6-9444-faf3445c6937"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -588,10 +892,12 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         m_Controls_Cancel = m_Controls.FindAction("Cancel", throwIfNotFound: true);
         m_Controls_firefighter_axe = m_Controls.FindAction("firefighter_axe", throwIfNotFound: true);
         m_Controls_firefighter_ladder = m_Controls.FindAction("firefighter_ladder", throwIfNotFound: true);
-        m_Controls_riot_shield = m_Controls.FindAction("riot_shield", throwIfNotFound: true);
         m_Controls_specialist_jump = m_Controls.FindAction("specialist_jump", throwIfNotFound: true);
         m_Controls_specialist_crawl = m_Controls.FindAction("specialist_crawl", throwIfNotFound: true);
         m_Controls_specialist_swim = m_Controls.FindAction("specialist_swim", throwIfNotFound: true);
+        m_Controls_riot_shield = m_Controls.FindAction("riot_shield", throwIfNotFound: true);
+        m_Controls_riot_bash = m_Controls.FindAction("riot_bash", throwIfNotFound: true);
+        m_Controls_riot_brace = m_Controls.FindAction("riot_brace", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -682,10 +988,12 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_Cancel;
     private readonly InputAction m_Controls_firefighter_axe;
     private readonly InputAction m_Controls_firefighter_ladder;
-    private readonly InputAction m_Controls_riot_shield;
     private readonly InputAction m_Controls_specialist_jump;
     private readonly InputAction m_Controls_specialist_crawl;
     private readonly InputAction m_Controls_specialist_swim;
+    private readonly InputAction m_Controls_riot_shield;
+    private readonly InputAction m_Controls_riot_bash;
+    private readonly InputAction m_Controls_riot_brace;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controls".
     /// </summary>
@@ -722,10 +1030,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @firefighter_ladder => m_Wrapper.m_Controls_firefighter_ladder;
         /// <summary>
-        /// Provides access to the underlying input action "Controls/riot_shield".
-        /// </summary>
-        public InputAction @riot_shield => m_Wrapper.m_Controls_riot_shield;
-        /// <summary>
         /// Provides access to the underlying input action "Controls/specialist_jump".
         /// </summary>
         public InputAction @specialist_jump => m_Wrapper.m_Controls_specialist_jump;
@@ -737,6 +1041,18 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controls/specialist_swim".
         /// </summary>
         public InputAction @specialist_swim => m_Wrapper.m_Controls_specialist_swim;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/riot_shield".
+        /// </summary>
+        public InputAction @riot_shield => m_Wrapper.m_Controls_riot_shield;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/riot_bash".
+        /// </summary>
+        public InputAction @riot_bash => m_Wrapper.m_Controls_riot_bash;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/riot_brace".
+        /// </summary>
+        public InputAction @riot_brace => m_Wrapper.m_Controls_riot_brace;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -781,9 +1097,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_ladder.started += instance.OnFirefighter_ladder;
             @firefighter_ladder.performed += instance.OnFirefighter_ladder;
             @firefighter_ladder.canceled += instance.OnFirefighter_ladder;
-            @riot_shield.started += instance.OnRiot_shield;
-            @riot_shield.performed += instance.OnRiot_shield;
-            @riot_shield.canceled += instance.OnRiot_shield;
             @specialist_jump.started += instance.OnSpecialist_jump;
             @specialist_jump.performed += instance.OnSpecialist_jump;
             @specialist_jump.canceled += instance.OnSpecialist_jump;
@@ -793,6 +1106,15 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @specialist_swim.started += instance.OnSpecialist_swim;
             @specialist_swim.performed += instance.OnSpecialist_swim;
             @specialist_swim.canceled += instance.OnSpecialist_swim;
+            @riot_shield.started += instance.OnRiot_shield;
+            @riot_shield.performed += instance.OnRiot_shield;
+            @riot_shield.canceled += instance.OnRiot_shield;
+            @riot_bash.started += instance.OnRiot_bash;
+            @riot_bash.performed += instance.OnRiot_bash;
+            @riot_bash.canceled += instance.OnRiot_bash;
+            @riot_brace.started += instance.OnRiot_brace;
+            @riot_brace.performed += instance.OnRiot_brace;
+            @riot_brace.canceled += instance.OnRiot_brace;
         }
 
         /// <summary>
@@ -822,9 +1144,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_ladder.started -= instance.OnFirefighter_ladder;
             @firefighter_ladder.performed -= instance.OnFirefighter_ladder;
             @firefighter_ladder.canceled -= instance.OnFirefighter_ladder;
-            @riot_shield.started -= instance.OnRiot_shield;
-            @riot_shield.performed -= instance.OnRiot_shield;
-            @riot_shield.canceled -= instance.OnRiot_shield;
             @specialist_jump.started -= instance.OnSpecialist_jump;
             @specialist_jump.performed -= instance.OnSpecialist_jump;
             @specialist_jump.canceled -= instance.OnSpecialist_jump;
@@ -834,6 +1153,15 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @specialist_swim.started -= instance.OnSpecialist_swim;
             @specialist_swim.performed -= instance.OnSpecialist_swim;
             @specialist_swim.canceled -= instance.OnSpecialist_swim;
+            @riot_shield.started -= instance.OnRiot_shield;
+            @riot_shield.performed -= instance.OnRiot_shield;
+            @riot_shield.canceled -= instance.OnRiot_shield;
+            @riot_bash.started -= instance.OnRiot_bash;
+            @riot_bash.performed -= instance.OnRiot_bash;
+            @riot_bash.canceled -= instance.OnRiot_bash;
+            @riot_brace.started -= instance.OnRiot_brace;
+            @riot_brace.performed -= instance.OnRiot_brace;
+            @riot_brace.canceled -= instance.OnRiot_brace;
         }
 
         /// <summary>
@@ -1013,13 +1341,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFirefighter_ladder(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "riot_shield" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRiot_shield(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "specialist_jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1040,6 +1361,27 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpecialist_swim(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "riot_shield" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRiot_shield(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "riot_bash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRiot_bash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "riot_brace" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRiot_brace(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
