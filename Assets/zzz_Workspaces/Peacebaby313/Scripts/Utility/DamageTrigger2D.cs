@@ -155,6 +155,27 @@ public class DamageTrigger2D : MonoBehaviour
             return;
         }
 
+
+        DestructibleContainer2D destructibleContainer =
+            other.GetComponentInParent<DestructibleContainer2D>();
+
+        if (destructibleContainer != null)
+        {
+            bool containerWasDamaged =
+                destructibleContainer.TryDamage(
+                    destructionDamageType,
+                    destructionDamage);
+
+            if (containerWasDamaged)
+            {
+                hitObjects.Add(target);
+            }
+
+            return;
+        }
+
+
+
         if (destroyDebris &&
             other.CompareTag(debrisTag))
         {
