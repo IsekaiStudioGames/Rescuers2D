@@ -129,24 +129,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""firefighter_axe"",
-                    ""type"": ""Button"",
-                    ""id"": ""f689815d-e2d0-47fa-931a-a867e97bb7dd"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""firefighter_ladder"",
-                    ""type"": ""Button"",
-                    ""id"": ""7735a780-346d-4abf-b1c9-8bf7452c295f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""specialist_jump"",
                     ""type"": ""Button"",
                     ""id"": ""c51833fc-61d8-47c1-a85d-ffc270e146cd"",
@@ -195,6 +177,24 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""name"": ""riot_brace"",
                     ""type"": ""Button"",
                     ""id"": ""627bede7-81e0-414d-a664-27e9f728e632"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""firefighter_axe"",
+                    ""type"": ""Button"",
+                    ""id"": ""f689815d-e2d0-47fa-931a-a867e97bb7dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""firefighter_ladder"",
+                    ""type"": ""Button"",
+                    ""id"": ""7735a780-346d-4abf-b1c9-8bf7452c295f"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -513,7 +513,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""46d92164-fd09-40a1-99d6-edfee6496715"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -523,8 +523,30 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3eb0f865-4dbf-4cd7-b1db-b7813537e10d"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""9e92616d-1029-4f59-95c1-4dcf2d87544c"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d594d2b9-e8e2-4cb9-8e14-b295a521a593"",
+                    ""path"": ""<Mouse>/forwardButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64c4162b-fd11-4b94-b034-3c9f365a6a38"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -534,9 +556,53 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fc138db1-8737-44f3-ba88-7dda4ee0d715"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": ""Hold"",
+                    ""id"": ""b93c9cd9-63eb-4c19-8c20-bbbf9502dd37"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""firefighter_axe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""408b8ab8-162e-4fea-93e8-37727071dbd8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""firefighter_axe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49377593-971f-4562-9777-bf0bea597a52"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""firefighter_ladder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fafc6d4a-abbe-4c47-a3c5-4ad7315370cc"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""firefighter_ladder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66363ac4-174d-4f73-80f2-2b05d551a1e0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""firefighter_ladder"",
@@ -798,52 +864,30 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e9dd880-d73d-4a66-bd08-38750936b594"",
-                    ""path"": ""<Keyboard>/alt"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""riot_brace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2a1c89c4-a837-4a0b-990e-bdb5a18cad91"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""riot_brace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8376587c-a43e-4087-b3f6-68547c470fe1"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""riot_brace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a6689512-005a-4d16-aa52-465261015203"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""riot_brace"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""48eebd53-c356-4eb6-9444-faf3445c6937"",
                     ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d238f832-144b-4400-9aaf-acca41116977"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_brace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b1ece0a-ab50-4cb6-b767-66712782d773"",
+                    ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -878,6 +922,17 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac1db5f1-31a5-4c51-a41d-d26bd352da4b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -890,14 +945,14 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         m_Controls_Interact = m_Controls.FindAction("Interact", throwIfNotFound: true);
         m_Controls_SwitchCharacters = m_Controls.FindAction("SwitchCharacters", throwIfNotFound: true);
         m_Controls_Cancel = m_Controls.FindAction("Cancel", throwIfNotFound: true);
-        m_Controls_firefighter_axe = m_Controls.FindAction("firefighter_axe", throwIfNotFound: true);
-        m_Controls_firefighter_ladder = m_Controls.FindAction("firefighter_ladder", throwIfNotFound: true);
         m_Controls_specialist_jump = m_Controls.FindAction("specialist_jump", throwIfNotFound: true);
         m_Controls_specialist_crawl = m_Controls.FindAction("specialist_crawl", throwIfNotFound: true);
         m_Controls_specialist_swim = m_Controls.FindAction("specialist_swim", throwIfNotFound: true);
         m_Controls_riot_shield = m_Controls.FindAction("riot_shield", throwIfNotFound: true);
         m_Controls_riot_bash = m_Controls.FindAction("riot_bash", throwIfNotFound: true);
         m_Controls_riot_brace = m_Controls.FindAction("riot_brace", throwIfNotFound: true);
+        m_Controls_firefighter_axe = m_Controls.FindAction("firefighter_axe", throwIfNotFound: true);
+        m_Controls_firefighter_ladder = m_Controls.FindAction("firefighter_ladder", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -986,14 +1041,14 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_Interact;
     private readonly InputAction m_Controls_SwitchCharacters;
     private readonly InputAction m_Controls_Cancel;
-    private readonly InputAction m_Controls_firefighter_axe;
-    private readonly InputAction m_Controls_firefighter_ladder;
     private readonly InputAction m_Controls_specialist_jump;
     private readonly InputAction m_Controls_specialist_crawl;
     private readonly InputAction m_Controls_specialist_swim;
     private readonly InputAction m_Controls_riot_shield;
     private readonly InputAction m_Controls_riot_bash;
     private readonly InputAction m_Controls_riot_brace;
+    private readonly InputAction m_Controls_firefighter_axe;
+    private readonly InputAction m_Controls_firefighter_ladder;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controls".
     /// </summary>
@@ -1022,14 +1077,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Cancel => m_Wrapper.m_Controls_Cancel;
         /// <summary>
-        /// Provides access to the underlying input action "Controls/firefighter_axe".
-        /// </summary>
-        public InputAction @firefighter_axe => m_Wrapper.m_Controls_firefighter_axe;
-        /// <summary>
-        /// Provides access to the underlying input action "Controls/firefighter_ladder".
-        /// </summary>
-        public InputAction @firefighter_ladder => m_Wrapper.m_Controls_firefighter_ladder;
-        /// <summary>
         /// Provides access to the underlying input action "Controls/specialist_jump".
         /// </summary>
         public InputAction @specialist_jump => m_Wrapper.m_Controls_specialist_jump;
@@ -1053,6 +1100,14 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controls/riot_brace".
         /// </summary>
         public InputAction @riot_brace => m_Wrapper.m_Controls_riot_brace;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/firefighter_axe".
+        /// </summary>
+        public InputAction @firefighter_axe => m_Wrapper.m_Controls_firefighter_axe;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/firefighter_ladder".
+        /// </summary>
+        public InputAction @firefighter_ladder => m_Wrapper.m_Controls_firefighter_ladder;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1091,12 +1146,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @Cancel.started += instance.OnCancel;
             @Cancel.performed += instance.OnCancel;
             @Cancel.canceled += instance.OnCancel;
-            @firefighter_axe.started += instance.OnFirefighter_axe;
-            @firefighter_axe.performed += instance.OnFirefighter_axe;
-            @firefighter_axe.canceled += instance.OnFirefighter_axe;
-            @firefighter_ladder.started += instance.OnFirefighter_ladder;
-            @firefighter_ladder.performed += instance.OnFirefighter_ladder;
-            @firefighter_ladder.canceled += instance.OnFirefighter_ladder;
             @specialist_jump.started += instance.OnSpecialist_jump;
             @specialist_jump.performed += instance.OnSpecialist_jump;
             @specialist_jump.canceled += instance.OnSpecialist_jump;
@@ -1115,6 +1164,12 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @riot_brace.started += instance.OnRiot_brace;
             @riot_brace.performed += instance.OnRiot_brace;
             @riot_brace.canceled += instance.OnRiot_brace;
+            @firefighter_axe.started += instance.OnFirefighter_axe;
+            @firefighter_axe.performed += instance.OnFirefighter_axe;
+            @firefighter_axe.canceled += instance.OnFirefighter_axe;
+            @firefighter_ladder.started += instance.OnFirefighter_ladder;
+            @firefighter_ladder.performed += instance.OnFirefighter_ladder;
+            @firefighter_ladder.canceled += instance.OnFirefighter_ladder;
         }
 
         /// <summary>
@@ -1138,12 +1193,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @Cancel.started -= instance.OnCancel;
             @Cancel.performed -= instance.OnCancel;
             @Cancel.canceled -= instance.OnCancel;
-            @firefighter_axe.started -= instance.OnFirefighter_axe;
-            @firefighter_axe.performed -= instance.OnFirefighter_axe;
-            @firefighter_axe.canceled -= instance.OnFirefighter_axe;
-            @firefighter_ladder.started -= instance.OnFirefighter_ladder;
-            @firefighter_ladder.performed -= instance.OnFirefighter_ladder;
-            @firefighter_ladder.canceled -= instance.OnFirefighter_ladder;
             @specialist_jump.started -= instance.OnSpecialist_jump;
             @specialist_jump.performed -= instance.OnSpecialist_jump;
             @specialist_jump.canceled -= instance.OnSpecialist_jump;
@@ -1162,6 +1211,12 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @riot_brace.started -= instance.OnRiot_brace;
             @riot_brace.performed -= instance.OnRiot_brace;
             @riot_brace.canceled -= instance.OnRiot_brace;
+            @firefighter_axe.started -= instance.OnFirefighter_axe;
+            @firefighter_axe.performed -= instance.OnFirefighter_axe;
+            @firefighter_axe.canceled -= instance.OnFirefighter_axe;
+            @firefighter_ladder.started -= instance.OnFirefighter_ladder;
+            @firefighter_ladder.performed -= instance.OnFirefighter_ladder;
+            @firefighter_ladder.canceled -= instance.OnFirefighter_ladder;
         }
 
         /// <summary>
@@ -1327,20 +1382,6 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCancel(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "firefighter_axe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFirefighter_axe(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "firefighter_ladder" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnFirefighter_ladder(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "specialist_jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1382,6 +1423,20 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRiot_brace(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "firefighter_axe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFirefighter_axe(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "firefighter_ladder" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFirefighter_ladder(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
