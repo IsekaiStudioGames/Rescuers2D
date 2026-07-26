@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901031787992614683}
   - component: {fileID: 4495684242599322196}
+  - component: {fileID: 1885823157654059209}
   m_Layer: 0
   m_Name: InventoryGridRoot
   m_TagString: Untagged
@@ -122,7 +123,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8358914267043937899}
-  - {fileID: 1372077397682831206}
   m_Father: {fileID: 997974036864192986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -146,6 +146,20 @@ MonoBehaviour:
   inventoryElementPrefab: {fileID: 5632185057337645539, guid: ddbf76ab0c85bbf43b969b4d94f59bd7, type: 3}
   rescuerCount: 3
   slotsPerRescuer: 4
+--- !u!114 &1885823157654059209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245657403867368133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acef09094b142c54ab20bc39fc305094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryHUDController
+  teamInventory: {fileID: 0}
+  inventoryGridController: {fileID: 4495684242599322196}
 --- !u!1 &4413388283333345596
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +192,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4901031787992614683}
+  - {fileID: 1372077397682831206}
   m_Father: {fileID: 3517830670545309928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -254,7 +269,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4901031787992614683}
+    m_TransformParent: {fileID: 997974036864192986}
     m_Modifications:
     - target: {fileID: 2262784616141799104, guid: 4dee89a24e0cc0942a07fee0d015acc2, type: 3}
       propertyPath: m_Name
@@ -326,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3896611875514551459, guid: 4dee89a24e0cc0942a07fee0d015acc2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 594
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 3896611875514551459, guid: 4dee89a24e0cc0942a07fee0d015acc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

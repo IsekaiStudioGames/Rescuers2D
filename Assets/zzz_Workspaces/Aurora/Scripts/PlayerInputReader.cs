@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputReader : MonoBehaviour {
+public class PlayerInputReader : MonoBehaviour
+{
 
     private CharacterActions inputActions;
 
@@ -10,19 +11,24 @@ public class PlayerInputReader : MonoBehaviour {
     [SerializeField] private RescueSpecialistController rescueSpecialist;
     [SerializeField] private RiotOfficerController riotOfficer;
 
+    private bool wasPressingUp;
+
     private enum ActiveCharacter { Firefighter, RiotOfficer, Specialist }
     private ActiveCharacter currentCharacter = ActiveCharacter.Firefighter;
 
     private Vector2 moveDirection;
 
-    private void OnEnable() {
-        inputActions.Controls.Enable(); 
+    private void OnEnable()
+    {
+        inputActions.Controls.Enable();
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         inputActions.Controls.Disable();
     }
 
-    private void Awake() {
+    private void Awake()
+    {
 
         inputActions = new();
 
@@ -30,28 +36,26 @@ public class PlayerInputReader : MonoBehaviour {
         //universal moves
         inputActions.Controls.SwitchCharacters.performed += SwitchCharacters();
 
-        inputActions.Controls.Interact.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter)
-            {
 
-                if (firefighter.IsLadderNearbyToRetrieve()) firefighter.TryInteractLadder();
-                else firefighter.DeployLadder();
-            }
-        };
+
+
+
+
+
+
+
+
 
 
         //firefighter moves
-        inputActions.Controls.firefighter_ladder.performed += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.DeployLadder();
-        };
-        inputActions.Controls.firefighter_ladder.canceled += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
+
+        inputActions.Controls.firefighter_ladder.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseLadder();
         };
 
-        inputActions.Controls.Interact.canceled += ctx => {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.StopDeployingLadder();
-        };
-        inputActions.Controls.firefighter_axe.performed += ctx => {
+        inputActions.Controls.firefighter_axe.performed += ctx =>
+        {
             if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseAxe();
         };
 
@@ -107,7 +111,7 @@ public class PlayerInputReader : MonoBehaviour {
                 rescueSpecialist.Crawl();
             }
         };
-        inputActions.Controls.specialist_jump.performed += ctx => 
+        inputActions.Controls.specialist_jump.performed += ctx =>
         {
             if (currentCharacter == ActiveCharacter.Specialist)
             {
@@ -116,12 +120,21 @@ public class PlayerInputReader : MonoBehaviour {
         };
 
     }
-    private void Update() {
+    private void Update()
+    {
         HandleMoveInput();
 
-        switch(currentCharacter) {
+        switch (currentCharacter)
+        {
             case ActiveCharacter.Firefighter:
                 firefighter.Move(moveDirection);
+
+                bool isPessingUp = moveDirection.y > 0.5f;
+                if(isPessingUp && !wasPressingUp)
+                {
+                    firefighter.StartClimbing();
+                }
+                wasPressingUp = isPessingUp;
                 break;
             case ActiveCharacter.RiotOfficer:
                 riotOfficer.Move(moveDirection);
@@ -131,27 +144,31 @@ public class PlayerInputReader : MonoBehaviour {
                 break;
         }
     }
-    private void HandleMoveInput() {
-        moveDirection = inputActions.Controls.Move.ReadValue<Vector2>();
+    private void HandleMoveInput()
+    {
+        moveDirection =
+            inputActions.Controls.Move.ReadValue<Vector2>();
+
     }
-    private Action<InputAction.CallbackContext> SwitchCharacters() {
-        return ctx => {
+    private Action<InputAction.CallbackContext> SwitchCharacters()
+    {
+        return ctx =>
+        {
             float value = ctx.ReadValue<float>();
 
-            Debug.Log($"[Input Router] Switch Characters, axis read {value}");
 
-            if (value == 0) {
-                Debug.LogWarning($"axis is at: {value}");
-            }
 
             StopCurrentCharacterMovement();
 
             int totalCharacters = Enum.GetValues(typeof(ActiveCharacter)).Length;
             int currentIndex = (int)currentCharacter;
 
-            if (value > 0) {
+            if (value > 0)
+            {
                 currentIndex = (currentIndex + 1) % totalCharacters;
-            } else if (value < 0) { 
+            }
+            else if (value < 0)
+            {
                 currentIndex = (currentIndex - 1 + totalCharacters) % totalCharacters;
             }
             currentCharacter = (ActiveCharacter)currentIndex;
@@ -176,4 +193,6 @@ public class PlayerInputReader : MonoBehaviour {
                 break;
         }
     }
+
+
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9077105626652497771}
   - component: {fileID: 968884315142993729}
   - component: {fileID: 8094872711230338621}
+  - component: {fileID: 8595907433356202978}
   m_Layer: 0
   m_Name: PF_ApplicationBootstrap
   m_TagString: Untagged
@@ -163,3 +164,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8595907433356202978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787974780697773544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110e43a8c209c3f4da33baa64aecab78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeamInventory
