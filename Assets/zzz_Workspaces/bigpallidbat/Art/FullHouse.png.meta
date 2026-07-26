@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 7a3d857e40b9648418f4c05c6909f37b
+guid: 70d95addd129d40499719ca90e174a7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4142956250163987377
-    second: Drit_0
-  - first:
-      213: -8009420867114837132
-    second: Drit_1
+      213: 1487736399984482114
+    second: FullHouse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,11 +113,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drit_0
+      name: FullHouse_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -131,366 +128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4cbdf4ad334186c0800000000000000
-      internalID: -4142956250163987377
+      spriteID: 2475e789f5085a410800000000000000
+      internalID: 1487736399984482114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47bd4073822d8d090800000000000000
-      internalID: -8009420867114837132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9489ac4a829e5c04d9b5d39bb82768ae
-      internalID: 2021332127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7bc9102074555c4ca388cf3b7acc97b
-      internalID: 837618078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b3ce94e6f6e9d54cbc7f0355a4a4b10
-      internalID: 507814238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 405eaf4bece99084ea6117aff9cd3959
-      internalID: 93277683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02e587c78ebba5e4b8221e524feb2a32
-      internalID: 486389171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36f27c6ba689ee34585b1a674d2aba4c
-      internalID: -316280248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b22110d4b3f4a543b9e7b7dc55dce6e
-      internalID: 1909441883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_9
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8209b5a6269a7b4e849b32897559087
-      internalID: -1642047297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_10
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3fde58ac65989f478f338c1a05dffa7
-      internalID: -1013716213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_11
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ee37b9128fdb374283a1c8d7561433c
-      internalID: -303759337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_12
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c20fa36e3d0d897409d57fb65f65ca9d
-      internalID: 1383528674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_13
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9dc7f5581e3fa0f418007e26009c7bd0
-      internalID: -540064751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_14
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f04f61739c845e40a0598167661461f
-      internalID: -1106312120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_15
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dd6dc5be35ec9d49aea127dc0b7f1e7
-      internalID: -2087288073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d10c2525578d4641a9dace482036bc4
-      internalID: 102712533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_17
+      name: FullHouse_1
       rect:
         serializedVersion: 2
         x: 16
@@ -505,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 176b5da81b459884d9249a23e6e905f3
-      internalID: 178719331
+      spriteID: 260ae15b2f22d164aa7b55cfa0424421
+      internalID: -758912304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_18
+      name: FullHouse_2
       rect:
         serializedVersion: 2
         x: 32
@@ -527,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d3ad5439eca3fc4da1935995f49b524
-      internalID: 1175323703
+      spriteID: 53c1c3d256e50f644850c3d174a4ba8f
+      internalID: 1510092423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_19
+      name: FullHouse_3
       rect:
         serializedVersion: 2
         x: 48
@@ -549,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527ed1ead9e771348a45bae90696aad2
-      internalID: 231943796
+      spriteID: 437fb5c6df162964084b2adf96a8d7ab
+      internalID: 1074232360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_20
+      name: FullHouse_4
       rect:
         serializedVersion: 2
         x: 64
@@ -571,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd8bb221ee44d14eaae50f39bd04400
-      internalID: 866754390
+      spriteID: 9604d6bc2260fa9449b6532df0874beb
+      internalID: -862292324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_21
+      name: FullHouse_5
       rect:
         serializedVersion: 2
         x: 80
@@ -593,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8bf5ac5c793eca44af425ebeeed1176
-      internalID: -3933248
+      spriteID: ca95f280e2acb994b9b964ff026b2ff8
+      internalID: 265403293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_22
+      name: FullHouse_6
       rect:
         serializedVersion: 2
         x: 96
@@ -615,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2413d921ab572a648ab6dd51a8c10ec9
-      internalID: -282837854
+      spriteID: f739765479df81a42bbd525b40178621
+      internalID: 1885944426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_23
+      name: FullHouse_7
       rect:
         serializedVersion: 2
         x: 112
@@ -637,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a795fb4b6bbfa9c43a7a342045925d31
-      internalID: 46590207
+      spriteID: e3ddd7fd43e762d42a5fcac4d1e14c1b
+      internalID: 1918347445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_24
+      name: FullHouse_8
       rect:
         serializedVersion: 2
         x: 128
@@ -659,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef432d2dfc914f0488b27734bb3ec822
-      internalID: 1555412802
+      spriteID: e061af1399675824ead183ac6a0e6402
+      internalID: -1800119345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_25
+      name: FullHouse_9
       rect:
         serializedVersion: 2
         x: 144
@@ -681,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90a00c527b47af24fbffd5c904a03d44
-      internalID: -483852447
+      spriteID: 9a02fcb1f4baebf42811a55a06a3ea85
+      internalID: -1903508560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_26
+      name: FullHouse_10
       rect:
         serializedVersion: 2
         x: 160
@@ -703,14 +348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1c145bc5509c2f4994c4fb5e2bd31fe
-      internalID: -1142840187
+      spriteID: 1fbb7387ccd97a843be97db4221bc966
+      internalID: -712302828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_27
+      name: FullHouse_11
       rect:
         serializedVersion: 2
         x: 176
@@ -725,102 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88d482689adbe304caa3b4659cc6c776
-      internalID: 1222218404
+      spriteID: d0e48f1bd064bda4c8091c2f3cd6e371
+      internalID: 139379387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_28
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a3df754ac88f81449f9302e9ff29dae
-      internalID: 1683101327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_29
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df0b7a283075c734993b865afa7ba0fe
-      internalID: -1268351584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_30
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65a887ecb793a474da257a6ec815ccde
-      internalID: 1046000848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_31
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 560a137185adea847b44040358590396
-      internalID: -766389265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_32
+      name: FullHouse_12
       rect:
         serializedVersion: 2
         x: 0
@@ -835,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6445d02b7ec8cec46b4b5c89d8603fb9
-      internalID: -1095570166
+      spriteID: c78185287914fe147a10962c136131a1
+      internalID: 1735175657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_33
+      name: FullHouse_13
       rect:
         serializedVersion: 2
         x: 16
@@ -857,14 +414,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fc32696a5ea44a43bfb229d0840bbed
-      internalID: 261098450
+      spriteID: ee9a2d488ec6ec44bb032f7f6658d11e
+      internalID: -1966396833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_34
+      name: FullHouse_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be9542f64c5d28468925e743ca19a71
+      internalID: 1202635461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_15
       rect:
         serializedVersion: 2
         x: 48
@@ -879,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32396e86ce835a84a8862ae7d3302fe1
-      internalID: -1239659812
+      spriteID: 2bf858540cdd6544aa47a7a44e093363
+      internalID: -1547240916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_35
+      name: FullHouse_16
       rect:
         serializedVersion: 2
         x: 64
@@ -901,14 +480,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8518fb7f9a586a941a0727aae0a781cb
-      internalID: -942584446
+      spriteID: a1a9901c0e140384c822ec667f0c6451
+      internalID: 2140539961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_36
+      name: FullHouse_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58b5932a4414f5f42b2b9c8af4d5c99c
+      internalID: 1277014552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_18
       rect:
         serializedVersion: 2
         x: 96
@@ -923,14 +524,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0f4567aa16d5b45be25cb898531eb5
-      internalID: 2119804289
+      spriteID: e973f7c36e814db4ea2b26fa496723f7
+      internalID: 356899554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_37
+      name: FullHouse_19
       rect:
         serializedVersion: 2
         x: 112
@@ -945,14 +546,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbd4428c19cd34141abb6846b7e98e76
-      internalID: 1846153806
+      spriteID: d232c2369626ba0499431a5f7e2ab685
+      internalID: 1322430978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_38
+      name: FullHouse_20
       rect:
         serializedVersion: 2
         x: 128
@@ -967,14 +568,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 012968616ee736548a2b18fcef354964
-      internalID: -64276256
+      spriteID: a8436f0beb2d0304fbd4aaee5d05dac3
+      internalID: 2057547202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_39
+      name: FullHouse_21
       rect:
         serializedVersion: 2
         x: 144
@@ -989,14 +590,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34061737ad9c6d47b295bfca043a5a5
-      internalID: 794156836
+      spriteID: e27370136cb28d64e8e5351248b6a8b3
+      internalID: 815677890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_40
+      name: FullHouse_22
       rect:
         serializedVersion: 2
         x: 160
@@ -1011,14 +612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b4f814a2c311d348bb46076f09432f9
-      internalID: 1363799787
+      spriteID: 02077300591576a4e80e0f1609d26119
+      internalID: -480882781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_41
+      name: FullHouse_23
       rect:
         serializedVersion: 2
         x: 176
@@ -1033,102 +634,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd2f05a409fb93645a0dc5ed3a3d9089
-      internalID: -681517319
+      spriteID: 9e8853d4f54f666498be76faaaf3df49
+      internalID: -252981339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_42
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39a7a13fa02c9a74caa0f5cbd169ada6
-      internalID: 1764046572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_43
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb8e9f9a47f2fd4449b7b6f69c7d96ac
-      internalID: 328472586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_44
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 606e3f06ce545344a8c5dd7d5c018ee5
-      internalID: 1679213877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_45
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0389a618ab1aee44d94a4c3875b8f319
-      internalID: 640558724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_46
+      name: FullHouse_24
       rect:
         serializedVersion: 2
         x: 0
@@ -1143,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9ca6cd0c9dab1c4991f8dcb8df7c8a4
-      internalID: 384054334
+      spriteID: bfc25a93d31075b4eb80beee033b48cc
+      internalID: 1868594788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_47
+      name: FullHouse_25
       rect:
         serializedVersion: 2
         x: 16
@@ -1165,14 +678,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b4778b6b640764a8cfea2a766c1874
-      internalID: -76481012
+      spriteID: d798ca59b1f8ca94d92420b99ac18b6a
+      internalID: -147310158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_48
+      name: FullHouse_26
       rect:
         serializedVersion: 2
         x: 32
@@ -1187,14 +700,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2778323a8bd3b5647bef1f6471c612cd
-      internalID: -267223602
+      spriteID: 263eba5cb99710341b17fa50f8183297
+      internalID: 691270819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_49
+      name: FullHouse_27
       rect:
         serializedVersion: 2
         x: 48
@@ -1209,14 +722,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55b325b179e918b4184aad9b521e7ab1
-      internalID: -1651113370
+      spriteID: b9e4a0869ea5dbc4ba9a1fd71c5b9cf2
+      internalID: 1261871056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_50
+      name: FullHouse_28
       rect:
         serializedVersion: 2
         x: 64
@@ -1231,14 +744,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8322214bb44d21a46a31915ca4a0c559
-      internalID: 455900119
+      spriteID: b4c71f7b12f634d47a70d274cb6d0ced
+      internalID: 1160649537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_51
+      name: FullHouse_29
       rect:
         serializedVersion: 2
         x: 80
@@ -1253,14 +766,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42c9d57a35dc8c34d8451978fd555978
-      internalID: -151079167
+      spriteID: 87e6a1b55829cb2468a3a41750f31e8c
+      internalID: 898738550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_52
+      name: FullHouse_30
       rect:
         serializedVersion: 2
         x: 96
@@ -1275,58 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78b1436ca7bd472429c0fabd427db435
-      internalID: 693676311
+      spriteID: 587d23b2fda86a544bad2b3a2082a8ec
+      internalID: -1133094392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_53
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b2d66a5e80f5ea4a9d6b499447fe307
-      internalID: 1352884016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_54
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43e1f21310aa3bd4e89f6f261812512c
-      internalID: -1624729694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drit_55
+      name: FullHouse_31
       rect:
         serializedVersion: 2
         x: 144
@@ -1341,14 +810,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a306419b121b864d99544bff6ca52f2
-      internalID: -1377945879
+      spriteID: d7cd2e1fc7f350149967ad2c5bbf20f6
+      internalID: -1836681555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_56
+      name: FullHouse_32
       rect:
         serializedVersion: 2
         x: 160
@@ -1363,14 +832,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101d5145c2da1f04ea2dea11479ce3e4
-      internalID: 535074771
+      spriteID: b67ebbf15cc42de488ff9346ada41e95
+      internalID: 669084536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_57
+      name: FullHouse_33
       rect:
         serializedVersion: 2
         x: 176
@@ -1385,14 +854,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 984e166c488e50340809e5885c3e9d95
-      internalID: 1046355036
+      spriteID: b7e8b83ef58a9744aa95fe8bbf80168d
+      internalID: -1765607495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_58
+      name: FullHouse_34
       rect:
         serializedVersion: 2
         x: 192
@@ -1407,14 +876,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00dc98adb3205534a9eefbf2afa6779f
-      internalID: 1342594523
+      spriteID: c6fe725aee66bc6449bd57a747f79032
+      internalID: 878933394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_59
+      name: FullHouse_35
       rect:
         serializedVersion: 2
         x: 208
@@ -1429,18 +898,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 232dd7189b7c23a4e9dd20e319cce09f
-      internalID: 742523620
+      spriteID: 437a4a93eeccc334abb7c8630c22d82d
+      internalID: -209986856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_60
+      name: FullHouse_36
       rect:
         serializedVersion: 2
-        x: 224
-        y: 32
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1451,18 +920,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2efd580b93ff654197a3212f729db7b
-      internalID: -1746655589
+      spriteID: f1825bac3a3c35840941e783ae795722
+      internalID: -780393462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_61
+      name: FullHouse_37
       rect:
         serializedVersion: 2
-        x: 240
-        y: 32
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1473,14 +942,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c150f8b670f6605458e71b91741e24bc
-      internalID: -739225819
+      spriteID: 1e370e21d5508794eb8516d9954383a0
+      internalID: 992584367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_62
+      name: FullHouse_38
       rect:
         serializedVersion: 2
         x: 32
@@ -1495,14 +964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d37f5793366a4c24193000fd8ce7f231
-      internalID: -917304945
+      spriteID: cfea9b11c4dc1014a9438d211fe97b0c
+      internalID: 735825315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_63
+      name: FullHouse_39
       rect:
         serializedVersion: 2
         x: 48
@@ -1517,14 +986,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1847206ef90fcce40bb162073cc70dff
-      internalID: -746905647
+      spriteID: 45d8c089c1216a445a6bf1e5589e0c5c
+      internalID: 1815125052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_64
+      name: FullHouse_40
       rect:
         serializedVersion: 2
         x: 64
@@ -1539,14 +1008,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 312dc237fc921bc439a75e240a53fb1f
-      internalID: -1577952657
+      spriteID: ee2b8d818a57c0f48b505ee454bbf5f6
+      internalID: 2021722307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_65
+      name: FullHouse_41
       rect:
         serializedVersion: 2
         x: 80
@@ -1561,14 +1030,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693d559a931486b4aa1dadb0f44e10cb
-      internalID: 129607378
+      spriteID: d58743b782d36d5498d2cc8b78165044
+      internalID: 884275011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_66
+      name: FullHouse_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a3f563f0a705948999f068a4c479f9
+      internalID: -575075798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_43
       rect:
         serializedVersion: 2
         x: 112
@@ -1583,14 +1074,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698675063c8c8e9449123a571c5530e4
-      internalID: -1692445560
+      spriteID: 46a849388417fb3478aed7b979b096d1
+      internalID: -642373320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_67
+      name: FullHouse_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e08911bd6ea2a04d9f957f1d977deb9
+      internalID: -1857990662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_45
       rect:
         serializedVersion: 2
         x: 144
@@ -1605,14 +1118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 957e49f71fef15a4eb3df06985358252
-      internalID: 1622026058
+      spriteID: d71b42da0f45fc240bfb38b2f93bdd71
+      internalID: 1758203134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_68
+      name: FullHouse_46
       rect:
         serializedVersion: 2
         x: 160
@@ -1627,14 +1140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40fab991fba33fb40bd1990d6f8fd7cd
-      internalID: 1511432261
+      spriteID: 570e91f8f0448474fbd1f4e9593a593d
+      internalID: -1430615536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_69
+      name: FullHouse_47
       rect:
         serializedVersion: 2
         x: 176
@@ -1649,17 +1162,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a8b7e1a11b9bcb4f8c8aaa04123764c
-      internalID: -662573644
+      spriteID: e98645368cbe59b48a74c571cb994c9e
+      internalID: 987788282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_70
+      name: FullHouse_48
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 16
         width: 16
         height: 16
@@ -1671,17 +1184,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5a37121b27a9304399cb6dcafc60942
-      internalID: 1790723752
+      spriteID: f9161996142252e408e27a2d50de30a4
+      internalID: -1196253145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_71
+      name: FullHouse_49
       rect:
         serializedVersion: 2
-        x: 240
+        x: 208
         y: 16
         width: 16
         height: 16
@@ -1693,14 +1206,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed5c67c84bdfa974d86da5df55c0c1fb
-      internalID: -820141618
+      spriteID: fd4435e88b215cc4c869c6bda6534ab2
+      internalID: -693134611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_72
+      name: FullHouse_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3551fac6988d04abd52c8cfc83fff5
+      internalID: -771028599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_51
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac0fa961faf0de4582278093e67739e
+      internalID: 1397064026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acfbe12249e1064a9e1e4e4bf35622d
+      internalID: -354810801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_53
       rect:
         serializedVersion: 2
         x: 48
@@ -1715,14 +1294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b498769180118fb49b4c280bea668c7f
-      internalID: 179024788
+      spriteID: a5c202e18ae8ac94ebc0612d063e15fc
+      internalID: 2025254076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_73
+      name: FullHouse_54
       rect:
         serializedVersion: 2
         x: 64
@@ -1737,17 +1316,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaef2b8cb5c0b4f41a6f49783e07c4b0
-      internalID: 2126347147
+      spriteID: 8f73a905e96fc8845a5b0467926a4c7f
+      internalID: 1571533126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_74
+      name: FullHouse_55
       rect:
         serializedVersion: 2
-        x: 224
+        x: 80
         y: 0
         width: 16
         height: 16
@@ -1759,17 +1338,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62b9a744ca1e9fa4d8ffc65a6d4c2185
-      internalID: 1609080509
+      spriteID: b6ba5fac62e4c2e48868e389be793d2a
+      internalID: -1411533198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drit_75
+      name: FullHouse_56
       rect:
         serializedVersion: 2
-        x: 240
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -1781,8 +1360,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 603168bba3e43f145b0eb12dae0f9fb5
-      internalID: 1111933559
+      spriteID: 34fb22c3e0e4f7f41a25c723acdfc925
+      internalID: -1301966674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_57
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8c501148c274f47989736783c098b6
+      internalID: 792812346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_58
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4b8ce8005742747ba6919429ee98e9
+      internalID: 614444966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_59
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb761bb13e6adc74c8d1d25b254c738b
+      internalID: 1788425534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_60
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3661e01fa717d540ac8e3e99dd84bdd
+      internalID: -267436446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_61
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd29466b1d2e9894797b69c388e091dd
+      internalID: 1392176357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_62
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c52172b7a8c6f4797f4b595f6c89af
+      internalID: -1772739616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullHouse_63
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88b914fa358c5e40bebfd137b2ddce2
+      internalID: 1624478603
       vertices: []
       indices: 
       edges: []
@@ -1791,7 +1524,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 552e8a994a3a304469aa2e6e49ca71a7
+    spriteID: efdeb6b01a7b82f459aabadc0ccf13b1
     internalID: 0
     vertices: []
     indices: 
@@ -1803,82 +1536,70 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Drit_0: -4142956250163987377
-      Drit_1: -8009420867114837132
-      Drit_10: -1013716213
-      Drit_11: -303759337
-      Drit_12: 1383528674
-      Drit_13: -540064751
-      Drit_14: -1106312120
-      Drit_15: -2087288073
-      Drit_16: 102712533
-      Drit_17: 178719331
-      Drit_18: 1175323703
-      Drit_19: 231943796
-      Drit_2: 2021332127
-      Drit_20: 866754390
-      Drit_21: -3933248
-      Drit_22: -282837854
-      Drit_23: 46590207
-      Drit_24: 1555412802
-      Drit_25: -483852447
-      Drit_26: -1142840187
-      Drit_27: 1222218404
-      Drit_28: 1683101327
-      Drit_29: -1268351584
-      Drit_3: 837618078
-      Drit_30: 1046000848
-      Drit_31: -766389265
-      Drit_32: -1095570166
-      Drit_33: 261098450
-      Drit_34: -1239659812
-      Drit_35: -942584446
-      Drit_36: 2119804289
-      Drit_37: 1846153806
-      Drit_38: -64276256
-      Drit_39: 794156836
-      Drit_4: 507814238
-      Drit_40: 1363799787
-      Drit_41: -681517319
-      Drit_42: 1764046572
-      Drit_43: 328472586
-      Drit_44: 1679213877
-      Drit_45: 640558724
-      Drit_46: 384054334
-      Drit_47: -76481012
-      Drit_48: -267223602
-      Drit_49: -1651113370
-      Drit_5: 93277683
-      Drit_50: 455900119
-      Drit_51: -151079167
-      Drit_52: 693676311
-      Drit_53: 1352884016
-      Drit_54: -1624729694
-      Drit_55: -1377945879
-      Drit_56: 535074771
-      Drit_57: 1046355036
-      Drit_58: 1342594523
-      Drit_59: 742523620
-      Drit_6: 486389171
-      Drit_60: -1746655589
-      Drit_61: -739225819
-      Drit_62: -917304945
-      Drit_63: -746905647
-      Drit_64: -1577952657
-      Drit_65: 129607378
-      Drit_66: -1692445560
-      Drit_67: 1622026058
-      Drit_68: 1511432261
-      Drit_69: -662573644
-      Drit_7: -316280248
-      Drit_70: 1790723752
-      Drit_71: -820141618
-      Drit_72: 179024788
-      Drit_73: 2126347147
-      Drit_74: 1609080509
-      Drit_75: 1111933559
-      Drit_8: 1909441883
-      Drit_9: -1642047297
+      FullHouse_0: 1487736399984482114
+      FullHouse_1: -758912304
+      FullHouse_10: -712302828
+      FullHouse_11: 139379387
+      FullHouse_12: 1735175657
+      FullHouse_13: -1966396833
+      FullHouse_14: 1202635461
+      FullHouse_15: -1547240916
+      FullHouse_16: 2140539961
+      FullHouse_17: 1277014552
+      FullHouse_18: 356899554
+      FullHouse_19: 1322430978
+      FullHouse_2: 1510092423
+      FullHouse_20: 2057547202
+      FullHouse_21: 815677890
+      FullHouse_22: -480882781
+      FullHouse_23: -252981339
+      FullHouse_24: 1868594788
+      FullHouse_25: -147310158
+      FullHouse_26: 691270819
+      FullHouse_27: 1261871056
+      FullHouse_28: 1160649537
+      FullHouse_29: 898738550
+      FullHouse_3: 1074232360
+      FullHouse_30: -1133094392
+      FullHouse_31: -1836681555
+      FullHouse_32: 669084536
+      FullHouse_33: -1765607495
+      FullHouse_34: 878933394
+      FullHouse_35: -209986856
+      FullHouse_36: -780393462
+      FullHouse_37: 992584367
+      FullHouse_38: 735825315
+      FullHouse_39: 1815125052
+      FullHouse_4: -862292324
+      FullHouse_40: 2021722307
+      FullHouse_41: 884275011
+      FullHouse_42: -575075798
+      FullHouse_43: -642373320
+      FullHouse_44: -1857990662
+      FullHouse_45: 1758203134
+      FullHouse_46: -1430615536
+      FullHouse_47: 987788282
+      FullHouse_48: -1196253145
+      FullHouse_49: -693134611
+      FullHouse_5: 265403293
+      FullHouse_50: -771028599
+      FullHouse_51: 1397064026
+      FullHouse_52: -354810801
+      FullHouse_53: 2025254076
+      FullHouse_54: 1571533126
+      FullHouse_55: -1411533198
+      FullHouse_56: -1301966674
+      FullHouse_57: 792812346
+      FullHouse_58: 614444966
+      FullHouse_59: 1788425534
+      FullHouse_6: 1885944426
+      FullHouse_60: -267436446
+      FullHouse_61: 1392176357
+      FullHouse_62: -1772739616
+      FullHouse_63: 1624478603
+      FullHouse_7: 1918347445
+      FullHouse_8: -1800119345
+      FullHouse_9: -1903508560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
