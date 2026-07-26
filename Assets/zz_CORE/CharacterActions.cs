@@ -406,6 +406,17 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""0727fa8e-1fdf-4318-8aaa-fe91cc740022"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""specialist_jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b385c65f-f635-4d82-9991-eeacdd84296c"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
