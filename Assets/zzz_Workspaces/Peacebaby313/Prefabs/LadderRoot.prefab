@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 4382738932561821854}
   - component: {fileID: 3962995937987232674}
   - component: {fileID: 2494874454075419749}
+  - component: {fileID: 8237529561795011952}
   m_Layer: 10
   m_Name: ExtensionTopTrigger
   m_TagString: Untagged
@@ -420,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 4803875986002988700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 3.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -470,7 +471,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 2}
+  m_Size: {x: 4, y: 0.0001}
   m_EdgeRadius: 0
 --- !u!114 &2494874454075419749
 MonoBehaviour:
@@ -486,6 +487,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LadderInteractionZone
   ladder: {fileID: 8505599324041957224}
   zoneType: 0
+--- !u!251 &8237529561795011952
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803875986002988700}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &6313804414039062954
 GameObject:
   m_ObjectHideFlags: 0
