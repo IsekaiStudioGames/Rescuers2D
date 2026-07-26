@@ -178,7 +178,7 @@ public class PlayerInputReader : MonoBehaviour
                 firefighter.Move(moveDirection);
 
                 bool isPessingUp = moveDirection.y > 0.5f;
-                if(isPessingUp && !wasPressingUp)
+                if(isPessingUp && !firefighter.IsClimbing)
                 {
                     firefighter.StartClimbing();
                 }

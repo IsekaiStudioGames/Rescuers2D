@@ -5069,6 +5069,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &185894817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8505599324041957224, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+  m_PrefabInstance: {fileID: 559436153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e4c55ce4f22e846afae54b62755844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarryableLadder
+--- !u!4 &185894819 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5374418331428052706, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+  m_PrefabInstance: {fileID: 559436153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235186623
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,20 +6056,8 @@ CompositeCollider2D:
         Y: -10000000
       - X: 1070000000
         Y: -10000000
-    - - X: 1280000000
-        Y: 20000000
-      - X: 1260000000
-        Y: 20000000
-      - X: 1260000000
-        Y: -10000000
-      - X: 1280000000
-        Y: -10000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 127.99998, y: -1}
-      - {x: 127.99998, y: 2}
-      - {x: 126, y: 1.9999708}
-      - {x: 126.00003, y: -1}
     - - {x: 106.99997, y: -1}
       - {x: 106.99997, y: 2}
       - {x: 106, y: 1.9999708}
@@ -6202,26 +6206,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 126, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 127, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 106, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -6232,47 +6216,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 126, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 127, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 106, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 126, y: 1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 11
-      m_TileSpriteIndex: 11
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 127, y: 1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 11
@@ -6306,7 +6250,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 9
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 29ad2b95db519564cbfbe6f3b8b6d182, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6333,7 +6277,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 9
+  - m_RefCount: 3
     m_Data: {fileID: 1463246354, guid: 443d0b44d32a9d44e9cd53d61992d30c, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6374,7 +6318,7 @@ Tilemap:
       e31: 0
       e32: 8.28e-43
       e33: 8.2e-43
-  - m_RefCount: 9
+  - m_RefCount: 3
     m_Data:
       e00: 1
       e01: 0
@@ -6393,7 +6337,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 9
+  - m_RefCount: 3
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6717,9 +6661,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2074152137681707886, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074152137681707886, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4685604782042182210, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
       propertyPath: m_Name
       value: LadderRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220960657284099715, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220960657284099715, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5374418331428052706, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6764,7 +6724,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6313804414039062954, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1484175546}
+    - targetCorrespondingSourceObject: {fileID: 6313804414039062954, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1484175547}
+    - targetCorrespondingSourceObject: {fileID: 8837155630318135374, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1841445715}
+    - targetCorrespondingSourceObject: {fileID: 8837155630318135374, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1841445716}
   m_SourcePrefab: {fileID: 100100000, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
 --- !u!1001 &593781366
 PrefabInstance:
@@ -6834,6 +6806,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3838490775306835096, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5440817621107532927, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -6858,6 +6834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Characters(Peacebaby313)
       objectReference: {fileID: 0}
+    - target: {fileID: 5994385706108068627, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6313492396370191824, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 130
@@ -6878,10 +6858,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6570575475218037688, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 0db573753cc47d94192d6f324e64dd3e, type: 2}
     - target: {fileID: 7034850455829754027, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
       propertyPath: characterCamera
       value: 
       objectReference: {fileID: 1314999393}
+    - target: {fileID: 8140621059199524762, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 0db573753cc47d94192d6f324e64dd3e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21547,7 +21535,7 @@ GameObject:
   - component: {fileID: 997718104}
   - component: {fileID: 997718101}
   - component: {fileID: 997718103}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SurvivorRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21669,7 +21657,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0db573753cc47d94192d6f324e64dd3e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -22067,6 +22055,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f28a27ae4e4887b40a38b7fe7317c0be, type: 3}
+--- !u!1 &1484175541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6313804414039062954, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+  m_PrefabInstance: {fileID: 559436153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1484175546
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484175541}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &1484175547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484175541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a715bcafc0b174d83b64eda0510647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurvivorLadderZone2D
+  ladder: {fileID: 185894817}
+  ladderCenter: {fileID: 185894819}
 --- !u!1001 &1540856746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39739,7 +39773,7 @@ GameObject:
   - component: {fileID: 1662770352}
   - component: {fileID: 1662770354}
   - component: {fileID: 1662770353}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SurvivorVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39851,7 +39885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1674314322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40014,6 +40048,52 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &1841445710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8837155630318135374, guid: 5bd216e6168ecaf47bde89f01696994f, type: 3}
+  m_PrefabInstance: {fileID: 559436153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1841445715
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841445710}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &1841445716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841445710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a715bcafc0b174d83b64eda0510647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurvivorLadderZone2D
+  ladder: {fileID: 185894817}
+  ladderCenter: {fileID: 185894819}
 --- !u!1 &1855313848
 GameObject:
   m_ObjectHideFlags: 0
