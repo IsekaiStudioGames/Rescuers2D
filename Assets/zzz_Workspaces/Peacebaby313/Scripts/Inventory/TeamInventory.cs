@@ -354,6 +354,237 @@ public sealed class TeamInventory : MonoBehaviour
         OnInventoryChanged?.Invoke();
         return remainingQuantity == 0;
     }
+    public bool CanUseItem(
+    string itemId,
+    int quantity,
+    RescuerInventoryOwner requestingRescuer)
+    {
+        return GetUsableItemQuantity(
+                   itemId,
+                   requestingRescuer) >= quantity;
+    }
+
+    public int GetUsableItemQuantity(
+        string itemId,
+        RescuerInventoryOwner requestingRescuer)
+    {
+        if (string.IsNullOrWhiteSpace(itemId))
+        {
+            return 0;
+        }
+
+        EnsureInitialized();
+
+        int usableQuantity = 0;
+
+        // Search the requesting rescuer's inventory first.
+        usableQuantity += GetUsableItemQuantityFromOwner(
+            itemId,
+            requestingRescuer,
+            requestingRescuer,
+            isCrossInventorySearch: false);
+
+        // Then search the other rescuers' inventories.
+        for (int ownerIndex = 0;
+             ownerIndex < RescuerCount;
+             ownerIndex++)
+        {
+            RescuerInventoryOwner inventoryOwner =
+                (RescuerInventoryOwner)ownerIndex;
+
+            if (inventoryOwner == requestingRescuer)
+            {
+                continue;
+            }
+
+            usableQuantity += GetUsableItemQuantityFromOwner(
+                itemId,
+                inventoryOwner,
+                requestingRescuer,
+                isCrossInventorySearch: true);
+        }
+
+        return usableQuantity;
+    }
+
+    public bool TryUseItem(
+        string itemId,
+        int quantity,
+        RescuerInventoryOwner requestingRescuer)
+    {
+        if (string.IsNullOrWhiteSpace(itemId) ||
+            quantity <= 0)
+        {
+            return false;
+        }
+
+        EnsureInitialized();
+
+        if (!CanUseItem(
+                itemId,
+                quantity,
+                requestingRescuer))
+        {
+            return false;
+        }
+
+        int remainingQuantity = quantity;
+
+        // Consume from the requesting rescuer first.
+        remainingQuantity = ConsumeUsableItemFromOwner(
+            itemId,
+            remainingQuantity,
+            requestingRescuer,
+            requestingRescuer,
+            isCrossInventorySearch: false);
+
+        // Then consume shareable copies from other inventories.
+        for (int ownerIndex = 0;
+             ownerIndex < RescuerCount &&
+             remainingQuantity > 0;
+             ownerIndex++)
+        {
+            RescuerInventoryOwner inventoryOwner =
+                (RescuerInventoryOwner)ownerIndex;
+
+            if (inventoryOwner == requestingRescuer)
+            {
+                continue;
+            }
+
+            remainingQuantity = ConsumeUsableItemFromOwner(
+                itemId,
+                remainingQuantity,
+                inventoryOwner,
+                requestingRescuer,
+                isCrossInventorySearch: true);
+        }
+
+        if (remainingQuantity > 0)
+        {
+            Debug.LogError(
+                $"Item-use validation succeeded, but " +
+                $"{remainingQuantity} '{itemId}' item(s) could " +
+                $"not be consumed.",
+                this);
+
+            return false;
+        }
+
+        OnInventoryChanged?.Invoke();
+        return true;
+    }
+
+    private int GetUsableItemQuantityFromOwner(
+        string itemId,
+        RescuerInventoryOwner inventoryOwner,
+        RescuerInventoryOwner requestingRescuer,
+        bool isCrossInventorySearch)
+    {
+        if (!TryGetOwnerRange(
+                inventoryOwner,
+                out int startIndex,
+                out int endIndex))
+        {
+            return 0;
+        }
+
+        int foundQuantity = 0;
+
+        for (int index = startIndex;
+             index < endIndex;
+             index++)
+        {
+            InventorySlot slot = slots[index];
+
+            if (!CanUseSlotItem(
+                    slot,
+                    itemId,
+                    requestingRescuer,
+                    isCrossInventorySearch))
+            {
+                continue;
+            }
+
+            foundQuantity += slot.Quantity;
+        }
+
+        return foundQuantity;
+    }
+
+    private int ConsumeUsableItemFromOwner(
+        string itemId,
+        int quantity,
+        RescuerInventoryOwner inventoryOwner,
+        RescuerInventoryOwner requestingRescuer,
+        bool isCrossInventorySearch)
+    {
+        if (quantity <= 0)
+        {
+            return 0;
+        }
+
+        if (!TryGetOwnerRange(
+                inventoryOwner,
+                out int startIndex,
+                out int endIndex))
+        {
+            return quantity;
+        }
+
+        int remainingQuantity = quantity;
+
+        for (int index = startIndex;
+             index < endIndex &&
+             remainingQuantity > 0;
+             index++)
+        {
+            InventorySlot slot = slots[index];
+
+            if (!CanUseSlotItem(
+                    slot,
+                    itemId,
+                    requestingRescuer,
+                    isCrossInventorySearch))
+            {
+                continue;
+            }
+
+            remainingQuantity -=
+                slot.Remove(remainingQuantity);
+        }
+
+        return remainingQuantity;
+    }
+
+    private static bool CanUseSlotItem(
+        InventorySlot slot,
+        string itemId,
+        RescuerInventoryOwner requestingRescuer,
+        bool isCrossInventorySearch)
+    {
+        if (slot == null ||
+            slot.IsEmpty ||
+            slot.Item.ItemId != itemId)
+        {
+            return false;
+        }
+
+        InventoryItemData item = slot.Item;
+
+        if (!item.CanBeUsedBy(requestingRescuer))
+        {
+            return false;
+        }
+
+        if (isCrossInventorySearch &&
+            !item.AllowCrossInventoryUse)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 //----- TeamInventory.cs END -----
