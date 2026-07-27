@@ -143,6 +143,14 @@ public class PlayerInputReader : MonoBehaviour
             }
         };
 
+        inputActions.Controls.riot_c4.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.PlaceC4();
+            }
+        };
+
 
         //specialist moves
         inputActions.Controls.specialist_crawl.performed += ctx =>

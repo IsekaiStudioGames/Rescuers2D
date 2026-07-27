@@ -122,6 +122,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "riot_c4",
+                    "type": "Button",
+                    "id": "a53ffd5e-88d9-4e38-b14c-98863d244615",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -826,6 +835,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "firefighter_extend",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d3d4e24-0ba6-40bd-84b3-14a1818ffb55",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "riot_c4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

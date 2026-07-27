@@ -208,6 +208,15 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""riot_c4"",
+                    ""type"": ""Button"",
+                    ""id"": ""a53ffd5e-88d9-4e38-b14c-98863d244615"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -914,6 +923,17 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""action"": ""firefighter_extend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d3d4e24-0ba6-40bd-84b3-14a1818ffb55"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""riot_c4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -974,6 +994,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         m_Controls_firefighter_axe = m_Controls.FindAction("firefighter_axe", throwIfNotFound: true);
         m_Controls_firefighter_ladder = m_Controls.FindAction("firefighter_ladder", throwIfNotFound: true);
         m_Controls_firefighter_extend = m_Controls.FindAction("firefighter_extend", throwIfNotFound: true);
+        m_Controls_riot_c4 = m_Controls.FindAction("riot_c4", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -1071,6 +1092,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_firefighter_axe;
     private readonly InputAction m_Controls_firefighter_ladder;
     private readonly InputAction m_Controls_firefighter_extend;
+    private readonly InputAction m_Controls_riot_c4;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controls".
     /// </summary>
@@ -1134,6 +1156,10 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controls/firefighter_extend".
         /// </summary>
         public InputAction @firefighter_extend => m_Wrapper.m_Controls_firefighter_extend;
+        /// <summary>
+        /// Provides access to the underlying input action "Controls/riot_c4".
+        /// </summary>
+        public InputAction @riot_c4 => m_Wrapper.m_Controls_riot_c4;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1199,6 +1225,9 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_extend.started += instance.OnFirefighter_extend;
             @firefighter_extend.performed += instance.OnFirefighter_extend;
             @firefighter_extend.canceled += instance.OnFirefighter_extend;
+            @riot_c4.started += instance.OnRiot_c4;
+            @riot_c4.performed += instance.OnRiot_c4;
+            @riot_c4.canceled += instance.OnRiot_c4;
         }
 
         /// <summary>
@@ -1249,6 +1278,9 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
             @firefighter_extend.started -= instance.OnFirefighter_extend;
             @firefighter_extend.performed -= instance.OnFirefighter_extend;
             @firefighter_extend.canceled -= instance.OnFirefighter_extend;
+            @riot_c4.started -= instance.OnRiot_c4;
+            @riot_c4.performed -= instance.OnRiot_c4;
+            @riot_c4.canceled -= instance.OnRiot_c4;
         }
 
         /// <summary>
@@ -1476,6 +1508,13 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFirefighter_extend(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "riot_c4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRiot_c4(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

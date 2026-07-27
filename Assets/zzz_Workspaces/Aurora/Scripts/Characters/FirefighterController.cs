@@ -566,7 +566,7 @@ public class FirefighterController : MonoBehaviour
         if (nearbyLockedDoor != null &&
             nearbyLockedDoor.CanInteract)
         {
-            //nearbyLockedDoor.TryOpen(currentInventoryOwner);
+            nearbyLockedDoor.TryOpen(RescuerInventoryOwner.Firefighter);
         }
     }
     private void OnDisable()

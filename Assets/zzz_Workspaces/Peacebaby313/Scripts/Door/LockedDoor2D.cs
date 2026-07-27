@@ -244,20 +244,7 @@ public sealed class LockedDoor2D : MonoBehaviour
         requiredQuantity =
             Mathf.Max(1, requiredQuantity);
     }
-    //public RescuerInventoryOwner CurrentInventoryOwner =>
-    //currentCharacter switch
-    //{
-    //    ActiveCharacter.Firefighter =>
-    //        RescuerInventoryOwner.Firefighter,
 
-    //    ActiveCharacter.RiotOfficer =>
-    //        RescuerInventoryOwner.RiotOfficer,
-
-    //    ActiveCharacter.Specialist =>
-    //        RescuerInventoryOwner.Specialist,
-
-    //    _ => RescuerInventoryOwner.Firefighter
-    //};
 }
 
 //----- LockedDoor2D.cs END -----
