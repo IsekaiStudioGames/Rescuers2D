@@ -17,7 +17,7 @@ MonoBehaviour:
   - missionId: R2D - Prototype 01_Level1
     sceneName: 01_Level1
     displayName: Level One
-    levelOrder: 2
+    levelOrder: 0
     temporaryLetterCode: FIRSTLVL
     passwordTokenIds:
     - F
@@ -31,21 +31,21 @@ MonoBehaviour:
   - missionId: R2D - Prototype 03_Level3
     sceneName: 03_Level3
     displayName: SNDLEVEL
-    levelOrder: 3
-    temporaryLetterCode: THIRDLVL
+    levelOrder: 1
+    temporaryLetterCode: SNDLEVEL
     passwordTokenIds:
-    - T
-    - H
-    - I
-    - R
+    - S
+    - N
     - D
     - L
+    - E
     - V
+    - E
     - L
   - missionId: R2D SLASH_BOOT 00_Boot)Splash
     sceneName: 00_Boot_Splash
     displayName: The BOOTSTRAP
-    levelOrder: 0
+    levelOrder: 2
     temporaryLetterCode: BOOTBOOT
     passwordTokenIds:
     - B
@@ -59,7 +59,7 @@ MonoBehaviour:
   - missionId: R2D - FINAL 00_MainMenu
     sceneName: 00_MainMenu
     displayName: Main Menu
-    levelOrder: 5
+    levelOrder: 3
     temporaryLetterCode: MAINMENU
     passwordTokenIds:
     - M
