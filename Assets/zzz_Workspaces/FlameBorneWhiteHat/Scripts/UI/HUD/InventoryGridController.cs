@@ -5,7 +5,12 @@ using UnityEngine;
 public sealed class InventoryGridController : MonoBehaviour
 {
     [Header("Grid References")]
-    [SerializeField] private RectTransform inventoryGrid;
+    [SerializeField] private RectTransform fireFighterSlots;
+
+    [SerializeField] private RectTransform riotOfficerSlots;
+
+    [SerializeField] private RectTransform rescueSpecialistSlots;
+
     [SerializeField] private InventoryElementView inventoryElementPrefab;
 
     [Header("Documented Inventory Layout")]
@@ -32,15 +37,35 @@ public sealed class InventoryGridController : MonoBehaviour
         ClearExistingGridChildren();
         slotViews.Clear();
 
-        for (int index = 0; index < TotalSlotCount; index++)
+        BuildSlotsForContainer(
+            fireFighterSlots,
+            "FireFighter");
+
+        BuildSlotsForContainer(
+            riotOfficerSlots,
+            "RiotOfficer");
+
+        BuildSlotsForContainer(
+            rescueSpecialistSlots,
+            "RescueSpecialist");
+    }
+
+    private void BuildSlotsForContainer(
+    RectTransform slotContainer,
+    string rescuerName)
+    {
+        for (int localIndex = 0;
+             localIndex < slotsPerRescuer;
+             localIndex++)
         {
             InventoryElementView newSlot = Instantiate(
                 inventoryElementPrefab,
-                inventoryGrid);
+                slotContainer);
 
-            newSlot.name = $"InventoryElement_{index + 1:00}";
+            newSlot.name =
+                $"{rescuerName}_InventoryElement_{localIndex + 1:00}";
+
             newSlot.SetEmpty();
-
             slotViews.Add(newSlot);
         }
     }
@@ -150,12 +175,25 @@ public sealed class InventoryGridController : MonoBehaviour
 
     private void ClearExistingGridChildren()
     {
-        for (int index = inventoryGrid.childCount - 1; index >= 0; index--)
-        {
-            GameObject childObject =
-                inventoryGrid.GetChild(index).gameObject;
+        ClearContainerChildren(fireFighterSlots);
+        ClearContainerChildren(riotOfficerSlots);
+        ClearContainerChildren(rescueSpecialistSlots);
+    }
 
-            Destroy(childObject);
+    private static void ClearContainerChildren(
+        RectTransform container)
+    {
+        if (container == null)
+        {
+            return;
+        }
+
+        for (int index = container.childCount - 1;
+             index >= 0;
+             index--)
+        {
+            Destroy(
+                container.GetChild(index).gameObject);
         }
     }
 
@@ -163,19 +201,37 @@ public sealed class InventoryGridController : MonoBehaviour
     {
         bool valid = true;
 
-        if (inventoryGrid == null)
+        if (inventoryElementPrefab == null)
         {
             Debug.LogError(
-                $"{nameof(InventoryGridController)} on '{name}' is missing its Inventory Grid reference.",
+                $"{nameof(InventoryGridController)} on '{name}' is missing its Inventory Element Prefab reference.",
                 this);
 
             valid = false;
         }
 
-        if (inventoryElementPrefab == null)
+        if (fireFighterSlots == null)
         {
             Debug.LogError(
-                $"{nameof(InventoryGridController)} on '{name}' is missing its Inventory Element Prefab reference.",
+                $"{nameof(InventoryGridController)} on '{name}' is missing its FireFighter Slots reference.",
+                this);
+
+            valid = false;
+        }
+
+        if (riotOfficerSlots == null)
+        {
+            Debug.LogError(
+                $"{nameof(InventoryGridController)} on '{name}' is missing its Riot Officer Slots reference.",
+                this);
+
+            valid = false;
+        }
+
+        if (rescueSpecialistSlots == null)
+        {
+            Debug.LogError(
+                $"{nameof(InventoryGridController)} on '{name}' is missing its Rescue Specialist Slots reference.",
                 this);
 
             valid = false;
