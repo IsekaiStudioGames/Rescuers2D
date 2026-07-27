@@ -1,6 +1,7 @@
 //----- LockedDoor2D.cs START -----
 
 using UnityEngine;
+using static PlayerInputReader;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
@@ -15,22 +16,18 @@ public sealed class LockedDoor2D : MonoBehaviour
     [Tooltip(
         "The solid collider that prevents characters " +
         "from walking through the closed door.")]
-    [SerializeField] private Collider2D blockingCollider;
+    [SerializeField]
+    private Collider2D blockingCollider;
 
-    [Header("Key Requirement")]
-    [SerializeField] private string requiredItemId = "key_01";
+    [Header("Item Requirement")]
+    [SerializeField]
+    private string requiredItemId = "key_01";
 
     [SerializeField, Min(1)]
     private int requiredQuantity = 1;
 
-    [Tooltip(
-        "The rescuer whose inventory must contain the key.")]
     [SerializeField]
-    private RescuerInventoryOwner keyOwner =
-        RescuerInventoryOwner.Specialist;
-
-    [SerializeField]
-    private bool consumeKeyWhenOpened = true;
+    private bool consumeItemWhenOpened = true;
 
     [Header("Optional Feedback")]
     [SerializeField]
@@ -50,7 +47,8 @@ public sealed class LockedDoor2D : MonoBehaviour
         Open
     }
 
-    public LockedDoorState CurrentState => currentState;
+    public LockedDoorState CurrentState =>
+        currentState;
 
     public bool CanInteract =>
         currentState == LockedDoorState.Locked;
@@ -73,7 +71,8 @@ public sealed class LockedDoor2D : MonoBehaviour
         }
     }
 
-    public void TryOpen()
+    public void TryOpen(
+        RescuerInventoryOwner requestingRescuer)
     {
         if (!CanInteract)
         {
@@ -85,9 +84,8 @@ public sealed class LockedDoor2D : MonoBehaviour
         if (teamInventory == null)
         {
             Debug.LogError(
-                $"{nameof(LockedDoor2D)} on '{name}' could not find " +
-                $"a {nameof(TeamInventory)}. Start the game through " +
-                "the proper bootstrap scene.",
+                $"{nameof(LockedDoor2D)} on '{name}' could not " +
+                $"find a {nameof(TeamInventory)}.",
                 this);
 
             return;
@@ -103,52 +101,52 @@ public sealed class LockedDoor2D : MonoBehaviour
             return;
         }
 
-        bool hasRequiredKey =
-            teamInventory.ContainsItem(
+        bool canUseRequiredItem =
+            teamInventory.CanUseItem(
                 requiredItemId,
-                requiredQuantity
-                );
+                requiredQuantity,
+                requestingRescuer);
 
-        if (!hasRequiredKey)
+        if (!canUseRequiredItem)
         {
-            ShowMissingKeyMessage();
+            ShowMissingItemMessage(requestingRescuer);
             return;
         }
 
-        if (consumeKeyWhenOpened)
+        if (consumeItemWhenOpened)
         {
-            bool consumedKey =
-                teamInventory.TryConsumeItem(
+            bool itemUsed =
+                teamInventory.TryUseItem(
                     requiredItemId,
-                    requiredQuantity
-                    );
+                    requiredQuantity,
+                    requestingRescuer);
 
-            if (!consumedKey)
+            if (!itemUsed)
             {
                 Debug.LogError(
-                    $"The door found '{requiredItemId}' but could " +
-                    "not consume it from the specified inventory.",
+                    $"The door validated '{requiredItemId}' " +
+                    "but could not consume it.",
                     this);
 
                 return;
             }
         }
 
-        BeginOpening();
+        BeginOpening(requestingRescuer);
     }
 
-    private void BeginOpening()
+    private void BeginOpening(
+        RescuerInventoryOwner requestingRescuer)
     {
         currentState = LockedDoorState.Opening;
 
         if (animator == null)
         {
             Debug.LogError(
-                $"{nameof(LockedDoor2D)} on '{name}' has no Animator.",
+                $"{nameof(LockedDoor2D)} on '{name}' has no " +
+                "Animator.",
                 this);
 
-            // Avoid permanently trapping the player if the
-            // Animator reference was accidentally omitted.
             FinishOpening();
             return;
         }
@@ -158,17 +156,16 @@ public sealed class LockedDoor2D : MonoBehaviour
         if (feedbackPresenter != null)
         {
             feedbackPresenter.ShowSuccess(
-                "The Firefighter unlocked the door.");
+                $"{GetOwnerDisplayName(requestingRescuer)} " +
+                "unlocked the door.");
         }
 
         Debug.Log(
-            $"Door '{name}' opened using '{requiredItemId}' " +
-            $"from {keyOwner}'s inventory.",
+            $"Door '{name}' opened by {requestingRescuer} " +
+            $"using '{requiredItemId}'.",
             this);
     }
 
-    // Call this using an Animation Event on the final
-    // frame of the door-opening animation.
     public void Anim_FinishOpening()
     {
         FinishOpening();
@@ -208,20 +205,46 @@ public sealed class LockedDoor2D : MonoBehaviour
         }
     }
 
-    private void ShowMissingKeyMessage()
+    private void ShowMissingItemMessage(
+        RescuerInventoryOwner requestingRescuer)
     {
-        if (feedbackPresenter != null)
+        if (feedbackPresenter == null)
         {
-            feedbackPresenter.ShowWarning(
-                "The Specialist needs to find the key.");
+            return;
         }
+
+        feedbackPresenter.ShowWarning(
+            $"{GetOwnerDisplayName(requestingRescuer)} " +
+            "cannot access the required item.");
+    }
+
+    private static string GetOwnerDisplayName(
+        RescuerInventoryOwner owner)
+    {
+        return owner switch
+        {
+            RescuerInventoryOwner.Firefighter =>
+                "The Firefighter",
+
+            RescuerInventoryOwner.RiotOfficer =>
+                "The Riot Officer",
+
+            RescuerInventoryOwner.Specialist =>
+                "The Specialist",
+
+            _ => "This rescuer"
+        };
     }
 
     private void OnValidate()
     {
-        requiredItemId = requiredItemId.Trim();
-        requiredQuantity = Mathf.Max(1, requiredQuantity);
+        requiredItemId =
+            requiredItemId?.Trim() ?? string.Empty;
+
+        requiredQuantity =
+            Mathf.Max(1, requiredQuantity);
     }
+
 }
 
 //----- LockedDoor2D.cs END -----

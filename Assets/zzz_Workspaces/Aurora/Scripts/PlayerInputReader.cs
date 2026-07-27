@@ -143,6 +143,14 @@ public class PlayerInputReader : MonoBehaviour
             }
         };
 
+        inputActions.Controls.riot_c4.performed += ctx =>
+        {
+            if (currentCharacter == ActiveCharacter.RiotOfficer)
+            {
+                riotOfficer.PlaceC4();
+            }
+        };
+
 
         //specialist moves
         inputActions.Controls.specialist_crawl.performed += ctx =>
@@ -178,7 +186,7 @@ public class PlayerInputReader : MonoBehaviour
                 firefighter.Move(moveDirection);
 
                 bool isPessingUp = moveDirection.y > 0.5f;
-                if(isPessingUp && !wasPressingUp)
+                if(isPessingUp && !firefighter.IsClimbing)
                 {
                     firefighter.StartClimbing();
                 }

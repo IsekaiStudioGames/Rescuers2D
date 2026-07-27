@@ -81,12 +81,29 @@ public sealed class DestructibleTilemap2D :
             return false;
         }
 
+        Debug.Log(
+            $"C4 checked cell {cellPosition} on '{tilemap.name}'. " +
+            $"Found tile asset: '{currentTile.name}'.",
+            this);
+
         if (!TryGetProfile(
                 currentTile,
                 out DestructibleTileProfile profile))
         {
+            Debug.LogWarning(
+                $"Tile '{currentTile.name}' at {cellPosition} has no " +
+                "registered destruction profile.",
+                this);
+
             return false;
         }
+
+        if (currentTile == null)
+        {
+            return false;
+        }
+
+
 
         if (!profile.AcceptsDamageType(damageType))
         {
@@ -140,12 +157,12 @@ public sealed class DestructibleTilemap2D :
         Vector3 bottomLeftWorld = new(
             worldPosition.x - radius,
             worldPosition.y - radius,
-            0f);
+            tilemap.transform.position.z);
 
         Vector3 topRightWorld = new(
             worldPosition.x + radius,
             worldPosition.y + radius,
-            0f);
+            tilemap.transform.position.z);
 
         Vector3Int minimumCell =
             tilemap.WorldToCell(bottomLeftWorld);
@@ -153,7 +170,15 @@ public sealed class DestructibleTilemap2D :
         Vector3Int maximumCell =
             tilemap.WorldToCell(topRightWorld);
 
+        int occupiedCellCount = 0;
+        int cellsInsideRadius = 0;
         int damagedTileCount = 0;
+
+        Debug.Log(
+            $"C4 damage scan on '{tilemap.name}': " +
+            $"world position {worldPosition}, radius {radius}, " +
+            $"cells {minimumCell} through {maximumCell}.",
+            this);
 
         for (int x = minimumCell.x;
              x <= maximumCell.x;
@@ -164,17 +189,38 @@ public sealed class DestructibleTilemap2D :
                  y++)
             {
                 Vector3Int cellPosition =
-                    new(x, y, 0);
+                    new(x, y, minimumCell.z);
+
+                TileBase currentTile =
+                    tilemap.GetTile(cellPosition);
+
+                if (currentTile == null)
+                {
+                    continue;
+                }
+
+                occupiedCellCount++;
 
                 Vector3 cellCenter =
                     tilemap.GetCellCenterWorld(cellPosition);
 
-                if (Vector2.Distance(
+                float distance =
+                    Vector2.Distance(
                         worldPosition,
-                        cellCenter) > radius)
+                        cellCenter);
+
+                Debug.Log(
+                    $"C4 found occupied cell {cellPosition}: " +
+                    $"tile '{currentTile.name}', center {cellCenter}, " +
+                    $"distance {distance:F2}.",
+                    this);
+
+                if (distance > radius)
                 {
                     continue;
                 }
+
+                cellsInsideRadius++;
 
                 if (TryDamageCell(
                         cellPosition,
@@ -185,6 +231,13 @@ public sealed class DestructibleTilemap2D :
                 }
             }
         }
+
+        Debug.Log(
+            $"C4 scan complete on '{tilemap.name}'. " +
+            $"Occupied cells in scan bounds: {occupiedCellCount}. " +
+            $"Occupied cells inside radius: {cellsInsideRadius}. " +
+            $"Damaged tiles: {damagedTileCount}.",
+            this);
 
         return damagedTileCount;
     }

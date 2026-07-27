@@ -18,3 +18,5 @@ MonoBehaviour:
   category: 0
   inventoryIcon: {fileID: 6099581493293703690, guid: 54221f004237dfe45a4c563354678538, type: 3}
   maximumStackSize: 1
+  allowedUsers: -1
+  allowCrossInventoryUse: 1

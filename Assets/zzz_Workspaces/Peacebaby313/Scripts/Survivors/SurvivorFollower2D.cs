@@ -43,6 +43,19 @@ public sealed class SurvivorFollower2D : MonoBehaviour
     [SerializeField, Min(0f)]
     private float resumeDistance = 1.75f;
 
+    [Tooltip(
+    "Maximum height the active character can be above the " +
+    "survivor before normal horizontal following pauses. " +
+    "Ladders are handled separately.")]
+    [SerializeField, Min(0f)]
+    private float maximumTargetHeightAbove = 2.5f;
+
+    [Tooltip(
+        "Maximum distance the active character can be below the " +
+        "survivor before horizontal following pauses. Keep this " +
+        "fairly large so the survivor follows over cliffs.")]
+    [SerializeField, Min(0f)]
+    private float maximumTargetHeightBelow = 8f;
     [SerializeField, Min(0f)]
     private float maximumWalkingHeightDifference = 1.5f;
 
@@ -284,8 +297,13 @@ public sealed class SurvivorFollower2D : MonoBehaviour
             return;
         }
 
-        if (Mathf.Abs(difference.y) >
-            maximumWalkingHeightDifference)
+        bool targetTooHigh =
+            difference.y > maximumTargetHeightAbove;
+
+        bool targetTooLow =
+            difference.y < -maximumTargetHeightBelow;
+
+        if (targetTooHigh || targetTooLow)
         {
             return;
         }
