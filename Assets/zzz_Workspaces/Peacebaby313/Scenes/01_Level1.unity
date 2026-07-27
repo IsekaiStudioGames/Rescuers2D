@@ -119,53 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &29520610 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3762456322587839343, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!224 &29520611 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6100203184000366010, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &29520612 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3215235602552366391, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &29520613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5614922976923994713, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &29520614 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5054542625076827186, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &29520615 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7681279135406089188, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &29520616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1941521574758551196, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 1540856746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &96133764
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,7 +7159,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520612}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21757,7 +21710,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520611}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -22110,7 +22063,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19990745, g: 0.554717, b: 0.554717, a: 0}
+  m_BackGroundColor: {r: 0.1882353, g: 0.68235296, b: 0.7490196, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -22349,7 +22302,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520612}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22572,7 +22525,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520611}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -22709,7 +22662,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520612}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23011,27 +22964,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1568702486}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1083009597}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1505564249}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1512860319}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1804775011}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843780119}
+    - targetCorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1352218126}
     - targetCorrespondingSourceObject: {fileID: 2696616957587270963, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
       insertIndex: 0
       addedObject: {fileID: 519805169}
-    - targetCorrespondingSourceObject: {fileID: 6100203184000366010, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1083009597}
-    - targetCorrespondingSourceObject: {fileID: 6100203184000366010, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1505564249}
-    - targetCorrespondingSourceObject: {fileID: 3215235602552366391, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1512860319}
-    - targetCorrespondingSourceObject: {fileID: 3215235602552366391, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1804775011}
-    - targetCorrespondingSourceObject: {fileID: 3215235602552366391, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 843780119}
-    - targetCorrespondingSourceObject: {fileID: 3215235602552366391, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1352218126}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5060634117012527121, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
       insertIndex: -1
@@ -23233,18 +23186,18 @@ MonoBehaviour:
   nextSceneName: Next Level
   nextLevelCode: SNDLEVEL
   winScreenDuration: 30
-  playerFeedbackPanel: {fileID: 29520616}
-  playerFeedbackText: {fileID: 29520615}
+  playerFeedbackPanel: {fileID: 0}
+  playerFeedbackText: {fileID: 0}
   levelStartMessage: Find the survivor and escort them safely to the tent.
   feedbackDisplayDuration: 5
   timerText: {fileID: 1330097791}
-  winMenu: {fileID: 29520614}
+  winMenu: {fileID: 0}
   winMessageText: {fileID: 843780121}
   levelCodeText: {fileID: 1512860321}
   nextLevelCountdownText: {fileID: 1804775013}
   winMessage: Survivor rescued! Preparing the next mission.
-  loseMenu: {fileID: 29520613}
-  loseMessageText: {fileID: 29520610}
+  loseMenu: {fileID: 0}
+  loseMessageText: {fileID: 0}
   loseMessage: Time has expired. The rescue mission has failed.
 --- !u!114 &1568702488
 MonoBehaviour:
@@ -40992,7 +40945,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 29520612}
+  m_Father: {fileID: 1540856747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
