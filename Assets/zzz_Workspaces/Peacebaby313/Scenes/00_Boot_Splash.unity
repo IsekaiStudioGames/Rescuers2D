@@ -553,7 +553,7 @@ MonoBehaviour:
   sequenceData: {fileID: 11400000, guid: b0bf5d471b6153841b0a984507346b72, type: 2}
   playOnStart: 1
   sceneLoadService: {fileID: 289254575}
-  nextSceneName: 01_MainMenu
+  nextSceneName: 00_MainMenu
   splashCanvasGroup: {fileID: 1012862382}
   backgroundImage: {fileID: 910289829}
   splashImage: {fileID: 239362421}
