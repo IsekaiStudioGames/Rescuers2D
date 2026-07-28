@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2354365743894586602}
   - component: {fileID: 1395235403447803748}
   - component: {fileID: 5474284111542072772}
+  - component: {fileID: 9123647801962813512}
   m_Layer: 12
   m_Name: SurvivorRoot
   m_TagString: Untagged
@@ -89,7 +90,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -164,6 +165,21 @@ MonoBehaviour:
   isMoving: 0
   isGrounded: 0
   isClimbing: 0
+--- !u!114 &9123647801962813512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429683574748507061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a8775bafadad2488b33bed6956dfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RescueTarget
+  targetType: 1
+  displayName: SurvivorRoot
+  requiredForMission: 1
 --- !u!1 &1589062686803427611
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +432,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5755546180611968356, guid: 7e8a62d1740d05e4d9664bdc181e3223, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -684,7 +700,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 414270405802483632, guid: ca32a6144c36e664eb25d6bee3638b5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -722,7 +738,7 @@ GameObject:
   - component: {fileID: 7264709947042490590}
   m_Layer: 12
   m_Name: SurvivorVisuals
-  m_TagString: Untagged
+  m_TagString: Survivor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,7 +805,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 234189154208601328, guid: 7bf3ac561ee1ce540b0e0bea6526ed24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -993,7 +1009,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7096444804375828842, guid: ea3f41a12a240e940b29ca2540cfd800, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

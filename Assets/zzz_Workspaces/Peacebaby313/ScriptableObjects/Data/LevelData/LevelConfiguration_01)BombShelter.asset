@@ -16,7 +16,7 @@ MonoBehaviour:
   levelNumber: 0-0
   levelName: Bomb Shelter
   sceneName: 01_Level1
-  levelGoal: Find a way into the collapsed bunker and rescue Harold.
+  levelGoal: Find a way into the bunker and rescue the survivor.
   levelOverview: A survivor is trapped inside a collapsed rural bomb shelter. Recover
     the key to open the shelter, clear the blocked tunnels, and retrieve the C4 needed
     to reach the victim. Escort them safely to the rescue tent before time runs out.

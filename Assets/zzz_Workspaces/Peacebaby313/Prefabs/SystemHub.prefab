@@ -365,7 +365,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RescueZone
   discoverRequiredTargetsOnStart: 1
   requiredTargets:
-  - {fileID: 0}
+  - {fileID: 3151034492611700711}
   logTargetChanges: 1
 --- !u!1001 &1341970279506617747
 PrefabInstance:
@@ -1116,6 +1116,17 @@ PrefabInstance:
       addedObject: {fileID: 3268508452512974170}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+--- !u!114 &3151034492611700711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9123647801962813512, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
+  m_PrefabInstance: {fileID: 6135886740354498479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a8775bafadad2488b33bed6956dfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RescueTarget
 --- !u!4 &4736580670129397459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1485268122701177212, guid: 2db6fb0798602ef449f02519c8a4c0f5, type: 3}
