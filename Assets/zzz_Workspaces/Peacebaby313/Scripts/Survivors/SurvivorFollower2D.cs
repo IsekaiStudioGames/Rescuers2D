@@ -374,8 +374,9 @@ public sealed class SurvivorFollower2D : MonoBehaviour
         Vector2 difference =
             followTarget.position - transform.position;
 
-        // Never climb downward after a player who is below.
-        if (difference.y < -minimumClimbHeight)
+        // Stop once the survivor has climbed close enough
+        // to the active character's height.
+        if (difference.y <= minimumClimbHeight)
         {
             StopClimbing();
             return;

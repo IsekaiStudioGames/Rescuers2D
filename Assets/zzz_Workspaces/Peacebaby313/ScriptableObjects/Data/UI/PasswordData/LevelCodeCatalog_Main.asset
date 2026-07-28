@@ -18,16 +18,16 @@ MonoBehaviour:
     sceneName: 01_Level1
     displayName: Level One
     levelOrder: 0
-    temporaryLetterCode: FIRSTLVL
+    temporaryLetterCode: BMBSHLTR
     passwordTokenIds:
-    - F
-    - I
-    - R
+    - B
+    - M
+    - B
     - S
+    - H
+    - L
     - T
-    - L
-    - V
-    - L
+    - R
   - missionId: R2D - Prototype 03_Level3
     sceneName: 03_Level3
     displayName: SNDLEVEL

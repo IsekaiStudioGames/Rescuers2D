@@ -27,7 +27,7 @@ public class FirefighterController : MonoBehaviour
     private float normalGravityScale;
     private bool isFacingRight = true;
     private int climbingZoneContactCount;
-    private LockedDoor2D nearbyLockedDoor;
+    //private LockedDoor2D nearbyLockedDoor;
 
     private bool IsInsideClimbingZone => climbingZoneContactCount >0;
 
@@ -532,43 +532,9 @@ public class FirefighterController : MonoBehaviour
             rb.linearVelocity.y
         );
     }
-    public void EnterLockedDoorZone(
-    LockedDoor2D doorToRegister)
-    {
-        if (doorToRegister == null)
-        {
-            return;
-        }
 
-        nearbyLockedDoor = doorToRegister;
-    }
 
-    public void ExitLockedDoorZone(
-        LockedDoor2D doorToUnregister)
-    {
-        if (nearbyLockedDoor != doorToUnregister)
-        {
-            return;
-        }
-
-        nearbyLockedDoor = null;
-    }
-
-    public void Interact()
-    {
-        if (IsHoldingLadder ||
-            IsClimbing ||
-            currentState == FirefighterState.SwingingAxe)
-        {
-            return;
-        }
-
-        if (nearbyLockedDoor != null &&
-            nearbyLockedDoor.CanInteract)
-        {
-            nearbyLockedDoor.TryOpen(RescuerInventoryOwner.Firefighter);
-        }
-    }
+ 
     private void OnDisable()
     {
         currentMoveInput = Vector2.zero;

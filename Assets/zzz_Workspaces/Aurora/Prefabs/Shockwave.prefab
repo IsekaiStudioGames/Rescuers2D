@@ -104,6 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734f959371f681e45ba73f40dc97223d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosionFlash
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 7518376515847219954}
   expansionSpeed: 50
   duration: 0.15

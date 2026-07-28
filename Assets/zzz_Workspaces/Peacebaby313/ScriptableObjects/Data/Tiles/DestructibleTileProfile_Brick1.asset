@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e1fc0139b56314c90a69634113e6e9, type: 3}
   m_Name: DestructibleTileProfile_Brick1
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleTileProfile
-  intactTile: {fileID: 11400000, guid: 9bb1890f288899243a097d673b0109da, type: 2}
-  damagedTile: {fileID: 11400000, guid: c9ee85f434bfbc046bf1f344d4c047a1, type: 2}
+  intactTile: {fileID: 11400000, guid: 3a365b95704efae49abff8bbbc0d34d7, type: 2}
+  damagedTile: {fileID: 11400000, guid: a9f536933e76cd340b5c95bc0b33fecd, type: 2}
   hitsToBreak: 2
   allowedDamageTypes: 00000000
-  hitEffectPrefab: {fileID: 6328850758696560318, guid: 921554c74bd349645a6bcf41e616d646, type: 3}
-  destructionEffectPrefab: {fileID: 3468165380018315016, guid: 0a55c5db3e1aa7549b83a2429241616a, type: 3}
+  hitEffectPrefab: {fileID: 7955912129606765379, guid: 1a7f05857d89ee741a68f6f3f6e5c2cf, type: 3}
+  destructionEffectPrefab: {fileID: 3468165380018315016, guid: e355ebc77d9ef484288dadc70fe55365, type: 3}

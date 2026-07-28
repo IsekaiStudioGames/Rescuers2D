@@ -105,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -169,7 +169,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: victim_0
+      name: Survivor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -182,16 +182,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5e50ce41fcb02ef20800000000000000
-      internalID: 3450333248556369381
+      spriteID: 992b330699552e94a83fce75e21cbde3
+      internalID: -1407087552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_1
+      name: Survivor_1
       rect:
         serializedVersion: 2
         x: 48
@@ -204,16 +204,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7db4631cefc3d6f60800000000000000
-      internalID: 8029140775532383191
+      spriteID: 823a97b8e7deb534488794ecb132ba26
+      internalID: -229300183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_2
+      name: Survivor_2
       rect:
         serializedVersion: 2
         x: 96
@@ -226,16 +226,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: aea6c33c104884090800000000000000
-      internalID: -8050039190819411222
+      spriteID: 54fb628c772c89248930d6e80a42e92a
+      internalID: -612290674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_3
+      name: Survivor_3
       rect:
         serializedVersion: 2
         x: 0
@@ -248,16 +248,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1480c8f5d0d07f450800000000000000
-      internalID: 6122376569522227265
+      spriteID: 092dd6de5dbb7904ea6e03b9e1a66f66
+      internalID: 936407741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_4
+      name: Survivor_4
       rect:
         serializedVersion: 2
         x: 48
@@ -270,16 +270,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b6f574d8d487a4a50800000000000000
-      internalID: 6506144886168182635
+      spriteID: a302aab9d1b3a3d4b86a8f8468691531
+      internalID: 1316730510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_5
+      name: Survivor_5
       rect:
         serializedVersion: 2
         x: 96
@@ -292,16 +292,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 02ee05213c7674fa0800000000000000
-      internalID: -5816566306202128864
+      spriteID: efe6de3ccae02d04db4bd89934cd76b3
+      internalID: -1932501072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_6
+      name: Survivor_6
       rect:
         serializedVersion: 2
         x: 144
@@ -314,16 +314,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 78c266c54369f6a50800000000000000
-      internalID: 6516592337461062791
+      spriteID: e1f8f7decd413ba4abb163bd908dec1c
+      internalID: 646369537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_7
+      name: Survivor_7
       rect:
         serializedVersion: 2
         x: 0
@@ -336,16 +336,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 90cd172d58a993b00800000000000000
-      internalID: 808847507641719817
+      spriteID: 070697e3b8a35ed40997a0a70dbe78dc
+      internalID: 858926707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_8
+      name: Survivor_8
       rect:
         serializedVersion: 2
         x: 48
@@ -358,16 +358,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4725b4bae2f815890800000000000000
-      internalID: -7471032876225834380
+      spriteID: f82ce9b24f2774045855e0d901f40ce3
+      internalID: 1198205286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_9
+      name: Survivor_9
       rect:
         serializedVersion: 2
         x: 0
@@ -380,16 +380,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 548c49c744ee6f500800000000000000
-      internalID: 429792792375773253
+      spriteID: 4516e5376a1a7354f99b5fc5e50fac2c
+      internalID: -610919297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: victim_10
+      name: Survivor_10
       rect:
         serializedVersion: 2
         x: 48
@@ -402,10 +402,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 375e5e44903dc82a0800000000000000
-      internalID: -6733775306061650573
+      spriteID: 102edeaba44823549b292745cef409de
+      internalID: 337979990
       vertices: []
       indices: 
       edges: []
@@ -426,17 +426,17 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      victim_0: 3450333248556369381
-      victim_1: 8029140775532383191
-      victim_10: -6733775306061650573
-      victim_2: -8050039190819411222
-      victim_3: 6122376569522227265
-      victim_4: 6506144886168182635
-      victim_5: -5816566306202128864
-      victim_6: 6516592337461062791
-      victim_7: 808847507641719817
-      victim_8: -7471032876225834380
-      victim_9: 429792792375773253
+      Survivor_0: -1407087552
+      Survivor_1: -229300183
+      Survivor_10: 337979990
+      Survivor_2: -612290674
+      Survivor_3: 936407741
+      Survivor_4: 1316730510
+      Survivor_5: -1932501072
+      Survivor_6: 646369537
+      Survivor_7: 858926707
+      Survivor_8: 1198205286
+      Survivor_9: -610919297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

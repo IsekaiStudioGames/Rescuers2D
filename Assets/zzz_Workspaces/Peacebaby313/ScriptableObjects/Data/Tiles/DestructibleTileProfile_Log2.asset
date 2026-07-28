@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55e1fc0139b56314c90a69634113e6e9, type: 3}
-  m_Name: DestructibleTileProfile_Log
+  m_Name: DestructibleTileProfile_Log2
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleTileProfile
-  intactTile: {fileID: 11400000, guid: 29ad2b95db519564cbfbe6f3b8b6d182, type: 2}
-  damagedTile: {fileID: 11400000, guid: 69854c4a73c056245a139c691d0f718c, type: 2}
+  intactTile: {fileID: 11400000, guid: 3265744bf6d8aef49936242690966364, type: 2}
+  damagedTile: {fileID: 11400000, guid: b1bd8b62151319841b9f760458b4f9ca, type: 2}
   hitsToBreak: 3
   allowedDamageTypes: 00000000
-  hitEffectPrefab: {fileID: 6328850758696560318, guid: 921554c74bd349645a6bcf41e616d646, type: 3}
-  destructionEffectPrefab: {fileID: 3468165380018315016, guid: 0a55c5db3e1aa7549b83a2429241616a, type: 3}
+  hitEffectPrefab: {fileID: 7955912129606765379, guid: 1a7f05857d89ee741a68f6f3f6e5c2cf, type: 3}
+  destructionEffectPrefab: {fileID: 3468165380018315016, guid: e355ebc77d9ef484288dadc70fe55365, type: 3}

@@ -21,6 +21,12 @@ public sealed class LevelWinController : MonoBehaviour
     [SerializeField]
     private bool pauseTimeOnWin = true;
 
+    [SerializeField]
+    private bool pauseAudioOnWin = true;
+
+    [SerializeField]
+    private PlayerInputReader playerInputReader;
+
     [Tooltip(
         "Optional gameplay components to disable after winning. " +
         "Do not add this controller or the FeedbackMenuController.")]
@@ -34,12 +40,14 @@ public sealed class LevelWinController : MonoBehaviour
     public bool HasWon { get; private set; }
 
     private float previousTimeScale = 1f;
+    private bool previousAudioPause;
 
     private void OnEnable()
     {
         if (rescueZone != null)
         {
-            rescueZone.OnAllTargetsSafe += HandleAllTargetsSafe;
+            rescueZone.OnAllTargetsSafe +=
+                HandleAllTargetsSafe;
         }
     }
 
@@ -59,13 +67,22 @@ public sealed class LevelWinController : MonoBehaviour
                 "been assigned.",
                 this);
         }
+
+        if (playerInputReader == null)
+        {
+            Debug.LogWarning(
+                "[LEVEL WIN] No PlayerInputReader has been assigned. " +
+                "Gameplay input will remain enabled after winning.",
+                this);
+        }
     }
 
     private void OnDisable()
     {
         if (rescueZone != null)
         {
-            rescueZone.OnAllTargetsSafe -= HandleAllTargetsSafe;
+            rescueZone.OnAllTargetsSafe -=
+                HandleAllTargetsSafe;
         }
     }
 
@@ -95,6 +112,7 @@ public sealed class LevelWinController : MonoBehaviour
         HasWon = true;
 
         LockGameplay();
+
         feedbackMenuController.ShowWin();
 
         OnLevelWon?.Invoke();
@@ -108,10 +126,25 @@ public sealed class LevelWinController : MonoBehaviour
 
     private void LockGameplay()
     {
+        playerInputReader
+            ?.SetGameplayInputEnabled(false);
+
         if (pauseTimeOnWin)
         {
-            previousTimeScale = Time.timeScale;
-            Time.timeScale = 0f;
+            previousTimeScale =
+                Time.timeScale;
+
+            Time.timeScale =
+                0f;
+        }
+
+        if (pauseAudioOnWin)
+        {
+            previousAudioPause =
+                AudioListener.pause;
+
+            AudioListener.pause =
+                true;
         }
 
         if (behavioursDisabledOnWin == null)
@@ -137,16 +170,34 @@ public sealed class LevelWinController : MonoBehaviour
                 continue;
             }
 
-            behaviour.enabled = false;
+            behaviour.enabled =
+                false;
+        }
+    }
+
+    private void RestoreRuntimeState()
+    {
+        if (!HasWon)
+        {
+            return;
+        }
+
+        if (pauseTimeOnWin)
+        {
+            Time.timeScale =
+                previousTimeScale;
+        }
+
+        if (pauseAudioOnWin)
+        {
+            AudioListener.pause =
+                previousAudioPause;
         }
     }
 
     private void OnDestroy()
     {
-        if (HasWon && pauseTimeOnWin)
-        {
-            Time.timeScale = previousTimeScale;
-        }
+        RestoreRuntimeState();
     }
 
     private void OnValidate()

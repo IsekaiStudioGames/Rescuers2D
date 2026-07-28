@@ -43,7 +43,7 @@ public sealed class LockedDoorInteractionZone2D :
             return;
         }
 
-        firefighter.EnterLockedDoorZone(lockedDoor);
+        //firefighter.EnterLockedDoorZone(lockedDoor);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -57,7 +57,7 @@ public sealed class LockedDoorInteractionZone2D :
             return;
         }
 
-        firefighter.ExitLockedDoorZone(lockedDoor);
+        //firefighter.ExitLockedDoorZone(lockedDoor);
     }
 }
 

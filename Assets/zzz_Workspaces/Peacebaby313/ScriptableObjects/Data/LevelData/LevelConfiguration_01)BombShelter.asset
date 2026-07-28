@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelConfiguration_01)BombShelter
   m_EditorClassIdentifier: Assembly-CSharp::LevelConfigurationData
   levelId: Level_01
-  levelNumber: 0-0
+  levelNumber: 0-1
   levelName: Bomb Shelter
   sceneName: 01_Level1
   levelGoal: Find a way into the bunker and rescue the survivor.
