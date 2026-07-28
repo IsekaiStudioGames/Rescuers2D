@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7683093cfe54147ba0ab5f63653700, type: 3}
+  m_Name: LevelConfiguration_01)BombShelter
+  m_EditorClassIdentifier: Assembly-CSharp::LevelConfigurationData
+  levelId: Level_01
+  levelNumber: 0-0
+  levelName: Bomb Shelter
+  sceneName: 01_Level1
+  levelGoal: Find a way into the bunker and rescue the survivor.
+  levelOverview: A survivor is trapped inside a collapsed rural bomb shelter. Recover
+    the key to open the shelter, clear the blocked tunnels, and retrieve the C4 needed
+    to reach the victim. Escort them safely to the rescue tent before time runs out.
+  briefingDuration: 30
+  victimPrefab: {fileID: 0}
+  levelTimeLimit: 300
+  currentLevelPassword: BMBSHLTR
+  nextLevelPassword: SNDLEVEL
+  nextSceneName: Second Level
+  rescuers:
+  - characterName: Fireman
+    characterPortrait: {fileID: 7091566475817151718, guid: ca32a6144c36e664eb25d6bee3638b5b, type: 3}
+    abilityDescription: "Carry and extend his ladder with space bar and x. Survivors
+      will follow him up ladders.\t"
+  - characterName: Riot Officer
+    characterPortrait: {fileID: -7096444804375828842, guid: ea3f41a12a240e940b29ca2540cfd800, type: 3}
+    abilityDescription: Use his Shield with R to brace, F to Bash, and Up to to block
+      and bump hazards.
+  - characterName: Rescue Specialist
+    characterPortrait: {fileID: -5755546180611968356, guid: 7e8a62d1740d05e4d9664bdc181e3223, type: 3}
+    abilityDescription: Jump, Crawl, and Swim as a the go to guy for hard to reach
+      places.

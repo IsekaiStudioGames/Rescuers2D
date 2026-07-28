@@ -2187,7 +2187,6 @@ GameObject:
   - component: {fileID: 4169219485190072465}
   - component: {fileID: 7676730206337135093}
   - component: {fileID: 4639197524390127020}
-  - component: {fileID: 6296664364311231098}
   m_Layer: 5
   m_Name: PF_MenuSystem
   m_TagString: Untagged
@@ -2336,7 +2335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c7dedc3372bb641a858adf353e8f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PasswordMenuController
-  menuSystemPresenter: {fileID: 6296664364311231098}
+  menuSystemPresenter: {fileID: 0}
   mainMenuRoot: {fileID: 1087865927084181785}
   passwordPanelRoot: {fileID: 2916199499850547373}
   mainMenuReturnSelection: {fileID: 8844432615214791733}
@@ -2378,31 +2377,6 @@ MonoBehaviour:
   audioFirstSelection: {fileID: 6669093845324640970}
   graphicsFirstSelection: {fileID: 538535536348510969}
   statusText: {fileID: 4063960794213362990}
---- !u!114 &6296664364311231098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5060634117012527121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a9c1e000d3e1984495d1cacf1a61338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuSystemPresenter
-  menuContext: 0
-  showOnStart: 1
-  menuVisualRoot: {fileID: 559804229138364462}
-  mainMenuRoot: {fileID: 1087865927084181785}
-  passwordMenuRoot: {fileID: 4306743417615443747}
-  settingsMenuRoot: {fileID: 1937162340099793373}
-  passwordMenuController: {fileID: 7676730206337135093}
-  settingsMenuController: {fileID: 4639197524390127020}
-  menuTitleText: {fileID: 0}
-  mainMenuTitle: RESCUERS2D
-  pauseMenuTitle: PAUSED
-  firstSelection: {fileID: 2601438422994202029}
-  pauseAuthoritySource: {fileID: 2883277494443765581}
 --- !u!1 &5077811751975963642
 GameObject:
   m_ObjectHideFlags: 0
@@ -5576,11 +5550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!1 &1937162340099793373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 115925285284184446, guid: ff9bf2bcb6d521e46b1a9527bc04338d, type: 3}
-  m_PrefabInstance: {fileID: 1979885693084639395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2142275737809346602 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 487255048806482057, guid: ff9bf2bcb6d521e46b1a9527bc04338d, type: 3}
