@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de943cb97518ae14eb180348e0d0dfdb, type: 3}
+  m_Name: SFX_Library_Rescuers2D
+  m_EditorClassIdentifier: Assembly-CSharp::SfxLibraryData
+  cues:
+  - {fileID: 11400000, guid: 93938af54c54ba34b8f785509f24f4dd, type: 2}
+  - {fileID: 11400000, guid: 9e16797959897e14780dfbedb17574ab, type: 2}
+  - {fileID: 11400000, guid: fea0f77542f4e3a4e9b4929aba68fc4c, type: 2}
+  - {fileID: 11400000, guid: 7735fca27734d374799e6656115e229a, type: 2}
+  - {fileID: 11400000, guid: dd2c77964b83fc243803b7c71b2bd2b3, type: 2}
