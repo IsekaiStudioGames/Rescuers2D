@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed510c40d5fd43849ac4ce2b8294b63f, type: 3}
   m_Name: UIAudioProfile_Main
   m_EditorClassIdentifier: Assembly-CSharp::UIAudioProfileData
-  navigateClip: {fileID: 8300000, guid: 1eb843f75d2cc2a4a84a19f624695a69, type: 3}
-  submitClip: {fileID: 8300000, guid: 36caaa68366376a4e9aacf9d42397289, type: 3}
-  cancelClip: {fileID: 8300000, guid: af79462121ec01c40b0ae253d6d0f2c8, type: 3}
-  valueChangedClip: {fileID: 8300000, guid: e5208754de55efc47aea9edd940240ff, type: 3}
+  navigateCue: {fileID: 11400000, guid: f7fb2d4d15338f04e998c5fb7e22a01f, type: 2}
+  submitCue: {fileID: 11400000, guid: 2238dfe172767fd41b60d89b87ffaa6e, type: 2}
+  cancelCue: {fileID: 11400000, guid: 0e4bdc831a39f1e489d5c78165a5286f, type: 2}
+  valueChangedCue: {fileID: 11400000, guid: 38a844ba6c099914fbc0a71231cb4bdf, type: 2}
   navigateVolume: 0.55
   submitVolume: 0.8
   cancelVolume: 0.7

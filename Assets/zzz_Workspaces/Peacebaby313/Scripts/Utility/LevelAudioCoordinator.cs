@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-900)]
 [DisallowMultipleComponent]
-[RequireComponent(typeof(MusicJukebox))]
 public sealed class LevelAudioCoordinator
     : MonoBehaviour
 {
-    [Header("Runtime Service")]
-    [SerializeField]
-    private MusicJukebox musicJukebox;
-
     [Header("Diagnostics")]
     [SerializeField]
     private bool logLevelAudioChanges = true;
@@ -23,30 +18,41 @@ public sealed class LevelAudioCoordinator
         private set;
     }
 
+    private ApplicationBootstrap bootstrap;
+    private MusicJukebox musicJukebox;
+
     private bool hasStarted;
     private bool isSubscribed;
 
-    private void Reset()
-    {
-        musicJukebox =
-            GetComponent<MusicJukebox>();
-    }
-
     private void Awake()
     {
-        if (!IsOwnedByActiveBootstrap())
+        bootstrap =
+            GetComponentInParent<ApplicationBootstrap>(
+                includeInactive: true);
+
+        if (bootstrap == null ||
+            bootstrap != ApplicationBootstrap.Instance)
         {
+            Debug.LogWarning(
+                "[LEVEL AUDIO] This coordinator is not owned by " +
+                "the active ApplicationBootstrap and will be disabled.",
+                this);
+
             enabled = false;
             return;
         }
 
-        ResolveJukebox();
+        musicJukebox =
+            bootstrap.MusicJukebox;
 
         if (musicJukebox == null)
         {
             Debug.LogError(
-                "[LEVEL AUDIO] MusicJukebox is missing.",
-                this);
+                "[LEVEL AUDIO] The active ApplicationBootstrap " +
+                "does not have a MusicJukebox assigned.",
+                bootstrap);
+
+            enabled = false;
         }
     }
 
@@ -70,25 +76,6 @@ public sealed class LevelAudioCoordinator
     private void OnDisable()
     {
         Unsubscribe();
-    }
-
-    private void ResolveJukebox()
-    {
-        if (musicJukebox != null)
-            return;
-
-        musicJukebox =
-            GetComponent<MusicJukebox>();
-    }
-
-    private bool IsOwnedByActiveBootstrap()
-    {
-        ApplicationBootstrap owner =
-            GetComponentInParent<ApplicationBootstrap>();
-
-        return owner == null ||
-               owner ==
-               ApplicationBootstrap.Instance;
     }
 
     private void Subscribe()
@@ -137,7 +124,7 @@ public sealed class LevelAudioCoordinator
         {
             Debug.LogError(
                 "[LEVEL AUDIO] Cannot apply level audio " +
-                "without a MusicJukebox.",
+                "because the persistent MusicJukebox is unavailable.",
                 this);
 
             return;

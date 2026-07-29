@@ -16,20 +16,20 @@ public enum UIAudioCue
 public sealed class UIAudioProfileData
     : ScriptableObject
 {
-    [Header("Clips")]
+    [Header("Cues")]
     [SerializeField]
-    private AudioClip navigateClip;
+    private SfxCueData navigateCue;
 
     [SerializeField]
-    private AudioClip submitClip;
+    private SfxCueData submitCue;
 
     [SerializeField]
-    private AudioClip cancelClip;
+    private SfxCueData cancelCue;
 
     [SerializeField]
-    private AudioClip valueChangedClip;
+    private SfxCueData valueChangedCue;
 
-    [Header("Volumes")]
+    [Header("Volume Multipliers")]
     [SerializeField, Range(0f, 1f)]
     private float navigateVolume = 0.55f;
 
@@ -49,22 +49,22 @@ public sealed class UIAudioProfileData
     public float MinimumCueInterval =>
         minimumCueInterval;
 
-    public AudioClip GetClip(
+    public SfxCueData GetCue(
         UIAudioCue cue)
     {
         switch (cue)
         {
             case UIAudioCue.Navigate:
-                return navigateClip;
+                return navigateCue;
 
             case UIAudioCue.Submit:
-                return submitClip;
+                return submitCue;
 
             case UIAudioCue.Cancel:
-                return cancelClip;
+                return cancelCue;
 
             case UIAudioCue.ValueChanged:
-                return valueChangedClip;
+                return valueChangedCue;
 
             default:
                 return null;

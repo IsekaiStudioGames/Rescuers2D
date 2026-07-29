@@ -16,7 +16,7 @@ MonoBehaviour:
   - splashId: IsekaiStudios
     splashSprite: {fileID: 1483186908192768041, guid: 0a3de380f267bac478448c39e639005b, type: 3}
     backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-    sound: {fileID: 8300000, guid: f53d91520729e684780b9d7df7918186, type: 3}
+    sound: {fileID: 11400000, guid: 23fc4579df0a029498f73d29e17c8307, type: 2}
     soundVolume: 1
     fadeInDuration: 0.4
     holdDuration: 1.25
@@ -28,7 +28,7 @@ MonoBehaviour:
   - splashId: JuntosVenezuela
     splashSprite: {fileID: -2335708480867932203, guid: 48beba987731d4142bcf413acc8ef166, type: 3}
     backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-    sound: {fileID: 8300000, guid: f53d91520729e684780b9d7df7918186, type: 3}
+    sound: {fileID: 11400000, guid: 23fc4579df0a029498f73d29e17c8307, type: 2}
     soundVolume: 1
     fadeInDuration: 0.4
     holdDuration: 1.5
@@ -40,7 +40,7 @@ MonoBehaviour:
   - splashId: Rescuers2D
     splashSprite: {fileID: 1483186908192768041, guid: 0a3de380f267bac478448c39e639005b, type: 3}
     backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-    sound: {fileID: 8300000, guid: f53d91520729e684780b9d7df7918186, type: 3}
+    sound: {fileID: 11400000, guid: 23fc4579df0a029498f73d29e17c8307, type: 2}
     soundVolume: 1
     fadeInDuration: 0.5
     holdDuration: 1.75

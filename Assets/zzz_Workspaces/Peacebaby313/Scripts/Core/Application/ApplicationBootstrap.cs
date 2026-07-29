@@ -6,7 +6,6 @@ using UnityEngine;
 
 [DefaultExecutionOrder(-1000)]
 [RequireComponent(typeof(SceneLoadService))]
-[RequireComponent(typeof(AudioSource))]
 public sealed class ApplicationBootstrap
     : Singleton<ApplicationBootstrap>
 {
@@ -36,9 +35,7 @@ public sealed class ApplicationBootstrap
     private UIAudioProfileData
         uiAudioProfile;
 
-    [SerializeField]
-    private AudioSource
-        uiAudioSource;
+
 
     [Header("Audio Services")]
     [SerializeField]
@@ -145,23 +142,12 @@ public sealed class ApplicationBootstrap
                 GetComponent<SceneLoadService>();
         }
 
-        if (uiAudioSource == null)
-        {
-            uiAudioSource =
-                GetComponent<AudioSource>();
-        }
-
         if (sceneLoadService == null)
         {
             Debug.LogError(
                 "[BOOTSTRAP] SceneLoadService is missing.");
         }
 
-        if (uiAudioSource == null)
-        {
-            Debug.LogError(
-                "[BOOTSTRAP] UI AudioSource is missing.");
-        }
 
     }
 
@@ -206,7 +192,7 @@ public sealed class ApplicationBootstrap
 
         UIAudio =
             new UIAudioService(
-                uiAudioSource,
+                sfxPlayer,
                 uiAudioProfile);
 
         UIAudio.Initialize();
@@ -315,14 +301,6 @@ public sealed class ApplicationBootstrap
                 false;
         }
 
-        if (uiAudioSource == null)
-        {
-            Debug.LogError(
-                "[BOOTSTRAP] UI AudioSource is missing.");
-
-            valid =
-                false;
-        }
 
         if (musicJukebox == null)
         {

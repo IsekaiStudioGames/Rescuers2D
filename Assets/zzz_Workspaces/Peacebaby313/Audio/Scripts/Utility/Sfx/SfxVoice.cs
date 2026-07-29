@@ -1,5 +1,3 @@
-using UnityEngine;
-using UnityEngine.Audio;
 
 //----- SfxVoice.cs START -----
 

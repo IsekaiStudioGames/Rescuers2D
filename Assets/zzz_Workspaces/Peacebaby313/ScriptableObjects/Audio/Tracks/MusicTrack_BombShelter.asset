@@ -18,7 +18,7 @@ MonoBehaviour:
   volume: 1
   playbackSpeed: 1
   playInReverse: 0
-  loop: 1
+  loop: 0
   fadeInDuration: 1
   fadeOutDuration: 1
   startDelay: 0

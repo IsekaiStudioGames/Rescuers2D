@@ -5,7 +5,7 @@ using UnityEngine;
 
 public sealed class UIAudioService
 {
-    private readonly AudioSource audioSource;
+    private readonly SfxPlayer sfxPlayer;
     private readonly UIAudioProfileData profile;
 
     private readonly Dictionary<UIAudioCue, float>
@@ -19,14 +19,11 @@ public sealed class UIAudioService
     }
 
     public UIAudioService(
-        AudioSource audioSource,
+        SfxPlayer sfxPlayer,
         UIAudioProfileData profile)
     {
-        this.audioSource =
-            audioSource;
-
-        this.profile =
-            profile;
+        this.sfxPlayer = sfxPlayer;
+        this.profile = profile;
     }
 
     public void Initialize()
@@ -34,10 +31,10 @@ public sealed class UIAudioService
         if (IsInitialized)
             return;
 
-        if (audioSource == null)
+        if (sfxPlayer == null)
         {
             Debug.LogError(
-                "[UI AUDIO] UI AudioSource is missing.");
+                "[UI AUDIO] SfxPlayer is missing.");
 
             return;
         }
@@ -50,20 +47,7 @@ public sealed class UIAudioService
             return;
         }
 
-        audioSource.playOnAwake =
-            false;
-
-        audioSource.loop =
-            false;
-
-        audioSource.spatialBlend =
-            0f;
-
-        audioSource.ignoreListenerPause =
-            true;
-
-        IsInitialized =
-            true;
+        IsInitialized = true;
     }
 
     public void Play(
@@ -72,11 +56,32 @@ public sealed class UIAudioService
         if (!IsInitialized)
             return;
 
-        AudioClip clip =
-            profile.GetClip(
-                cue);
+        if (sfxPlayer == null)
+        {
+            IsInitialized = false;
 
-        if (clip == null)
+            Debug.LogError(
+                "[UI AUDIO] The Jukebot SfxPlayer " +
+                "is no longer available.");
+
+            return;
+        }
+
+        if (profile == null)
+        {
+            IsInitialized = false;
+
+            Debug.LogError(
+                "[UI AUDIO] The UI audio profile " +
+                "is no longer available.");
+
+            return;
+        }
+
+        SfxCueData cueData =
+            profile.GetCue(cue);
+
+        if (cueData == null)
             return;
 
         float currentTime =
@@ -87,8 +92,7 @@ public sealed class UIAudioService
                 out float lastCueTime))
         {
             float elapsed =
-                currentTime -
-                lastCueTime;
+                currentTime - lastCueTime;
 
             if (elapsed <
                 profile.MinimumCueInterval)
@@ -100,35 +104,31 @@ public sealed class UIAudioService
         lastCueTimes[cue] =
             currentTime;
 
-        audioSource.PlayOneShot(
-            clip,
-            profile.GetVolume(
-                cue));
+        sfxPlayer.Play(
+            cueData,
+            profile.GetVolume(cue));
     }
 
     public void PlayNavigate()
     {
-        Play(
-            UIAudioCue.Navigate);
+        Play(UIAudioCue.Navigate);
     }
 
     public void PlaySubmit()
     {
-        Play(
-            UIAudioCue.Submit);
+        Play(UIAudioCue.Submit);
     }
 
     public void PlayCancel()
     {
-        Play(
-            UIAudioCue.Cancel);
+        Play(UIAudioCue.Cancel);
     }
 
     public void PlayValueChanged()
     {
-        Play(
-            UIAudioCue.ValueChanged);
+        Play(UIAudioCue.ValueChanged);
     }
 }
 
 //----- UIAudioService.cs END -----
+

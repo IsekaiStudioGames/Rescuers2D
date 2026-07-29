@@ -217,10 +217,10 @@ public sealed class LevelBriefingController : MonoBehaviour
         OnBriefingStarted?.Invoke();
         onBriefingStarted?.Invoke();
 
-        Debug.Log(
-            $"[LEVEL BRIEFING] Began briefing for " +
-            $"{levelConfiguration.LevelName}.",
-            this);
+        //Debug.Log(
+        //    $"[LEVEL BRIEFING] Began briefing for " +
+        //    $"{levelConfiguration.LevelName}.",
+        //    this);
     }
 
     [ContextMenu("Close Briefing")]

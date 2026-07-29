@@ -154,15 +154,15 @@ public class FirefighterController : MonoBehaviour
     {
         currentMoveInput = moveDirection;
 
-        if (moveDirection != Vector2.zero)
-        {
-            Debug.Log(
-                $"[FIREFIGHTER {GetInstanceID()}] " +
-                $"Received: {currentMoveInput}, " +
-                $"State: {currentState}, " +
-                $"Rigidbody: {rb?.name}"
-            );
-        }
+        //if (moveDirection != Vector2.zero)
+        //{
+        //    Debug.Log(
+        //        $"[FIREFIGHTER {GetInstanceID()}] " +
+        //        $"Received: {currentMoveInput}, " +
+        //        $"State: {currentState}, " +
+        //        $"Rigidbody: {rb?.name}"
+        //    );
+        //}
     }
     private void HandleGroundMovement()
     {

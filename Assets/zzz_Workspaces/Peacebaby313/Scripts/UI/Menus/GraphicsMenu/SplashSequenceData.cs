@@ -26,7 +26,7 @@ public sealed class SplashEntry
     [SerializeField] private Color backgroundColor = Color.black;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip sound;
+    [SerializeField] private SfxCueData sound;
     [SerializeField, Range(0f, 1f)] private float soundVolume = 1f;
 
     [Header("Timing")]
@@ -51,7 +51,8 @@ public sealed class SplashEntry
     public Sprite SplashSprite => splashSprite;
     public Color BackgroundColor => backgroundColor;
 
-    public AudioClip Sound => sound;
+    public SfxCueData Sound => sound;
+
     public float SoundVolume => soundVolume;
 
     public float FadeInDuration => fadeInDuration;

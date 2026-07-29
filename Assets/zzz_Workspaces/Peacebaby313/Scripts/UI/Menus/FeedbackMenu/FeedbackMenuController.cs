@@ -81,9 +81,9 @@ public sealed class FeedbackMenuController : MonoBehaviour
             OnMenuStateChanged?.Invoke(CurrentState);
         }
 
-        Debug.Log(
-            $"[FEEDBACK MENU] State changed to {CurrentState}.",
-            this);
+        //Debug.Log(
+        //    $"[FEEDBACK MENU] State changed to {CurrentState}.",
+        //    this);
     }
 
     [ContextMenu("Show Player Feedback")]

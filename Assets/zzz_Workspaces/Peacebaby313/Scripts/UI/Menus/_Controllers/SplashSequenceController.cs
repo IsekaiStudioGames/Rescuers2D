@@ -2,56 +2,117 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public sealed class SplashSequenceController : MonoBehaviour
 {
     [Header("Sequence")]
-    [SerializeField] private SplashSequenceData sequenceData;
-    [SerializeField] private bool playOnStart = true;
+    [SerializeField]
+    private SplashSequenceData sequenceData;
+
+    [SerializeField]
+    private bool playOnStart = true;
+
+    [Header("Click Through")]
+    [SerializeField]
+    private bool allowClickToAdvance = true;
+
+    [SerializeField, Min(0f)]
+    private float clickedFadeOutDuration = 0.15f;
 
     [Header("Scene Handoff")]
-    [SerializeField] private SceneLoadService sceneLoadService;
-    [SerializeField] private string nextSceneName = "01_MainMenu";
+    [SerializeField]
+    private SceneLoadService sceneLoadService;
+
+    [SerializeField]
+    private string nextSceneName = "01_MainMenu";
 
     [Header("UI References")]
-    [SerializeField] private CanvasGroup splashCanvasGroup;
-    [SerializeField] private Image backgroundImage;
-    [SerializeField] private Image splashImage;
-    [SerializeField] private Image glowImage;
+    [SerializeField]
+    private CanvasGroup splashCanvasGroup;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField]
+    private Image backgroundImage;
+
+    [SerializeField]
+    private Image splashImage;
+
+    [SerializeField]
+    private Image glowImage;
+
+    private SfxPlayer sfxPlayer;
+
+    private SfxPlaybackHandle splashSoundHandle =
+        SfxPlaybackHandle.Invalid;
 
     private Coroutine sequenceRoutine;
 
     private Vector3 glowBaseScale = Vector3.one;
     private float glowElapsedTime;
 
-    public bool IsPlaying => sequenceRoutine != null;
+    private bool advanceRequested;
+    private bool isLoadingNextScene;
+    private bool hasLoggedMissingSfxPlayer;
+
+    public bool IsPlaying =>
+        sequenceRoutine != null;
 
     private void Awake()
     {
         if (glowImage != null)
-            glowBaseScale = glowImage.rectTransform.localScale;
+        {
+            glowBaseScale =
+                glowImage.rectTransform.localScale;
+        }
 
+        TryResolveSfxPlayer();
         ResetPresentation();
     }
 
     private void Start()
     {
         if (playOnStart)
+        {
             PlaySequence();
+        }
     }
 
+    private void Update()
+    {
+        if (!allowClickToAdvance ||
+            sequenceRoutine == null ||
+            isLoadingNextScene ||
+            advanceRequested)
+        {
+            return;
+        }
+
+        bool mouseClicked =
+            Mouse.current != null &&
+            Mouse.current.leftButton.wasPressedThisFrame;
+
+        bool screenTouched =
+            Touchscreen.current != null &&
+            Touchscreen.current.primaryTouch.press
+                .wasPressedThisFrame;
+
+        if (mouseClicked || screenTouched)
+        {
+            advanceRequested = true;
+        }
+    }
 
     // Begins the configured splash sequence.
     // Duplicate requests are ignored while the sequence is playing.
 
     public void PlaySequence()
     {
-        if (sequenceRoutine != null)
+        if (sequenceRoutine != null ||
+            isLoadingNextScene)
+        {
             return;
+        }
 
         sequenceRoutine =
             StartCoroutine(PlaySequenceRoutine());
@@ -63,11 +124,12 @@ public sealed class SplashSequenceController : MonoBehaviour
         {
             Debug.LogError(
                 "[SPLASH] No SplashSequenceData is assigned. " +
-                "Attempting to load the next scene.");
-
-            sequenceRoutine = null;
+                "Attempting to load the next scene.",
+                this);
 
             yield return LoadNextScene();
+
+            sequenceRoutine = null;
             yield break;
         }
 
@@ -75,67 +137,105 @@ public sealed class SplashSequenceController : MonoBehaviour
         {
             Debug.LogWarning(
                 "[SPLASH] The assigned sequence contains no entries. " +
-                "Attempting to load the next scene.");
-
-            sequenceRoutine = null;
+                "Attempting to load the next scene.",
+                this);
 
             yield return LoadNextScene();
+
+            sequenceRoutine = null;
             yield break;
         }
 
         foreach (SplashEntry entry in sequenceData.Entries)
         {
             if (entry == null)
+            {
                 continue;
+            }
 
             yield return PlayEntry(entry);
         }
 
         ResetPresentation();
 
-        sequenceRoutine = null;
-
         yield return LoadNextScene();
+
+        sequenceRoutine = null;
     }
 
     private IEnumerator PlayEntry(SplashEntry entry)
     {
+        advanceRequested = false;
+
         ConfigureEntry(entry);
 
         glowElapsedTime = 0f;
 
         PlaySound(entry);
 
+        // Clicking during the fade-in immediately begins
+        // the shortened click-through fade-out.
+
         yield return Fade(
             entry,
             fromAlpha: 0f,
             toAlpha: 1f,
-            duration: entry.FadeInDuration);
+            duration: entry.FadeInDuration,
+            canBeAdvanced: true);
 
-        yield return Hold(
-            entry,
-            entry.HoldDuration);
+        if (!advanceRequested)
+        {
+            yield return Hold(
+                entry,
+                entry.HoldDuration);
+        }
 
-        yield return Fade(
-            entry,
-            fromAlpha: 1f,
-            toAlpha: 0f,
-            duration: entry.FadeOutDuration);
+        if (!advanceRequested)
+        {
+            yield return Fade(
+                entry,
+                fromAlpha: 1f,
+                toAlpha: 0f,
+                duration: entry.FadeOutDuration,
+                canBeAdvanced: true);
+        }
 
-        if (audioSource != null)
-            audioSource.Stop();
+        // If the player clicked during any presentation phase,
+        // finish the current splash with a brief fade.
+
+        if (advanceRequested)
+        {
+            float currentAlpha =
+                splashCanvasGroup != null
+                    ? splashCanvasGroup.alpha
+                    : 0f;
+
+            yield return Fade(
+                entry,
+                fromAlpha: currentAlpha,
+                toAlpha: 0f,
+                duration: clickedFadeOutDuration,
+                canBeAdvanced: false);
+        }
+
+        SetPresentationAlpha(0f);
+        StopSplashSound();
+
+        advanceRequested = false;
     }
 
     private IEnumerator Fade(
         SplashEntry entry,
         float fromAlpha,
         float toAlpha,
-        float duration)
+        float duration,
+        bool canBeAdvanced)
     {
         if (duration <= 0f)
         {
             SetPresentationAlpha(toAlpha);
             UpdateGlow(entry);
+
             yield break;
         }
 
@@ -143,13 +243,21 @@ public sealed class SplashSequenceController : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            float deltaTime = Time.unscaledDeltaTime;
+            if (canBeAdvanced &&
+                advanceRequested)
+            {
+                yield break;
+            }
+
+            float deltaTime =
+                Time.unscaledDeltaTime;
 
             elapsedTime += deltaTime;
             glowElapsedTime += deltaTime;
 
             float normalizedTime =
-                Mathf.Clamp01(elapsedTime / duration);
+                Mathf.Clamp01(
+                    elapsedTime / duration);
 
             float currentAlpha =
                 Mathf.Lerp(
@@ -172,13 +280,21 @@ public sealed class SplashSequenceController : MonoBehaviour
         float duration)
     {
         if (duration <= 0f)
+        {
             yield break;
+        }
 
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
-            float deltaTime = Time.unscaledDeltaTime;
+            if (advanceRequested)
+            {
+                yield break;
+            }
+
+            float deltaTime =
+                Time.unscaledDeltaTime;
 
             elapsedTime += deltaTime;
             glowElapsedTime += deltaTime;
@@ -190,22 +306,31 @@ public sealed class SplashSequenceController : MonoBehaviour
         }
     }
 
-    private void ConfigureEntry(SplashEntry entry)
+    private void ConfigureEntry(
+        SplashEntry entry)
     {
         if (backgroundImage != null)
-            backgroundImage.color = entry.BackgroundColor;
+        {
+            backgroundImage.color =
+                entry.BackgroundColor;
+        }
 
         if (splashImage != null)
         {
-            splashImage.sprite = entry.SplashSprite;
+            splashImage.sprite =
+                entry.SplashSprite;
+
             splashImage.preserveAspect = true;
+
             splashImage.enabled =
                 entry.SplashSprite != null;
         }
 
         if (glowImage != null)
         {
-            glowImage.sprite = entry.SplashSprite;
+            glowImage.sprite =
+                entry.SplashSprite;
+
             glowImage.preserveAspect = true;
             glowImage.raycastTarget = false;
 
@@ -220,24 +345,87 @@ public sealed class SplashSequenceController : MonoBehaviour
         SetPresentationAlpha(0f);
     }
 
-    private void PlaySound(SplashEntry entry)
+    private void PlaySound(
+        SplashEntry entry)
     {
-        if (audioSource == null)
+        StopSplashSound();
+
+        if (entry.Sound == null)
+        {
             return;
+        }
 
-        audioSource.Stop();
+        if (!TryResolveSfxPlayer())
+        {
+            return;
+        }
 
-        audioSource.clip = entry.Sound;
-        audioSource.volume = entry.SoundVolume;
-
-        if (audioSource.clip != null)
-            audioSource.Play();
+        splashSoundHandle =
+            sfxPlayer.Play(
+                entry.Sound,
+                entry.SoundVolume);
     }
 
-    private void UpdateGlow(SplashEntry entry)
+    private void StopSplashSound()
     {
-        if (glowImage == null || !glowImage.enabled)
+        if (!splashSoundHandle.IsValid)
+        {
             return;
+        }
+
+        if (TryResolveSfxPlayer())
+        {
+            sfxPlayer.Stop(
+                splashSoundHandle);
+        }
+
+        splashSoundHandle =
+            SfxPlaybackHandle.Invalid;
+    }
+
+    private bool TryResolveSfxPlayer()
+    {
+        if (sfxPlayer != null)
+        {
+            return true;
+        }
+
+        ApplicationBootstrap bootstrap =
+            ApplicationBootstrap.Instance;
+
+        if (bootstrap != null)
+        {
+            sfxPlayer =
+                bootstrap.SfxPlayer;
+        }
+
+        if (sfxPlayer != null)
+        {
+            hasLoggedMissingSfxPlayer = false;
+            return true;
+        }
+
+        if (!hasLoggedMissingSfxPlayer)
+        {
+            Debug.LogWarning(
+                "[SPLASH] Could not resolve the persistent SfxPlayer. " +
+                "Splash audio will not play.",
+                this);
+
+            hasLoggedMissingSfxPlayer = true;
+        }
+
+        return false;
+    }
+
+    private void UpdateGlow(
+        SplashEntry entry)
+    {
+        if (glowImage == null ||
+            !glowImage.enabled)
+        {
+            return;
+        }
 
         float wave =
             (Mathf.Sin(
@@ -261,15 +449,23 @@ public sealed class SplashSequenceController : MonoBehaviour
         glowImage.rectTransform.localScale =
             glowBaseScale * glowScale;
 
-        Color glowColor = glowImage.color;
-        glowColor.a = glowAlpha;
-        glowImage.color = glowColor;
+        Color glowColor =
+            glowImage.color;
+
+        glowColor.a =
+            glowAlpha;
+
+        glowImage.color =
+            glowColor;
     }
 
-    private void SetPresentationAlpha(float alpha)
+    private void SetPresentationAlpha(
+        float alpha)
     {
         if (splashCanvasGroup == null)
+        {
             return;
+        }
 
         splashCanvasGroup.alpha =
             Mathf.Clamp01(alpha);
@@ -277,13 +473,23 @@ public sealed class SplashSequenceController : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        
+        if (isLoadingNextScene)
+        {
+            yield break;
+        }
+
+        isLoadingNextScene = true;
+
+        StopSplashSound();
+
         if (sceneLoadService == null)
         {
             Debug.LogError(
                 "[SPLASH] No SceneLoadService is assigned. " +
-                $"Unable to load scene '{nextSceneName}'.");
+                $"Unable to load scene '{nextSceneName}'.",
+                this);
 
+            isLoadingNextScene = false;
             yield break;
         }
 
@@ -294,8 +500,9 @@ public sealed class SplashSequenceController : MonoBehaviour
 
     private void ResetPresentation()
     {
-        if (audioSource != null)
-            audioSource.Stop();
+        StopSplashSound();
+
+        advanceRequested = false;
 
         if (splashCanvasGroup != null)
         {
@@ -305,7 +512,10 @@ public sealed class SplashSequenceController : MonoBehaviour
         }
 
         if (backgroundImage != null)
-            backgroundImage.color = Color.black;
+        {
+            backgroundImage.color =
+                Color.black;
+        }
 
         if (splashImage != null)
         {
@@ -325,10 +535,22 @@ public sealed class SplashSequenceController : MonoBehaviour
 
     private void OnDisable()
     {
-        if (audioSource != null)
-            audioSource.Stop();
+        StopSplashSound();
+
+        advanceRequested = false;
+        sequenceRoutine = null;
+    }
+
+    private void OnValidate()
+    {
+        clickedFadeOutDuration =
+            Mathf.Max(
+                0f,
+                clickedFadeOutDuration);
+
+        nextSceneName =
+            nextSceneName?.Trim() ?? string.Empty;
     }
 }
 
 //----- SplashSequenceController.cs END -----
-
