@@ -21,6 +21,8 @@ MonoBehaviour:
     the key to open the shelter, clear the blocked tunnels, and retrieve the C4 needed
     to reach the victim. Escort them safely to the rescue tent before time runs out.
   briefingDuration: 30
+  musicMode: 1
+  musicTrack: {fileID: 11400000, guid: 061b427127a120c4c9c28880e7ed3af9, type: 2}
   victimPrefab: {fileID: 0}
   levelTimeLimit: 300
   currentLevelPassword: BMBSHLTR

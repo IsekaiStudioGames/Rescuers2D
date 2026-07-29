@@ -23,6 +23,13 @@ public sealed class RescuerBriefingEntry
     public string AbilityDescription => abilityDescription;
 }
 
+public enum LevelMusicMode
+{
+    KeepCurrent = 0,
+    PlayAssignedTrack = 1,
+    StopMusic = 2
+}
+
 [CreateAssetMenu(
     fileName = "LevelConfiguration_",
     menuName = "Rescuers2D/Levels/Level Configuration")]
@@ -65,6 +72,19 @@ public sealed class LevelConfigurationData : ScriptableObject
     [SerializeField]
     private float briefingDuration = 30f;
 
+    [Header("Level Audio")]
+    [Tooltip(
+    "Keep Current leaves the jukebox alone. " +
+    "Play Assigned Track requests Music Track. " +
+    "Stop Music deliberately fades to silence.")]
+    [SerializeField]
+    private LevelMusicMode musicMode =
+    LevelMusicMode.KeepCurrent;
+
+    [SerializeField]
+    private MusicTrackData musicTrack;
+
+
     [Header("Level Victim")]
     [Tooltip(
         "Victim prefab used by this level. Its prefab name can be " +
@@ -99,6 +119,12 @@ public sealed class LevelConfigurationData : ScriptableObject
 
     public string LevelGoal => BuildLevelGoal();
     public string LevelOverview => levelOverview;
+
+    public LevelMusicMode MusicMode =>
+    musicMode;
+
+    public MusicTrackData MusicTrack =>
+        musicTrack;
 
     public GameObject VictimPrefab => victimPrefab;
 

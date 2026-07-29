@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5575412307200763402}
   - component: {fileID: 541873573686713934}
   - component: {fileID: 4834358930939675403}
+  - component: {fileID: 6677254742507683443}
   - component: {fileID: 2609503366506880346}
   m_Layer: 0
   m_Name: SceneManager
@@ -125,6 +126,19 @@ MonoBehaviour:
   onBriefingClosed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6677254742507683443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106996882701058042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d22e69c73dd3254faeee74a1863b1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelConfigurationProvider
+  levelConfiguration: {fileID: 11400000, guid: 7b2accd5c6a72b34c9171550b13fbdd1, type: 2}
 --- !u!114 &2609503366506880346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +154,8 @@ MonoBehaviour:
   rescueZone: {fileID: 5643293691776627295}
   feedbackMenuController: {fileID: 541873573686713934}
   pauseTimeOnWin: 1
+  pauseAudioOnWin: 1
+  playerInputReader: {fileID: 0}
   behavioursDisabledOnWin: []
   onLevelWon:
     m_PersistentCalls:
@@ -1236,23 +1252,12 @@ PrefabInstance:
     - target: {fileID: 6296664364311231098, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
       propertyPath: menuTitleText
       value: 
-      objectReference: {fileID: 4250354243598372696}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
---- !u!114 &4250354243598372696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7847899724538380865, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}
-  m_PrefabInstance: {fileID: 6202896576734448921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &5971061667355063957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 344636839654079372, guid: 6c77f7eeae2d0d4488074fff277ce64b, type: 3}

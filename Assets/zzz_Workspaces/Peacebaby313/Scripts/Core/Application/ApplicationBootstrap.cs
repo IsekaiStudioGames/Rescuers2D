@@ -134,18 +134,6 @@ public sealed class ApplicationBootstrap
         {
             return;
         }
-        if (musicJukebox == null)
-        {
-            Debug.LogError(
-                "[APPLICATION BOOTSTRAP] MusicJukebox is not assigned.",
-                this);
-            if (sfxPlayer == null)
-            {
-                Debug.LogError(
-                    "[APPLICATION BOOTSTRAP] SfxPlayer is not assigned.",
-                    this);
-            }
-        }
         AudioService?.ApplyCurrentSettings();
     }
 
@@ -335,6 +323,27 @@ public sealed class ApplicationBootstrap
             valid =
                 false;
         }
+
+        if (musicJukebox == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] MusicJukebox is missing.");
+
+            valid =
+                false;
+        }
+
+        if (sfxPlayer == null)
+        {
+            Debug.LogError(
+                "[BOOTSTRAP] SfxPlayer is missing.");
+
+            valid =
+                false;
+        }
+
+
+
 
         return valid;
     }
