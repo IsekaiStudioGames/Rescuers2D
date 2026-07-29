@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
   cueId: sfx.click.one
   displayName: ClickOne
-  selectionMode: 1
+  selectionMode: 2
   variations:
   - clip: {fileID: 8300000, guid: 36caaa68366376a4e9aacf9d42397289, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0
-    selectionWeight: 0
+    selectionWeight: 1
   cueVolume: 1
   randomVolumeRange: {x: 1, y: 1}
   randomPitchRange: {x: 1, y: 1}

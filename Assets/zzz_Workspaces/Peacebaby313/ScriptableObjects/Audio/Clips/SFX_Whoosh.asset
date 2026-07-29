@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
   cueId: sfx.whoosh
   displayName: Whoosh
-  selectionMode: 1
+  selectionMode: 2
   variations:
   - clip: {fileID: 8300000, guid: a502a4220f033aa4ba35f25d6ad96607, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0
-    selectionWeight: 0
+    selectionWeight: 1
   cueVolume: 1
   randomVolumeRange: {x: 1, y: 1}
   randomPitchRange: {x: 1, y: 1}
-  spatialBlend: 0
+  spatialBlend: 1
   minimumDistance: 1
   maximumDistance: 20
   cooldown: 0

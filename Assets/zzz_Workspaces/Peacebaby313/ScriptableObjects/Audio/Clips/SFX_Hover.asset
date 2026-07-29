@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
   cueId: sfx.hover
   displayName: Hover
-  selectionMode: 1
+  selectionMode: 2
   variations:
   - clip: {fileID: 8300000, guid: 1eb843f75d2cc2a4a84a19f624695a69, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0
-    selectionWeight: 0
+    selectionWeight: 1
   cueVolume: 1
   randomVolumeRange: {x: 1, y: 1}
   randomPitchRange: {x: 1, y: 1}
