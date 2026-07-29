@@ -844,9 +844,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 968884315142993729, guid: 118140d759d02224d9d8f81d4183737a, type: 3}
+      propertyPath: sfxPlayer
+      value: 
+      objectReference: {fileID: 389609243}
+    - target: {fileID: 968884315142993729, guid: 118140d759d02224d9d8f81d4183737a, type: 3}
       propertyPath: musicJukebox
       value: 
-      objectReference: {fileID: 507518340}
+      objectReference: {fileID: 389609244}
     - target: {fileID: 5787974780697773544, guid: 118140d759d02224d9d8f81d4183737a, type: 3}
       propertyPath: m_Name
       value: PF_ApplicationBootstrap
@@ -1844,6 +1848,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3508095924724703020, guid: dddbe57910fcda344ace35729177f8d8, type: 3}
   m_PrefabInstance: {fileID: 1429944626}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &389609241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389609242}
+  - component: {fileID: 389609244}
+  - component: {fileID: 389609243}
+  m_Layer: 0
+  m_Name: JukeboxBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &389609242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389609241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1174181819}
+  - {fileID: 2105796653}
+  - {fileID: 1092299640}
+  m_Father: {fileID: 507518341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389609243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389609241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66b1ea0e58dc8b4f81ffcd342ee8806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SfxPlayer
+  initialPoolSize: 16
+  maximumPoolSize: 32
+  allowPoolExpansion: 1
+  fallbackMixerGroup: {fileID: -6747335845910788087, guid: 63f9e25a317c9654193f2b13e4ec3aeb, type: 2}
+  logRejectedRequests: 1
+  logVoiceStealing: 1
+--- !u!114 &389609244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389609241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a2731c59e560f4b922ca644bd37ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicJukebox
+  sourceA: {fileID: 615850470}
+  sourceB: {fileID: 275220316}
+  defaultFadeDuration: 1
+  protectCurrentTrack: 1
+  logPlaybackCommands: 0
 --- !u!1001 &392519551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7890,7 +7965,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507518341}
-  - component: {fileID: 507518340}
   m_Layer: 0
   m_Name: MusicJukebox
   m_TagString: Untagged
@@ -7898,23 +7972,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &507518340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507518339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a2731c59e560f4b922ca644bd37ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicJukebox
-  sourceA: {fileID: 615850470}
-  sourceB: {fileID: 275220316}
-  defaultFadeDuration: 1
-  protectCurrentTrack: 1
-  logPlaybackCommands: 0
 --- !u!4 &507518341
 Transform:
   m_ObjectHideFlags: 0
@@ -7930,6 +7987,8 @@ Transform:
   m_Children:
   - {fileID: 615850469}
   - {fileID: 275220317}
+  - {fileID: 389609242}
+  - {fileID: 1089163945}
   m_Father: {fileID: 787069229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &523672987 stripped
@@ -8285,54 +8344,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8006755061555922919, guid: ff1a54796d8f6774e81029d0a04567e5, type: 3}
   m_PrefabInstance: {fileID: 143591364}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &619471968
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619471969}
-  - component: {fileID: 619471970}
-  m_Layer: 0
-  m_Name: Jukebox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &619471969
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619471968}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.33379, y: -1.63071, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1089163945}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &619471970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619471968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71435af534024fc41906da07d35f4b3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicJukeboxTester
-  firstTrack: {fileID: 11400000, guid: 061b427127a120c4c9c28880e7ed3af9, type: 2}
-  secondTrack: {fileID: 11400000, guid: a9bc8f2e11688f74d97d62f287194e4d, type: 2}
-  testPlaybackSpeed: 0.75
 --- !u!1001 &621734613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24348,7 +24359,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 619471969}
+  m_Father: {fileID: 507518341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -24418,6 +24429,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1092299639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092299640}
+  m_Layer: 0
+  m_Name: AttachmentTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092299640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092299639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 389609242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1106633569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44440,6 +44482,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1a54796d8f6774e81029d0a04567e5, type: 3}
+--- !u!1 &1174181818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174181819}
+  - component: {fileID: 1174181821}
+  - component: {fileID: 1174181820}
+  m_Layer: 0
+  m_Name: Testers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1174181819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174181818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 389609242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174181820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174181818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40371b0a33d9267408800e7610e76b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SfxPlayerTester
+  twoDimensionalCue: {fileID: 11400000, guid: 93938af54c54ba34b8f785509f24f4dd, type: 2}
+  positionalCue: {fileID: 11400000, guid: 9e16797959897e14780dfbedb17574ab, type: 2}
+  attachedCue: {fileID: 11400000, guid: dd2c77964b83fc243803b7c71b2bd2b3, type: 2}
+  stressCue: {fileID: 11400000, guid: 23fc4579df0a029498f73d29e17c8307, type: 2}
+  positionalOffset: {x: 5, y: 0, z: 0}
+  attachmentTarget: {fileID: 1092299640}
+  attachmentMoveSpeed: 4
+  burstCount: 40
+  burstRadius: 3
+--- !u!114 &1174181821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174181818}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71435af534024fc41906da07d35f4b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicJukeboxTester
+  firstTrack: {fileID: 11400000, guid: 061b427127a120c4c9c28880e7ed3af9, type: 2}
+  secondTrack: {fileID: 11400000, guid: a9bc8f2e11688f74d97d62f287194e4d, type: 2}
+  testPlaybackSpeed: 0.75
 --- !u!4 &1179148730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8006755061555922919, guid: ff1a54796d8f6774e81029d0a04567e5, type: 3}
@@ -45023,7 +45134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6417064176038233088, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6560621510803732147, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -70514,6 +70625,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1887476366887090920, guid: 1363966e83ed1e6418f87ef22a8c5103, type: 3}
   m_PrefabInstance: {fileID: 1646378880}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2105796652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105796653}
+  m_Layer: 0
+  m_Name: SFXFollowTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105796653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105796652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 389609242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2107718674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70711,4 +70853,3 @@ SceneRoots:
   - {fileID: 443401410}
   - {fileID: 1234243008}
   - {fileID: 138244002}
-  - {fileID: 619471969}

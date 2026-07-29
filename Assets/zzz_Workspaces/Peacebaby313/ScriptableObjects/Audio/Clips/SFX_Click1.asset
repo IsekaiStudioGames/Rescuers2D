@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SFX_Click1
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
   cueId: sfx.click.one
-  displayName: C4 Explosion
+  displayName: ClickOne
   selectionMode: 1
   variations:
   - clip: {fileID: 8300000, guid: 36caaa68366376a4e9aacf9d42397289, type: 3}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ce47006d07a319489f077fb9900b0a3, type: 3}
-  m_Name: MusicTrackBombShelter
+  m_Name: MusicTrack_BombShelter
   m_EditorClassIdentifier: Assembly-CSharp::MusicTrackData
   trackId: music.bomb_shelter
   displayName: BombShelter
