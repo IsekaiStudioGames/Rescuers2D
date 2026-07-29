@@ -40,12 +40,24 @@ public sealed class ApplicationBootstrap
     private AudioSource
         uiAudioSource;
 
+    [Header("Audio Services")]
+    [SerializeField]
+    private MusicJukebox musicJukebox;
+
+    [SerializeField]
+    private SfxPlayer sfxPlayer;
+
     [Header("Runtime Components")]
     [SerializeField]
     private SceneLoadService sceneLoadService;
 
     public SceneLoadService SceneLoader =>
         sceneLoadService;
+    public MusicJukebox MusicJukebox =>
+        musicJukebox;
+
+    public SfxPlayer SfxPlayer =>
+        sfxPlayer;
 
     public LevelCodeService LevelCodes
     {
@@ -122,7 +134,18 @@ public sealed class ApplicationBootstrap
         {
             return;
         }
-
+        if (musicJukebox == null)
+        {
+            Debug.LogError(
+                "[APPLICATION BOOTSTRAP] MusicJukebox is not assigned.",
+                this);
+            if (sfxPlayer == null)
+            {
+                Debug.LogError(
+                    "[APPLICATION BOOTSTRAP] SfxPlayer is not assigned.",
+                    this);
+            }
+        }
         AudioService?.ApplyCurrentSettings();
     }
 
@@ -151,6 +174,7 @@ public sealed class ApplicationBootstrap
             Debug.LogError(
                 "[BOOTSTRAP] UI AudioSource is missing.");
         }
+
     }
 
     private void InitializeServices()

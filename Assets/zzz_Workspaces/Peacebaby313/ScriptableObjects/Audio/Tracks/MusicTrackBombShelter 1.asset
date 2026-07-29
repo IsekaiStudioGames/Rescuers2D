@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce47006d07a319489f077fb9900b0a3, type: 3}
+  m_Name: MusicTrackBombShelter 1
+  m_EditorClassIdentifier: Assembly-CSharp::MusicTrackData
+  trackId: music.test.alternative
+  displayName: TestAlternative
+  clip: {fileID: 8300000, guid: 6880498b92c9f4a46ae9548d8aa1f1eb, type: 3}
+  volume: 0.241
+  playbackSpeed: 1
+  playInReverse: 1
+  loop: 1
+  fadeInDuration: 1
+  fadeOutDuration: 1
+  startDelay: 0
+  mixerGroup: {fileID: 3681959158634166224, guid: 63f9e25a317c9654193f2b13e4ec3aeb, type: 2}
