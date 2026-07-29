@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b01fc90b6f46542991c8447b3a9f0d, type: 3}
+  m_Name: SFX_Character_Drop
+  m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
+  cueId: sfx.drop
+  displayName: Drop
+  selectionMode: 1
+  variations:
+  - clip: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    volumeMultiplier: 1
+    pitchOffset: 0
+    selectionWeight: 1
+  cueVolume: 1
+  randomVolumeRange: {x: 1, y: 1}
+  randomPitchRange: {x: 1, y: 1}
+  spatialBlend: 0
+  minimumDistance: 1
+  maximumDistance: 20
+  cooldown: 0.05
+  maximumSimultaneousVoices: 1
+  priority: 32
+  ignoreListenerPause: 0
+  loop: 0
+  stopWhenAttachedTargetIsDestroyed: 1
+  mixerGroup: {fileID: -6747335845910788087, guid: 63f9e25a317c9654193f2b13e4ec3aeb, type: 2}

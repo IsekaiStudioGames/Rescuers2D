@@ -19,6 +19,10 @@ public class FirefighterController : MonoBehaviour
     [Header("Axe")]
     [SerializeField] private DamageTrigger2D axeDamageTrigger;
 
+    [Header("Audio")]
+    [SerializeField]
+    private CharacterAudioEmitter characterAudio;
+
     private Vector2 currentMoveInput;
     private CarryableLadder nearbyLadder;
     private CarryableLadder carriedLadder;
@@ -105,13 +109,21 @@ public class FirefighterController : MonoBehaviour
         {
             axeDamageTrigger.DisableDamage();
         }
+        if (characterAudio == null)
+        {
+            characterAudio =
+                GetComponent<CharacterAudioEmitter>();
+        }
     }
+
 
     private void Start()
     {
         if (startingLadder != null)
         {
-            PickUpLadder(startingLadder);
+            PickUpLadder(
+                startingLadder,
+                playAudio: false);
         }
 
         UpdateAnimator();
@@ -255,8 +267,11 @@ public class FirefighterController : MonoBehaviour
         }
 
         ladderToExtend.ToggleExtension();
+
+        characterAudio?.PlaySecondaryAction();
+
     }
-    private void PickUpLadder(CarryableLadder ladderToPickUp)
+    private void PickUpLadder(CarryableLadder ladderToPickUp, bool playAudio = true)
     {
         if (ladderToPickUp == null ||
             ladderHoldPoint == null ||
@@ -276,6 +291,12 @@ public class FirefighterController : MonoBehaviour
 
         carriedLadder.AttachTo(ladderHoldPoint);
 
+        if (playAudio)
+        {
+            characterAudio?.PlayPickup();
+        }
+
+        characterAudio?.PlayPickup();
         StopHorizontalMovement();
         ChangeState(FirefighterState.Holding);
         UpdateAnimator();
@@ -293,6 +314,7 @@ public class FirefighterController : MonoBehaviour
 
         ladderToDrop.Detach();
 
+        characterAudio?.PlayDrop();
         StopHorizontalMovement();
         ChangeState(FirefighterState.Idle);
         UpdateAnimator();
@@ -400,6 +422,9 @@ public class FirefighterController : MonoBehaviour
         }
 
         ChangeState(FirefighterState.SwingingAxe);
+
+        characterAudio?.PlayPrimaryAction();
+
         StopHorizontalMovement();
 
         if (axeDamageTrigger != null)
@@ -454,7 +479,24 @@ public class FirefighterController : MonoBehaviour
 
         UpdateAnimator();
     }
+    public void Anim_PlayFootstep()
+    {
+        if (IsGrounded &&
+            !IsClimbing &&
+            Mathf.Abs(currentMoveInput.x) > 0.1f)
+        {
+            characterAudio?.PlayFootstep();
+        }
+    }
 
+    public void Anim_PlayClimbStep()
+    {
+        if (IsClimbing &&
+            Mathf.Abs(currentMoveInput.y) > 0.1f)
+        {
+            characterAudio?.PlayClimbStep();
+        }
+    }
     private void UpdateAnimator()
     {
         if (animator == null)

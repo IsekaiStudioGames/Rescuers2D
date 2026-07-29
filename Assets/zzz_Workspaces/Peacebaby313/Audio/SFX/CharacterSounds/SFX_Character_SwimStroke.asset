@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b01fc90b6f46542991c8447b3a9f0d, type: 3}
+  m_Name: SFX_Character_SwimStroke
+  m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
+  cueId: sfx.swim.stroke
+  displayName: SwimStroke
+  selectionMode: 2
+  variations:
+  - clip: {fileID: 8300000, guid: c619008f1efb180488a78e4a966a3e16, type: 3}
+    volumeMultiplier: 1
+    pitchOffset: 0
+    selectionWeight: 1
+  cueVolume: 1
+  randomVolumeRange: {x: 1, y: 1}
+  randomPitchRange: {x: 1, y: 1}
+  spatialBlend: 0
+  minimumDistance: 2
+  maximumDistance: 20
+  cooldown: 0
+  maximumSimultaneousVoices: 1
+  priority: 175
+  ignoreListenerPause: 0
+  loop: 1
+  stopWhenAttachedTargetIsDestroyed: 1
+  mixerGroup: {fileID: -6747335845910788087, guid: 63f9e25a317c9654193f2b13e4ec3aeb, type: 2}

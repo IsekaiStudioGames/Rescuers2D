@@ -29,6 +29,11 @@ public class RescueSpecialistController : MonoBehaviour
     private float crawlToggleCooldown = 0.1f;
     private float nextCrawlToggleTime;
 
+    [Header("Audio")]
+    [SerializeField]
+    private CharacterAudioEmitter characterAudio;
+
+
     [SerializeField] private Transform visuals;
     [SerializeField] private float crawlingVisualYOffset = 0.08f;
 
@@ -86,6 +91,11 @@ public class RescueSpecialistController : MonoBehaviour
             standingColliderSize = bodyCollider.size;
             standingColliderOffset = bodyCollider.offset;
         }
+        if (characterAudio == null)
+        {
+            characterAudio =
+                GetComponent<CharacterAudioEmitter>();
+        }
     }
     private void FixedUpdate()
     {
@@ -96,6 +106,7 @@ public class RescueSpecialistController : MonoBehaviour
         else
         {
             HandleGroundMovement();
+            UpdateLandingAudio();
         }
 
         UpdateAnimator();
@@ -177,10 +188,37 @@ public class RescueSpecialistController : MonoBehaviour
         velocity.y = jumpForce;
         rb.linearVelocity = velocity;
 
+        characterAudio?.PlayJump();
+
+        ChangeState(SpecialistState.Jumping);
+        UpdateAnimator();
         ChangeState(SpecialistState.Jumping);
         UpdateAnimator();
     }
+    private bool wasAirborne;
 
+    private void UpdateLandingAudio()
+    {
+        if (isSwimming)
+        {
+            wasAirborne = false;
+            return;
+        }
+
+        if (!IsGrounded)
+        {
+            wasAirborne = true;
+            return;
+        }
+
+        if (!wasAirborne)
+        {
+            return;
+        }
+
+        wasAirborne = false;
+        characterAudio?.PlayLand();
+    }
     public void Crawl()
     {
         if (isSwimming || bodyCollider == null)
@@ -200,7 +238,7 @@ public class RescueSpecialistController : MonoBehaviour
 
         nextCrawlToggleTime = Time.time + crawlToggleCooldown;
         isCrawling = !isCrawling;
-
+        characterAudio?.PlaySpecialAction();
         if (isCrawling)
         {
             float standingBottom =
@@ -270,7 +308,20 @@ public class RescueSpecialistController : MonoBehaviour
             rb.gravityScale = 1f;
             ChangeState(SpecialistState.Idle);
         }
+        if (isSwimming)
+        {
+            rb.gravityScale = 0f;
+            ChangeState(SpecialistState.Swimming);
 
+            characterAudio?.StartSwimLoop();
+        }
+        else
+        {
+            characterAudio?.StopSwimLoop();
+
+            rb.gravityScale = 1f;
+            ChangeState(SpecialistState.Idle);
+        }
         UpdateAnimator();
     }
     public void Swim()

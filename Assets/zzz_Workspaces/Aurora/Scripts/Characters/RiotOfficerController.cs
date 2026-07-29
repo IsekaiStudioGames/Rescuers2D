@@ -60,6 +60,10 @@ public class RiotOfficerController : MonoBehaviour
     [SerializeField]
     private HUDFeedbackPresenter feedbackPresenter;
 
+    [Header("Audio")]
+    [SerializeField]
+    private CharacterAudioEmitter characterAudio;
+
     private Vector2 currentMoveInput;
 
     private bool isFacingRight = true;
@@ -83,7 +87,11 @@ public class RiotOfficerController : MonoBehaviour
         {
             animator = GetComponentInChildren<Animator>();
         }
-
+        if (characterAudio == null)
+        {
+            characterAudio =
+                GetComponent<CharacterAudioEmitter>();
+        }
         ResolveC4References();
     }
 
@@ -138,7 +146,18 @@ public class RiotOfficerController : MonoBehaviour
             holdingShield = false;
         }
 
+        if (isHoldingShield == holdingShield)
+        {
+            return;
+        }
+
         isHoldingShield = holdingShield;
+
+        if (isHoldingShield)
+        {
+            characterAudio?.PlaySpecialAction();
+        }
+
         UpdateAnimator();
     }
 
@@ -162,7 +181,21 @@ public class RiotOfficerController : MonoBehaviour
                     new Vector2(0f, rb.linearVelocity.y);
             }
         }
+        if (isBracing)
+        {
+            isHoldingShield = false;
+            currentMoveInput = Vector2.zero;
 
+            if (rb != null)
+            {
+                rb.linearVelocity =
+                    new Vector2(
+                        0f,
+                        rb.linearVelocity.y);
+            }
+
+            characterAudio?.PlaySecondaryAction();
+        }
         UpdateAnimator();
     }
 
@@ -187,6 +220,16 @@ public class RiotOfficerController : MonoBehaviour
 
             animator.SetTrigger(BashHash);
         }
+        if (animator != null)
+        {
+            animator.SetBool(
+                IsHoldingUpHash,
+                false);
+
+            animator.SetTrigger(BashHash);
+        }
+
+        characterAudio?.PlayPrimaryAction();
     }
 
     public void PlaceC4()
