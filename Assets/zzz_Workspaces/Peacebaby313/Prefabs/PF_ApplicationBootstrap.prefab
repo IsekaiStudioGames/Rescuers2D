@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 968884315142993729}
   - component: {fileID: 8094872711230338621}
   - component: {fileID: 8595907433356202978}
-  - component: {fileID: 1940214705942911371}
   m_Layer: 0
   m_Name: PF_ApplicationBootstrap
   m_TagString: Untagged
@@ -177,17 +176,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110e43a8c209c3f4da33baa64aecab78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamInventory
---- !u!114 &1940214705942911371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5787974780697773544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac0f0be9cdacaf409bed20ff637d581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BootstrapMusic
-  musicClip: {fileID: 8300000, guid: a502a4220f033aa4ba35f25d6ad96607, type: 3}
-  volume: 0.8

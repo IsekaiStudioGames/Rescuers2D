@@ -107,7 +107,7 @@ public partial class @CharacterActions: IInputActionCollection2, IDisposable
                     ""id"": ""ad7736a7-2c05-4143-90a4-f229e320ff75"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {

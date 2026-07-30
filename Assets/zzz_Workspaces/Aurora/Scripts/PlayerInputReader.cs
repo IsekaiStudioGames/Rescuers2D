@@ -14,6 +14,16 @@ public class PlayerInputReader : MonoBehaviour
     [SerializeField]
     private CharacterCameraFollow2D characterCamera;
 
+    [Header("Universal Interaction")]
+    [SerializeField]
+    private RescuerInteractor2D firefighterInteractor;
+
+    [SerializeField]
+    private RescuerInteractor2D riotOfficerInteractor;
+
+    [SerializeField]
+    private RescuerInteractor2D specialistInteractor;
+
     private bool wasPressingUp;
 
     public enum ActiveCharacter { Firefighter, RiotOfficer, Specialist }
@@ -93,14 +103,8 @@ public class PlayerInputReader : MonoBehaviour
                 firefighter.UseLadderExtension();
             }
         };
-        inputActions.Controls.Interact.performed += ctx =>
-        {
-            if (currentCharacter == ActiveCharacter.Firefighter)
-            {
-                firefighter.Interact();
-            }
-        };
-
+        inputActions.Controls.Interact.performed +=
+            HandleInteract;
 
         //riot moves
         inputActions.Controls.riot_shield.performed += ctx =>
@@ -208,6 +212,39 @@ public class PlayerInputReader : MonoBehaviour
 
 
     }
+
+    private void HandleInteract(
+    InputAction.CallbackContext context)
+    {
+        RescuerInteractor2D activeInteractor =
+            currentCharacter switch
+            {
+                ActiveCharacter.Firefighter =>
+                    firefighterInteractor,
+
+                ActiveCharacter.RiotOfficer =>
+                    riotOfficerInteractor,
+
+                ActiveCharacter.Specialist =>
+                    specialistInteractor,
+
+                _ => null
+            };
+
+        if (activeInteractor == null)
+        {
+            Debug.LogWarning(
+                $"{nameof(PlayerInputReader)} has no interactor " +
+                $"assigned for {currentCharacter}.",
+                this);
+
+            return;
+        }
+
+        activeInteractor.Interact();
+    }
+
+
     private Action<InputAction.CallbackContext> SwitchCharacters()
     {
         return ctx =>
@@ -323,5 +360,34 @@ public class PlayerInputReader : MonoBehaviour
             (Vector2)character.position - position;
 
         return difference.sqrMagnitude <= squaredDistance;
+    }
+    public void SetGameplayInputEnabled(
+    bool enabled)
+    {
+        if (inputActions == null)
+            return;
+
+        StopCurrentCharacterMovement();
+
+        if (enabled)
+        {
+            inputActions.Controls.Enable();
+        }
+        else
+        {
+            inputActions.Controls.Disable();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (inputActions == null)
+        {
+            return;
+        }
+
+        inputActions.Controls.Interact.performed -=
+            HandleInteract;
+
+        inputActions.Dispose();
     }
 }

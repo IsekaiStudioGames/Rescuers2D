@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/zzz_Workspaces/bigpallidbat/Scenes/TextMesh Pro/Sprites/EmojiOne.json.meta
 guid: 8f05276190cf498a8153f6cbe761d4e6
 TextScriptImporter:
+========
+guid: a15dea2514c41ca4c9f81cf0626c9b98
+PrefabImporter:
+>>>>>>>> ad4ac6bcab6a5a624a0adb6a738428c8f3bc1907:Assets/zzz_Workspaces/Aurora/Prefabs/C4Explosion.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -184,14 +184,7 @@ public sealed class GraphicsSettingsService
         Application.targetFrameRate =
             targetFrameRate;
 
-        // Store any normalized values back into
-        // the active settings data.
-        graphicsData.SetResolution(
-            resolution.Width,
-            resolution.Height);
 
-        graphicsData.SetFullscreenMode(
-            fullscreenMode);
 
         graphicsData.SetQualityLevel(
             qualityLevel);
@@ -202,10 +195,29 @@ public sealed class GraphicsSettingsService
         graphicsData.SetTargetFrameRate(
             targetFrameRate);
 
-        Screen.SetResolution(
-            resolution.Width,
-            resolution.Height,
-            fullscreenMode);
+    #if UNITY_WEBGL && !UNITY_EDITOR
+            // The browser/itch embed owns the WebGL canvas size.
+            // Calling Screen.SetResolution here can desynchronize
+            // Unity's render surface from the HTML canvas and input.
+            graphicsData.SetResolution(
+                Screen.width,
+                Screen.height);
+
+            graphicsData.SetFullscreenMode(
+                Screen.fullScreenMode);
+    #else
+            graphicsData.SetResolution(
+                resolution.Width,
+                resolution.Height);
+
+            graphicsData.SetFullscreenMode(
+                fullscreenMode);
+
+            Screen.SetResolution(
+                resolution.Width,
+                resolution.Height,
+                fullscreenMode);
+    #endif
 
         Debug.Log(
             "[GRAPHICS] Applied graphics settings:\n" +

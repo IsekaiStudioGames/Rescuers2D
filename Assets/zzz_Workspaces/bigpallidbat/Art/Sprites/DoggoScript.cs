@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEditor.U2D.Aseprite;
+//using UnityEditor.U2D.Aseprite;
 
 
 public class DoggoScript : MonoBehaviour

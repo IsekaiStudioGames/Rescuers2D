@@ -29,6 +29,14 @@ public sealed class LockedDoor2D : MonoBehaviour
     [SerializeField]
     private bool consumeItemWhenOpened = true;
 
+    [Header("Rescuer Requirement")]
+    [Tooltip(
+    "The rescuers permitted to unlock this specific door. " +
+    "The key's Allowed Users setting is checked separately.")]
+    [SerializeField]
+    private RescuerItemUser allowedRescuers =
+    RescuerItemUser.Everyone;
+
     [Header("Optional Feedback")]
     [SerializeField]
     private HUDFeedbackPresenter feedbackPresenter;
@@ -78,6 +86,11 @@ public sealed class LockedDoor2D : MonoBehaviour
         {
             return;
         }
+        if (!CanDoorBeOpenedBy(requestingRescuer))
+{
+    ShowWrongRescuerMessage(requestingRescuer);
+    return;
+}
 
         ResolveReferences();
 
@@ -134,7 +147,46 @@ public sealed class LockedDoor2D : MonoBehaviour
 
         BeginOpening(requestingRescuer);
     }
+    private bool CanDoorBeOpenedBy(
+    RescuerInventoryOwner rescuer)
+    {
+        RescuerItemUser rescuerFlag =
+            GetRescuerFlag(rescuer);
 
+        return rescuerFlag != RescuerItemUser.None &&
+               (allowedRescuers & rescuerFlag) != 0;
+    }
+
+    private static RescuerItemUser GetRescuerFlag(
+        RescuerInventoryOwner rescuer)
+    {
+        return rescuer switch
+        {
+            RescuerInventoryOwner.Firefighter =>
+                RescuerItemUser.Firefighter,
+
+            RescuerInventoryOwner.RiotOfficer =>
+                RescuerItemUser.RiotOfficer,
+
+            RescuerInventoryOwner.Specialist =>
+                RescuerItemUser.Specialist,
+
+            _ => RescuerItemUser.None
+        };
+    }
+
+    private void ShowWrongRescuerMessage(
+        RescuerInventoryOwner requestingRescuer)
+    {
+        if (feedbackPresenter == null)
+        {
+            return;
+        }
+
+        feedbackPresenter.ShowWarning(
+            $"{GetOwnerDisplayName(requestingRescuer)} " +
+            "is not qualified to unlock this door.");
+    }
     private void BeginOpening(
         RescuerInventoryOwner requestingRescuer)
     {
