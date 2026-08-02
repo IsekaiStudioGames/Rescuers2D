@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.echodevgames.deverquest": "file:C:/Users/bigne/Downloads/com.echodevgames.deverquest-0.12.1.tgz",
     "com.unity.2d.animation": "13.0.4",
     "com.unity.2d.aseprite": "3.0.1",
     "com.unity.2d.psdimporter": "12.0.1",
