@@ -192,11 +192,36 @@ public class RescueSpecialistController : MonoBehaviour
 
         ChangeState(SpecialistState.Jumping);
         UpdateAnimator();
-        ChangeState(SpecialistState.Jumping);
-        UpdateAnimator();
+
     }
     private bool wasAirborne;
 
+
+
+
+    public void Anim_PlayFootstep()
+    {
+        if (currentState != SpecialistState.Walking)
+        {
+            return;
+        }
+
+        characterAudio?.PlayFootstep();
+    }
+    public void Anim_PlayCrawlStep()
+    {
+        if (currentState != SpecialistState.Crawling)
+        {
+            return;
+        }
+
+        if (Mathf.Abs(currentMoveInput.x) <= 0.1f)
+        {
+            return;
+        }
+
+        characterAudio?.PlayCrawlStep();
+    }
     private void UpdateLandingAudio()
     {
         if (isSwimming)
@@ -219,6 +244,7 @@ public class RescueSpecialistController : MonoBehaviour
         wasAirborne = false;
         characterAudio?.PlayLand();
     }
+
     public void Crawl()
     {
         if (isSwimming || bodyCollider == null)
@@ -308,20 +334,7 @@ public class RescueSpecialistController : MonoBehaviour
             rb.gravityScale = 1f;
             ChangeState(SpecialistState.Idle);
         }
-        if (isSwimming)
-        {
-            rb.gravityScale = 0f;
-            ChangeState(SpecialistState.Swimming);
 
-            characterAudio?.StartSwimLoop();
-        }
-        else
-        {
-            characterAudio?.StopSwimLoop();
-
-            rb.gravityScale = 1f;
-            ChangeState(SpecialistState.Idle);
-        }
         UpdateAnimator();
     }
     public void Swim()

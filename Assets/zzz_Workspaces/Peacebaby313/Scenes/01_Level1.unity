@@ -11623,6 +11623,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2224668394024356459, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+      propertyPath: characterAudio
+      value: 
+      objectReference: {fileID: 660313561}
+    - target: {fileID: 2224668394024356459, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
       propertyPath: playerInputReader
       value: 
       objectReference: {fileID: 1774081094}
@@ -12193,9 +12197,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4839804320207929012, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1576942043}
+    - targetCorrespondingSourceObject: {fileID: 8673654865450197036, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1616070890}
     - targetCorrespondingSourceObject: {fileID: 5823583765031523354, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 660313555}
+    - targetCorrespondingSourceObject: {fileID: 5823583765031523354, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 660313561}
+    - targetCorrespondingSourceObject: {fileID: 2049257117088599256, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2009059416}
+    - targetCorrespondingSourceObject: {fileID: 2049257117088599256, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2009059415}
   m_SourcePrefab: {fileID: 100100000, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
 --- !u!1 &243768556
 GameObject:
@@ -14032,6 +14048,40 @@ MonoBehaviour:
   targetType: 1
   displayName: SurvivorRoot
   requiredForMission: 1
+--- !u!4 &660313556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7198507211651744711, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &660313561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660313549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1efda281088f149b1c938155e117ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudioEmitter
+  profile: {fileID: 11400000, guid: 26b4ef725f7a78743932883f0f34b418, type: 2}
+  audioOrigin: {fileID: 660313556}
+  sfxPlayer: {fileID: 1126727616}
+  logMissingProfile: 1
+  logMissingCues: 0
+  logMissingPlayer: 1
+--- !u!114 &660313562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2224668394024356459, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660313549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54eba493986dab348ab5bfed9715c887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurvivorFollower2D
 --- !u!4 &672183947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8006755061555922919, guid: ff1a54796d8f6774e81029d0a04567e5, type: 3}
@@ -48883,6 +48933,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2684213865761228378, guid: 3a3c80ff593403248ac6d420dfa8e182, type: 3}
+      propertyPath: logVoiceStealing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684213865761228378, guid: 3a3c80ff593403248ac6d420dfa8e182, type: 3}
+      propertyPath: logRejectedRequests
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3282843841528404848, guid: 3a3c80ff593403248ac6d420dfa8e182, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.66087
@@ -50862,6 +50920,17 @@ MonoBehaviour:
   logMissingProfile: 1
   logMissingCues: 0
   logMissingPlayer: 1
+--- !u!114 &1576942047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8958458062723233529, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576942036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd5b122c1142784e931db770c85123b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RescueSpecialistController
 --- !u!1001 &1591000932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50992,6 +51061,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dddbe57910fcda344ace35729177f8d8, type: 3}
+--- !u!1 &1616070886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8673654865450197036, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1616070890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616070886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400573a5222b94b49a1a80bafb8394e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RescueSpecialistAnimationEventRelay
+  specialistController: {fileID: 1576942047}
 --- !u!1001 &1626149499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70801,6 +70888,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3508095924724703020, guid: dddbe57910fcda344ace35729177f8d8, type: 3}
   m_PrefabInstance: {fileID: 407615249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2009059413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2049257117088599256, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2009059414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7712954198917984954, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}
+  m_PrefabInstance: {fileID: 238995630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2009059415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009059413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1efda281088f149b1c938155e117ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudioEmitter
+  profile: {fileID: 11400000, guid: 899c32abf43f86f49af9b9d412928a24, type: 2}
+  audioOrigin: {fileID: 2009059414}
+  sfxPlayer: {fileID: 1126727616}
+  logMissingProfile: 1
+  logMissingCues: 0
+  logMissingPlayer: 1
+--- !u!114 &2009059416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009059413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a899daad9426a7439577af3be83e4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurvivorAnimationEventRelay
+  survivorFollower: {fileID: 660313562}
 --- !u!1 &2015992601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2367185711631312173, guid: a9ed1aeafbe7b68429a9e845523100cd, type: 3}

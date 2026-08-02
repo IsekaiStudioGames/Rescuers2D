@@ -162,7 +162,12 @@ public sealed class CharacterAudioEmitter
         Play(
             CharacterAudioEvent.Footstep);
     }
-
+    [ContextMenu("Audio Test/Play Crawl Step")]
+    public void PlayCrawlStep()
+    {
+        Play(
+            CharacterAudioEvent.CrawlStep);
+    }
     [ContextMenu("Audio Test/Play Swim Stroke")]
     public void PlaySwimStroke()
     {
