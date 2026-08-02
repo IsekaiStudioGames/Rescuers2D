@@ -1,3 +1,5 @@
+//----- FireFighterAnimationEventRelay.cs START -----
+
 using UnityEngine;
 
 public class FirefighterAnimationEventRelay : MonoBehaviour
@@ -29,3 +31,5 @@ public class FirefighterAnimationEventRelay : MonoBehaviour
         firefighterController?.Anim_AxeFinished();
     }
 }
+
+// ----- FireFighterAnimationEventRelay.cs END -----
