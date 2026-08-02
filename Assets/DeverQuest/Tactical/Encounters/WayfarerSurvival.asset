@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c2b42b4e454449a85232181983f0cc, type: 3}
+  m_Name: WayfarerSurvival
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestEncounterProfile
+  encounterId: a464f3d5399c46b497140a4bca23d348
+  displayName: Wayfarer Survival Expedition
+  storyIntroduction: Push deeper for growing spoils, then escape, invoke a homeward
+    passage, or take the wagon.
+  waves:
+  - waveTitle: Bog Trail
+    monster: {fileID: 11400000, guid: d60107121dbb70346a5cfa581f05c84b, type: 2}
+    count: 1
+    bossWave: 0
+  - waveTitle: Deep Marsh
+    monster: {fileID: 11400000, guid: d60107121dbb70346a5cfa581f05c84b, type: 2}
+    count: 2
+    bossWave: 0
+  allowInjury: 1
+  allowCharacterDeath: 0
+  victoryCopperBonus: 0
+  victoryExperienceBonus: 0
+  encounterMode: 1
+  parRounds: 6
+  earlyVictoryCopperBonus: 5
+  earlyVictoryExperienceBonus: 8
+  survivalWaveMinutes: 15
+  difficultyIncreaseEveryWaves: 2
+  wagonOfferEveryWaves: 3
+  survivalCopperGrowthPerWave: 3
+  survivalExperienceGrowthPerWave: 6
+  lowHitPointPausePercent: 25
+  pauseWhenEncumbered: 1

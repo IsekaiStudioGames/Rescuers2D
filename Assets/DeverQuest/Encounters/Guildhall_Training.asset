@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c2b42b4e454449a85232181983f0cc, type: 3}
+  m_Name: Guildhall_Training
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestEncounterProfile
+  encounterId: 
+  displayName: Guildhall Training Bout
+  storyIntroduction: A controlled Guildhall trial for new Adventurers.
+  waves:
+  - waveTitle: Vermin Drill
+    monster: {fileID: 11400000, guid: 9472bda492954a347b4432ddd0e6d73c, type: 2}
+    count: 2
+    bossWave: 0
+  - waveTitle: Training Captain
+    monster: {fileID: 11400000, guid: 04dea7fdc17200b4a92c1ea6b7dcf2f8, type: 2}
+    count: 1
+    bossWave: 1
+  allowInjury: 1
+  allowCharacterDeath: 0
+  victoryCopperBonus: 10
+  victoryExperienceBonus: 20
+  encounterMode: 0
+  parRounds: 6
+  earlyVictoryCopperBonus: 0
+  earlyVictoryExperienceBonus: 0
+  survivalWaveMinutes: 15
+  difficultyIncreaseEveryWaves: 2
+  wagonOfferEveryWaves: 3
+  survivalCopperGrowthPerWave: 2
+  survivalExperienceGrowthPerWave: 5
+  lowHitPointPausePercent: 25
+  pauseWhenEncumbered: 1

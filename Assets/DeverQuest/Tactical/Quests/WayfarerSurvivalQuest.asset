@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56096d5204cfd134c8d21e2971a9b3f5, type: 3}
+  m_Name: WayfarerSurvivalQuest
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestQuestContract
+  contractId: 8661a859549b4eae8422e59ff5d17d14
+  contractTitle: Wayfarer Survival Expedition
+  status: 1
+  priority: 1
+  createdBy: 
+  assignedAdventurer: 
+  openToAnyMember: 1
+  minimumAdventurerLevel: 1
+  dueDate: 
+  archived: 0
+  availabilityPolicy: 2
+  requiredCompletions: 1
+  reopenedCompletionAllowance: 0
+  oneCompletionPerAdventurer: 0
+  groupQuest: 0
+  minimumParticipants: 1
+  maximumParticipants: 1
+  requireFullParty: 1
+  assignedAdventurers: []
+  partyMembers: []
+  stageProgress: []
+  activePartyRunId: 
+  activeRuns: []
+  completionHistory: []
+  questStory: 
+  restrictToClasses: 0
+  eligibleClassDefinitions: []
+  eligibleClasses: []
+  restrictToAncestries: 0
+  eligibleAncestries: []
+  restrictToDepartments: 0
+  eligibleDepartments: []
+  groupBonusCopper: 0
+  groupBonusExperience: 0
+  focusStages:
+  - stageId: 63e22389cca349a19df6043a09004a47
+    stageTitle: Push Beyond the Map
+    workObjective: Continue development through repeating survival waves.
+    focusedMinutesRequired: 15
+    assignedPartyRole: 
+    copperReward: 20
+    experienceReward: 30
+    allowEarlyTurnIn: 0
+    earlyCompletionCopperBonus: 0
+    earlyCompletionExperienceBonus: 0
+    encounterProfileId: a464f3d5399c46b497140a4bca23d348
+    encounterProfile: {fileID: 11400000, guid: 4f1b7d753eac42c4098ab0dcc9275dab, type: 2}
+  questProfile: {fileID: 11400000, guid: 282ae234b1f307144bb9897a7413cc27, type: 2}
+  projectName: Current Project
+  taskName: Survive repeating fifteen-minute Focus waves
+  department: Programming
+  objective: Work for as long as the Adventurer can safely survive and carry the
+    earned spoils.
+  deliverables: 
+  suggestedFocusMinutes: 50
+  baseCopper: 10
+  baseExperience: 10
+  workBlockMinutes: 30
+  copperPerWorkBlock: 25
+  experiencePerWorkBlock: 50
+  encounterProfileId: 
+  encounterNotes: 

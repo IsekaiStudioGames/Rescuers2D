@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Wildwarden
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: 03e370525ca7475ebfb53248a1009882
+  displayName: Wildwarden
+  lore: An original DeverQuest Wildwarden tradition.
+  department: Art
+  primaryAbility: 4
+  hitDie: 10
+  usesMana: 1
+  supportsCompanion: 1
+  companionTradition: Bonded Beast
+  starterCompanion: {fileID: 11400000, guid: a6ee0db516d841c4c8f525f46f54f164, type: 2}
+  abilityProfile: {fileID: 11400000, guid: 4dd007ab62abf514c8cf934b764721ba, type: 2}
+  strength: 14
+  dexterity: 14
+  constitution: 15
+  intelligence: 8
+  wisdom: 15
+  charisma: 8
+  luck: 10
+  proficientSaves:
+  - Strength
+  - Wisdom
+  classFeatures:
+  - Wildwarden Training
+  - Spellcraft
+  - Companion Affinity

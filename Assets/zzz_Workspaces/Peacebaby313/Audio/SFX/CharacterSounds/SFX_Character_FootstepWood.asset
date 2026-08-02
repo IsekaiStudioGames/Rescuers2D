@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
   cueId: sfx.footstep.wood
   displayName: FootstepWood
-  selectionMode: 1
+  selectionMode: 0
   variations:
   - clip: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
     volumeMultiplier: 1
     pitchOffset: -0.34
     selectionWeight: 1
   - clip: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0
-    selectionWeight: 0
+    selectionWeight: 1
   - clip: {fileID: 8300000, guid: 2352822feb4caa14ebdbc0c713289f8d, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0.26
-    selectionWeight: 0
+    selectionWeight: 1
   cueVolume: 1
   randomVolumeRange: {x: 1, y: 1}
   randomPitchRange: {x: 1, y: 1}
   spatialBlend: 0
   minimumDistance: 1
   maximumDistance: 20
-  cooldown: 0.05
-  maximumSimultaneousVoices: 2
+  cooldown: 0
+  maximumSimultaneousVoices: 10
   priority: 160
   ignoreListenerPause: 0
   loop: 0

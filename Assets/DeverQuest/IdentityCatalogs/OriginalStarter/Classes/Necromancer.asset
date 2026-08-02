@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Necromancer
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: 50ceedde3d4d48e6b584c32d2eaaa7fc
+  displayName: Necromancer
+  lore: An original DeverQuest Necromancer tradition.
+  department: Programming
+  primaryAbility: 3
+  hitDie: 6
+  usesMana: 1
+  supportsCompanion: 1
+  companionTradition: Bound Minion
+  starterCompanion: {fileID: 11400000, guid: e1461c2b8cfb45a4d82ddb2ba74bf5fb, type: 2}
+  abilityProfile: {fileID: 11400000, guid: 0e3d37e827050104689cd63729ef0ff5, type: 2}
+  strength: 8
+  dexterity: 14
+  constitution: 14
+  intelligence: 16
+  wisdom: 12
+  charisma: 10
+  luck: 10
+  proficientSaves:
+  - Intelligence
+  - Wisdom
+  classFeatures:
+  - Necromancer Training
+  - Spellcraft
+  - Companion Affinity

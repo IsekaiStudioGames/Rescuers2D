@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54145ca09558fe94d8f153960d28b568, type: 3}
+  m_Name: Copper_Chest
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestEquipment
+  equipmentId: dc8dc250e7a94aa0af2ac1d71d00be1c
+  displayName: Copper Chest
+  description: Starter copper equipment for the Chest slot.
+  slot: 1
+  equipmentFamily: 1
+  twoHanded: 0
+  requiredSkillId: 
+  tags:
+  - Starter Gear
+  - Copper
+  - Chest
+  armorClassBonus: 1
+  abilityBonusType: 0
+  abilityBonus: 0
+  minimumLevel: 1
+  materialTier: Copper
+  rarity: Common
+  copperValue: 25
+  weight: 1
+  damageDice: 
+  weaponDamageType: 2
+  damageAffinities: []

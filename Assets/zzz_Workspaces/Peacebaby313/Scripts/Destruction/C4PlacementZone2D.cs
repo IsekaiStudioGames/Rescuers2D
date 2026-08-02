@@ -102,7 +102,9 @@ public sealed class C4PlacementZone2D : MonoBehaviour
 
         if (!canUseC4)
         {
-            ShowMissingC4Message(requestingRescuer);
+            ShowMissingC4Message(
+                requestingRescuer);
+
             return;
         }
 
@@ -115,14 +117,15 @@ public sealed class C4PlacementZone2D : MonoBehaviour
         if (!consumedC4)
         {
             Debug.LogError(
-                $"The placement zone validated " +
+                "The placement zone validated " +
                 $"'{requiredItemId}' but could not consume it.",
                 this);
 
             return;
         }
 
-        SpawnAndArmC4(requestingRescuer);
+        SpawnAndArmC4(
+            requestingRescuer);
     }
 
     private void SpawnAndArmC4(
@@ -144,7 +147,12 @@ public sealed class C4PlacementZone2D : MonoBehaviour
                 spawnPosition,
                 spawnRotation);
 
-        hasPlacedC4 = true;
+        hasPlacedC4 =
+            true;
+
+        // Placement audio only occurs after inventory consumption and
+        // spawning both succeed.
+        placedCharge.PlayPlacementFeedback();
 
         if (feedbackPresenter != null)
         {

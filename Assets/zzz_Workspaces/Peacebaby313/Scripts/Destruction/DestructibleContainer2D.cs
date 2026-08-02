@@ -3,6 +3,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(DestructibleWorldAudio))]
 public sealed class DestructibleContainer2D : MonoBehaviour
 {
     [Header("Durability")]
@@ -35,22 +36,24 @@ public sealed class DestructibleContainer2D : MonoBehaviour
     [SerializeField]
     private ParticleSystem destructionEffectPrefab;
 
-    [Header("Optional Audio")]
+    [Header("Audio")]
     [SerializeField]
-    private AudioClip hitSound;
-
-    [SerializeField]
-    private AudioClip destructionSound;
-
-    [SerializeField, Range(0f, 1f)]
-    private float soundVolume = 1f;
+    private DestructibleWorldAudio destructionAudio;
 
     private int remainingHealth;
     private bool hasBeenDestroyed;
 
+    private void Reset()
+    {
+        ResolveAudio();
+    }
+
     private void Awake()
     {
-        remainingHealth = hitsToBreak;
+        remainingHealth =
+            hitsToBreak;
+
+        ResolveAudio();
     }
 
     public bool TryDamage(
@@ -64,7 +67,8 @@ public sealed class DestructibleContainer2D : MonoBehaviour
             return false;
         }
 
-        remainingHealth -= damageAmount;
+        remainingHealth -=
+            damageAmount;
 
         if (remainingHealth <= 0)
         {
@@ -80,11 +84,10 @@ public sealed class DestructibleContainer2D : MonoBehaviour
 
     private void PlayHitFeedback()
     {
-        SpawnParticle(hitEffectPrefab);
+        SpawnParticle(
+            hitEffectPrefab);
 
-        PlaySound(
-            hitSound,
-            transform.position);
+        destructionAudio?.PlayImpactAtOrigin();
 
         Debug.Log(
             $"'{name}' was damaged. " +
@@ -99,7 +102,8 @@ public sealed class DestructibleContainer2D : MonoBehaviour
             return;
         }
 
-        hasBeenDestroyed = true;
+        hasBeenDestroyed =
+            true;
 
         Vector3 spawnPosition =
             itemSpawnPoint != null
@@ -114,11 +118,11 @@ public sealed class DestructibleContainer2D : MonoBehaviour
                 Quaternion.identity);
         }
 
-        SpawnParticle(destructionEffectPrefab);
+        SpawnParticle(
+            destructionEffectPrefab);
 
-        PlaySound(
-            destructionSound,
-            transform.position);
+        // Detached pooled playback survives Destroy().
+        destructionAudio?.PlayDestruction();
 
         Debug.Log(
             $"'{name}' was destroyed.",
@@ -173,24 +177,21 @@ public sealed class DestructibleContainer2D : MonoBehaviour
             Mathf.Max(0.1f, lifetime));
     }
 
-    private void PlaySound(
-        AudioClip clip,
-        Vector3 position)
+    private void ResolveAudio()
     {
-        if (clip == null)
+        if (destructionAudio == null)
         {
-            return;
+            destructionAudio =
+                GetComponent<DestructibleWorldAudio>();
         }
-
-        AudioSource.PlayClipAtPoint(
-            clip,
-            position,
-            soundVolume);
     }
 
     private void OnValidate()
     {
-        hitsToBreak = Mathf.Max(1, hitsToBreak);
+        hitsToBreak =
+            Mathf.Max(1, hitsToBreak);
+
+        ResolveAudio();
     }
 }
 

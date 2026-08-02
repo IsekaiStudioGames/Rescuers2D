@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed871fb5feb42cb8086c26ad8c33791, type: 3}
+  m_Name: Ancestor_Echo
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestCompanionProfile
+  companionId: cdd4abb5620a4cb3a372db3bf4a59908
+  displayName: Ancestor Echo
+  lore: A willing memory-spirit that guides its companion through rhythm, warning,
+    and song.
+  kind: 3
+  role: 2
+  creatureType: 14
+  minimumAdventurerLevel: 1
+  requiresCompanionClass: 1
+  allowedClassIds:
+  - 71521357ac5c4130a29c76b1d27a3cce
+  allowedClassNames:
+  - Shaman
+  maximumHitPoints: 8
+  hitPointsPerLevel: 2
+  armorClass: 11
+  attackModifier: 2
+  damageDice: 1d4
+  damageType: 12
+  damageAffinities:
+  - damageType: 11
+    response: 2
+  startingLoyalty: 50
+  recruitCopperCost: 0
+  recoveryCopperCost: 10

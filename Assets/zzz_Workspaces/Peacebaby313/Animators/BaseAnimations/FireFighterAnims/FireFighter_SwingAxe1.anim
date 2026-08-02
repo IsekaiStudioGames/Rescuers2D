@@ -22,7 +22,7 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -5154484608944768307, guid: ca32a6144c36e664eb25d6bee3638b5b, type: 3}
-    - time: 0.125
+    - time: 0.083333336
       value: {fileID: -7104958268271829354, guid: ca32a6144c36e664eb25d6bee3638b5b, type: 3}
     - time: 0.25
       value: {fileID: 414270405802483632, guid: ca32a6144c36e664eb25d6bee3638b5b, type: 3}
@@ -31,7 +31,7 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 8
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -56,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,13 +77,20 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: Anim_PlayAxeSwing
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
     functionName: Anim_EnableAxeDamage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.125
+  - time: 0.16666667
     functionName: Anim_DisableAxeDamage
     data: 
     objectReferenceParameter: {fileID: 0}

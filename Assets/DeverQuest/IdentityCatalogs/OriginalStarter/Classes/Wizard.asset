@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Wizard
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: 5e091072610f4881a80d0585a4df4a8f
+  displayName: Wizard
+  lore: An original DeverQuest Wizard tradition.
+  department: Programming
+  primaryAbility: 3
+  hitDie: 6
+  usesMana: 1
+  supportsCompanion: 0
+  companionTradition: 
+  starterCompanion: {fileID: 0}
+  abilityProfile: {fileID: 11400000, guid: e24b3700c53ebdf4294ae6f7a41a2eee, type: 2}
+  strength: 8
+  dexterity: 14
+  constitution: 14
+  intelligence: 16
+  wisdom: 12
+  charisma: 10
+  luck: 10
+  proficientSaves:
+  - Intelligence
+  - Wisdom
+  classFeatures:
+  - Wizard Training
+  - Spellcraft

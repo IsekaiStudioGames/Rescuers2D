@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed871fb5feb42cb8086c26ad8c33791, type: 3}
+  m_Name: Gravebound_Wisp
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestCompanionProfile
+  companionId: be6753ca79524bc298759ef7fdf3d8b1
+  displayName: Gravebound Wisp
+  lore: A patient lantern-spirit bound by mutual oath, never by stolen will.
+  kind: 2
+  role: 3
+  creatureType: 14
+  minimumAdventurerLevel: 1
+  requiresCompanionClass: 1
+  allowedClassIds:
+  - 50ceedde3d4d48e6b584c32d2eaaa7fc
+  allowedClassNames:
+  - Necromancer
+  maximumHitPoints: 8
+  hitPointsPerLevel: 2
+  armorClass: 11
+  attackModifier: 2
+  damageDice: 1d4
+  damageType: 10
+  damageAffinities:
+  - damageType: 7
+    response: 3
+  startingLoyalty: 50
+  recruitCopperCost: 0
+  recoveryCopperCost: 10

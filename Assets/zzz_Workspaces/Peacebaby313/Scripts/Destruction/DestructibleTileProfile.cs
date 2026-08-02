@@ -41,15 +41,38 @@ public sealed class DestructibleTileProfile :
     [SerializeField]
     private ParticleSystem destructionEffectPrefab;
 
-    public TileBase IntactTile => intactTile;
-    public TileBase DamagedTile => damagedTile;
-    public int HitsToBreak => hitsToBreak;
+    [Header("Audio")]
+    [Tooltip(
+        "Cue played at the cell center after accepted " +
+        "non-breaking damage.")]
+    [SerializeField]
+    private SfxCueData impactCue;
+
+    [Tooltip(
+        "Detached cue played at the cell center when the tile breaks.")]
+    [SerializeField]
+    private SfxCueData destructionCue;
+
+    public TileBase IntactTile =>
+        intactTile;
+
+    public TileBase DamagedTile =>
+        damagedTile;
+
+    public int HitsToBreak =>
+        hitsToBreak;
 
     public ParticleSystem HitEffectPrefab =>
         hitEffectPrefab;
 
     public ParticleSystem DestructionEffectPrefab =>
         destructionEffectPrefab;
+
+    public SfxCueData ImpactCue =>
+        impactCue;
+
+    public SfxCueData DestructionCue =>
+        destructionCue;
 
     public bool AcceptsDamageType(
         DestructionDamageType damageType)
@@ -73,7 +96,8 @@ public sealed class DestructibleTileProfile :
 
     private void OnValidate()
     {
-        hitsToBreak = Mathf.Max(1, hitsToBreak);
+        hitsToBreak =
+            Mathf.Max(1, hitsToBreak);
     }
 }
 

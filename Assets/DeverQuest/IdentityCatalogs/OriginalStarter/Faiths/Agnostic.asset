@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d60aa7b65252b5402f49a92aa63590, type: 3}
+  m_Name: Agnostic
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestDeity
+  identityId: 4a281da9b3c0456d9ded4108f2e92e44
+  displayName: Agnostic
+  lore: No declared patron; conscience and Guild oath guide the Adventurer.
+  allowsAgnosticFollowers: 1
+  alignment: 4
+  allowedAlignments: 
+  domains:
+  - Freedom
+  favoredClassIds: []
+  restrictedAncestryIds: []
+  grantedTrait: Freedom Devotion

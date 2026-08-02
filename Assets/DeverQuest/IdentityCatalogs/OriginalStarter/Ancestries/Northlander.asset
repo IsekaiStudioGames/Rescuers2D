@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2f6a904b9c4db7e88a710de2d5f775, type: 3}
+  m_Name: Northlander
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestAncestry
+  identityId: 7f5e56cb91054b689f63f4ddda32dcff
+  displayName: Northlander
+  lore: Hardy coastal clans renowned for courage.
+  playable: 1
+  sapient: 1
+  size: Medium
+  movementSpeed: 30
+  naturalArmorBonus: 0
+  hitPointBonus: 0
+  manaBonus: 0
+  abilityAdjustments:
+  - ability: 0
+    amount: 2
+  - ability: 7
+    amount: 1
+  languages:
+  - Guild Tongue
+  - Northern
+  innateTraits:
+  - Coldwise
+  damageAffinities: []
+  eligibleClassIds: []
+  restrictedClassIds: []

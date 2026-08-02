@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26853b4538a4c09ec382ef521ab0795b, type: 3}
+  m_Name: WarriorAbilities
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestAbilityProfile
+  profileId: 9798cfb79a35481797b6a2043980c30b
+  displayName: Warrior Tactical Codex
+  description: An editable class-specific copy of the original DeverQuest starter
+    tactics.
+  tacticalStyle: 0
+  abilities:
+  - spell: {fileID: 0}
+    technique: {fileID: 11400000, guid: 9a9333fedd07e094f84ff8e83a837bc0, type: 2}
+    priority: 90
+    useBelowHitPointPercent: 35
+    maintainEffect: 0
+  - spell: {fileID: 0}
+    technique: {fileID: 11400000, guid: 10bca80dbb78ae049a54c20f9f27c6fe, type: 2}
+    priority: 70
+    useBelowHitPointPercent: 100
+    maintainEffect: 1
+  - spell: {fileID: 0}
+    technique: {fileID: 11400000, guid: e2bdf942cc57675409276c37addfe808, type: 2}
+    priority: 60
+    useBelowHitPointPercent: 100
+    maintainEffect: 0

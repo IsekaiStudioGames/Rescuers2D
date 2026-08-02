@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c2b42b4e454449a85232181983f0cc, type: 3}
+  m_Name: FifteenMinuteSkirmish
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestEncounterProfile
+  encounterId: e47265dc6d834b0a994eb84e4b8b11c5
+  displayName: Fifteen-Minute Border Skirmish
+  storyIntroduction: Hold the old road while completing one focused development objective.
+  waves:
+  - waveTitle: Roadside Ambush
+    monster: {fileID: 11400000, guid: d60107121dbb70346a5cfa581f05c84b, type: 2}
+    count: 1
+    bossWave: 0
+  allowInjury: 1
+  allowCharacterDeath: 0
+  victoryCopperBonus: 10
+  victoryExperienceBonus: 20
+  encounterMode: 0
+  parRounds: 5
+  earlyVictoryCopperBonus: 10
+  earlyVictoryExperienceBonus: 15
+  survivalWaveMinutes: 15
+  difficultyIncreaseEveryWaves: 2
+  wagonOfferEveryWaves: 3
+  survivalCopperGrowthPerWave: 2
+  survivalExperienceGrowthPerWave: 5
+  lowHitPointPausePercent: 25
+  pauseWhenEncumbered: 1

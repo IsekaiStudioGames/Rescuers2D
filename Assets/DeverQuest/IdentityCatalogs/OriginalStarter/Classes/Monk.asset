@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Monk
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: a073f50f3b854fb79e68bc4468830d3d
+  displayName: Monk
+  lore: An original DeverQuest Monk tradition.
+  department: Quality Assurance
+  primaryAbility: 4
+  hitDie: 8
+  usesMana: 0
+  supportsCompanion: 0
+  companionTradition: 
+  starterCompanion: {fileID: 0}
+  abilityProfile: {fileID: 11400000, guid: 6aef2c0bdd0480041a7a90cf49e6d4a5, type: 2}
+  strength: 12
+  dexterity: 16
+  constitution: 14
+  intelligence: 8
+  wisdom: 16
+  charisma: 8
+  luck: 10
+  proficientSaves:
+  - Strength
+  - Dexterity
+  classFeatures:
+  - Monk Training

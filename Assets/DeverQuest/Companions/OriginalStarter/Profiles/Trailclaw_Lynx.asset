@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed871fb5feb42cb8086c26ad8c33791, type: 3}
+  m_Name: Trailclaw_Lynx
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestCompanionProfile
+  companionId: 55ba9b1120f748d4b96c02fa679415d1
+  displayName: Trailclaw Lynx
+  lore: A swift woodland hunter that chooses its Adventurer through earned trust.
+  kind: 0
+  role: 0
+  creatureType: 1
+  minimumAdventurerLevel: 1
+  requiresCompanionClass: 1
+  allowedClassIds:
+  - 3493744255ed45189a1927dbbeff96ce
+  - 03e370525ca7475ebfb53248a1009882
+  allowedClassNames:
+  - Ranger
+  - Wildwarden
+  maximumHitPoints: 8
+  hitPointsPerLevel: 2
+  armorClass: 11
+  attackModifier: 2
+  damageDice: 1d6
+  damageType: 2
+  damageAffinities: []
+  startingLoyalty: 50
+  recruitCopperCost: 0
+  recoveryCopperCost: 10

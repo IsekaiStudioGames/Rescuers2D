@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Druid
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: b8d77c907cca45a48e38894346ca1477
+  displayName: Druid
+  lore: An original DeverQuest Druid tradition.
+  department: Audio
+  primaryAbility: 4
+  hitDie: 8
+  usesMana: 1
+  supportsCompanion: 1
+  companionTradition: Primal Familiar
+  starterCompanion: {fileID: 11400000, guid: 19dd0cd07341c22469e62740db413a08, type: 2}
+  abilityProfile: {fileID: 11400000, guid: ef81fad038d953d40aad78d13ecb0f7e, type: 2}
+  strength: 10
+  dexterity: 12
+  constitution: 14
+  intelligence: 8
+  wisdom: 16
+  charisma: 10
+  luck: 10
+  proficientSaves:
+  - Intelligence
+  - Wisdom
+  classFeatures:
+  - Druid Training
+  - Spellcraft
+  - Companion Affinity

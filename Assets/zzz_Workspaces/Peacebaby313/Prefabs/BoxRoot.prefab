@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 2846854174529478933}
   - component: {fileID: 918398847364533053}
   - component: {fileID: 8397280206756533270}
+  - component: {fileID: 2939965624052251753}
+  - component: {fileID: 4316233371872590416}
   m_Layer: 0
   m_Name: BoxRoot
   m_TagString: Untagged
@@ -221,6 +223,36 @@ MonoBehaviour:
   itemSpawnPoint: {fileID: 7941825747455433155}
   hitEffectPrefab: {fileID: 6328850758696560318, guid: 921554c74bd349645a6bcf41e616d646, type: 3}
   destructionEffectPrefab: {fileID: 3468165380018315016, guid: 0a55c5db3e1aa7549b83a2429241616a, type: 3}
-  hitSound: {fileID: 0}
-  destructionSound: {fileID: 0}
-  soundVolume: 1
+  destructionAudio: {fileID: 4316233371872590416}
+--- !u!114 &2939965624052251753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531018940103706423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037c34a55909dac42a49ddabd838f398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldAudioEmitter
+  audioOrigin: {fileID: 2846854174529478933}
+  sfxPlayer: {fileID: 0}
+  volumeMultiplier: 1
+  pitchMultiplier: 1
+  logMissingPlayer: 1
+--- !u!114 &4316233371872590416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531018940103706423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed9ef66bbd7e0340b8b2606090555eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestructibleWorldAudio
+  worldAudio: {fileID: 2939965624052251753}
+  impactCue: {fileID: 11400000, guid: 26245f5ff38f4c442ab5b504a4e4f57b, type: 2}
+  destructionCue: {fileID: 11400000, guid: ebf50446efae04b44a7181968aab41e1, type: 2}

@@ -27,7 +27,7 @@ public class PlayerInputReader : MonoBehaviour
     private bool wasPressingUp;
 
     public enum ActiveCharacter { Firefighter, RiotOfficer, Specialist }
-    private ActiveCharacter currentCharacter = ActiveCharacter.Firefighter;
+    private ActiveCharacter currentCharacter = ActiveCharacter.Specialist;
 
     private Vector2 moveDirection;
 

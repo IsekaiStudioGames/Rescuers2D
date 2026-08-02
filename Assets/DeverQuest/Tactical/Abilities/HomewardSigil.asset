@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe30bbe1681efc300c37e120f7c37e75, type: 3}
+  m_Name: HomewardSigil
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestSpell
+  spellId: 51c083aeb8f34f1887d3eb274b40d3c4
+  displayName: Homeward Sigil
+  description: Safely returns an expedition to the Guild Hall.
+  spellLevel: 0
+  castingAbility: 3
+  damageDice: 
+  damageType: 8
+  statusEffect: 
+  minimumCharacterLevel: 1
+  manaCost: 5
+  cooldownRounds: 0
+  target: 1
+  effects:
+  - effectType: 17
+    target: 1
+    dice: 
+    flatAmount: 0
+    durationRounds: 1
+    damageType: 8
+    saveNegates: 0
+    savingAbility: 2
+    difficultyClass: 10
+    breaksOnDamage: 0

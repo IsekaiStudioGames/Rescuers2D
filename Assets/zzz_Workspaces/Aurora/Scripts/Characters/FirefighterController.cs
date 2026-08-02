@@ -297,7 +297,6 @@ public class FirefighterController : MonoBehaviour
             characterAudio?.PlayPickup();
         }
 
-        characterAudio?.PlayPickup();
         StopHorizontalMovement();
         ChangeState(FirefighterState.Holding);
         UpdateAnimator();
@@ -424,7 +423,6 @@ public class FirefighterController : MonoBehaviour
 
         ChangeState(FirefighterState.SwingingAxe);
 
-        characterAudio?.PlayPrimaryAction();
 
         StopHorizontalMovement();
 
@@ -442,7 +440,20 @@ public class FirefighterController : MonoBehaviour
         UpdateAnimator();
     }
 
+    // Animation event placed when the axe begins its fast swing.
+    public void Anim_PlayAxeSwing()
+    {
+        if (currentState !=
+            FirefighterState.SwingingAxe)
+        {
+            return;
+        }
+
+        characterAudio?.PlayPrimaryAction();
+    }
+
     // Animation event placed at the start of the impact window.
+
     public void Anim_EnableAxeDamage()
     {
         if (currentState != FirefighterState.SwingingAxe)
@@ -482,12 +493,16 @@ public class FirefighterController : MonoBehaviour
     }
     public void Anim_PlayFootstep()
     {
-        if (IsGrounded &&
-            !IsClimbing &&
-            Mathf.Abs(currentMoveInput.x) > 0.1f)
+        bool isWalking =
+            currentState == FirefighterState.Walking ||
+            currentState == FirefighterState.HoldingWalking;
+
+        if (!isWalking)
         {
-            characterAudio?.PlayFootstep();
+            return;
         }
+
+        characterAudio?.PlayFootstep();
     }
 
     public void Anim_PlayClimbStep()

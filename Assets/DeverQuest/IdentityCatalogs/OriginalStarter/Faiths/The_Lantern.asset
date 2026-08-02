@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d60aa7b65252b5402f49a92aa63590, type: 3}
+  m_Name: The_Lantern
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestDeity
+  identityId: 684d06de63fa4907b93d2b179cdda36c
+  displayName: The Lantern
+  lore: A guardian ideal of truth, refuge, and duty.
+  allowsAgnosticFollowers: 1
+  alignment: 0
+  allowedAlignments: 
+  domains:
+  - Light
+  - Protection
+  - Knowledge
+  favoredClassIds: []
+  restrictedAncestryIds: []
+  grantedTrait: Light Devotion

@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(WorldAudioEmitter))]
 public sealed class C4Charge2D : MonoBehaviour
 {
     private static readonly int ArmedHash =
@@ -18,7 +19,7 @@ public sealed class C4Charge2D : MonoBehaviour
     private Animator animator;
 
     [SerializeField]
-    private AudioSource audioSource;
+    private WorldAudioEmitter worldAudio;
 
     [Header("Explosion")]
     [SerializeField, Min(0f)]
@@ -43,11 +44,17 @@ public sealed class C4Charge2D : MonoBehaviour
     private DestructibleTilemap2D destructibleTilemap;
 
     [Header("Audio")]
+    [Tooltip("Played once after the placement transaction succeeds.")]
     [SerializeField]
-    private AudioClip armedClip;
+    private SfxCueData placementCue;
 
+    [Tooltip("Optional one-shot played when the fuse is armed.")]
     [SerializeField]
-    private AudioClip explosionClip;
+    private SfxCueData armedCue;
+
+    [Tooltip("Detached cue played at the exact explosion position.")]
+    [SerializeField]
+    private SfxCueData explosionCue;
 
     [Header("Cleanup")]
     [Tooltip(
@@ -55,22 +62,34 @@ public sealed class C4Charge2D : MonoBehaviour
     [SerializeField, Min(0.1f)]
     private float cleanupDelay = 1f;
 
+    private bool hasPlayedPlacementFeedback;
     private bool hasBeenArmed;
     private bool hasExploded;
 
     public event Action OnExploded;
 
+    private void Reset()
+    {
+        ResolveReferences();
+    }
+
     private void Awake()
     {
-        if (animator == null)
+        ResolveReferences();
+    }
+
+    public void PlayPlacementFeedback()
+    {
+        if (hasPlayedPlacementFeedback)
         {
-            animator = GetComponent<Animator>();
+            return;
         }
 
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
+        hasPlayedPlacementFeedback =
+            true;
+
+        worldAudio?.PlayAtOrigin(
+            placementCue);
     }
 
     public void Arm()
@@ -80,20 +99,27 @@ public sealed class C4Charge2D : MonoBehaviour
             return;
         }
 
-        hasBeenArmed = true;
+        hasBeenArmed =
+            true;
 
         if (animator != null)
         {
-            animator.SetTrigger(ArmedHash);
+            animator.SetTrigger(
+                ArmedHash);
         }
 
-        PlayClip(armedClip);
-        StartCoroutine(FuseRoutine());
+        worldAudio?.PlayAtOrigin(
+            armedCue);
+
+        StartCoroutine(
+            FuseRoutine());
     }
 
     private IEnumerator FuseRoutine()
     {
-        yield return new WaitForSeconds(fuseDuration);
+        yield return
+            new WaitForSeconds(fuseDuration);
+
         Explode();
     }
 
@@ -104,19 +130,30 @@ public sealed class C4Charge2D : MonoBehaviour
             return;
         }
 
-        hasExploded = true;
+        hasExploded =
+            true;
+
+        Vector3 explosionPosition =
+            GetExplosionPosition();
+
         Debug.Log(
-            $"C4 exploded at {transform.position} with radius " +
+            $"C4 exploded at {explosionPosition} with radius " +
             $"{explosionRadius}.",
             this);
 
         if (animator != null)
         {
-            animator.SetTrigger(ExplodeHash);
+            animator.SetTrigger(
+                ExplodeHash);
         }
 
-        PlayClip(explosionClip);
-        DamageDestructibleTiles();
+        // Detached pooled playback survives either cleanup path.
+        worldAudio?.PlayAtPosition(
+            explosionCue,
+            explosionPosition);
+
+        DamageDestructibleTiles(
+            explosionPosition);
 
         OnExploded?.Invoke();
 
@@ -125,13 +162,9 @@ public sealed class C4Charge2D : MonoBehaviour
             cleanupDelay);
     }
 
-    private void DamageDestructibleTiles()
+    private void DamageDestructibleTiles(
+        Vector2 explosionPosition)
     {
-        Vector2 explosionPosition =
-            explosionPoint != null
-                ? explosionPoint.position
-                : transform.position;
-
         if (destructibleTilemap != null)
         {
             DamageTilemap(
@@ -149,13 +182,15 @@ public sealed class C4Charge2D : MonoBehaviour
             $"C4 found {tilemaps.Length} destructible tilemap(s).",
             this);
 
-        foreach (DestructibleTilemap2D currentTilemap in tilemaps)
+        foreach (DestructibleTilemap2D currentTilemap
+                 in tilemaps)
         {
             DamageTilemap(
                 currentTilemap,
                 explosionPosition);
         }
     }
+
     private void DamageTilemap(
         DestructibleTilemap2D targetTilemap,
         Vector2 explosionPosition)
@@ -181,28 +216,35 @@ public sealed class C4Charge2D : MonoBehaviour
         }
     }
 
-    // Optional animation event on the final explosion frame.
     public void Anim_DestroyCharge()
     {
         Destroy(gameObject);
     }
 
-    private void PlayClip(AudioClip clip)
+    private Vector3 GetExplosionPosition()
     {
-        if (audioSource != null &&
-            clip != null)
+        return explosionPoint != null
+            ? explosionPoint.position
+            : transform.position;
+    }
+
+    private void ResolveReferences()
+    {
+        if (animator == null)
         {
-            audioSource.PlayOneShot(clip);
+            animator =
+                GetComponent<Animator>();
+        }
+
+        if (worldAudio == null)
+        {
+            worldAudio =
+                GetComponent<WorldAudioEmitter>();
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Vector3 center =
-            explosionPoint != null
-                ? explosionPoint.position
-                : transform.position;
-
         Gizmos.color = new Color(
             1f,
             0.35f,
@@ -210,7 +252,7 @@ public sealed class C4Charge2D : MonoBehaviour
             0.75f);
 
         Gizmos.DrawWireSphere(
-            center,
+            GetExplosionPosition(),
             explosionRadius);
     }
 
@@ -227,6 +269,8 @@ public sealed class C4Charge2D : MonoBehaviour
 
         cleanupDelay =
             Mathf.Max(0.1f, cleanupDelay);
+
+        ResolveReferences();
     }
 }
 

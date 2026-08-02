@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8017685230253314549}
   - component: {fileID: 367007854903410741}
   - component: {fileID: -8025935046239024375}
+  - component: {fileID: 2025969675729250293}
   m_Layer: 0
   m_Name: C4Charge
   m_TagString: Untagged
@@ -161,12 +162,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::C4Charge2D
   animator: {fileID: 0}
-  audioSource: {fileID: 0}
+  worldAudio: {fileID: 2025969675729250293}
   fuseDuration: 2
   explosionRadius: 5
   explosionDamage: 10
   explosionPoint: {fileID: 876397965726164607}
   destructibleTilemap: {fileID: 0}
-  armedClip: {fileID: 0}
-  explosionClip: {fileID: 0}
+  placementCue: {fileID: 11400000, guid: b472d88d4cb4373468281ce64d5ef6ec, type: 2}
+  armedCue: {fileID: 11400000, guid: 6e00930fbf53495469ec51e3489103d6, type: 2}
+  explosionCue: {fileID: 11400000, guid: ebf50446efae04b44a7181968aab41e1, type: 2}
   cleanupDelay: 1
+--- !u!114 &2025969675729250293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511747081080752068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037c34a55909dac42a49ddabd838f398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldAudioEmitter
+  audioOrigin: {fileID: 876397965726164607}
+  sfxPlayer: {fileID: 0}
+  volumeMultiplier: 1
+  pitchMultiplier: 1
+  logMissingPlayer: 1

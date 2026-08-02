@@ -18,3 +18,5 @@ MonoBehaviour:
   allowedDamageTypes: 02000000
   hitEffectPrefab: {fileID: 3468165380018315016, guid: e355ebc77d9ef484288dadc70fe55365, type: 3}
   destructionEffectPrefab: {fileID: 7955912129606765379, guid: f244b7341d1a39443871d92c2ed9317e, type: 3}
+  impactCue: {fileID: 11400000, guid: 26245f5ff38f4c442ab5b504a4e4f57b, type: 2}
+  destructionCue: {fileID: 11400000, guid: ebf50446efae04b44a7181968aab41e1, type: 2}

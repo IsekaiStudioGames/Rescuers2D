@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Tilemap))]
 [RequireComponent(typeof(TilemapCollider2D))]
+[RequireComponent(typeof(WorldAudioEmitter))]
 public sealed class DestructibleTilemap2D :
     MonoBehaviour
 {
@@ -17,6 +18,10 @@ public sealed class DestructibleTilemap2D :
     [Header("Destructible Tile Profiles")]
     [SerializeField]
     private DestructibleTileProfile[] tileProfiles;
+
+    [Header("World Audio")]
+    [SerializeField]
+    private WorldAudioEmitter worldAudio;
 
     [Header("Effect Placement")]
     [Tooltip(
@@ -32,13 +37,14 @@ public sealed class DestructibleTilemap2D :
         Vector3Int,
         int> remainingTileHealth = new();
 
+    private void Reset()
+    {
+        ResolveReferences();
+    }
+
     private void Awake()
     {
-        if (tilemap == null)
-        {
-            tilemap = GetComponent<Tilemap>();
-        }
-
+        ResolveReferences();
         BuildProfileLookup();
     }
 
@@ -82,8 +88,9 @@ public sealed class DestructibleTilemap2D :
         }
 
         Debug.Log(
-            $"C4 checked cell {cellPosition} on '{tilemap.name}'. " +
-            $"Found tile asset: '{currentTile.name}'.",
+            $"{damageType} checked cell {cellPosition} on " +
+            $"'{tilemap.name}'. Found tile asset: " +
+            $"'{currentTile.name}'.",
             this);
 
         if (!TryGetProfile(
@@ -97,13 +104,6 @@ public sealed class DestructibleTilemap2D :
 
             return false;
         }
-
-        if (currentTile == null)
-        {
-            return false;
-        }
-
-
 
         if (!profile.AcceptsDamageType(damageType))
         {
@@ -119,14 +119,19 @@ public sealed class DestructibleTilemap2D :
                 cellPosition,
                 out int remainingHealth))
         {
-            remainingHealth = profile.HitsToBreak;
+            remainingHealth =
+                profile.HitsToBreak;
         }
 
-        remainingHealth -= damageAmount;
+        remainingHealth -=
+            damageAmount;
 
         if (remainingHealth <= 0)
         {
-            BreakTile(cellPosition, profile);
+            BreakTile(
+                cellPosition,
+                profile);
+
             return true;
         }
 
@@ -175,7 +180,7 @@ public sealed class DestructibleTilemap2D :
         int damagedTileCount = 0;
 
         Debug.Log(
-            $"C4 damage scan on '{tilemap.name}': " +
+            $"{damageType} damage scan on '{tilemap.name}': " +
             $"world position {worldPosition}, radius {radius}, " +
             $"cells {minimumCell} through {maximumCell}.",
             this);
@@ -210,9 +215,9 @@ public sealed class DestructibleTilemap2D :
                         cellCenter);
 
                 Debug.Log(
-                    $"C4 found occupied cell {cellPosition}: " +
-                    $"tile '{currentTile.name}', center {cellCenter}, " +
-                    $"distance {distance:F2}.",
+                    $"{damageType} found occupied cell " +
+                    $"{cellPosition}: tile '{currentTile.name}', " +
+                    $"center {cellCenter}, distance {distance:F2}.",
                     this);
 
                 if (distance > radius)
@@ -233,7 +238,7 @@ public sealed class DestructibleTilemap2D :
         }
 
         Debug.Log(
-            $"C4 scan complete on '{tilemap.name}'. " +
+            $"{damageType} scan complete on '{tilemap.name}'. " +
             $"Occupied cells in scan bounds: {occupiedCellCount}. " +
             $"Occupied cells inside radius: {cellsInsideRadius}. " +
             $"Damaged tiles: {damagedTileCount}.",
@@ -253,11 +258,16 @@ public sealed class DestructibleTilemap2D :
                 cellPosition,
                 profile.DamagedTile);
 
-            tilemap.RefreshTile(cellPosition);
+            tilemap.RefreshTile(
+                cellPosition);
         }
 
         SpawnEffect(
             profile.HitEffectPrefab,
+            cellPosition);
+
+        PlayTileCue(
+            profile.ImpactCue,
             cellPosition);
 
         Debug.Log(
@@ -274,14 +284,40 @@ public sealed class DestructibleTilemap2D :
             profile.DestructionEffectPrefab,
             cellPosition);
 
-        tilemap.SetTile(cellPosition, null);
-        tilemap.RefreshTile(cellPosition);
+        // Play before clearing the cell. The pooled voice is detached
+        // and continues after this tile no longer exists.
+        PlayTileCue(
+            profile.DestructionCue,
+            cellPosition);
 
-        remainingTileHealth.Remove(cellPosition);
+        tilemap.SetTile(
+            cellPosition,
+            null);
+
+        tilemap.RefreshTile(
+            cellPosition);
+
+        remainingTileHealth.Remove(
+            cellPosition);
 
         Debug.Log(
             $"Tile at {cellPosition} was destroyed.",
             this);
+    }
+
+    private void PlayTileCue(
+        SfxCueData cue,
+        Vector3Int cellPosition)
+    {
+        if (worldAudio == null ||
+            cue == null)
+        {
+            return;
+        }
+
+        worldAudio.PlayAtPosition(
+            cue,
+            tilemap.GetCellCenterWorld(cellPosition));
     }
 
     private void SpawnEffect(
@@ -296,7 +332,8 @@ public sealed class DestructibleTilemap2D :
         Vector3 spawnPosition =
             tilemap.GetCellCenterWorld(cellPosition);
 
-        spawnPosition.z = effectZPosition;
+        spawnPosition.z =
+            effectZPosition;
 
         ParticleSystem spawnedEffect =
             Instantiate(
@@ -320,7 +357,9 @@ public sealed class DestructibleTilemap2D :
         TileBase tile,
         out DestructibleTileProfile profile)
     {
-        if (profileLookup.TryGetValue(tile, out profile))
+        if (profileLookup.TryGetValue(
+                tile,
+                out profile))
         {
             return true;
         }
@@ -350,8 +389,7 @@ public sealed class DestructibleTilemap2D :
                 profile.IntactTile,
                 profile);
 
-            // The cracked tile must resolve to the same profile
-            // when it receives the next hit.
+            // The damaged tile uses the same destruction profile.
             RegisterTile(
                 profile.DamagedTile,
                 profile);
@@ -377,15 +415,29 @@ public sealed class DestructibleTilemap2D :
             return;
         }
 
-        profileLookup.Add(tile, profile);
+        profileLookup.Add(
+            tile,
+            profile);
+    }
+
+    private void ResolveReferences()
+    {
+        if (tilemap == null)
+        {
+            tilemap =
+                GetComponent<Tilemap>();
+        }
+
+        if (worldAudio == null)
+        {
+            worldAudio =
+                GetComponent<WorldAudioEmitter>();
+        }
     }
 
     private void OnValidate()
     {
-        if (tilemap == null)
-        {
-            tilemap = GetComponent<Tilemap>();
-        }
+        ResolveReferences();
     }
 }
 

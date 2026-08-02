@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2f6a904b9c4db7e88a710de2d5f775, type: 3}
+  m_Name: Hearthling
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestAncestry
+  identityId: eaf2af7b6094484f9340c5a36a47dc60
+  displayName: Hearthling
+  lore: Small, resilient travelers blessed with good fortune.
+  playable: 1
+  sapient: 1
+  size: Medium
+  movementSpeed: 30
+  naturalArmorBonus: 0
+  hitPointBonus: 0
+  manaBonus: 0
+  abilityAdjustments:
+  - ability: 1
+    amount: 1
+  - ability: 8
+    amount: 2
+  languages:
+  - Guild Tongue
+  - Hearth Cant
+  innateTraits:
+  - Brave
+  damageAffinities: []
+  eligibleClassIds: []
+  restrictedClassIds: []

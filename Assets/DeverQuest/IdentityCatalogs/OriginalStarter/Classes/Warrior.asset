@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: 377cbd4b7cf7495e97d454372cca8b5f
+  displayName: Warrior
+  lore: An original DeverQuest Warrior tradition.
+  department: Quality Assurance
+  primaryAbility: 0
+  hitDie: 10
+  usesMana: 0
+  supportsCompanion: 0
+  companionTradition: 
+  starterCompanion: {fileID: 0}
+  abilityProfile: {fileID: 11400000, guid: 78b9220b4c20209488c16903a484f18e, type: 2}
+  strength: 16
+  dexterity: 12
+  constitution: 16
+  intelligence: 8
+  wisdom: 10
+  charisma: 10
+  luck: 10
+  proficientSaves:
+  - Strength
+  - Constitution
+  classFeatures:
+  - Warrior Training

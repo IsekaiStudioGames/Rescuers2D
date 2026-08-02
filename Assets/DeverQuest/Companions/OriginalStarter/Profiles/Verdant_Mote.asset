@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed871fb5feb42cb8086c26ad8c33791, type: 3}
+  m_Name: Verdant_Mote
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestCompanionProfile
+  companionId: 673f2582e32c43699b2ca37abeb350cc
+  displayName: Verdant Mote
+  lore: A tiny seed-light that mends wounds and hums when a Quest returns life to
+    the world.
+  kind: 1
+  role: 2
+  creatureType: 9
+  minimumAdventurerLevel: 1
+  requiresCompanionClass: 1
+  allowedClassIds:
+  - b8d77c907cca45a48e38894346ca1477
+  allowedClassNames:
+  - Druid
+  maximumHitPoints: 8
+  hitPointsPerLevel: 2
+  armorClass: 11
+  attackModifier: 2
+  damageDice: 1d4
+  damageType: 9
+  damageAffinities: []
+  startingLoyalty: 50
+  recruitCopperCost: 0
+  recoveryCopperCost: 10

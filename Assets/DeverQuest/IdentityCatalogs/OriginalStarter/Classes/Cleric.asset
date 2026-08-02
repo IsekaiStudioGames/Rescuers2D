@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1201bf6fb38649eccdc0ee2c98b, type: 3}
+  m_Name: Cleric
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestClassDefinition
+  identityId: a2a9aed5f36045b2aac41e93ab585b4b
+  displayName: Cleric
+  lore: An original DeverQuest Cleric tradition.
+  department: Design
+  primaryAbility: 4
+  hitDie: 8
+  usesMana: 1
+  supportsCompanion: 0
+  companionTradition: 
+  starterCompanion: {fileID: 0}
+  abilityProfile: {fileID: 11400000, guid: 8af6c5d57aa670a41a30f3b3c21f0cb2, type: 2}
+  strength: 10
+  dexterity: 12
+  constitution: 14
+  intelligence: 8
+  wisdom: 16
+  charisma: 10
+  luck: 10
+  proficientSaves:
+  - Wisdom
+  - Charisma
+  classFeatures:
+  - Cleric Training
+  - Spellcraft

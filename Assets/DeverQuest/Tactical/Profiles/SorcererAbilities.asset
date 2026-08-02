@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26853b4538a4c09ec382ef521ab0795b, type: 3}
+  m_Name: SorcererAbilities
+  m_EditorClassIdentifier: EchoDevGames.DeverQuest.Runtime::EchoDevGames.DeverQuest.DeverQuestAbilityProfile
+  profileId: 626bdfefd36742f39124ad7bb381d04d
+  displayName: Sorcerer Tactical Codex
+  description: An editable class-specific copy of the original DeverQuest starter
+    tactics.
+  tacticalStyle: 4
+  abilities:
+  - spell: {fileID: 11400000, guid: 16018a23c90a93447b20b5c9e7ac03ef, type: 2}
+    technique: {fileID: 0}
+    priority: 95
+    useBelowHitPointPercent: 45
+    maintainEffect: 0
+  - spell: {fileID: 11400000, guid: d2a38404d300cad4287cda29c5a60f8b, type: 2}
+    technique: {fileID: 0}
+    priority: 85
+    useBelowHitPointPercent: 100
+    maintainEffect: 1
+  - spell: {fileID: 11400000, guid: da8de1771a4864c49aad1b8865c0d98f, type: 2}
+    technique: {fileID: 0}
+    priority: 75
+    useBelowHitPointPercent: 100
+    maintainEffect: 1
+  - spell: {fileID: 11400000, guid: 0bd3ab1938c2d4f42b55c2e7f2b47644, type: 2}
+    technique: {fileID: 0}
+    priority: 70
+    useBelowHitPointPercent: 65
+    maintainEffect: 0
+  - spell: {fileID: 11400000, guid: e20a22142ea5bce499429dd8241bf177, type: 2}
+    technique: {fileID: 0}
+    priority: 60
+    useBelowHitPointPercent: 100
+    maintainEffect: 0
+  - spell: {fileID: 11400000, guid: c82db73d8d4b2d04d8e302b5c5dbfe4a, type: 2}
+    technique: {fileID: 0}
+    priority: 1
+    useBelowHitPointPercent: 100
+    maintainEffect: 0
