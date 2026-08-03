@@ -34,7 +34,14 @@ MonoBehaviour:
   partyMembers: []
   stageProgress: []
   activePartyRunId: 
-  activeRuns: []
+  activeRuns:
+  - runId: 68dcfc5b3b834fc890766076cc7a4750
+    startedUtc: 2026-08-03T07:46:07.9640732Z
+    groupRun: 0
+    adventurerNames:
+    - Ajnaag
+    developerNames:
+    - EchoDev
   completionHistory: []
   questStory: 
   restrictToClasses: 0
@@ -66,11 +73,11 @@ MonoBehaviour:
   objective: Work for as long as the Adventurer can safely survive and carry the
     earned spoils.
   deliverables: 
-  suggestedFocusMinutes: 50
-  baseCopper: 10
-  baseExperience: 10
-  workBlockMinutes: 30
-  copperPerWorkBlock: 25
+  suggestedFocusMinutes: 120
+  baseCopper: 50
+  baseExperience: 50
+  workBlockMinutes: 15
+  copperPerWorkBlock: 50
   experiencePerWorkBlock: 50
   encounterProfileId: 
   encounterNotes: 

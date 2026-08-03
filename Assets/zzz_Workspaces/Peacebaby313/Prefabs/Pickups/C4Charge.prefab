@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2561439492348570487}
   - component: {fileID: 8017685230253314549}
   - component: {fileID: 367007854903410741}
-  - component: {fileID: -8025935046239024375}
   - component: {fileID: 2025969675729250293}
+  - component: {fileID: 8875088241487601002}
   m_Layer: 0
   m_Name: C4Charge
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6099581493293703690, guid: 54221f004237dfe45a4c563354678538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,29 +149,6 @@ MonoBehaviour:
   inventoryOwner: 0
   feedbackPresenter: {fileID: 0}
   requireMatchingRescuer: 0
---- !u!114 &-8025935046239024375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511747081080752068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fee893d737aacc3468e7b8288a6b8105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::C4Charge2D
-  animator: {fileID: 0}
-  worldAudio: {fileID: 2025969675729250293}
-  fuseDuration: 2
-  explosionRadius: 5
-  explosionDamage: 10
-  explosionPoint: {fileID: 876397965726164607}
-  destructibleTilemap: {fileID: 0}
-  placementCue: {fileID: 11400000, guid: b472d88d4cb4373468281ce64d5ef6ec, type: 2}
-  armedCue: {fileID: 11400000, guid: 6e00930fbf53495469ec51e3489103d6, type: 2}
-  explosionCue: {fileID: 11400000, guid: ebf50446efae04b44a7181968aab41e1, type: 2}
-  cleanupDelay: 1
 --- !u!114 &2025969675729250293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +166,33 @@ MonoBehaviour:
   volumeMultiplier: 1
   pitchMultiplier: 1
   logMissingPlayer: 1
+--- !u!114 &8875088241487601002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511747081080752068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee893d737aacc3468e7b8288a6b8105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::C4Charge2D
+  animator: {fileID: 0}
+  worldAudio: {fileID: 2025969675729250293}
+  fuseDuration: 1.5
+  explosionRadius: 2.5
+  explosionDamage: 1
+  explosionPoint: {fileID: 0}
+  destructibleTilemap: {fileID: 0}
+  explosionForce: 800
+  physicsBlastLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  flashPrefab: {fileID: 1191392735602979826, guid: a15dea2514c41ca4c9f81cf0626c9b98, type: 3}
+  smokeParticlePrefab: {fileID: 5925484901051486498, guid: 8b507f426e190194b8a6c5815ae26a38, type: 3}
+  effectCleanupDelay: 2
+  placementCue: {fileID: 11400000, guid: b472d88d4cb4373468281ce64d5ef6ec, type: 2}
+  armedCue: {fileID: 0}
+  explosionCue: {fileID: 11400000, guid: ebf50446efae04b44a7181968aab41e1, type: 2}
+  cleanupDelay: 0.1

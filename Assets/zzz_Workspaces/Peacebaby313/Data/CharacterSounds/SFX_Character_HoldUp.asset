@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61b01fc90b6f46542991c8447b3a9f0d, type: 3}
-  m_Name: SFX_Character_SwingAxe
+  m_Name: SFX_Character_HoldUp
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
-  cueId: sfx.swing.axe
-  displayName: SwingAxe
+  cueId: sfx.hold.up
+  displayName: HoldUp
   selectionMode: 0
   variations:
   - clip: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
-    volumeMultiplier: 0
+    volumeMultiplier: 1
     pitchOffset: 0
     selectionWeight: 1
   cueVolume: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
   minimumDistance: 1
   maximumDistance: 20
   cooldown: 0
-  maximumSimultaneousVoices: 2
+  maximumSimultaneousVoices: 10
   priority: 160
   ignoreListenerPause: 1
   loop: 0

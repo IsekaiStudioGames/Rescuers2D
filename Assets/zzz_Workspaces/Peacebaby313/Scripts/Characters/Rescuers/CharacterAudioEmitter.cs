@@ -168,6 +168,28 @@ public sealed class CharacterAudioEmitter
         Play(
             CharacterAudioEvent.CrawlStep);
     }
+
+    [ContextMenu("Audio Test/Play Brace Start")]
+    public void PlayBraceStart()
+    {
+        Play(
+            CharacterAudioEvent.BraceStart);
+    }
+
+    [ContextMenu("Audio Test/Play Brace Release")]
+    public void PlayBraceRelease()
+    {
+        Play(
+            CharacterAudioEvent.BraceRelease);
+    }
+
+    [ContextMenu("Audio Test/Play Blocked")]
+    public void PlayBlocked()
+    {
+        Play(
+            CharacterAudioEvent.Blocked);
+    }
+
     [ContextMenu("Audio Test/Play Swim Stroke")]
     public void PlaySwimStroke()
     {

@@ -34,15 +34,21 @@ MonoBehaviour:
   partyMembers: []
   stageProgress: []
   activePartyRunId: 
-  activeRuns:
-  - runId: 80cd138a58e94240b82f2f64a36b10a5
-    startedUtc: 2026-08-02T16:06:46.6663962Z
-    groupRun: 0
+  activeRuns: []
+  completionHistory:
+  - completionId: eb03a87577e445d38e180d08aeeb3b14
+    runId: 80cd138a58e94240b82f2f64a36b10a5
+    sessionId: 4736fe4f76ad44b598b09fa668bc0ca6
+    sessionIds:
+    - 4736fe4f76ad44b598b09fa668bc0ca6
+    completedUtc: 2026-08-03T07:45:33.8415039Z
     adventurerNames:
     - Ajnaag
     developerNames:
     - EchoDev
-  completionHistory: []
+    focusedMinutes: 310.7121210916667
+    awardedCopper: 1713
+    awardedExperience: 3297
   questStory: 
   restrictToClasses: 0
   eligibleClassDefinitions: []
@@ -54,7 +60,7 @@ MonoBehaviour:
   groupBonusCopper: 0
   groupBonusExperience: 0
   focusStages:
-  - stageId: 
+  - stageId: 565818bdb34c42e49ceba6e80f2ee0ec
     stageTitle: Hold the Old Road
     workObjective: Complete the assigned task.
     focusedMinutesRequired: 15

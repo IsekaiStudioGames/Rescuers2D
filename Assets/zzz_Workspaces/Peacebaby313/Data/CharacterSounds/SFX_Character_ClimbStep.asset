@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61b01fc90b6f46542991c8447b3a9f0d, type: 3}
-  m_Name: SFX_UI_Navigation 2
+  m_Name: SFX_Character_ClimbStep
   m_EditorClassIdentifier: Assembly-CSharp::SfxCueData
-  cueId: ui.navigation
-  displayName: UI Navigation
+  cueId: sfx.climb.step
+  displayName: ClimbStep
   selectionMode: 1
   variations:
-  - clip: {fileID: 8300000, guid: af79462121ec01c40b0ae253d6d0f2c8, type: 3}
-    volumeMultiplier: 1
+  - clip: {fileID: 8300000, guid: e1e2d06fe0d78194b9c7c8cc88414d0d, type: 3}
+    volumeMultiplier: 2
     pitchOffset: 0
     selectionWeight: 1
   cueVolume: 1
@@ -26,9 +26,9 @@ MonoBehaviour:
   spatialBlend: 0
   minimumDistance: 1
   maximumDistance: 20
-  cooldown: 0
-  maximumSimultaneousVoices: 0
-  priority: 128
+  cooldown: 0.08
+  maximumSimultaneousVoices: 10
+  priority: 150
   ignoreListenerPause: 0
   loop: 0
   stopWhenAttachedTargetIsDestroyed: 1

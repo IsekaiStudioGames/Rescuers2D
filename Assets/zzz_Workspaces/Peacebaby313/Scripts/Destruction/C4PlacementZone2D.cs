@@ -1,77 +1,332 @@
 //----- C4PlacementZone2D.cs START -----
 
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(Tilemap))]
+[RequireComponent(typeof(DestructibleTilemap2D))]
 public sealed class C4PlacementZone2D : MonoBehaviour
 {
-    [Header("Placement")]
+    private const RescuerInventoryOwner RequiredRescuer =
+        RescuerInventoryOwner.RiotOfficer;
+
+    private static readonly List<C4PlacementZone2D>
+        ActiveZones = new();
+
+    [Header("Tile Placement")]
+    [SerializeField]
+    private Tilemap placementTilemap;
+
+    [SerializeField]
+    private DestructibleTilemap2D destructibleTilemap;
+
+    [Tooltip(
+        "How close the Riot Officer must be to a destructible " +
+        "tile's center.")]
+    [SerializeField, Min(0.1f)]
+    private float maximumPlacementDistance = 1.75f;
+
+    [Tooltip(
+        "Applied after snapping the C4 to the center of the tile.")]
+    [SerializeField]
+    private Vector3 placementOffset;
+
+    [SerializeField]
+    private Vector3 placementEulerRotation;
+
+    [Header("C4")]
     [SerializeField]
     private C4Charge2D c4Prefab;
 
     [Tooltip(
-        "The exact position and rotation where the C4 appears.")]
-    [SerializeField]
-    private Transform placementPoint;
+        "No other C4 can be placed this close to an active charge. " +
+        "The lock remains until the existing charge is destroyed.")]
+    [SerializeField, Min(0.1f)]
+    private float nearbyChargeBlockingRadius = 3f;
 
-    [Header("Item Requirement")]
+    [Header("Inventory Requirement")]
     [SerializeField]
     private string requiredItemId = "c4";
 
     [SerializeField, Min(1)]
     private int requiredQuantity = 1;
 
-    [SerializeField]
-    private RescuerInventoryOwner requiredRescuer =
-        RescuerInventoryOwner.Firefighter;
-
     [Header("Optional Feedback")]
     [SerializeField]
     private HUDFeedbackPresenter feedbackPresenter;
 
-    [Header("Runtime State")]
-    [SerializeField]
-    private bool hasPlacedC4;
-
     private TeamInventory teamInventory;
-    private C4Charge2D placedCharge;
 
-    public bool HasPlacedC4 =>
-        hasPlacedC4;
+    [RuntimeInitializeOnLoadMethod(
+        RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStaticState()
+    {
+        ActiveZones.Clear();
+    }
 
-    public bool CanInteract =>
-        !hasPlacedC4 &&
-        c4Prefab != null;
+    private void Reset()
+    {
+        ResolveReferences();
+    }
 
     private void Awake()
     {
         ResolveReferences();
     }
 
-    public void TryPlaceC4(
+    private void OnEnable()
+    {
+        if (!ActiveZones.Contains(this))
+        {
+            ActiveZones.Add(this);
+        }
+    }
+
+    private void OnDisable()
+    {
+        ActiveZones.Remove(this);
+    }
+
+    /// <summary>
+    /// Searches every active destructible Tilemap and places C4 on
+    /// the closest occupied tile within placement distance.
+    /// </summary>
+    public static bool TryPlaceNearest(
+        Vector2 requesterWorldPosition,
         RescuerInventoryOwner requestingRescuer)
     {
-        if (!CanInteract)
+        HUDFeedbackPresenter fallbackFeedback =
+            FindFirstObjectByType<HUDFeedbackPresenter>();
+
+        if (requestingRescuer != RequiredRescuer)
         {
-            return;
+            fallbackFeedback?.ShowWarning(
+                "Only the Riot Officer can place C4.");
+
+            return false;
         }
+
+        C4PlacementZone2D closestZone = null;
+        Vector3 closestPlacementPosition = default;
+
+        float closestSquaredDistance =
+            float.PositiveInfinity;
+
+        for (int index = ActiveZones.Count - 1;
+             index >= 0;
+             index--)
+        {
+            C4PlacementZone2D zone =
+                ActiveZones[index];
+
+            if (zone == null)
+            {
+                ActiveZones.RemoveAt(index);
+                continue;
+            }
+
+            if (!zone.isActiveAndEnabled)
+            {
+                continue;
+            }
+
+            if (!zone.TryGetClosestPlacementPosition(
+                    requesterWorldPosition,
+                    out Vector3 placementPosition,
+                    out float squaredDistance))
+            {
+                continue;
+            }
+
+            if (squaredDistance >= closestSquaredDistance)
+            {
+                continue;
+            }
+
+            closestZone =
+                zone;
+
+            closestPlacementPosition =
+                placementPosition;
+
+            closestSquaredDistance =
+                squaredDistance;
+        }
+
+        if (closestZone == null)
+        {
+            fallbackFeedback?.ShowWarning(
+                "The Riot Officer must stand next to a " +
+                "destructible tile to place C4.");
+
+            return false;
+        }
+
+        return closestZone.TryConsumeAndPlaceC4(
+            closestPlacementPosition,
+            requestingRescuer,
+            fallbackFeedback);
+    }
+
+    private bool TryGetClosestPlacementPosition(
+        Vector2 requesterWorldPosition,
+        out Vector3 placementPosition,
+        out float closestSquaredDistance)
+    {
+        placementPosition =
+            default;
+
+        closestSquaredDistance =
+            float.PositiveInfinity;
 
         ResolveReferences();
 
-        if (requestingRescuer != requiredRescuer)
+        if (placementTilemap == null ||
+            destructibleTilemap == null)
         {
-            ShowWrongRescuerMessage();
-            return;
+            return false;
         }
 
-        if (teamInventory == null)
-        {
-            Debug.LogError(
-                $"{nameof(C4PlacementZone2D)} on '{name}' " +
-                $"could not find a {nameof(TeamInventory)}.",
-                this);
+        float searchDistance =
+            Mathf.Max(
+                0.1f,
+                maximumPlacementDistance);
 
-            return;
+        float maximumSquaredDistance =
+            searchDistance * searchDistance;
+
+        Vector3 minimumWorldPosition =
+            new(
+                requesterWorldPosition.x - searchDistance,
+                requesterWorldPosition.y - searchDistance,
+                placementTilemap.transform.position.z);
+
+        Vector3 maximumWorldPosition =
+            new(
+                requesterWorldPosition.x + searchDistance,
+                requesterWorldPosition.y + searchDistance,
+                placementTilemap.transform.position.z);
+
+        Vector3Int firstCell =
+            placementTilemap.WorldToCell(
+                minimumWorldPosition);
+
+        Vector3Int secondCell =
+            placementTilemap.WorldToCell(
+                maximumWorldPosition);
+
+        int minimumX =
+            Mathf.Min(
+                firstCell.x,
+                secondCell.x);
+
+        int maximumX =
+            Mathf.Max(
+                firstCell.x,
+                secondCell.x);
+
+        int minimumY =
+            Mathf.Min(
+                firstCell.y,
+                secondCell.y);
+
+        int maximumY =
+            Mathf.Max(
+                firstCell.y,
+                secondCell.y);
+
+        int cellZ =
+            placementTilemap
+                .WorldToCell(requesterWorldPosition)
+                .z;
+
+        bool foundTile =
+            false;
+
+        for (int x = minimumX;
+             x <= maximumX;
+             x++)
+        {
+            for (int y = minimumY;
+                 y <= maximumY;
+                 y++)
+            {
+                Vector3Int cellPosition =
+                    new(x, y, cellZ);
+
+                if (!placementTilemap.HasTile(
+                        cellPosition))
+                {
+                    continue;
+                }
+
+                Vector3 cellCenter =
+                    placementTilemap.GetCellCenterWorld(
+                        cellPosition);
+
+                Vector2 cellCenter2D =
+                    cellCenter;
+
+                float squaredDistance =
+                    (cellCenter2D - requesterWorldPosition)
+                    .sqrMagnitude;
+
+                if (squaredDistance >
+                    maximumSquaredDistance)
+                {
+                    continue;
+                }
+
+                if (squaredDistance >=
+                    closestSquaredDistance)
+                {
+                    continue;
+                }
+
+                foundTile =
+                    true;
+
+                closestSquaredDistance =
+                    squaredDistance;
+
+                placementPosition =
+                    cellCenter + placementOffset;
+            }
+        }
+
+        return foundTile;
+    }
+
+    private bool TryConsumeAndPlaceC4(
+        Vector3 placementPosition,
+        RescuerInventoryOwner requestingRescuer,
+        HUDFeedbackPresenter fallbackFeedback)
+    {
+        ResolveReferences();
+
+        HUDFeedbackPresenter feedback =
+            feedbackPresenter != null
+                ? feedbackPresenter
+                : fallbackFeedback;
+
+        if (requestingRescuer != RequiredRescuer)
+        {
+            feedback?.ShowWarning(
+                "Only the Riot Officer can place C4.");
+
+            return false;
+        }
+
+        if (C4Charge2D.IsPlacementBlocked(
+                placementPosition,
+                nearbyChargeBlockingRadius))
+        {
+            feedback?.ShowWarning(
+                "Another C4 is already active in this area.");
+
+            return false;
         }
 
         if (c4Prefab == null)
@@ -81,17 +336,34 @@ public sealed class C4PlacementZone2D : MonoBehaviour
                 "has no C4 Prefab assigned.",
                 this);
 
-            return;
+            feedback?.ShowWarning(
+                "C4 placement is not configured.");
+
+            return false;
         }
 
-        if (string.IsNullOrWhiteSpace(requiredItemId))
+        if (teamInventory == null)
+        {
+            Debug.LogError(
+                $"{nameof(C4PlacementZone2D)} on '{name}' " +
+                $"could not find a {nameof(TeamInventory)}.",
+                this);
+
+            feedback?.ShowWarning(
+                "The team inventory could not be found.");
+
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(
+                requiredItemId))
         {
             Debug.LogError(
                 $"{nameof(C4PlacementZone2D)} on '{name}' " +
                 "has no Required Item Id.",
                 this);
 
-            return;
+            return false;
         }
 
         bool canUseC4 =
@@ -102,10 +374,30 @@ public sealed class C4PlacementZone2D : MonoBehaviour
 
         if (!canUseC4)
         {
-            ShowMissingC4Message(
-                requestingRescuer);
+            feedback?.ShowWarning(
+                "The Riot Officer does not have access to C4.");
 
-            return;
+            return false;
+        }
+
+        Quaternion placementRotation =
+            transform.rotation *
+            Quaternion.Euler(
+                placementEulerRotation);
+
+        C4Charge2D newCharge =
+            Instantiate(
+                c4Prefab,
+                placementPosition,
+                placementRotation);
+
+        if (newCharge == null)
+        {
+            Debug.LogError(
+                "The C4 prefab could not be instantiated.",
+                this);
+
+            return false;
         }
 
         bool consumedC4 =
@@ -116,60 +408,50 @@ public sealed class C4PlacementZone2D : MonoBehaviour
 
         if (!consumedC4)
         {
+            Destroy(
+                newCharge.gameObject);
+
             Debug.LogError(
-                "The placement zone validated " +
-                $"'{requiredItemId}' but could not consume it.",
+                "C4 inventory validation succeeded, but the " +
+                "inventory transaction failed.",
                 this);
 
-            return;
+            return false;
         }
 
-        SpawnAndArmC4(
-            requestingRescuer);
-    }
+        // Gives the charge its originating Tilemap before it is armed.
+        newCharge.Initialize(
+            destructibleTilemap);
 
-    private void SpawnAndArmC4(
-        RescuerInventoryOwner requestingRescuer)
-    {
-        Vector3 spawnPosition =
-            placementPoint != null
-                ? placementPoint.position
-                : transform.position;
+        newCharge.PlayPlacementFeedback();
+        newCharge.Arm();
 
-        Quaternion spawnRotation =
-            placementPoint != null
-                ? placementPoint.rotation
-                : transform.rotation;
-
-        placedCharge =
-            Instantiate(
-                c4Prefab,
-                spawnPosition,
-                spawnRotation);
-
-        hasPlacedC4 =
-            true;
-
-        // Placement audio only occurs after inventory consumption and
-        // spawning both succeed.
-        placedCharge.PlayPlacementFeedback();
-
-        if (feedbackPresenter != null)
-        {
-            feedbackPresenter.ShowSuccess(
-                $"{GetOwnerDisplayName(requestingRescuer)} " +
-                "placed the C4.");
-        }
+        feedback?.ShowSuccess(
+            "The Riot Officer placed the C4.");
 
         Debug.Log(
-            $"{requestingRescuer} placed C4 at '{name}'.",
+            $"C4 placed on destructible Tilemap " +
+            $"'{placementTilemap.name}' at " +
+            $"{placementPosition}.",
             this);
 
-        placedCharge.Arm();
+        return true;
     }
 
     private void ResolveReferences()
     {
+        if (placementTilemap == null)
+        {
+            placementTilemap =
+                GetComponent<Tilemap>();
+        }
+
+        if (destructibleTilemap == null)
+        {
+            destructibleTilemap =
+                GetComponent<DestructibleTilemap2D>();
+        }
+
         if (teamInventory == null)
         {
             teamInventory =
@@ -183,56 +465,28 @@ public sealed class C4PlacementZone2D : MonoBehaviour
         }
     }
 
-    private void ShowWrongRescuerMessage()
-    {
-        if (feedbackPresenter == null)
-        {
-            return;
-        }
-
-        feedbackPresenter.ShowWarning(
-            $"{GetOwnerDisplayName(requiredRescuer)} " +
-            "must place the C4.");
-    }
-
-    private void ShowMissingC4Message(
-        RescuerInventoryOwner requestingRescuer)
-    {
-        if (feedbackPresenter == null)
-        {
-            return;
-        }
-
-        feedbackPresenter.ShowWarning(
-            $"{GetOwnerDisplayName(requestingRescuer)} " +
-            "does not have access to C4.");
-    }
-
-    private static string GetOwnerDisplayName(
-        RescuerInventoryOwner owner)
-    {
-        return owner switch
-        {
-            RescuerInventoryOwner.Firefighter =>
-                "The Firefighter",
-
-            RescuerInventoryOwner.RiotOfficer =>
-                "The Riot Officer",
-
-            RescuerInventoryOwner.Specialist =>
-                "The Specialist",
-
-            _ => "This rescuer"
-        };
-    }
-
     private void OnValidate()
     {
-        requiredItemId =
-            requiredItemId?.Trim() ?? string.Empty;
+        maximumPlacementDistance =
+            Mathf.Max(
+                0.1f,
+                maximumPlacementDistance);
+
+        nearbyChargeBlockingRadius =
+            Mathf.Max(
+                0.1f,
+                nearbyChargeBlockingRadius);
 
         requiredQuantity =
-            Mathf.Max(1, requiredQuantity);
+            Mathf.Max(
+                1,
+                requiredQuantity);
+
+        requiredItemId =
+            requiredItemId?.Trim() ??
+            string.Empty;
+
+        ResolveReferences();
     }
 }
 

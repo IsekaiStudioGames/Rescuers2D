@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e1fc0139b56314c90a69634113e6e9, type: 3}
   m_Name: DestructibleTileProfile_DirtExplodeable1
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleTileProfile
-  intactTile: {fileID: 11400000, guid: a5639123d39172b47b2d89d84e0dcfa2, type: 2}
+  intactTile: {fileID: 11400000, guid: 0f3070595a0cf064f97683a4788694a5, type: 2}
   damagedTile: {fileID: 11400000, guid: a5639123d39172b47b2d89d84e0dcfa2, type: 2}
   hitsToBreak: 1
   allowedDamageTypes: 02000000

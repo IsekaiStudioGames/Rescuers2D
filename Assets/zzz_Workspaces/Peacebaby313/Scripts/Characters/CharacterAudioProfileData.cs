@@ -17,8 +17,11 @@ public enum CharacterAudioEvent
     Drop = 10,
     PrimaryAction = 11,
     SecondaryAction = 12,
-    SpecialAction = 13,
-    CrawlStep = 14
+    SpecialAction = 13, 
+    CrawlStep = 14,
+    BraceStart = 15,
+    BraceRelease = 16,
+    Blocked = 17
 }
 
 [CreateAssetMenu(
@@ -58,6 +61,16 @@ public sealed class CharacterAudioProfileData
 
     [SerializeField]
     private SfxCueData swimStroke;
+
+    [Header("Defensive Actions")]
+    [SerializeField]
+    private SfxCueData braceStart;
+
+    [SerializeField]
+    private SfxCueData braceRelease;
+
+    [SerializeField]
+    private SfxCueData blocked;
 
     [Tooltip(
         "Assign an SfxCueData asset whose Loop option is enabled.")]
@@ -155,6 +168,15 @@ public sealed class CharacterAudioProfileData
 
             case CharacterAudioEvent.SpecialAction:
                 return specialAction;
+
+            case CharacterAudioEvent.BraceStart:
+                return braceStart;
+
+            case CharacterAudioEvent.BraceRelease:
+                return braceRelease;
+
+            case CharacterAudioEvent.Blocked:
+                return blocked;
 
             default:
                 return null;

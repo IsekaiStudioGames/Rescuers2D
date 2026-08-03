@@ -8,9 +8,9 @@ public class PlayerInputReader : MonoBehaviour
 
     private CharacterActions inputActions;
 
-    [SerializeField] private FirefighterController firefighter;
-    [SerializeField] private RescueSpecialistController rescueSpecialist;
-    [SerializeField] private RiotOfficerController riotOfficer;
+    [SerializeField] private FirefighterController fireFighterController;
+    [SerializeField] private RescueSpecialistController rescueSpecialistController;
+    [SerializeField] private RiotOfficerController riotOfficerController;
     [SerializeField]
     private CharacterCameraFollow2D characterCamera;
 
@@ -42,18 +42,18 @@ public class PlayerInputReader : MonoBehaviour
             return currentCharacter switch
             {
                 ActiveCharacter.Firefighter =>
-                    firefighter != null
-                        ? firefighter.transform
+                    fireFighterController != null
+                        ? fireFighterController.transform
                         : null,
 
                 ActiveCharacter.RiotOfficer =>
-                    riotOfficer != null
-                        ? riotOfficer.transform
+                    riotOfficerController != null
+                        ? riotOfficerController.transform
                         : null,
 
                 ActiveCharacter.Specialist =>
-                    rescueSpecialist != null
-                        ? rescueSpecialist.transform
+                    rescueSpecialistController != null
+                        ? rescueSpecialistController.transform
                         : null,
 
                 _ => null
@@ -89,18 +89,18 @@ public class PlayerInputReader : MonoBehaviour
 
         inputActions.Controls.firefighter_ladder.performed += ctx =>
         {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseLadder();
+            if (currentCharacter == ActiveCharacter.Firefighter) fireFighterController.UseLadder();
         };
 
         inputActions.Controls.firefighter_axe.performed += ctx =>
         {
-            if (currentCharacter == ActiveCharacter.Firefighter) firefighter.UseAxe();
+            if (currentCharacter == ActiveCharacter.Firefighter) fireFighterController.UseAxe();
         };
         inputActions.Controls.firefighter_extend.performed += ctx =>
         {
             if (currentCharacter == ActiveCharacter.Firefighter)
             {
-                firefighter.UseLadderExtension();
+                fireFighterController.UseLadderExtension();
             }
         };
         inputActions.Controls.Interact.performed +=
@@ -111,7 +111,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.SetShield(true);
+                riotOfficerController.SetShield(true);
             }
         };
 
@@ -119,7 +119,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.SetShield(false);
+                riotOfficerController.SetShield(false);
             }
         };
 
@@ -127,7 +127,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.Bash();
+                riotOfficerController.Bash();
             }
         };
 
@@ -135,7 +135,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.SetBrace(true);
+                riotOfficerController.SetBrace(true);
             }
         };
 
@@ -143,7 +143,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.SetBrace(false);
+                riotOfficerController.SetBrace(false);
             }
         };
 
@@ -151,7 +151,7 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.RiotOfficer)
             {
-                riotOfficer.PlaceC4();
+                riotOfficerController.PlaceC4();
             }
         };
 
@@ -161,14 +161,14 @@ public class PlayerInputReader : MonoBehaviour
         {
             if (currentCharacter == ActiveCharacter.Specialist)
             {
-                rescueSpecialist.Crawl();
+                rescueSpecialistController.Crawl();
             }
         };
         inputActions.Controls.specialist_jump.performed += ctx =>
         {
             if (currentCharacter == ActiveCharacter.Specialist)
             {
-                rescueSpecialist.Jump();
+                rescueSpecialistController.Jump();
             }
         };
 
@@ -187,20 +187,20 @@ public class PlayerInputReader : MonoBehaviour
         switch (currentCharacter)
         {
             case ActiveCharacter.Firefighter:
-                firefighter.Move(moveDirection);
+                fireFighterController.Move(moveDirection);
 
                 bool isPessingUp = moveDirection.y > 0.5f;
-                if(isPessingUp && !firefighter.IsClimbing)
+                if(isPessingUp && !fireFighterController.IsClimbing)
                 {
-                    firefighter.StartClimbing();
+                    fireFighterController.StartClimbing();
                 }
                 wasPressingUp = isPessingUp;
                 break;
             case ActiveCharacter.RiotOfficer:
-                riotOfficer.Move(moveDirection);
+                riotOfficerController.Move(moveDirection);
                 break;
             case ActiveCharacter.Specialist:
-                rescueSpecialist.Move(moveDirection);
+                rescueSpecialistController.Move(moveDirection);
                 break;
         }
     }
@@ -276,17 +276,17 @@ public class PlayerInputReader : MonoBehaviour
         switch (currentCharacter)
         {
             case ActiveCharacter.Firefighter:
-                firefighter.Move(Vector2.zero);
+                fireFighterController.Move(Vector2.zero);
                 break;
 
             case ActiveCharacter.RiotOfficer:
-                riotOfficer.Move(Vector2.zero);
-                riotOfficer.SetShield(false);
-                riotOfficer.SetBrace(false);
+                riotOfficerController.Move(Vector2.zero);
+                riotOfficerController.SetShield(false);
+                riotOfficerController.SetBrace(false);
                 break;
 
             case ActiveCharacter.Specialist:
-                rescueSpecialist.Move(Vector2.zero);
+                rescueSpecialistController.Move(Vector2.zero);
                 break;
         }
     }
@@ -327,20 +327,20 @@ public class PlayerInputReader : MonoBehaviour
         float squaredDistance = distance * distance;
 
         return IsWithinDistance(
-                   firefighter != null
-                       ? firefighter.transform
+                   fireFighterController != null
+                       ? fireFighterController.transform
                        : null,
                    position,
                    squaredDistance) ||
                IsWithinDistance(
-                   riotOfficer != null
-                       ? riotOfficer.transform
+                   riotOfficerController != null
+                       ? riotOfficerController.transform
                        : null,
                    position,
                    squaredDistance) ||
                IsWithinDistance(
-                   rescueSpecialist != null
-                       ? rescueSpecialist.transform
+                   rescueSpecialistController != null
+                       ? rescueSpecialistController.transform
                        : null,
                    position,
                    squaredDistance);
@@ -378,6 +378,7 @@ public class PlayerInputReader : MonoBehaviour
             inputActions.Controls.Disable();
         }
     }
+
     private void OnDestroy()
     {
         if (inputActions == null)

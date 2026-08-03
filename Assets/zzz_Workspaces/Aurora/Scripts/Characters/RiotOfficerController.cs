@@ -24,41 +24,15 @@ public class RiotOfficerController : MonoBehaviour
     private Animator animator;
 
     [Header("Movement")]
-    [SerializeField]
+    [SerializeField, Min(0f)]
     private float moveSpeed = 5f;
-
-    [SerializeField]
-    private float shieldMoveSpeed = 2.5f;
 
     [Header("Shield Actions")]
     [SerializeField, Min(0f)]
     private float bashCooldown = 0.5f;
 
-    [Header("C4")]
-    [SerializeField]
-    private TeamInventory teamInventory;
-
-    [SerializeField]
-    private C4Charge2D c4Prefab;
-
-    [Tooltip(
-        "The point where the Riot Officer places C4. " +
-        "Place this child near the character's feet and slightly forward.")]
-    [SerializeField]
-    private Transform c4PlacementPoint;
-
-    [SerializeField]
-    private string c4ItemId = "c4";
-
-    [SerializeField, Min(1)]
-    private int c4QuantityPerPlacement = 1;
-
     [SerializeField, Min(0f)]
-    private float c4PlacementCooldown = 0.5f;
-
-    [Header("Optional Feedback")]
-    [SerializeField]
-    private HUDFeedbackPresenter feedbackPresenter;
+    private float shieldMoveSpeed = 2.5f;
 
     [Header("Audio")]
     [SerializeField]
@@ -71,28 +45,16 @@ public class RiotOfficerController : MonoBehaviour
     private bool isBracing;
 
     private float nextBashTime;
-    private float nextC4PlacementTime;
 
-    public bool IsHoldingShield => isHoldingShield;
-    public bool IsBracing => isBracing;
+    public bool IsHoldingShield =>
+        isHoldingShield;
+
+    public bool IsBracing =>
+        isBracing;
 
     private void Awake()
     {
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody2D>();
-        }
-
-        if (animator == null)
-        {
-            animator = GetComponentInChildren<Animator>();
-        }
-        if (characterAudio == null)
-        {
-            characterAudio =
-                GetComponent<CharacterAudioEmitter>();
-        }
-        ResolveC4References();
+        ResolveReferences();
     }
 
     private void FixedUpdate()
@@ -103,7 +65,8 @@ public class RiotOfficerController : MonoBehaviour
 
     public void Move(Vector2 moveDirection)
     {
-        currentMoveInput = moveDirection;
+        currentMoveInput =
+            moveDirection;
     }
 
     private void HandleMovement()
@@ -116,7 +79,9 @@ public class RiotOfficerController : MonoBehaviour
         if (isBracing)
         {
             rb.linearVelocity =
-                new Vector2(0f, rb.linearVelocity.y);
+                new Vector2(
+                    0f,
+                    rb.linearVelocity.y);
 
             return;
         }
@@ -126,16 +91,21 @@ public class RiotOfficerController : MonoBehaviour
                 ? shieldMoveSpeed
                 : moveSpeed;
 
-        Vector2 velocity = rb.linearVelocity;
+        Vector2 velocity =
+            rb.linearVelocity;
 
         velocity.x =
-            currentMoveInput.x * activeMoveSpeed;
+            currentMoveInput.x *
+            activeMoveSpeed;
 
-        rb.linearVelocity = velocity;
+        rb.linearVelocity =
+            velocity;
 
-        if (Mathf.Abs(currentMoveInput.x) > 0.1f)
+        if (Mathf.Abs(currentMoveInput.x) >
+            0.1f)
         {
-            FlipSprite(currentMoveInput.x);
+            FlipSprite(
+                currentMoveInput.x);
         }
     }
 
@@ -143,15 +113,18 @@ public class RiotOfficerController : MonoBehaviour
     {
         if (isBracing)
         {
-            holdingShield = false;
+            holdingShield =
+                false;
         }
 
-        if (isHoldingShield == holdingShield)
+        if (isHoldingShield ==
+            holdingShield)
         {
             return;
         }
 
-        isHoldingShield = holdingShield;
+        isHoldingShield =
+            holdingShield;
 
         if (isHoldingShield)
         {
@@ -168,23 +141,16 @@ public class RiotOfficerController : MonoBehaviour
             return;
         }
 
-        isBracing = bracing;
+        isBracing =
+            bracing;
 
         if (isBracing)
         {
-            isHoldingShield = false;
-            currentMoveInput = Vector2.zero;
+            isHoldingShield =
+                false;
 
-            if (rb != null)
-            {
-                rb.linearVelocity =
-                    new Vector2(0f, rb.linearVelocity.y);
-            }
-        }
-        if (isBracing)
-        {
-            isHoldingShield = false;
-            currentMoveInput = Vector2.zero;
+            currentMoveInput =
+                Vector2.zero;
 
             if (rb != null)
             {
@@ -193,9 +159,11 @@ public class RiotOfficerController : MonoBehaviour
                         0f,
                         rb.linearVelocity.y);
             }
-
-            characterAudio?.PlaySecondaryAction();
         }
+
+        // Plays once when raised and once when lowered.
+        characterAudio?.PlaySecondaryAction();
+
         UpdateAnimator();
     }
 
@@ -210,7 +178,8 @@ public class RiotOfficerController : MonoBehaviour
         nextBashTime =
             Time.time + bashCooldown;
 
-        isHoldingShield = false;
+        isHoldingShield =
+            false;
 
         if (animator != null)
         {
@@ -218,153 +187,45 @@ public class RiotOfficerController : MonoBehaviour
                 IsHoldingUpHash,
                 false);
 
-            animator.SetTrigger(BashHash);
-        }
-        if (animator != null)
-        {
-            animator.SetBool(
-                IsHoldingUpHash,
-                false);
-
-            animator.SetTrigger(BashHash);
+            animator.SetTrigger(
+                BashHash);
         }
 
-        characterAudio?.PlayPrimaryAction();
+        UpdateAnimator();
     }
 
+    /// <summary>
+    /// Requests placement on the nearest destructible tile.
+    /// C4PlacementZone2D owns tile selection, inventory consumption,
+    /// placement restrictions, spawning, and arming.
+    /// </summary>
     public void PlaceC4()
     {
-        if (isBracing ||
-            Time.time < nextC4PlacementTime)
+        if (isBracing)
         {
             return;
         }
 
-        ResolveC4References();
-
-        if (teamInventory == null)
-        {
-            Debug.LogError(
-                $"{nameof(RiotOfficerController)} on '{name}' " +
-                $"could not find a {nameof(TeamInventory)}.",
-                this);
-
-            return;
-        }
-
-        if (c4Prefab == null)
-        {
-            Debug.LogError(
-                $"{nameof(RiotOfficerController)} on '{name}' " +
-                "has no C4 Prefab assigned.",
-                this);
-
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(c4ItemId))
-        {
-            Debug.LogError(
-                $"{nameof(RiotOfficerController)} on '{name}' " +
-                "has no C4 Item ID.",
-                this);
-
-            return;
-        }
-
-        bool canUseC4 =
-            teamInventory.CanUseItem(
-                c4ItemId,
-                c4QuantityPerPlacement,
-                RescuerInventoryOwner.RiotOfficer);
-
-        if (!canUseC4)
-        {
-            ShowMissingC4Message();
-
-            Debug.LogWarning(
-                "The Riot Officer cannot use C4. Verify that the " +
-                "C4 item allows Riot Officer use and cross-inventory use.",
-                this);
-
-            return;
-        }
-
-        bool consumedC4 =
-            teamInventory.TryUseItem(
-                c4ItemId,
-                c4QuantityPerPlacement,
-                RescuerInventoryOwner.RiotOfficer);
-
-        if (!consumedC4)
-        {
-            Debug.LogError(
-                "C4 validation succeeded, but the item could not " +
-                "be consumed.",
-                this);
-
-            return;
-        }
-
-        SpawnAndArmC4();
-
-        nextC4PlacementTime =
-            Time.time + c4PlacementCooldown;
+        C4PlacementZone2D.TryPlaceNearest(
+            transform.position,
+            RescuerInventoryOwner.RiotOfficer);
     }
 
-    private void SpawnAndArmC4()
+    public void Anim_PlayFootstep()
     {
-        Vector3 spawnPosition =
-            c4PlacementPoint != null
-                ? c4PlacementPoint.position
-                : transform.position;
-
-        Quaternion spawnRotation =
-            c4PlacementPoint != null
-                ? c4PlacementPoint.rotation
-                : Quaternion.identity;
-
-        C4Charge2D placedC4 =
-            Instantiate(
-                c4Prefab,
-                spawnPosition,
-                spawnRotation);
-
-        if (feedbackPresenter != null)
+        if (isHoldingShield ||
+            isBracing ||
+            Mathf.Abs(currentMoveInput.x) <= 0.1f)
         {
-            feedbackPresenter.ShowSuccess(
-                "The Riot Officer placed the C4.");
+            return;
         }
 
-        Debug.Log(
-            $"Riot Officer placed C4 at {spawnPosition}.",
-            this);
-
-        placedC4.Arm();
+        characterAudio?.PlayFootstep();
     }
 
-    private void ShowMissingC4Message()
+    public void Anim_PlayBashImpact()
     {
-        if (feedbackPresenter != null)
-        {
-            feedbackPresenter.ShowWarning(
-                "The team does not have usable C4.");
-        }
-    }
-
-    private void ResolveC4References()
-    {
-        if (teamInventory == null)
-        {
-            teamInventory =
-                FindFirstObjectByType<TeamInventory>();
-        }
-
-        if (feedbackPresenter == null)
-        {
-            feedbackPresenter =
-                FindFirstObjectByType<HUDFeedbackPresenter>();
-        }
+        characterAudio?.PlayPrimaryAction();
     }
 
     private void UpdateAnimator()
@@ -375,7 +236,8 @@ public class RiotOfficerController : MonoBehaviour
         }
 
         bool isMoving =
-            Mathf.Abs(currentMoveInput.x) > 0.1f;
+            Mathf.Abs(currentMoveInput.x) >
+            0.1f;
 
         animator.SetBool(
             IsMovingHash,
@@ -395,43 +257,90 @@ public class RiotOfficerController : MonoBehaviour
 
     private void FlipSprite(float direction)
     {
-        if ((direction > 0f && !isFacingRight) ||
-            (direction < 0f && isFacingRight))
+        bool shouldFaceRight =
+            direction > 0f;
+
+        if (shouldFaceRight ==
+            isFacingRight)
         {
-            isFacingRight = !isFacingRight;
+            return;
+        }
 
-            Vector3 scale = transform.localScale;
+        isFacingRight =
+            shouldFaceRight;
 
-            scale.x =
-                Mathf.Abs(scale.x) *
-                (isFacingRight ? 1f : -1f);
+        Vector3 scale =
+            transform.localScale;
 
-            transform.localScale = scale;
+        scale.x =
+            Mathf.Abs(scale.x) *
+            (isFacingRight ? 1f : -1f);
+
+        transform.localScale =
+            scale;
+    }
+
+    private void ResolveReferences()
+    {
+        if (rb == null)
+        {
+            rb =
+                GetComponent<Rigidbody2D>();
+        }
+
+        if (animator == null)
+        {
+            animator =
+                GetComponentInChildren<Animator>();
+        }
+
+        if (characterAudio == null)
+        {
+            characterAudio =
+                GetComponent<CharacterAudioEmitter>();
         }
     }
 
     private void OnDisable()
     {
-        currentMoveInput = Vector2.zero;
-        isHoldingShield = false;
-        isBracing = false;
+        currentMoveInput =
+            Vector2.zero;
+
+        isHoldingShield =
+            false;
+
+        isBracing =
+            false;
+
+        if (rb != null)
+        {
+            rb.linearVelocity =
+                new Vector2(
+                    0f,
+                    rb.linearVelocity.y);
+        }
 
         UpdateAnimator();
     }
 
     private void OnValidate()
     {
+        moveSpeed =
+            Mathf.Max(
+                0f,
+                moveSpeed);
+
+        shieldMoveSpeed =
+            Mathf.Max(
+                0f,
+                shieldMoveSpeed);
+
         bashCooldown =
-            Mathf.Max(0f, bashCooldown);
+            Mathf.Max(
+                0f,
+                bashCooldown);
 
-        c4QuantityPerPlacement =
-            Mathf.Max(1, c4QuantityPerPlacement);
-
-        c4PlacementCooldown =
-            Mathf.Max(0f, c4PlacementCooldown);
-
-        c4ItemId =
-            c4ItemId?.Trim() ?? string.Empty;
+        ResolveReferences();
     }
 }
 
